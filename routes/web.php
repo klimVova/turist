@@ -1,6 +1,7 @@
 <?php
 
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,14 +16,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['namespace' => 'Main'], function () {
-   Route::get('/', IndexController::class);
+    Route::get('/', IndexController::class);
 });
-Route::group(['namespace' => 'Admin', 'prefix'=> 'admin'],function (){
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin', 'verified']], function () {
     Route::group(['namespace' => 'Main'], function () {
-        Route::get('/', IndexController::class);
+        Route::get('/', IndexController::class)->name('admin.main.index');
     });
 
-    Route::group(['namespace' => 'Post', 'prefix'=> 'posts'], function () {
+    Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
         Route::get('/', IndexController::class)->name('admin.post.index');
         Route::get('/create', CreateController::class)->name('admin.post.create');
         Route::post('/', StoreController::class)->name('admin.post.store');
@@ -32,7 +33,7 @@ Route::group(['namespace' => 'Admin', 'prefix'=> 'admin'],function (){
         Route::delete('/{post}', DeleteController::class)->name('admin.post.delete');
     });
 
-    Route::group(['namespace' => 'Category', 'prefix'=> 'categories'], function () {
+    Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function () {
         Route::get('/', IndexController::class)->name('admin.category.index');
         Route::get('/create', CreateController::class)->name('admin.category.create');
         Route::post('/', StoreController::class)->name('admin.category.store');
@@ -42,7 +43,7 @@ Route::group(['namespace' => 'Admin', 'prefix'=> 'admin'],function (){
         Route::delete('/{category}', DeleteController::class)->name('admin.category.delete');
     });
 
-    Route::group(['namespace' => 'Tag', 'prefix'=> 'tags'], function () {
+    Route::group(['namespace' => 'Tag', 'prefix' => 'tags'], function () {
         Route::get('/', IndexController::class)->name('admin.tag.index');
         Route::get('/create', CreateController::class)->name('admin.tag.create');
         Route::post('/', StoreController::class)->name('admin.tag.store');
@@ -52,7 +53,7 @@ Route::group(['namespace' => 'Admin', 'prefix'=> 'admin'],function (){
         Route::delete('/{tag}', DeleteController::class)->name('admin.tag.delete');
     });
 
-    Route::group(['namespace' => 'User', 'prefix'=> 'users'], function () {
+    Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
         Route::get('/', IndexController::class)->name('admin.user.index');
         Route::get('/create', CreateController::class)->name('admin.user.create');
         Route::post('/', StoreController::class)->name('admin.user.store');
@@ -60,6 +61,11 @@ Route::group(['namespace' => 'Admin', 'prefix'=> 'admin'],function (){
         Route::get('/{user}/edit', EditController::class)->name('admin.user.edit');
         Route::patch('/{user}', UpdateController::class)->name('admin.user.update');
         Route::delete('/{user}', DeleteController::class)->name('admin.user.delete');
+    });
+});
+Route::group(['namespace' => 'Hostel', 'prefix' => 'hostel', 'middleware' => ['auth', 'hostel', 'verified']], function () {
+    Route::group(['namespace' => 'Main'], function () {
+        Route::get('/', IndexController::class)->name('hostel.main.index');
     });
 });
 Auth::routes();
