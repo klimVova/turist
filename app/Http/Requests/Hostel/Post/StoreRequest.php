@@ -24,19 +24,22 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-           'title' => 'required|string',
-           'content' => 'required|string',
-           'price' => 'required|integer',
+            'title' => 'required|string',
+            'content' => 'required|string',
+            'price' => 'required|integer',
             'hostel_category_id' => 'required|integer|exists:hostel_categories,id',
+            'user_id' => 'required|integer|exists:users,id',
         ];
     }
-    public function messages(){
+
+    public function messages()
+    {
         return [
             'title.required' => 'Это поле необходимо для заполнения',
             'title.string' => 'Имя должно быть строкой',
             'content.required' => 'Это поле необходимо для заполнения',
             'price.required' => 'Это поле необходимо для заполнения',
             'price.integer' => 'Цена должна быть числом',
-            ];
+        ];
     }
 }
