@@ -86,6 +86,9 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="form-group w-50">
+                                <input type="hidden" name="user_id" value="{{$user}}">
+                            </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary" value="Добавить">
                             </div>
