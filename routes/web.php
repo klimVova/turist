@@ -18,18 +18,33 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'Main'], function () {
     Route::get('/', IndexController::class);
 });
+//HOSTEL
 Route::group(['namespace' => 'Hostel', 'prefix' => 'hostel', 'middleware' => ['auth', 'hostel' , 'verified']], function () {
-    Route::group(['namespace' => 'Main', 'prefix' => 'main'], function () {
+    Route::group(['namespace' => 'Main'], function () {
         Route::get('/', IndexController::class)->name('hostel.main.index');
     });
-    Route::group(['namespace' => 'Post','prefix' => 'post'],  function () {
+    Route::group(['namespace' => 'Post','prefix' => 'posts'],  function () {
         Route::get('/', IndexController::class)->name('hostel.post.index');
+        Route::get('/create', CreateController::class)->name('hostel.post.create');
+        Route::post('/', StoreController::class)->name('hostel.post.store');
+        Route::get('/{hostelPost}/edit', EditController::class)->name('hostel.post.edit');
+        Route::patch('/{hostelPost}', UpdateController::class)->name('hostel.post.update');
+        Route::delete('/{hostelPost}', DeleteController::class)->name('hostel.post.delete');
     });
-    Route::group(['namespace' => 'Category','prefix' => 'category'], function () {
+    Route::group(['namespace' => 'Category','prefix' => 'categories'], function () {
         Route::get('/', IndexController::class)->name('hostel.category.index');
+        Route::get('/create', CreateController::class)->name('hostel.category.create');
+        Route::post('/', StoreController::class)->name('hostel.category.store');
+        Route::get('/{hostelCategory}', ShowController::class)->name('hostel.category.show');
+        Route::get('/{hostelCategory}/edit', EditController::class)->name('hostel.category.edit');
+        Route::patch('/{hostelCategory}', UpdateController::class)->name('hostel.category.update');
+        Route::delete('/{hostelCategory}', DeleteController::class)->name('hostel.category.delete');
+
     });
 });
 
+
+//ADMIN
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin', 'verified']], function () {
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', IndexController::class)->name('admin.main.index');

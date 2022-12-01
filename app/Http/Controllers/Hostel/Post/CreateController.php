@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Hostel\Category;
+namespace App\Http\Controllers\Hostel\Post;
 
 use App\Http\Controllers\Controller;
 use App\Models\HostelCategory;
 
-class IndexController extends Controller
+class CreateController extends Controller
 {
     public function __invoke()
     {
         $hostelCategories = HostelCategory::all();
-        return view('hostel.categories.index', compact('hostelCategories'));
+        return view('hostel.post.create', compact('hostelCategories'));
     }
 }

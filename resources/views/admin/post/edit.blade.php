@@ -75,7 +75,6 @@
                             </div>
                             <div class="form-group w-50">
                                 <label>Выберите категорию</label>
-
                                 <select name="category_id" class="form-control">
                                     @foreach($categories as $category)
                                         <option value="{{$category->id}}"
