@@ -18,6 +18,18 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'Main'], function () {
     Route::get('/', IndexController::class);
 });
+Route::group(['namespace' => 'Hostel', 'prefix' => 'hostel', 'middleware' => ['auth', 'hostel' , 'verified']], function () {
+    Route::group(['namespace' => 'Main', 'prefix' => 'main'], function () {
+        Route::get('/', IndexController::class)->name('hostel.main.index');
+    });
+    Route::group(['namespace' => 'Post','prefix' => 'post'],  function () {
+        Route::get('/', IndexController::class)->name('hostel.post.index');
+    });
+    Route::group(['namespace' => 'Category','prefix' => 'category'], function () {
+        Route::get('/', IndexController::class)->name('hostel.category.index');
+    });
+});
+
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin', 'verified']], function () {
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', IndexController::class)->name('admin.main.index');
@@ -63,10 +75,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::delete('/{user}', DeleteController::class)->name('admin.user.delete');
     });
 });
-Route::group(['namespace' => 'Hostel', 'prefix' => 'hostel', 'middleware' => ['auth', 'hostel', 'verified']], function () {
-    Route::group(['namespace' => 'Main'], function () {
-        Route::get('/', IndexController::class)->name('hostel.main.index');
-    });
-});
+
 Auth::routes();
 
