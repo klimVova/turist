@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('hostel_posts', function (Blueprint $table) {
+        Schema::table('posts', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id')->nullable();
-
-            $table->index('user_id', 'hostel_post_user_idx');
-            $table->foreign('user_id', 'hostel_post_user_fk')->on('users')->references('id');
+            $table->index('user_id', 'post_user_idx');
+            $table->foreign('user_id', 'post_user_fk')->on('users')->references('id');
         });
     }
 
@@ -28,8 +27,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('hostel_posts', function (Blueprint $table) {
-            $table->dropForeign('hostel_post_user_fk');
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropForeign('post_user_fk');
             $table->dropColumn('user_id');
         });
     }

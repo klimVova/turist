@@ -55,11 +55,8 @@
                                 <label for="exampleInputFile">Добавить главное изображение</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="main_image">
+                                        <input type="file" class="custom-file-input" multiple name="main_image[]">
                                         <label class="custom-file-label">Выберите изображение</label>
-                                    </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Загрузить</span>
                                     </div>
                                 </div>
                                 @error('main_image')

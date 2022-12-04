@@ -20,7 +20,8 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-12">
-                        <form action="{{route('admin.post.update', $post->id)}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('admin.post.update', $post->id)}}" method="POST"
+                              enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
                             <div class="form-group w-25">
@@ -39,37 +40,17 @@
                             </div>
                             <div class="form-group w-50">
                                 <label for="exampleInputFile">Добавить превью</label>
-                                <div class="w-25 mb-3">
-                                    <img src="{{ url('storage/' . $post->preview_image)}}" alt="preview_image">
+                                <div class="mb-3 d-flex">
+                                    <img class="img-thumbnail" style="height: 30vh;"
+                                         src="{{ url('storage/' . $post->preview_image)}}" alt="preview_image">
                                 </div>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" name="preview_image">
                                         <label class="custom-file-label">Выберите изображение</label>
                                     </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Загрузить</span>
-                                    </div>
                                 </div>
                                 @error('preview_image')
-                                <div class="text-danger">Это поле необходимо заполнить</div>
-                                @enderror
-                            </div>
-                            <div class="form-group w-50">
-                                <label for="exampleInputFile">Добавить главное изображение</label>
-                                <div class="w-25 mb-3">
-                                    <img src="{{ url('storage/' . $post->main_image )}}" alt="main_image">
-                                </div>
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="main_image">
-                                        <label class="custom-file-label">Выберите изображение</label>
-                                    </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Загрузить</span>
-                                    </div>
-                                </div>
-                                @error('main_image')
                                 <div class="text-danger">Это поле необходимо заполнить</div>
                                 @enderror
                             </div>
@@ -95,6 +76,11 @@
                             </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary" value="Обновить">
+                            </div>
+                            <div class="form-group w-25">
+                                <a style="width: 300px;height: 40px;"
+                                   href="{{route('admin.post.image', $post->id)}}"
+                                   class="btn btn-block btn-primary"> Обновить фото</a>
                             </div>
                         </form>
                     </div>

@@ -12,6 +12,7 @@ class StoreController extends Controller
     {
 
         $data = $request->validated();
+
         HostelPost::firstOrCreate($data);
         return redirect()->route('hostel.post.index');
     }

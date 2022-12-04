@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Admin\Post;
 
 use App\Http\Controllers\Controller;
+use App\Models\Image;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 
 class EditController extends BaseController
 {
@@ -15,6 +17,7 @@ class EditController extends BaseController
     {
         $categories = Category::all();
         $tags = Tag::all();
-        return view('admin.post.edit' , compact('post','categories', 'tags', 'user'));
+
+        return view('admin.post.edit' , compact('post','categories', 'tags'));
     }
 }

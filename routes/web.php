@@ -30,6 +30,7 @@ Route::group(['namespace' => 'Hostel', 'prefix' => 'hostel', 'middleware' => ['a
         Route::get('/{hostelPost}/edit', EditController::class)->name('hostel.post.edit');
         Route::patch('/{hostelPost}', UpdateController::class)->name('hostel.post.update');
         Route::delete('/{hostelPost}', DeleteController::class)->name('hostel.post.delete');
+
     });
     Route::group(['namespace' => 'Category','prefix' => 'categories'], function () {
         Route::get('/', IndexController::class)->name('hostel.category.index');
@@ -58,6 +59,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::get('/{post}/edit', EditController::class)->name('admin.post.edit');
         Route::patch('/{post}', UpdateController::class)->name('admin.post.update');
         Route::delete('/{post}', DeleteController::class)->name('admin.post.delete');
+        Route::get('/{post}/image/',ImageController::class)->name('admin.post.image');
+        Route::post('/{post}/image/',ImageStoreController::class)->name('admin.post.image_store');
+        Route::delete('{post}/image/',ImageRemoveController::class, 'remove')->name('admin.post.image_remove');
     });
 
     Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function () {

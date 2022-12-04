@@ -13,7 +13,6 @@ class StoreController extends Controller
     public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
-        dd($data);
         HostelCategory::firstOrCreate($data);
 
         return redirect()->route('hostel.category.index');
