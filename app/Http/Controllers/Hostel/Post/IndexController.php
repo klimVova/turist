@@ -10,7 +10,6 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-
         $hostelPosts = auth()->user()->hostelPosts;
         return view('hostel.post.index', compact('hostelPosts'));
     }

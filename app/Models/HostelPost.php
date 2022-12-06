@@ -13,4 +13,9 @@ class HostelPost extends Model
 
     protected $table = 'hostel_posts';
     protected $guarded = false;
+
+
+    public function images(){
+        return $this->hasMany(HostelImage::class);
+    }
 }

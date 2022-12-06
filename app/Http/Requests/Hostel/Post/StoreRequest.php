@@ -27,6 +27,7 @@ class StoreRequest extends FormRequest
             'title' => 'required|string',
             'content' => 'required|string',
             'price' => 'required|integer',
+            'hostel_preview_image' => 'required|file',
             'hostel_category_id' => 'required|integer|exists:hostel_categories,id',
             'user_id' => 'required|integer|exists:users,id',
         ];

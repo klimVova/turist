@@ -20,7 +20,7 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-12">
-                        <form action="{{route('hostel.post.store')}}" method="POST">
+                        <form action="{{route('hostel.post.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group w-25">
                                 <input type="text" class="form-control" name="title" placeholder="Название поста"
@@ -43,14 +43,26 @@
                                 @enderror
                             </div>
                             <div class="form-group w-50">
-                                <label for="exampleInputFile">Добавить главное изображение</label>
+                                <label for="exampleInputFile">Добавить превью</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" id="file" class="custom-file-input" multiple name="image[]">
-                                        <label id="file" class="custom-file-label">Выберите изображение</label>
+                                        <input type="file" class="custom-file-input" name="hostel_preview_image">
+                                        <label class="custom-file-label">Выберите изображение</label>
                                     </div>
                                     <div class="input-group-append">
                                         <span class="input-group-text">Загрузить</span>
+                                    </div>
+                                </div>
+                                @error('preview_image')
+                                <div class="text-danger">Это поле необходимо заполнить</div>
+                                @enderror
+                            </div>
+                            <div class="form-group w-50">
+                                <label for="exampleInputFile">Добавить главное изображение</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" multiple name="main_image[]">
+                                        <label class="custom-file-label">Выберите изображение</label>
                                     </div>
                                 </div>
                                 @error('main_image')

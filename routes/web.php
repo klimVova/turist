@@ -30,6 +30,9 @@ Route::group(['namespace' => 'Hostel', 'prefix' => 'hostel', 'middleware' => ['a
         Route::get('/{hostelPost}/edit', EditController::class)->name('hostel.post.edit');
         Route::patch('/{hostelPost}', UpdateController::class)->name('hostel.post.update');
         Route::delete('/{hostelPost}', DeleteController::class)->name('hostel.post.delete');
+        Route::get('/{hostelPost}/image/',ImageController::class)->name('hostel.post.image');
+        Route::post('/{hostelPost}/image/',ImageStoreController::class)->name('hostel.post.image_store');
+        Route::delete('{hostelPost}/image/',ImageRemoveController::class, 'remove')->name('hostel.post.image_remove');
 
     });
     Route::group(['namespace' => 'Category','prefix' => 'categories'], function () {

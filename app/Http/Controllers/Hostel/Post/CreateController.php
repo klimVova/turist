@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Hostel\Post;
 
 use App\Http\Controllers\Controller;
 use App\Models\HostelCategory;
+use http\Env\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CreateController extends Controller
@@ -12,7 +13,6 @@ class CreateController extends Controller
     {
         $hostelCategories = HostelCategory::all();
         $user = Auth::id();
-
         return view('hostel.post.create', compact('hostelCategories', 'user'));
     }
 }

@@ -45,6 +45,22 @@
                                 @enderror
                             </div>
                             <div class="form-group w-50">
+                                <label for="exampleInputFile">Добавить превью</label>
+                                <div class="mb-3 d-flex">
+                                    <img class="img-thumbnail" style="height: 30vh;"
+                                         src="{{ url('storage/' . $hostelPost->hostel_preview_image)}}" alt="preview_image">
+                                </div>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" name="preview_image">
+                                        <label class="custom-file-label">Выберите изображение</label>
+                                    </div>
+                                </div>
+                                @error('preview_image')
+                                <div class="text-danger">Это поле необходимо заполнить</div>
+                                @enderror
+                            </div>
+                            <div class="form-group w-50">
                                 <label>Выберите категорию</label>
                                 <select name="hostel_category_id" class="form-control">
                                     @foreach($hostelCategories as $hostelCategory)
@@ -55,6 +71,11 @@
                             </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary" value="Обновить">
+                            </div>
+                            <div class="form-group w-25">
+                                <a style="width: 300px;height: 40px;"
+                                   href="{{route('hostel.post.image', $hostelPost->id)}}"
+                                   class="btn btn-block btn-primary"> Обновить фото</a>
                             </div>
                         </form>
                     </div>
