@@ -45,14 +45,14 @@
                                 @enderror
                             </div>
                             <div class="form-group w-50">
-                                <label for="exampleInputFile">Добавить превью</label>
+                                <label for="exampleInputFile"> Обновить превью</label>
                                 <div class="mb-3 d-flex">
                                     <img class="img-thumbnail" style="height: 30vh;"
                                          src="{{ url('storage/' . $hostelPost->hostel_preview_image)}}" alt="preview_image">
                                 </div>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="preview_image">
+                                        <input type="file" class="custom-file-input" name="hostel_preview_image">
                                         <label class="custom-file-label">Выберите изображение</label>
                                     </div>
                                 </div>

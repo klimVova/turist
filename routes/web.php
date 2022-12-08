@@ -16,7 +16,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['namespace' => 'Main'], function () {
-    Route::get('/', IndexController::class);
+    Route::get('/', IndexController::class)->name('main.index');
+});
+
+// вывод постов
+Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
+    Route::get('/', IndexController::class)->name('post.index');
+    Route::get('/{post}/show', ShowController::class)->name('post.show');
+});
+// вывод отелей
+Route::group(['namespace' => 'HostelShow', 'prefix' => 'hostels'], function () {
+    Route::get('/', IndexController::class)->name('hostelShow.index');
+    Route::get('/{hostelCard}/show/', ShowController::class)->name('hostelShow.show');
+    Route::get('/{hostelPost}/images/', ImagesController::class)->name('hostelShow.images');
 });
 //HOSTEL
 Route::group(['namespace' => 'Hostel', 'prefix' => 'hostel', 'middleware' => ['auth', 'hostel' , 'verified']], function () {
@@ -33,7 +45,6 @@ Route::group(['namespace' => 'Hostel', 'prefix' => 'hostel', 'middleware' => ['a
         Route::get('/{hostelPost}/image/',ImageController::class)->name('hostel.post.image');
         Route::post('/{hostelPost}/image/',ImageStoreController::class)->name('hostel.post.image_store');
         Route::delete('{hostelPost}/image/',ImageRemoveController::class, 'remove')->name('hostel.post.image_remove');
-
     });
     Route::group(['namespace' => 'Category','prefix' => 'categories'], function () {
         Route::get('/', IndexController::class)->name('hostel.category.index');
@@ -43,7 +54,15 @@ Route::group(['namespace' => 'Hostel', 'prefix' => 'hostel', 'middleware' => ['a
         Route::get('/{hostelCategory}/edit', EditController::class)->name('hostel.category.edit');
         Route::patch('/{hostelCategory}', UpdateController::class)->name('hostel.category.update');
         Route::delete('/{hostelCategory}', DeleteController::class)->name('hostel.category.delete');
-
+    });
+    Route::group(['namespace' => 'Card','prefix' => 'cards'],  function () {
+        Route::get('/', IndexController::class)->name('hostel.card.index');
+        Route::get('/create', CreateController::class)->name('hostel.card.create');
+        Route::post('/', StoreController::class)->name('hostel.card.store');
+        Route::get('/{hostelCard}', ShowController::class)->name('hostel.card.show');
+        Route::get('/{hostelCard}/edit', EditController::class)->name('hostel.card.edit');
+        Route::patch('/{hostelCard}', UpdateController::class)->name('hostel.card.update');
+        Route::delete('/{hostelCard}', DeleteController::class)->name('hostel.card.delete');
     });
 });
 
@@ -98,5 +117,12 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     });
 });
 
+
+//USER
+Route::group(['namespace' => 'User', 'prefix' => 'user', 'middleware' => ['auth', 'user', 'verified']], function () {
+    Route::group(['namespace' => 'Main'], function () {
+        Route::get('/', IndexController::class)->name('user.main.index');
+    });
+});
 Auth::routes();
 

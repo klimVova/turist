@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Hostel\Post;
+namespace App\Http\Requests\Hostel\Card;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,9 +26,9 @@ class UpdateRequest extends FormRequest
         return [
             'title' => 'required|string',
             'content' => 'required|string',
-            'price' => 'required|integer',
-            'hostel_preview_image' => 'nullable|file',
-            'hostel_category_id' => 'required|integer|exists:hostel_categories,id',
+            'location' => 'required|string',
+            'preview_image' => 'required|file',
+            'user_id' => 'required|integer|exists:users,id',
         ];
     }
 
@@ -38,8 +38,8 @@ class UpdateRequest extends FormRequest
             'title.required' => 'Это поле необходимо для заполнения',
             'title.string' => 'Имя должно быть строкой',
             'content.required' => 'Это поле необходимо для заполнения',
-            'price.required' => 'Это поле необходимо для заполнения',
-            'price.integer' => 'Цена должна быть числом',
+            'location.required' => 'Это поле необходимо для заполнения',
+            'location.string' => 'Это поле необходимо для заполнения',
         ];
     }
 }

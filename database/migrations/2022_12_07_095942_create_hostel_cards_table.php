@@ -13,14 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('hostel_cards', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->text('content');
-            $table->unsignedBigInteger('category_id')->nullable();
+            $table->string('location');
+            $table->string('preview_image')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
-            $table->index('category_id', 'post_category_idx');
-            $table->foreign('category_id', 'post_category_fk')->on('categories')->references('id');
+            $table->index('user_id', 'hostel_card_user_idx');
+            $table->foreign('user_id', 'hostel_card_user_fk')->on('users')->references('id');
         });
     }
 
@@ -31,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('hostel_cards');
     }
 };

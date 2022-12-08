@@ -11,16 +11,15 @@
                     <div class="blog-post-thumbnail-wrapper">
                         <img src="{{'storage/'. $post->preview_image}}" alt="blog post">
                     </div>
-                    <p class="blog-post-category">{{$post->category->title}}</p>
-                    <a href="#" class="blog-post-permalink">
+                    <p class="blog-post-category">
+                        {{$post->category->title}}</p>
+                    <a href="{{route('post.show' , $post->id)}}" class="blog-post-permalink">
                         <h6 class="blog-post-title">{{$post->title}}</h6>
                     </a>
                 </div>
                 @endforeach
             </div>
-
         </section>
     </div>
-
 </main>
 @endsection

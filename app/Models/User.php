@@ -18,6 +18,7 @@ class User extends Authenticatable
     const ROLE_HOSTEl = 2;
 
 
+
     public static function getRoles()
     {
         return [
@@ -36,7 +37,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role'
+        'role',
     ];
 
     /**
@@ -59,10 +60,14 @@ class User extends Authenticatable
     ];
     public function posts()
     {
-        return $this->hasMany(Post::class, 'user_id');
+        return $this->hasMany(Post::class, 'user_id','id');
     }
     public function hostelPosts()
     {
-        return $this->hasMany(HostelPost::class, 'user_id');
+        return $this->hasMany(HostelPost::class, 'user_id','id');
+    }
+    public function hostelCards()
+    {
+        return $this->hasMany(HostelCard::class, 'user_id');
     }
 }

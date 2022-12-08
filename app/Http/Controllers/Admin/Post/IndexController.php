@@ -14,7 +14,6 @@ class IndexController extends BaseController
     public function __invoke()
     {
         $posts = auth()->user()->posts;
-
         return view('admin.post.index', compact('posts'));
     }
 }

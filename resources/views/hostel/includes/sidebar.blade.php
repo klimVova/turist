@@ -10,6 +10,14 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{route('hostel.card.index')}}" class="nav-link">
+                    <i class="nav-icon fa fa-hotel"></i>
+                    <p>
+                        Главная карточка Вашего отеля
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{route('hostel.post.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-users"></i>
                     <p>
