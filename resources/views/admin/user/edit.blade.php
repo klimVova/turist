@@ -36,6 +36,24 @@
                             @enderror
                         </div>
                         <div class="form-group w-50">
+                            <label>Выберите область/республику</label>
+                            <select name="republic_id" class="form-control">
+                                @foreach($republics as $republic)
+                                    <option value="{{$republic->id}}"
+                                            {{$republic->id == $user->republic_id ? ' selected' : '' }}>{{$republic->title}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group w-50">
+                            <label>Выберите город</label>
+                            <select name="city_id" class="form-control">
+                                @foreach($cities as $city)
+                                    <option value="{{$city->id}}"
+                                            {{$city->id == $user->city_id ? ' selected' : '' }}>{{$city->title}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group w-50">
                             <label>Выберите роль организации</label>
                             <select name="role" class="form-control">
                                 @foreach($roles as $id => $role)

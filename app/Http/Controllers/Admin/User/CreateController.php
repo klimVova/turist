@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Models\City;
+use App\Models\Republic;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class CreateController extends Controller
 {
@@ -13,6 +13,8 @@ class CreateController extends Controller
     {
 
         $roles = User::getRoles();
-        return view('admin.user.create', compact('roles'));
+        $cities = City::all();
+        $republics = Republic::all();
+        return view('admin.user.create', compact('roles', 'cities', 'republics'));
     }
 }

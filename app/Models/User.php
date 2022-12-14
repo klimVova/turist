@@ -38,6 +38,8 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'city_id',
+        'republic_id',
     ];
 
     /**
@@ -69,5 +71,11 @@ class User extends Authenticatable
     public function hostelCards()
     {
         return $this->hasMany(HostelCard::class, 'user_id');
+    }
+    public function city(){
+        return $this->belongsTo(City::class, 'city_id','id');
+    }
+    public function republic(){
+        return $this->belongsTo(Republic::class, 'republic_id','id');
     }
 }

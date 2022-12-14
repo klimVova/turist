@@ -35,10 +35,28 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="password" placeholder="Название организации">
+                            <input type="text" class="form-control" name="password" placeholder="Пароль">
                             @error('password')
                             <div class="text-danger">{{$message}}</div>
                             @enderror
+                        </div>
+                        <div class="form-group w-50">
+                            <label>Выберите область/республику</label>
+                            <select name="republic_id" class="form-control">
+                                @foreach($republics as $republic)
+                                    <option value="{{$republic->id}}"
+                                            {{$republic->id == old('$republic_id') ? ' selected' : '' }}>{{$republic->title}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group w-50">
+                            <label>Выберите город</label>
+                            <select name="city_id" class="form-control">
+                                @foreach($cities as $city)
+                                    <option value="{{$city->id}}"
+                                            {{$city->id == old('city_id') ? ' selected' : '' }}>{{$city->title}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group w-50">
                             <label>Выберите роль организации</label>

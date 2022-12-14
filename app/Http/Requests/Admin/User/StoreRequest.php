@@ -24,13 +24,17 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-           'name' => 'required|string',
-           'email' => 'required|string|email|unique:users',
-           'password' => 'required|string',
-           'role' => 'required|integer',
+            'name' => 'required|string',
+            'email' => 'required|string|email|unique:users',
+            'password' => 'required|string',
+            'role' => 'required|integer',
+            'city_id' => 'required|integer|exists:cities,id',
+            'republic_id' => 'required|integer|exists:republics,id',
         ];
     }
-    public function messages(){
+
+    public function messages()
+    {
         return [
             'name.required' => 'Это поле необходимо для заполнения',
             'name.string' => 'Имя должно быть строкой',
