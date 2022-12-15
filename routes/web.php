@@ -113,6 +113,15 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::patch('/{republic}', UpdateController::class)->name('admin.republic.update');
         Route::delete('/{republic}', DeleteController::class)->name('admin.republic.delete');
     });
+    Route::group(['namespace' => 'district', 'prefix' => 'districts'], function () {
+        Route::get('/', IndexController::class)->name('admin.district.index');
+        Route::get('/create', CreateController::class)->name('admin.district.create');
+        Route::post('/', StoreController::class)->name('admin.district.store');
+        Route::get('/{district}', ShowController::class)->name('admin.district.show');
+        Route::get('/{district}/edit', EditController::class)->name('admin.district.edit');
+        Route::patch('/{district}', UpdateController::class)->name('admin.district.update');
+        Route::delete('/{district}', DeleteController::class)->name('admin.district.delete');
+    });
     Route::group(['namespace' => 'Tag', 'prefix' => 'tags'], function () {
         Route::get('/', IndexController::class)->name('admin.tag.index');
         Route::get('/create', CreateController::class)->name('admin.tag.create');

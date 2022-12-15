@@ -40,6 +40,7 @@ class User extends Authenticatable
         'role',
         'city_id',
         'republic_id',
+        'district_id',
     ];
 
     /**
@@ -77,5 +78,8 @@ class User extends Authenticatable
     }
     public function republic(){
         return $this->belongsTo(Republic::class, 'republic_id','id');
+    }
+    public function district(){
+        return $this->belongsTo(District::class, 'district_id','id');
     }
 }

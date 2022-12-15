@@ -36,6 +36,15 @@
                             @enderror
                         </div>
                         <div class="form-group w-50">
+                            <label>Выберите федеральный округ</label>
+                            <select name="district_id" class="form-control">
+                                @foreach($districts as $district)
+                                    <option value="{{$district->id}}"
+                                            {{$district->id == $user->district_id ? ' selected' : '' }}>{{$district->title}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group w-50">
                             <label>Выберите область/республику</label>
                             <select name="republic_id" class="form-control">
                                 @foreach($republics as $republic)

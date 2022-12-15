@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\City;
+use App\Models\District;
 use App\Models\Republic;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,7 +16,8 @@ class EditController extends Controller
     {
         $roles = User::getRoles();
         $cities = City::all();
+        $districts = District::all();
         $republics = Republic::all();
-        return view('admin.user.edit' , compact('user','roles', 'cities', 'republics'));
+        return view('admin.user.edit' , compact('user','roles', 'cities', 'republics','districts'));
     }
 }

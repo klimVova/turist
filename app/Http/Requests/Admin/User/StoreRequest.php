@@ -30,6 +30,7 @@ class StoreRequest extends FormRequest
             'role' => 'required|integer',
             'city_id' => 'required|integer|exists:cities,id',
             'republic_id' => 'required|integer|exists:republics,id',
+            'district_id' => 'required|integer|exists:districts,id',
         ];
     }
 

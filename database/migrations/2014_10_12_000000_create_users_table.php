@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->unsignedBigInteger('city_id')->nullable();
             $table->unsignedBigInteger('republic_id')->nullable();
+            $table->unsignedBigInteger('district_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
 
@@ -29,6 +30,9 @@ return new class extends Migration
 
             $table->index('republic_id', 'user_republic_idx');
             $table->foreign('republic_id', 'user_republic_fk')->on('republics')->references('id');
+
+            $table->index('district_id', 'user_district_idx');
+            $table->foreign('district_id', 'user_district_fk')->on('districts')->references('id');
         });
     }
 
@@ -46,6 +50,10 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropForeign('user_republic_fk');
             $table->dropColumn('republic_id');
+        });
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign('user_district_fk');
+            $table->dropColumn('district_id');
         });
         Schema::dropIfExists('users');
     }
