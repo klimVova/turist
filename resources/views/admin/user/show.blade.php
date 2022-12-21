@@ -7,7 +7,8 @@
                 <div class="row mb-2">
                     <div class="col-sm-6 d-flex align-items-center">
                         <h1 class="m-0 mr-2"> {{$user->name}}</h1>
-                        <a href="{{route('admin.user.edit', $user->id)}}" class='text-success'><i class="fas fa-pencil-alt"></i></a>
+                        <a href="{{route('admin.user.edit', $user->id)}}" class='text-success'><i
+                                    class="fas fa-pencil-alt"></i></a>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -25,12 +26,34 @@
                                 <table class="table table-hover text-nowrap">
                                     <tbody>
                                     <tr>
-                                        <td>ID</td>
+                                        <td class="text-bold">ID</td>
                                         <td>{{$user->id}}</td>
                                     </tr>
                                     <tr>
-                                        <td>Название</td>
+                                        <td class="text-bold">Название</td>
                                         <td>{{$user->name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-bold">Почта</td>
+                                        <td>{{$user->email}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-bold">Роль</td>
+                                        <td>@if($user->role == 1){{'пользователь'}}@elseif($user->role == 0){{'админ'}}@elseif($user->role == 2){{'отель'}}
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-bold">Город</td>
+                                        <td>@if($user->city == null){{'-'}}@else{{$user->city->title}}@endif</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-bold">Область/республика</td>
+                                        <td>@if($user->republic == null){{'-'}}@else{{$user->republic->title}}@endif</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-bold">Федеральный округ</td>
+                                        <td>@if($user->district == null){{'-'}}@else{{$user->district->title}}@endif</td>
                                     </tr>
                                     </tbody>
 

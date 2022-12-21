@@ -35,7 +35,7 @@
                             <div class="text-danger">{{$message}}</div>
                             @enderror
                         </div>
-                        <div class="form-group w-50">
+                        <div class="form-group w-100">
                             <label>Выберите федеральный округ</label>
                             <select name="district_id" class="form-control">
                                 @foreach($districts as $district)
@@ -44,7 +44,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group w-50">
+                        <div class="form-group w-100">
                             <label>Выберите область/республику</label>
                             <select name="republic_id" class="form-control">
                                 @foreach($republics as $republic)
@@ -53,7 +53,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group w-50">
+                        <div class="form-group w-100">
                             <label>Выберите город</label>
                             <select name="city_id" class="form-control">
                                 @foreach($cities as $city)
@@ -62,7 +62,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group w-50">
+                        <div class="form-group w-100">
                             <label>Выберите роль организации</label>
                             <select name="role" class="form-control">
                                 @foreach($roles as $id => $role)

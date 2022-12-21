@@ -33,6 +33,14 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{route('hostel.tag.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-list-ul"></i>
+                    <p>
+                        Услуги
+                    </p>
+                </a>
+            </li>
         </ul>
     </div>
     <!-- /.sidebar -->

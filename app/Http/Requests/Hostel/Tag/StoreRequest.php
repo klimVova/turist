@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Hostel\Category;
+namespace App\Http\Requests\Hostel\Tag;
 
 use Illuminate\Foundation\Http\FormRequest;
 

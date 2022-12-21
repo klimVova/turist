@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class HostelCard extends Model
+class HostelTag extends Model
 {
     use HasFactory;
 
+    use SoftDeletes;
 
-    protected $table = 'hostel_cards';
+    protected $table = 'hostel_tags';
     protected $guarded = false;
-
 }

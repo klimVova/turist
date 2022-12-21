@@ -7,6 +7,7 @@
         <section class="featured-posts-section">
             <div class="row">
                 @foreach($posts as $post)
+
                 <div class="col-md-4 fetured-post blog-post" data-aos="fade-up">
                     <div class="blog-post-thumbnail-wrapper">
                         <img src="{{'storage/'. $post->preview_image}}" alt="blog post">

@@ -1,4 +1,4 @@
-@extends('admin.layouts.main')
+@extends('hostel.layouts.main')
 @section('content')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0"> Организации</h1>
+                        <h1 class="m-0"> Услуги</h1>
                     </div><!-- /.col -->
 
                 </div><!-- /.row -->
@@ -20,11 +20,11 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-1 mb-3">
-                        <a href="{{route('admin.user.create')}}" class="btn btn-block btn-primary">Добавить</a>
+                        <a href="{{route('hostel.tag.create')}}" class="btn btn-block btn-primary">Добавить</a>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
                         <div class="card">
                             <div class="card-body table-responsive p-0">
                                 <table class="table table-hover text-nowrap">
@@ -32,35 +32,23 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Название</th>
-                                        <th>Почта</th>
-                                        <th>Роль</th>
-                                        <th>Город</th>
-                                        <th>Республика</th>
-                                        <th>Округ</th>
                                         <th colspan="3" class="text-center">Действие</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($users as $user)
+                                    @foreach($hostelTags as $hostelTag)
                                         <tr>
-                                            <td>{{$user->id}}</td>
-                                            <td>{{$user->name}}</td>
-                                            <td>{{$user->email}}</td>
-                                            <td>@if($user->role == 1){{'пользователь'}}@elseif($user->role == 0){{'админ'}}@elseif($user->role == 2){{'отель'}}
-                                                @endif
-                                            </td>
-                                            <td>@if($user->city == null){{'-'}}@else{{$user->city->title}}@endif</td>
-                                            <td>@if($user->republic == null){{'-'}}@else{{$user->republic->title}}@endif</td>
-                                            <td>@if($user->district == null){{'-'}}@else{{$user->district->title}}@endif</td>
-                                            <td><a href="{{route('admin.user.show', $user->id)}}"><i
+                                            <td>{{$hostelTag->id}}</td>
+                                            <td>{{$hostelTag->title}}</td>
+                                            <td><a href="{{route('hostel.tag.show', $hostelTag->id)}}"><i
                                                             class="far fa-eye"></i></a></td>
-                                            <td><a href="{{route('admin.user.edit', $user->id)}}"
+                                            <td><a href="{{route('hostel.tag.edit', $hostelTag->id)}}"
                                                    class='text-success'><i class="fas fa-pencil-alt"></i></a></td>
                                             <td>
-                                                <form action="{{route('admin.user.delete', $user->id)}}" method="post">
+                                                <form action="{{route('hostel.tag.delete', $hostelTag->id)}}" method="post">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="border-0 bg-transparent">
+                                                    <button type="submit" class="border-0 bg-transparent" l>
                                                         <i class="fas fa-trash text-danger" role="button"></i>
                                                     </button>
                                                 </form>

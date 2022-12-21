@@ -79,6 +79,17 @@
                                 </select>
                             </div>
                             <div class="form-group w-50">
+                                <label>Тэги</label>
+                                <select class="select2" name="hostel_tag_ids[]" multiple="multiple"
+                                        data-placeholder="Выберите тэги" style="width: 100%;">
+                                    @foreach($hostelTags as $hostelTag)
+                                        <option
+                                                {{is_array(old('$hostelTag_ids')) && in_array($hostelTag->id, old('hostelTag_ids')) ? ' selected' : ''}}
+                                                value="{{$hostelTag->id}}">{{$hostelTag->title}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group w-50">
                                 <input type="hidden" name="user_id" value="{{$user}}">
                             </div>
                             <div class="form-group">

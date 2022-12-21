@@ -4,14 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class HostelCard extends Model
+class HostelPostTag extends Model
 {
     use HasFactory;
 
-
-    protected $table = 'hostel_cards';
+    protected $table = 'hostel_post_tags';
     protected $guarded = false;
-
 }

@@ -9,7 +9,7 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $hostelCategories = HostelCategory::all();
+        $hostelCategories = auth()->user()->hostelCategories;
         return view('hostel.categories.index', compact('hostelCategories'));
     }
 }

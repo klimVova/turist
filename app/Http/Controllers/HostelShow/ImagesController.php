@@ -12,6 +12,6 @@ class ImagesController extends Controller
     public function __invoke(HostelPost $hostelPost)
     {
         $images =  DB::table('hostel_images')->where('hostel_post_id', '=', $hostelPost->id)->get();
-        return view('hostelShow.images', compact('images'));
+        return view('hostelShow.images', compact('images' , 'hostelPost'));
     }
 }

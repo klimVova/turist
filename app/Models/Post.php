@@ -23,4 +23,7 @@ class Post extends Model
     public function images(){
         return $this->hasMany(Image::class);
     }
+    public function getImageUrlAttribute(){
+         return url('storage/' . $this->preview_image);
+    }
 }

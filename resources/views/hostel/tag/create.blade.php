@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Добавление категории</h1>
+                    <h1 class="m-0">Добавление услуги</h1>
                 </div><!-- /.col -->
 
             </div><!-- /.row -->
@@ -20,10 +20,10 @@
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-12">
-                    <form action="{{route('hostel.category.store')}}" method="POST" class="w-25">
+                    <form action="{{route('hostel.tag.store')}}" method="POST" class="w-25">
                         @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control" name="title" placeholder="Название категории">
+                            <input type="text" class="form-control" name="title" placeholder="Название услуги">
                             @error('title')
                                 <div class="text-danger">Это поле необходимо заполнить</div>
                             @enderror

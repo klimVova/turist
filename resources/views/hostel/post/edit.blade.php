@@ -69,6 +69,18 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="form-group w-50">
+                                <label>Тэги</label>
+                                <select class="select2" name="hostel_tag_ids[]" multiple="multiple"
+                                        data-placeholder="Выберите услугу" style="width: 100%;">
+                                    @foreach($hostelTags as $hostelTag)
+                                        <option
+                                                {{is_array( $hostelPost->tags->pluck('id')->toArray()) && in_array($hostelTag->id, $hostelPost->tags->pluck('id')->toArray()) ? ' selected' : ''}}
+                                                value="{{$hostelTag->id}}">{{$hostelTag->title}}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary" value="Обновить">
                             </div>

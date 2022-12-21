@@ -55,6 +55,15 @@ Route::group(['namespace' => 'Hostel', 'prefix' => 'hostel', 'middleware' => ['a
         Route::patch('/{hostelCategory}', UpdateController::class)->name('hostel.category.update');
         Route::delete('/{hostelCategory}', DeleteController::class)->name('hostel.category.delete');
     });
+    Route::group(['namespace' => 'Tag','prefix' => 'tags'], function () {
+        Route::get('/', IndexController::class)->name('hostel.tag.index');
+        Route::get('/create', CreateController::class)->name('hostel.tag.create');
+        Route::post('/', StoreController::class)->name('hostel.tag.store');
+        Route::get('/{hostelTag}', ShowController::class)->name('hostel.tag.show');
+        Route::get('/{hostelTag}/edit', EditController::class)->name('hostel.tag.edit');
+        Route::patch('/{hostelTag}', UpdateController::class)->name('hostel.tag.update');
+        Route::delete('/{hostelTag}', DeleteController::class)->name('hostel.tag.delete');
+    });
     Route::group(['namespace' => 'Card','prefix' => 'cards'],  function () {
         Route::get('/', IndexController::class)->name('hostel.card.index');
         Route::get('/create', CreateController::class)->name('hostel.card.create');
