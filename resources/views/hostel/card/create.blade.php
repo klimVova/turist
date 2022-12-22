@@ -38,7 +38,7 @@
                         <div class="form-group w-25">
                             <input type="text" class="form-control" name="location" placeholder="Укажите локацию"
                                    value="{{old('location')}}">
-                            @error('price')
+                            @error('location')
                             <div class="text-danger">{{$message}}</div>
                             @enderror
                         </div>
@@ -55,6 +55,20 @@
                             </div>
                             @error('preview_image')
                             <div class="text-danger">Это поле необходимо заполнить</div>
+                            @enderror
+                        </div>
+                        <div class="form-group w-25">
+                            <input type="tel" class="form-control" name="phone" placeholder="Введите номер телефона"
+                                   value="{{old('phone')}}">
+                            @error('phone')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group w-25">
+                            <input type="text" class="form-control" name="coordinate" placeholder="Введите координаты расположения"
+                                   value="{{old('coordinate')}}">
+                            @error('coordinate')
+                            <div class="text-danger">{{$message}}</div>
                             @enderror
                         </div>
                         <div class="form-group w-50">

@@ -27,6 +27,8 @@ class UpdateRequest extends FormRequest
             'title' => 'required|string',
             'content' => 'required|string',
             'location' => 'required|string',
+            'phone' => 'required|integer',
+            'coordinate' => 'required|string',
             'preview_image' => 'nullable|file',
         ];
     }

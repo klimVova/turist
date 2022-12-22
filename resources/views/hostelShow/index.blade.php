@@ -14,6 +14,11 @@
                                 <h4>{{$hostelCard->title}}</h4></a>
                             <p>{!! $hostelCard->content !!}</p>
                             <p>{{$hostelCard->location}}</p>
+                            <p>@if($hostelCard->phone != Null)
+                                +{{$hostelCard->phone}}
+                                @else
+                                @endif
+                            </p>
                         </div>
                     @endforeach
                 </div>

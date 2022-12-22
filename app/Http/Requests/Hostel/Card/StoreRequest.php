@@ -27,7 +27,9 @@ class StoreRequest extends FormRequest
             'title' => 'required|string',
             'content' => 'required|string',
             'location' => 'required|string',
+            'coordinate' => 'required|string',
             'preview_image' => 'required|file',
+            'phone' => 'required|integer',
             'user_id' => 'required|integer|exists:users,id',
         ];
     }
@@ -40,6 +42,8 @@ class StoreRequest extends FormRequest
             'content.required' => 'Это поле необходимо для заполнения',
             'location.required' => 'Это поле необходимо для заполнения',
             'location.string' => 'Это поле необходимо для заполнения',
+            'phone.integer' => 'Это поле необходимо для заполнения',
+            'coordinate.string' => 'Это поле необходимо для заполнения',
         ];
     }
 }
