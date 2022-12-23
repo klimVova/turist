@@ -16,6 +16,7 @@ class User extends Authenticatable
     const ROLE_ADMIN = 0;
     const ROLE_READER = 1;
     const ROLE_HOSTEl = 2;
+    const ROLE_CAFE = 3;
 
 
 
@@ -25,6 +26,7 @@ class User extends Authenticatable
             self::ROLE_ADMIN => 'Админ',
             self::ROLE_READER => 'Пользователь',
             self::ROLE_HOSTEl => 'Отель',
+            self::ROLE_CAFE => 'Кофе',
         ];
     }
 
@@ -65,6 +67,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class, 'user_id','id');
     }
+    public function city(){
+        return $this->belongsTo(City::class, 'city_id','id');
+    }
+    public function republic(){
+        return $this->belongsTo(Republic::class, 'republic_id','id');
+    }
+    public function district(){
+        return $this->belongsTo(District::class, 'district_id','id');
+    }
+    //hostels
     public function hostelPosts()
     {
         return $this->hasMany(HostelPost::class, 'user_id','id');
@@ -81,13 +93,29 @@ class User extends Authenticatable
     {
         return $this->hasMany(HostelTag::class, 'user_id');
     }
-    public function city(){
-        return $this->belongsTo(City::class, 'city_id','id');
+    //cafes
+    public function cafePosts()
+    {
+        return $this->hasMany(CafePost::class, 'user_id','id');
     }
-    public function republic(){
-        return $this->belongsTo(Republic::class, 'republic_id','id');
+    public function cafeCards()
+    {
+        return $this->hasMany(CafeCard::class, 'user_id');
     }
-    public function district(){
-        return $this->belongsTo(District::class, 'district_id','id');
+    public function cafeCategories()
+    {
+        return $this->hasMany(CafeCategory::class, 'user_id');
+    }
+    public function cafeCatalogs()
+    {
+        return $this->hasMany(CafeCatalog::class, 'user_id');
+    }
+    public function cafeTimes()
+    {
+        return $this->hasMany(CafeTime::class, 'user_id');
+    }
+    public function cafeTags()
+    {
+        return $this->hasMany(CafeTag::class, 'user_id');
     }
 }

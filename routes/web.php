@@ -30,6 +30,11 @@ Route::group(['namespace' => 'HostelShow', 'prefix' => 'hostels'], function () {
     Route::get('/{hostelCard}/show/', ShowController::class)->name('hostelShow.show');
     Route::get('/{hostelPost}/images/', ImagesController::class)->name('hostelShow.images');
 });
+// вывод cafe
+Route::group(['namespace' => 'CafeShow', 'prefix' => 'cafes'], function () {
+    Route::get('/', IndexController::class)->name('cafeShow.index');
+    Route::get('/{cafeCard}/show', ShowController::class)->name('cafeShow.show');
+});
 //HOSTEL
 Route::group(['namespace' => 'Hostel', 'prefix' => 'hostel', 'middleware' => ['auth', 'hostel' , 'verified']], function () {
     Route::group(['namespace' => 'Main'], function () {
@@ -157,6 +162,71 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
 Route::group(['namespace' => 'User', 'prefix' => 'user', 'middleware' => ['auth', 'user', 'verified']], function () {
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', IndexController::class)->name('user.main.index');
+    });
+});
+
+
+//Restaurants-cafes Cafe
+Route::group(['namespace' => 'Cafe', 'prefix' => 'cafe', 'middleware' => ['auth', 'cafe' , 'verified']], function () {
+    Route::group(['namespace' => 'Main'], function () {
+        Route::get('/', IndexController::class)->name('cafe.main.index');
+    });
+    Route::group(['namespace' => 'Post','prefix' => 'posts'],  function () {
+        Route::get('/', IndexController::class)->name('cafe.post.index');
+        Route::get('/create', CreateController::class)->name('cafe.post.create');
+        Route::post('/', StoreController::class)->name('cafe.post.store');
+        Route::get('/{cafePost}/edit', EditController::class)->name('cafe.post.edit');
+        Route::patch('/{cafePost}', UpdateController::class)->name('cafe.post.update');
+        Route::delete('/{cafePost}', DeleteController::class)->name('cafe.post.delete');
+        Route::get('/{cafePost}/image/',ImageController::class)->name('cafe.post.image');
+        Route::post('/{cafePost}/image/',ImageStoreController::class)->name('cafe.post.image_store');
+        Route::delete('{cafePost}/image/',ImageRemoveController::class, 'remove')->name('cafe.post.image_remove');
+    });
+    Route::group(['namespace' => 'Catalog','prefix' => 'catalogs'],  function () {
+        Route::get('/', IndexController::class)->name('cafe.catalog.index');
+        Route::get('/create', CreateController::class)->name('cafe.catalog.create');
+        Route::post('/', StoreController::class)->name('cafe.catalog.store');
+        Route::get('/{cafeCatalog}', ShowController::class)->name('cafe.catalog.show');
+        Route::get('/{cafeCatalog}/edit', EditController::class)->name('cafe.catalog.edit');
+        Route::patch('/{cafeCatalog}', UpdateController::class)->name('cafe.catalog.update');
+        Route::delete('/{cafeCatalog}', DeleteController::class)->name('cafe.catalog.delete');
+    });
+    Route::group(['namespace' => 'Category','prefix' => 'categories'], function () {
+        Route::get('/', IndexController::class)->name('cafe.category.index');
+        Route::get('/create', CreateController::class)->name('cafe.category.create');
+        Route::post('/', StoreController::class)->name('cafe.category.store');
+        Route::get('/{cafeCategory}', ShowController::class)->name('cafe.category.show');
+        Route::get('/{cafeCategory}/edit', EditController::class)->name('cafe.category.edit');
+        Route::patch('/{cafeCategory}', UpdateController::class)->name('cafe.category.update');
+        Route::delete('/{cafeCategory}', DeleteController::class)->name('cafe.category.delete');
+    });
+
+    Route::group(['namespace' => 'Tag','prefix' => 'tags'], function () {
+        Route::get('/', IndexController::class)->name('cafe.tag.index');
+        Route::get('/create', CreateController::class)->name('cafe.tag.create');
+        Route::post('/', StoreController::class)->name('cafe.tag.store');
+        Route::get('/{cafeTag}', ShowController::class)->name('cafe.tag.show');
+        Route::get('/{cafeTag}/edit', EditController::class)->name('cafe.tag.edit');
+        Route::patch('/{cafeTag}', UpdateController::class)->name('cafe.tag.update');
+        Route::delete('/{cafeTag}', DeleteController::class)->name('cafe.tag.delete');
+    });
+    Route::group(['namespace' => 'Card','prefix' => 'cards'],  function () {
+        Route::get('/', IndexController::class)->name('cafe.card.index');
+        Route::get('/create', CreateController::class)->name('cafe.card.create');
+        Route::post('/', StoreController::class)->name('cafe.card.store');
+        Route::get('/{cafeCard}', ShowController::class)->name('cafe.card.show');
+        Route::get('/{cafeCard}/edit', EditController::class)->name('cafe.card.edit');
+        Route::patch('/{cafeCard}', UpdateController::class)->name('cafe.card.update');
+        Route::delete('/{cafeCard}', DeleteController::class)->name('cafe.card.delete');
+    });
+    Route::group(['namespace' => 'TIme','prefix' => 'times'],  function () {
+        Route::get('/', IndexController::class)->name('cafe.time.index');
+        Route::get('/create', CreateController::class)->name('cafe.time.create');
+        Route::post('/', StoreController::class)->name('cafe.time.store');
+        Route::get('/{cafeTime}', ShowController::class)->name('cafe.time.show');
+        Route::get('/{cafeTime}/edit', EditController::class)->name('cafe.time.edit');
+        Route::patch('/{cafeTime}', UpdateController::class)->name('cafe.time.update');
+        Route::delete('/{cafeTime}', DeleteController::class)->name('cafe.time.delete');
     });
 });
 Auth::routes();

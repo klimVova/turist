@@ -30,6 +30,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('hostelShow.index')}}">Отели</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('cafeShow.index')}}">Кофе</a>
+                    </li>
                 </ul>
             </div>
         </nav>

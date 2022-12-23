@@ -13,15 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('hostel_cards', function (Blueprint $table) {
+        Schema::create('cafe_tags', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('content');
-            $table->string('location');
-            $table->string('preview_image')->nullable();
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->index('user_id', 'hostel_card_user_idx');
-            $table->foreign('user_id', 'hostel_card_user_fk')->on('users')->references('id');
             $table->timestamps();
         });
     }
@@ -33,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hostel_cards');
+        Schema::dropIfExists('cafe_tags');
     }
 };
