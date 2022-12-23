@@ -33,7 +33,7 @@
                         </div>
                         <div class="form-group w-50">
                             <label>Выберите каталог</label>
-                            <select name="cafe_catalog_id" class="form-control">
+                            <select name="catalog_id" class="form-control">
                                 @foreach($cafeCatalogs as $cafeCatalog)
                                     <option value="{{$cafeCatalog->id}}"
                                             {{$cafeCatalog->id == $cafeCategory->catalog_id ? ' selected' : '' }}>{{$cafeCatalog->title}}</option>
