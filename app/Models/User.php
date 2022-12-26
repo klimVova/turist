@@ -17,6 +17,7 @@ class User extends Authenticatable
     const ROLE_READER = 1;
     const ROLE_HOSTEl = 2;
     const ROLE_CAFE = 3;
+    const ROLE_MEDICAL = 4;
 
 
 
@@ -27,6 +28,7 @@ class User extends Authenticatable
             self::ROLE_READER => 'Пользователь',
             self::ROLE_HOSTEl => 'Отель',
             self::ROLE_CAFE => 'Кофе',
+            self::ROLE_MEDICAL => 'Медецина',
         ];
     }
 
@@ -107,5 +109,19 @@ class User extends Authenticatable
     public function cafeTodoLists()
     {
         return $this->hasMany(CafeTodoList::class, 'user_id');
+    }
+    //medical
+    public function medicalCards()
+    {
+        return $this->hasMany(MedicalCard::class, 'user_id');
+    }
+
+    public function medicalTimes()
+    {
+        return $this->hasMany(MedicalTime::class, 'user_id');
+    }
+    public function medicalTodoLists()
+    {
+        return $this->hasMany(MedicalTodoList::class, 'user_id');
     }
 }

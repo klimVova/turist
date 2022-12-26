@@ -213,5 +213,54 @@ Route::group(['namespace' => 'Cafe', 'prefix' => 'cafe', 'middleware' => ['auth'
         Route::patch('/{cafeTodoProduct}', UpdateController::class)->name('cafe.todoproduct.update');
     });
 });
+
+//Medical
+Route::group(['namespace' => 'Medical', 'prefix' => 'medical', 'middleware' => ['auth', 'medical' , 'verified']], function () {
+    Route::group(['namespace' => 'Main'], function () {
+        Route::get('/', IndexController::class)->name('medical.main.index');
+    });
+    Route::group(['namespace' => 'Card','prefix' => 'cards'],  function () {
+        Route::get('/', IndexController::class)->name('medical.card.index');
+        Route::get('/create', CreateController::class)->name('medical.card.create');
+        Route::post('/', StoreController::class)->name('medical.card.store');
+        Route::get('/{medicalCard}', ShowController::class)->name('medical.card.show');
+        Route::get('/{medicalCard}/edit', EditController::class)->name('medical.card.edit');
+        Route::patch('/{medicalCard}', UpdateController::class)->name('medical.card.update');
+        Route::delete('/{medicalCard}', DeleteController::class)->name('medical.card.delete');
+    });
+    Route::group(['namespace' => 'Time','prefix' => 'times'],  function () {
+        Route::get('/', IndexController::class)->name('medical.time.index');
+        Route::get('/create', CreateController::class)->name('medical.time.create');
+        Route::post('/', StoreController::class)->name('medical.time.store');
+        Route::get('/{medicalTime}', ShowController::class)->name('medical.time.show');
+        Route::get('/{medicalTime}/edit', EditController::class)->name('medical.time.edit');
+        Route::patch('/{medicalTime}', UpdateController::class)->name('medical.time.update');
+        Route::delete('/{medicalTime}', DeleteController::class)->name('medical.time.delete');
+    });
+    Route::group(['namespace' => 'TodoList','prefix' => 'todolist'],  function () {
+        Route::get('/', IndexController::class)->name('medical.todolist.index');
+        Route::get('/create', CreateController::class)->name('medical.todolist.create');
+        Route::post('/', StoreController::class)->name('medical.todolist.store');
+        Route::get('/{medicalTodoList}', ShowController::class)->name('medical.todolist.show');
+        Route::get('/{medicalTodoList}/edit', EditController::class)->name('medical.todolist.edit');
+        Route::patch('/{medicalTodoList}', UpdateController::class)->name('medical.todolist.update');
+        Route::delete('/{medicalTodoList}', DeleteController::class)->name('medical.todolist.delete');
+        Route::get('/{medicalTodoList}/item/',ItemController::class)->name('medical.todolist.item');
+        Route::post('/{medicalTodoList}/item/',ItemStoreController::class)->name('medical.todolist.item_store');
+        Route::delete('{medicalTodoList}/item/',ItemRemoveController::class, 'remove')->name('medical.todolist.item_remove');
+    });
+    Route::group(['namespace' => 'TodoItem','prefix' => 'todoitem'],  function () {;
+        Route::get('/{medicalTodoItem}/edit', EditController::class)->name('medical.todoitem.edit');
+        Route::patch('/{medicalTodoItem}', UpdateController::class)->name('medical.todoitem.update');
+        Route::get('/{medicalTodoItem}/product/',ProductController::class)->name('medical.todoitem.product');
+        Route::post('/{medicalTodoItem}/product/',ProductStoreController::class)->name('medical.todoitem.product_store');
+        Route::delete('{medicalTodoItem}/product/',ProductRemoveController::class, 'remove')->name('medical.todoitem.product_remove');
+    });
+    Route::group(['namespace' => 'TodoProduct','prefix' => 'todoproduct'],  function () {;
+        Route::get('/{medicalTodoProduct}/edit', EditController::class)->name('medical.todoproduct.edit');
+        Route::patch('/{medicalTodoProduct}', UpdateController::class)->name('medical.todoproduct.update');
+    });
+});
+
 Auth::routes();
 
