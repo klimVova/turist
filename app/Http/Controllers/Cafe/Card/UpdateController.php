@@ -16,6 +16,6 @@ class UpdateController extends Controller
             $data['preview_image'] = Storage::disk('public')->put('/cafe_images_card', $data['preview_image']);
         }
         $cafeCard->update($data);
-        return back();
+        return redirect()->route('cafe.card.index');
     }
 }

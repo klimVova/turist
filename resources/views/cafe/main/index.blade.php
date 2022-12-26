@@ -29,7 +29,7 @@
                             <div class="icon">
                                 <i class="fa fa-paste"></i>
                             </div>
-                            <a href="{{route('admin.user.index')}}" class="small-box-footer">Подобнее <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="{{route('cafe.post.index')}}" class="small-box-footer">Подобнее <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -44,7 +44,7 @@
                             <div class="icon">
                                 <i class="fa fa-clipboard-list"></i>
                             </div>
-                            <a href="{{route('cafe.post.index')}}" class="small-box-footer">Подобнее <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="{{route('cafe.category.index')}}" class="small-box-footer">Подобнее <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                 </div>

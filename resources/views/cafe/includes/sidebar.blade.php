@@ -26,34 +26,10 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{route('cafe.post.index')}}" class="nav-link">
-                    <i class="nav-icon fas fa-users"></i>
-                    <p>
-                        Добавить пункт в меню
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{route('cafe.catalog.index')}}" class="nav-link">
-                    <i class="nav-icon fas fa-receipt"></i>
-                    <p>
-                        Каталог
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{route('cafe.category.index')}}" class="nav-link">
-                    <i class="nav-icon fas fa-clipboard"></i>
-                    <p>
-                        Категория
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{route('cafe.tag.index')}}" class="nav-link">
+                <a href="{{route('cafe.todolist.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-list-ul"></i>
                     <p>
-                        Тэг
+                        Меню
                     </p>
                 </a>
             </li>

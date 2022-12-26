@@ -94,28 +94,18 @@ class User extends Authenticatable
         return $this->hasMany(HostelTag::class, 'user_id');
     }
     //cafes
-    public function cafePosts()
-    {
-        return $this->hasMany(CafePost::class, 'user_id','id');
-    }
+
     public function cafeCards()
     {
         return $this->hasMany(CafeCard::class, 'user_id');
     }
-    public function cafeCategories()
-    {
-        return $this->hasMany(CafeCategory::class, 'user_id');
-    }
-    public function cafeCatalogs()
-    {
-        return $this->hasMany(CafeCatalog::class, 'user_id');
-    }
+
     public function cafeTimes()
     {
         return $this->hasMany(CafeTime::class, 'user_id');
     }
-    public function cafeTags()
+    public function cafeTodoLists()
     {
-        return $this->hasMany(CafeTag::class, 'user_id');
+        return $this->hasMany(CafeTodoList::class, 'user_id');
     }
 }

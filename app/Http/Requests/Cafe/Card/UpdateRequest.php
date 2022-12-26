@@ -26,10 +26,10 @@ class UpdateRequest extends FormRequest
         return [
             'title' => 'required|string',
             'content' => 'required|string',
+            'address' => 'required|string',
             'coordinate' => 'required|string',
-            'preview_image' => 'required|file',
+            'preview_image' => 'nullable|file',
             'phone' => 'required|integer',
-            'user_id' => 'required|integer|exists:users,id',
         ];
     }
     public function messages(){

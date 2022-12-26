@@ -38,7 +38,7 @@
                         </div>
                         <div class="form-group w-25">
                             <input type="text" class="form-control" name="address" placeholder="Укажите локацию"
-                                   value="{{old('address')}}">
+                                   value="{{$cafeCard->address}}">
                             @error('address')
                             <div class="text-danger">{{$message}}</div>
                             @enderror
