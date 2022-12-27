@@ -6,6 +6,7 @@ use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\CafeMiddleware;
 use App\Http\Middleware\HostelMiddleware;
 use App\Http\Middleware\MedicalMiddleware;
+use App\Http\Middleware\SpaMiddleware;
 use App\Http\Middleware\UserMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -73,5 +74,6 @@ class Kernel extends HttpKernel
         'user' => UserMiddleware::class,
         'cafe' => CafeMiddleware::class,
         'medical' => MedicalMiddleware::class,
+        'spa' => SpaMiddleware::class,
     ];
 }

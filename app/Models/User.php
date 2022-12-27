@@ -18,6 +18,7 @@ class User extends Authenticatable
     const ROLE_HOSTEl = 2;
     const ROLE_CAFE = 3;
     const ROLE_MEDICAL = 4;
+    const ROLE_SPA = 5;
 
 
 
@@ -29,6 +30,7 @@ class User extends Authenticatable
             self::ROLE_HOSTEl => 'Отель',
             self::ROLE_CAFE => 'Кофе',
             self::ROLE_MEDICAL => 'Медецина',
+            self::ROLE_SPA => 'CПА',
         ];
     }
 
@@ -123,5 +125,19 @@ class User extends Authenticatable
     public function medicalTodoLists()
     {
         return $this->hasMany(MedicalTodoList::class, 'user_id');
+    }
+    //spa
+    public function spaCards()
+    {
+        return $this->hasMany(SpaCard::class, 'user_id');
+    }
+
+    public function spaTimes()
+    {
+        return $this->hasMany(SpaTime::class, 'user_id');
+    }
+    public function spaTodoLists()
+    {
+        return $this->hasMany(SpaTodoList::class, 'user_id');
     }
 }

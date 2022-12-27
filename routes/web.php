@@ -262,5 +262,53 @@ Route::group(['namespace' => 'Medical', 'prefix' => 'medical', 'middleware' => [
     });
 });
 
+//Spa
+Route::group(['namespace' => 'Spa', 'prefix' => 'spa', 'middleware' => ['auth', 'spa' , 'verified']], function () {
+    Route::group(['namespace' => 'Main'], function () {
+        Route::get('/', IndexController::class)->name('spa.main.index');
+    });
+    Route::group(['namespace' => 'Card','prefix' => 'cards'],  function () {
+        Route::get('/', IndexController::class)->name('spa.card.index');
+        Route::get('/create', CreateController::class)->name('spa.card.create');
+        Route::post('/', StoreController::class)->name('spa.card.store');
+        Route::get('/{spaCard}', ShowController::class)->name('spa.card.show');
+        Route::get('/{spaCard}/edit', EditController::class)->name('spa.card.edit');
+        Route::patch('/{spaCard}', UpdateController::class)->name('spa.card.update');
+        Route::delete('/{spaCard}', DeleteController::class)->name('spa.card.delete');
+    });
+    Route::group(['namespace' => 'Time','prefix' => 'times'],  function () {
+        Route::get('/', IndexController::class)->name('spa.time.index');
+        Route::get('/create', CreateController::class)->name('spa.time.create');
+        Route::post('/', StoreController::class)->name('spa.time.store');
+        Route::get('/{spaTime}', ShowController::class)->name('spa.time.show');
+        Route::get('/{spaTime}/edit', EditController::class)->name('spa.time.edit');
+        Route::patch('/{spaTime}', UpdateController::class)->name('spa.time.update');
+        Route::delete('/{spaTime}', DeleteController::class)->name('spa.time.delete');
+    });
+    Route::group(['namespace' => 'TodoList','prefix' => 'todolist'],  function () {
+        Route::get('/', IndexController::class)->name('spa.todolist.index');
+        Route::get('/create', CreateController::class)->name('spa.todolist.create');
+        Route::post('/', StoreController::class)->name('spa.todolist.store');
+        Route::get('/{spaTodoList}', ShowController::class)->name('spa.todolist.show');
+        Route::get('/{spaTodoList}/edit', EditController::class)->name('spa.todolist.edit');
+        Route::patch('/{spaTodoList}', UpdateController::class)->name('spa.todolist.update');
+        Route::delete('/{spaTodoList}', DeleteController::class)->name('spa.todolist.delete');
+        Route::get('/{spaTodoList}/item/',ItemController::class)->name('spa.todolist.item');
+        Route::post('/{spaTodoList}/item/',ItemStoreController::class)->name('spa.todolist.item_store');
+        Route::delete('{spaTodoList}/item/',ItemRemoveController::class, 'remove')->name('spa.todolist.item_remove');
+    });
+    Route::group(['namespace' => 'TodoItem','prefix' => 'todoitem'],  function () {;
+        Route::get('/{spaTodoItem}/edit', EditController::class)->name('spa.todoitem.edit');
+        Route::patch('/{spaTodoItem}', UpdateController::class)->name('spa.todoitem.update');
+        Route::get('/{spaTodoItem}/product/',ProductController::class)->name('spa.todoitem.product');
+        Route::post('/{spaTodoItem}/product/',ProductStoreController::class)->name('spa.todoitem.product_store');
+        Route::delete('{spaTodoItem}/product/',ProductRemoveController::class, 'remove')->name('spa.todoitem.product_remove');
+    });
+    Route::group(['namespace' => 'TodoProduct','prefix' => 'todoproduct'],  function () {;
+        Route::get('/{spaTodoProduct}/edit', EditController::class)->name('spa.todoproduct.edit');
+        Route::patch('/{spaTodoProduct}', UpdateController::class)->name('spa.todoproduct.update');
+    });
+});
+
 Auth::routes();
 
