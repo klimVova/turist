@@ -29,6 +29,7 @@ class UpdateRequest extends FormRequest
             'user_id' => 'required|integer|exists:users,id',
             'role' => 'required|integer',
             'city_id' => 'required|integer|exists:cities,id',
+            'type_id' => 'required|integer|exists:types,id',
             'republic_id' => 'required|integer|exists:republics,id',
             'district_id' => 'required|integer|exists:districts,id',
         ];

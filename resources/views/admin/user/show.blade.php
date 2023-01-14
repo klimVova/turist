@@ -38,10 +38,8 @@
                                         <td>{{$user->email}}</td>
                                     </tr>
                                     <tr>
-                                        <td class="text-bold">Роль</td>
-                                        <td>@if($user->role == 1){{'пользователь'}}@elseif($user->role == 0){{'админ'}}@elseif($user->role == 2){{'отель'}}
-                                            @endif
-                                        </td>
+                                        <td class="text-bold">Вид организации</td>
+                                        <td>@if($user->type == null){{'-'}}@else{{$user->type->title}}@endif</td>
                                     </tr>
                                     <tr>
                                         <td class="text-bold">Город</td>

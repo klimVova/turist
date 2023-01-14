@@ -28,6 +28,7 @@ class StoreRequest extends FormRequest
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string',
             'role' => 'required|integer',
+            'type_id' => 'required|integer|exists:types,id',
             'city_id' => 'required|integer|exists:cities,id',
             'republic_id' => 'required|integer|exists:republics,id',
             'district_id' => 'required|integer|exists:districts,id',

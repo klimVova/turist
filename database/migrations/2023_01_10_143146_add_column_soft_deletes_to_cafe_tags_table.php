@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('cafe_cards', function (Blueprint $table) {
-            $table->unsignedBigInteger('phone')->nullable();
+        Schema::table('cafe_tags', function (Blueprint $table) {
+            $table->softDeletes();
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('cafe_cards', function (Blueprint $table) {
-            $table->dropColumn('phone');
+        Schema::table('cafe_tags', function (Blueprint $table) {
+            $table->dropSoftDeletes();
         });
     }
 };

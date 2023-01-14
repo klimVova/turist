@@ -19,11 +19,15 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->unsignedBigInteger('type_id')->nullable();
             $table->unsignedBigInteger('city_id')->nullable();
             $table->unsignedBigInteger('republic_id')->nullable();
             $table->unsignedBigInteger('district_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+            $table->index('type_id' , 'user_type_idx');
+            $table->foreign('type_id' , 'user_type_fk')->on('types')->references('id');
 
             $table->index('city_id', 'user_city_idx');
             $table->foreign('city_id', 'user_city_fk')->on('cities')->references('id');
@@ -43,6 +47,11 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign('user_type_fk');
+            $table->dropColumn('type_id');
+        });
+
         Schema::table('users', function (Blueprint $table) {
             $table->dropForeign('user_city_fk');
             $table->dropColumn('city_id');

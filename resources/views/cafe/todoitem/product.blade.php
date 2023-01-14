@@ -6,15 +6,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Добавление producta</h1>
+                        <h1 class="m-0">Добавление продукта</h1>
                     </div><!-- /.col -->
 
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
-        <!-- /.content-header -->
-
-        <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
@@ -23,8 +20,15 @@
                           enctype="multipart/form-data">
                         @csrf
                         <div class="form-group ">
-                            <input type="text" class="form-control" name="title" placeholder="Название поста"
+                            <input type="text" class="form-control" name="title" placeholder="Название продукта"
                                    value="{{old('title')}}">
+                            @error('title')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group ">
+                            <input type="text" class="form-control" name="price" placeholder="Цена"
+                                   value="{{old('price')}}">
                             @error('title')
                             <div class="text-danger">{{$message}}</div>
                             @enderror
@@ -38,8 +42,7 @@
                     </form>
                 </div>
             </div>
-    </div>
-    </section>
-    <!-- /.content -->
+        </section>
+        <!-- /.content -->
     </div>
 @endsection

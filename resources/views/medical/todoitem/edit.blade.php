@@ -30,6 +30,13 @@
                             <div class="text-danger">{{$message}}</div>
                             @enderror
                         </div>
+                        <div class="form-group w-25">
+                            <input type="text" class="form-control" name="price" placeholder="Цена"
+                                   value="{{$medicalTodoItem->price}}">
+                            @error('title')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="Обновить">
                         </div>
@@ -37,6 +44,7 @@
                     </form>
                 </div>
             </div>
+        </div>
     </section>
     <!-- /.content -->
 </div>

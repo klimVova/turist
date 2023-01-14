@@ -9,6 +9,7 @@ class EditController extends Controller
 {
     public function __invoke(CafeCard $cafeCard)
     {
-        return view('cafe.card.edit' , compact('cafeCard'));
+        $cafeTags =auth()->user()->cafeTags;
+        return view('cafe.card.edit' , compact('cafeCard', 'cafeTags'));
     }
 }

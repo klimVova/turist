@@ -33,6 +33,14 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{route('spa.tag.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-list-ul"></i>
+                    <p>
+                        Тэги
+                    </p>
+                </a>
+            </li>
         </ul>
     </div>
     <!-- /.sidebar -->

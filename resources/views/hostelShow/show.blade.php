@@ -38,7 +38,7 @@
     <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU">
     </script>
     <script>
-        let center = [{{$hostelCard->coordinate}}];
+        {{--/let center = [{{$hostelCard->coordinate}}];--}}
 
         function init() {
             let map = new ymaps.Map('map-test', {

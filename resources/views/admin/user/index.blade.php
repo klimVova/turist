@@ -33,7 +33,7 @@
                                         <th>ID</th>
                                         <th>Название</th>
                                         <th>Почта</th>
-                                        <th>Роль</th>
+                                        <th>Вид организации</th>
                                         <th>Город</th>
                                         <th>Республика</th>
                                         <th>Округ</th>
@@ -46,9 +46,7 @@
                                             <td>{{$user->id}}</td>
                                             <td>{{$user->name}}</td>
                                             <td>{{$user->email}}</td>
-                                            <td>@if($user->role == 1){{'пользователь'}}@elseif($user->role == 0){{'админ'}}@elseif($user->role == 2){{'отель'}}
-                                                @endif
-                                            </td>
+                                            <td>@if($user->type == null){{'-'}}@else{{$user->type->title}}@endif</td>
                                             <td>@if($user->city == null){{'-'}}@else{{$user->city->title}}@endif</td>
                                             <td>@if($user->republic == null){{'-'}}@else{{$user->republic->title}}@endif</td>
                                             <td>@if($user->district == null){{'-'}}@else{{$user->district->title}}@endif</td>

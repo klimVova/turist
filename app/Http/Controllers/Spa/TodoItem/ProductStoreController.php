@@ -15,6 +15,7 @@ class ProductStoreController extends Controller
         SpaTodoProduct::create([
             'spa_todo_item_id' => $spaTodoItem->id,
             'title' => $request->title,
+            'price' => $request->price,
         ]);
         return redirect()->route('spa.todolist.index');
     }

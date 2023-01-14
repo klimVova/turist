@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0"> Список услуг</h1>
+                        <h1 class="m-0"> Услуги</h1>
                     </div><!-- /.col -->
 
                 </div><!-- /.row -->
@@ -19,7 +19,7 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-9">
                         <form action="{{route('spa.todolist.store')}}" method="POST" class="w-55">
                             @csrf
                             <div class="input-group">
@@ -32,83 +32,100 @@
                             </div>
                         </form>
                         @if(count($spaTodoLists))
-                            <ul class="list-group list-group-flush mt-3">
+                            <ul style="background:antiquewhite;" class="list-group mt-3">
                                 @foreach($spaTodoLists as $spaTodoList)
                                     <li class="list-group-item justify-content-sm-between d-flex">
-                                        {{$spaTodoList->title}}
-                                        <a href="{{route('spa.todolist.edit', $spaTodoList->id)}}"
-                                           class='text-success'><i class="fas fa-pencil-alt"></i></a></td>
-                                        <form action="{{route('spa.todolist.delete', $spaTodoList->id)}}"
-                                              method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="border-0 bg-transparent" l>
-                                                <i class="fas fa-trash text-danger" role="button"></i>
-                                            </button>
-                                        </form>
-                                        <a style="width: 300px;height: 40px;"
-                                           href="{{route('spa.todolist.item', $spaTodoList->id)}}">
-                                            <button type="submit" class="btn btn-dark btn-sm px-4">
-                                                <i class="fas fa-plus"></i></button>
-                                        </a>
+                                        <div class="col">
+                                            <h6 class="text-indigo font-weight-bold">главная категория</h6>
+                                            <div class="d-flex justify-content-xl-between">
+                                                <div><h3>{{$spaTodoList->title}}</h3></div>
+                                                <div class="d-flex">
+                                                    <a href="{{route('spa.todolist.edit', $spaTodoList->id)}}"
+                                                       class='text-success mr-5'>
+                                                        <i class="fas fa-pencil-alt"></i></a></td>
+                                                    <form action="{{route('spa.todolist.delete', $spaTodoList->id)}}"
+                                                          method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="border-0 bg-transparent" l>
+                                                            <i class="fas fa-trash text-danger mr-5" role="button"></i>
+                                                        </button>
+                                                    </form>
+                                                    <a style="width: 50px;height: 40px;"
+                                                       href="{{route('spa.todolist.item', $spaTodoList->id)}}">
+                                                        <button type="submit" class="btn btn-dark btn-sm px-4">
+                                                            <i class="fas fa-plus"></i></button>
+                                                    </a></div>
+                                            </div>
+                                        </div>
                                     </li>
                                     <table class="table">
                                         <thead>
                                         <tr>
-                                            <th scope="col">Название</th>
+                                            <th scope="col">Подкатегория/услуга</th>
                                             <th colspan="3" class="text-center">Действие</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         @foreach($items as $item)
                                             @if($spaTodoList->id == $item->spa_todo_list_id)
-                                        <tr>
-                                            <td><h3>{{$item->title}}</h3>
-                                                <p class="list-group list-group-flush mt-3">
-                                                    @foreach($products as $product)
-                                                        @if($item->id == $product->spa_todo_item_id)
-                                                            <div class="d-flex align-items-baseline">
-                                                                <p class="p-3">{{$product->title}} </p> <hr>
-                                                                <p class="pl-5 align-items">
-                                                                    <a href="{{route('spa.todoproduct.edit', $product->id)}}"
-                                                                       class='text-success'>Редактировать</a>
-                                                                </p>
-                                                                <p class='pl-5'>
-                                                                <form action="{{route('spa.todoitem.product_remove', $product->id)}}"
-                                                                      method="post">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button type="submit" class="border-0 bg-transparent text-danger" >
-                                                                        Удалить
-                                                                    </button>
-                                                                </form>
-                                                                </p>
-                                                            </div>
-                                                        @else
-                                                        @endif
-                                                    @endforeach
-                                                </>
-                                            </td>
-                                            <td><a href="{{route('spa.todoitem.edit', $item->id)}}"
-                                                   class='text-success'><i class="fas fa-pencil-alt"></i></a></td>
-                                            <td>
-                                                <form action="{{route('spa.todolist.item_remove', $item->id )}}" method="post">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="border-0 bg-transparent" >
-                                                        <i class="fas fa-trash text-danger" role="button"></i>
-                                                    </button>
-                                                </form>
-                                            </td>
-                                            <td>
-                                                <a style="width: 300px;height: 40px;"
-                                                   href="{{route('spa.todoitem.product', $item->id)}}">
-                                                    <button type="submit" class="btn btn-dark btn-sm px-4">
-                                                        <i class="fas fa-plus"></i></button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        @endif
+                                                <tr>
+                                                    <td>
+                                                        <div class="d-flex">
+                                                            <h3>{{$item->title}}</h3>
+                                                            <h3 class="ml-5">{{$item->price}}$</h3>
+                                                        </div>
+
+
+                                                        <p class="list-group list-group-flush mt-3 ml-5">
+                                                        @foreach($products as $product)
+                                                            @if($item->id == $product->spa_todo_item_id)
+                                                                <div class="d-flex align-items-baseline ml-5">
+                                                                    <p class="p-3 font-weight-bold">{{$product->title}} </p>
+                                                                    <p class="p-3 font-weight-bold">{{$product->price}} $</p>
+                                                                    <p class="pl-5 align-items">
+                                                                        <a href="{{route('spa.todoproduct.edit', $product->id)}}"
+                                                                           class='text-success'>Редактировать</a>
+                                                                    </p>
+                                                                    <p class='pl-5'>
+                                                                    <form action="{{route('spa.todoitem.product_remove', $product->id)}}"
+                                                                          method="post">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button type="submit"
+                                                                                class="border-0 bg-transparent text-danger">
+                                                                            Удалить
+                                                                        </button>
+                                                                    </form>
+                                                                    </p>
+                                                                </div>
+                                                                <hr>
+                                                            @else
+                                                            @endif
+                                                        @endforeach
+                                                    </td>
+                                                    <td><a href="{{route('spa.todoitem.edit', $item->id)}}"
+                                                           class='text-success'><i class="fas fa-pencil-alt"></i></a>
+                                                    </td>
+                                                    <td>
+                                                        <form action="{{route('spa.todolist.item_remove', $item->id )}}"
+                                                              method="post">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="border-0 bg-transparent">
+                                                                <i class="fas fa-trash text-danger" role="button"></i>
+                                                            </button>
+                                                        </form>
+                                                    </td>
+                                                    <td>
+                                                        <a style="width: 300px;height: 40px;"
+                                                           href="{{route('spa.todoitem.product', $item->id)}}">
+                                                            <button type="submit" class="btn btn-dark btn-sm px-4">
+                                                                <i class="fas fa-plus"></i></button>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            @endif
                                         @endforeach
                                         </tbody>
                                     </table>

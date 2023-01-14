@@ -18,7 +18,6 @@ class UpdateController extends Controller
             $data['preview_image'] = Storage::disk('public')->put('/hostel_images_card', $data['preview_image']);
         }
         $hostelCard->update($data);
-       // dd($hostelCard);
         return back();
     }
 }

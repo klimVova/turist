@@ -9,6 +9,7 @@ class EditController extends Controller
 {
     public function __invoke(MedicalCard $medicalCard)
     {
-        return view('medical.card.edit' , compact('medicalCard'));
+        $medicalTags =auth()->user()->medicalTags;
+        return view('medical.card.edit' , compact('medicalCard', 'medicalTags'));
     }
 }

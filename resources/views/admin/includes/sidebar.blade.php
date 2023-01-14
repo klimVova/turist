@@ -18,6 +18,14 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{route('admin.type.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-user"></i>
+                    <p>
+                        Добавить вид организации
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{route('admin.city.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-city"></i>
                     <p>

@@ -20,6 +20,7 @@ class ProductStoreController extends Controller
         MedicalTodoProduct::create([
             'medical_todo_item_id' => $medicalTodoItem->id,
             'title' => $request->title,
+            'price' => $request->price,
         ]);
         return redirect()->route('medical.todolist.index');
     }

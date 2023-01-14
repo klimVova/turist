@@ -15,6 +15,7 @@ class ItemStoreController extends Controller
         MedicalTodoItem::create([
             'medical_todo_list_id' => $medicalTodoList->id,
             'title' => $request->title,
+            'price' => $request->price,
         ]);
         return redirect()->route('medical.todolist.index');
     }

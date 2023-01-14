@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(CafeTodoItem::class)->nullable();
             $table->string('title');
+            $table->string('price')->nullable();
             $table->timestamps();
         });
     }

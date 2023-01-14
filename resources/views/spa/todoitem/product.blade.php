@@ -12,9 +12,6 @@
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
-        <!-- /.content-header -->
-
-        <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
@@ -25,6 +22,13 @@
                         <div class="form-group ">
                             <input type="text" class="form-control" name="title" placeholder="Название поста"
                                    value="{{old('title')}}">
+                            @error('title')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group ">
+                            <input type="text" class="form-control" name="price" placeholder="Цена"
+                                   value="{{old('price')}}">
                             @error('title')
                             <div class="text-danger">{{$message}}</div>
                             @enderror

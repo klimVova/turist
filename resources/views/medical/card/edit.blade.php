@@ -30,8 +30,15 @@
                             <div class="text-danger">{{$message}}</div>
                             @enderror
                         </div>
+                        <label> Краткое описание </label>
                         <div class="form-group">
-                            <textarea id="summernote" name="content">{{$medicalCard->content}}</textarea>
+                            <textarea rows='5' cols='70' name="desc">{{$medicalCard->desc}}</textarea>
+                            @error('content')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <textarea  rows='10' cols='70' name="content">{{$medicalCard->content}}</textarea>
                             @error('content')
                             <div class="text-danger">{{$message}}</div>
                             @enderror
@@ -59,6 +66,22 @@
                             <div class="text-danger">Это поле необходимо заполнить</div>
                             @enderror
                         </div>
+                        <div class="form-group w-50">
+                            <label for="exampleInputFile">Обновить логотип</label>
+                            <div class="mb-3 d-flex">
+                                <img class="img-thumbnail" style="height: 30vh;"
+                                     src="{{ url('storage/' . $medicalCard->logo)}}" alt="logo">
+                            </div>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="logo">
+                                    <label class="custom-file-label">Выберите изображение</label>
+                                </div>
+                            </div>
+                            @error('logo')
+                            <div class="text-danger">Это поле необходимо заполнить</div>
+                            @enderror
+                        </div>
                         <div class="form-group w-25">
                             <input type="tel" class="form-control" name="phone" placeholder="Введите номер телефона"
                                    value="{{$medicalCard->phone}}">
@@ -67,11 +90,44 @@
                             @enderror
                         </div>
                         <div class="form-group w-25">
-                            <input type="text" class="form-control" name="coordinate" placeholder="Введите координаты расположение"
-                                   value="{{$medicalCard->coordinate}}">
+                            <input type="text" class="form-control" name="name_link" placeholder="Обновить название ссылки на Вашу организацию"
+                                   value="{{$medicalCard->name_link}}">
+                            @error('message')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group w-25">
+                            <input type="text" class="form-control" name="link" placeholder="Обновить ссылку на Вашу организацию"
+                                   value="{{$medicalCard->link}}">
+                            @error('phone')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group w-25">
+                            <input type="text" class="form-control" name="coordinate_l" placeholder="Введите координаты до запятой"
+                                   value="{{$medicalCard->coordinate_l}}">
                             @error('coordinate')
                             <div class="text-danger">{{$message}}</div>
                             @enderror
+                        </div>
+                        <div class="form-group w-25">
+                            <input type="text" class="form-control" name="coordinate_r" placeholder="Введите координаты после запятой"
+                                   value="{{$medicalCard->coordinate_r}}">
+                            @error('coordinate')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group w-50">
+                            <label>Тэги</label>
+                            <select class="select2" name="medical_tag_ids[]" multiple="multiple"
+                                    data-placeholder="Выберите услугу" style="width: 100%;">
+                                @foreach($medicalTags as $medicalTag)
+                                    <option
+                                            {{is_array( $medicalCard->medicalTags->pluck('id')->toArray()) && in_array($medicalTag->id, $medicalCard->medicalTags->pluck('id')->toArray()) ? ' selected' : ''}}
+                                            value="{{$medicalTag->id}}">{{$medicalTag->title}}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="Обновить">

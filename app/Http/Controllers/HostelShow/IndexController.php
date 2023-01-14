@@ -14,7 +14,6 @@ class IndexController extends Controller
     public function __invoke()
     {
         $hostelCards = HostelCard::paginate(9);
-
         return view('hostelShow.index', compact('hostelCards'));
     }
 }

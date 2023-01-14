@@ -6,15 +6,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Редактирование пункта</h1>
+                    <h1 class="m-0">Редактирование подкатегории\продукта</h1>
                 </div><!-- /.col -->
 
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
@@ -24,8 +21,15 @@
                         @csrf
                         @method('PATCH')
                         <div class="form-group w-25">
-                            <input type="text" class="form-control" name="title" placeholder="Название кофе"
+                            <input type="text" class="form-control" name="title" placeholder="Название подкатегории\продукта"
                                    value="{{$cafeTodoItem->title}}">
+                            @error('title')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group w-25">
+                            <input type="text" class="form-control" name="price" placeholder="Цена"
+                                   value="{{$cafeTodoItem->price}}">
                             @error('title')
                             <div class="text-danger">{{$message}}</div>
                             @enderror

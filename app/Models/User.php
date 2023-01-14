@@ -3,6 +3,9 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Filters\QueryFilter;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -21,7 +24,6 @@ class User extends Authenticatable
     const ROLE_SPA = 5;
 
 
-
     public static function getRoles()
     {
         return [
@@ -34,6 +36,7 @@ class User extends Authenticatable
         ];
     }
 
+    protected $guarded = false;
     /**
      * The attributes that are mass assignable.
      *
@@ -44,6 +47,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'type_id',
         'city_id',
         'republic_id',
         'district_id',
@@ -67,36 +71,55 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function scopeFilter(Builder $builder, QueryFilter $filter){
+        return $filter->apply($builder);
+    }
     public function posts()
     {
-        return $this->hasMany(Post::class, 'user_id','id');
+        return $this->hasMany(Post::class, 'user_id', 'id');
     }
-    public function city(){
-        return $this->belongsTo(City::class, 'city_id','id');
+
+    public function type()
+    {
+        return $this->belongsTo(Type::class, 'type_id', 'id');
     }
-    public function republic(){
-        return $this->belongsTo(Republic::class, 'republic_id','id');
+
+    public function city()
+    {
+        return $this->belongsTo(City::class, 'city_id', 'id');
     }
-    public function district(){
-        return $this->belongsTo(District::class, 'district_id','id');
+
+    public function republic()
+    {
+        return $this->belongsTo(Republic::class, 'republic_id', 'id');
     }
+
+    public function district()
+    {
+        return $this->belongsTo(District::class, 'district_id', 'id');
+    }
+
     //hostels
     public function hostelPosts()
     {
-        return $this->hasMany(HostelPost::class, 'user_id','id');
+        return $this->hasMany(HostelPost::class, 'user_id', 'id');
     }
+
     public function hostelCards()
     {
         return $this->hasMany(HostelCard::class, 'user_id');
     }
+
     public function hostelCategories()
     {
         return $this->hasMany(HostelCategory::class, 'user_id');
     }
+
     public function hostelTags()
     {
         return $this->hasMany(HostelTag::class, 'user_id');
     }
+
     //cafes
 
     public function cafeCards()
@@ -108,10 +131,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(CafeTime::class, 'user_id');
     }
+
     public function cafeTodoLists()
     {
         return $this->hasMany(CafeTodoList::class, 'user_id');
     }
+    public function cafeTags()
+    {
+        return $this->hasMany(CafeTag::class, 'user_id');
+    }
+
     //medical
     public function medicalCards()
     {
@@ -122,9 +151,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(MedicalTime::class, 'user_id');
     }
+
     public function medicalTodoLists()
     {
         return $this->hasMany(MedicalTodoList::class, 'user_id');
+    }
+    public function medicalTags()
+    {
+        return $this->hasMany(MedicalTag::class, 'user_id');
     }
     //spa
     public function spaCards()
@@ -136,8 +170,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(SpaTime::class, 'user_id');
     }
+
     public function spaTodoLists()
     {
         return $this->hasMany(SpaTodoList::class, 'user_id');
+    }
+    public function spaTags()
+    {
+        return $this->hasMany(SpaTag::class, 'user_id');
     }
 }

@@ -25,11 +25,18 @@ class UpdateRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
+            'desc' => 'required|string',
             'content' => 'required|string',
             'address' => 'required|string',
-            'coordinate' => 'required|string',
+            'coordinate_l' => 'required|string',
+            'coordinate_r' => 'required|string',
             'preview_image' => 'nullable|file',
+            'logo' => 'nullable|file',
             'phone' => 'required|integer',
+            'link' => 'required|string',
+            'name_link' => 'required|string',
+            'spa_tag_ids' => 'nullable|array',
+            'spa_tag_ids.*' => 'nullable|integer|exists:spa_tags,id',
         ];
     }
     public function messages(){

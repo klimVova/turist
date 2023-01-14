@@ -63,6 +63,15 @@
                             </select>
                         </div>
                         <div class="form-group w-100">
+                            <label>Выберите вид организации</label>
+                            <select name="type_id" class="form-control">
+                                @foreach($types as $type)
+                                    <option value="{{$type->id}}"
+                                            {{$type->id == $user->type_id ? ' selected' : '' }}>{{$type->title}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group w-100">
                             <label>Выберите роль организации</label>
                             <select name="role" class="form-control">
                                 @foreach($roles as $id => $role)

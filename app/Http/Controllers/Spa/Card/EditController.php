@@ -9,6 +9,7 @@ class EditController extends Controller
 {
     public function __invoke(SpaCard $spaCard)
     {
-        return view('spa.card.edit' , compact('spaCard'));
+        $spaTags =auth()->user()->spaTags;
+        return view('spa.card.edit' , compact('spaCard', 'spaTags'));
     }
 }

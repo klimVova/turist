@@ -15,7 +15,17 @@ class UpdateController extends Controller
         if (isset($data['preview_image'])) {
             $data['preview_image'] = Storage::disk('public')->put('/spa_images_card', $data['preview_image']);
         }
+        if (isset($data['logo'])) {
+            $data['logo'] = Storage::disk('public')->put('/spa_images_card', $data['logo']);
+        }
+        if (isset($data['spa_tag_ids'])) {
+            $spa_tagIds = $data['spa_tag_ids'];
+            unset($data['spa_tag_ids']);
+        }
         $spaCard->update($data);
+        if (isset($spa_tagIds)) {
+            $spaCard->spaTags()->sync($spa_tagIds);
+        }
         return redirect()->route('spa.card.index');
     }
 }

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(SpaTodoList::class);
             $table->string('title');
+            $table->string('price')->nullable();
             $table->timestamps();
         });
     }

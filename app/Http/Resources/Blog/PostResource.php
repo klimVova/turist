@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Blog;
 
+use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class PostResource extends JsonResource
@@ -20,6 +21,7 @@ class PostResource extends JsonResource
             'content' =>$this->content,
             'image_url' => $this->imageUrl,
             'category_id' => $this->category->title,
+            'created_at' => $this->created_at,
         ];
     }
 }

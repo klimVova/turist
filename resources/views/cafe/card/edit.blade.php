@@ -30,6 +30,13 @@
                             <div class="text-danger">{{$message}}</div>
                             @enderror
                         </div>
+                        <label> Краткое описание </label>
+                        <div class="form-group">
+                            <textarea rows='5' cols='70' name="desc">{{$cafeCard->desc}}</textarea>
+                            @error('content')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
                         <div class="form-group">
                             <textarea id="summernote" name="content">{{$cafeCard->content}}</textarea>
                             @error('content')
@@ -59,6 +66,23 @@
                             <div class="text-danger">Это поле необходимо заполнить</div>
                             @enderror
                         </div>
+                        <div class="form-group w-50">
+                            <label for="exampleInputFile">Обновить логотип</label>
+                            <div class="mb-3 d-flex">
+                                <img class="img-thumbnail" style="height: 30vh;"
+                                     src="{{ url('storage/' . $cafeCard->logo)}}" alt="logo">
+                            </div>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="logo">
+                                    <label class="custom-file-label">Выберите изображение</label>
+                                </div>
+                            </div>
+                            @error('logo')
+                            <div class="text-danger">Это поле необходимо заполнить</div>
+                            @enderror
+                        </div>
+
                         <div class="form-group w-25">
                             <input type="tel" class="form-control" name="phone" placeholder="Введите номер телефона"
                                    value="{{$cafeCard->phone}}">
@@ -67,12 +91,46 @@
                             @enderror
                         </div>
                         <div class="form-group w-25">
-                            <input type="text" class="form-control" name="coordinate" placeholder="Введите координаты расположение"
-                                   value="{{$cafeCard->coordinate}}">
+                            <input type="text" class="form-control" name="name_link" placeholder="Обновить название ссылки на Вашу организацию"
+                                   value="{{$cafeCard->name_link}}">
+                            @error('message')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group w-25">
+                            <input type="text" class="form-control" name="link" placeholder="Обновить ссылку на Вашу организацию"
+                                   value="{{$cafeCard->link}}">
+                            @error('phone')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group w-25">
+                            <input type="text" class="form-control" name="coordinate_l" placeholder="Введите координаты до запятой"
+                                   value="{{$cafeCard->coordinate_l}}">
                             @error('coordinate')
                             <div class="text-danger">{{$message}}</div>
                             @enderror
                         </div>
+                        <div class="form-group w-25">
+                            <input type="text" class="form-control" name="coordinate_r" placeholder="Введите координаты после запятой"
+                                   value="{{$cafeCard->coordinate_r}}">
+                            @error('coordinate')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group w-50">
+                            <label>Тэги</label>
+                            <select class="select2" name="cafe_tag_ids[]" multiple="multiple"
+                                    data-placeholder="Выберите услугу" style="width: 100%;">
+                                @foreach($cafeTags as $cafeTag)
+                                    <option
+                                            {{is_array( $cafeCard->cafeTags->pluck('id')->toArray()) && in_array($cafeTag->id, $cafeCard->cafeTags->pluck('id')->toArray()) ? ' selected' : ''}}
+                                            value="{{$cafeTag->id}}">{{$cafeTag->title}}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="Обновить">
                         </div>

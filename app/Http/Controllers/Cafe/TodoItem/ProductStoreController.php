@@ -20,6 +20,7 @@ class ProductStoreController extends Controller
         CafeTodoProduct::create([
             'cafe_todo_item_id' => $cafeTodoItem->id,
             'title' => $request->title,
+            'price' => $request->price,
         ]);
         return redirect()->route('cafe.todolist.index');
     }

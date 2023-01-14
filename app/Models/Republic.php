@@ -13,4 +13,17 @@ class Republic extends Model
 
     protected $table = 'republics';
     protected $guarded = false;
+
+    public function cafeCards()
+    {
+        return $this->hasMany(CafeCard::class, 'republic_id');
+    }
+    public function medicalCards()
+    {
+        return $this->hasMany(MedicalCard::class, 'republic_id');
+    }
+    public function spaCards()
+    {
+        return $this->hasMany(SpaCard::class, 'republic_id');
+    }
 }

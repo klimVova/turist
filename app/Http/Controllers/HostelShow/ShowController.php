@@ -15,7 +15,6 @@ class ShowController extends Controller
     {
         $posts =  DB::table('hostel_posts')->where('user_id', '=', $hostelCard->user_id)->get();
         $categories = DB::table('hostel_categories')->where('user_id', '=', $hostelCard->user_id)->get();
-
         return view('hostelShow.show', compact('hostelCard', 'posts', 'categories'));
     }
 }

@@ -13,8 +13,16 @@ class StoreController extends Controller
     {
 
         $data = $request->validated();
+        if (isset($data['medical_tag_ids'])) {
+            $medical_tagIds = $data['medical_tag_ids'];
+            unset($data['medical_tag_ids']);
+        }
         $data['preview_image'] = Storage::disk('public')->put('/medical_images_card', $data['preview_image']);
-        MedicalCard::firstOrCreate($data);
+        $data['logo'] = Storage::disk('public')->put('/medical_images_card', $data['logo']);
+        $medicalCard = MedicalCard::firstOrCreate($data);
+        if (isset($medical_tagIds)) {
+            $medicalCard->medicalTags()->attach($medical_tagIds);
+        }
         return redirect()->route('medical.card.index');
     }
 }

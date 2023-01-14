@@ -21,6 +21,7 @@ class UpdateController extends Controller
             unset($data['hostel_tag_ids']);
         }
         $hostelPost->update($data);
+
         if (isset($hostel_tagIds)) {
             $hostelPost->tags()->sync($hostel_tagIds);
         }

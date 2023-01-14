@@ -13,4 +13,18 @@ class City extends Model
 
     protected $table = 'cities';
     protected $guarded = false;
+
+
+    public function cafeCards()
+    {
+        return $this->hasMany(CafeCard::class, 'city_id');
+    }
+    public function medicalCards()
+    {
+        return $this->hasMany(MedicalCard::class, 'city_id');
+    }
+    public function spaCards()
+    {
+        return $this->hasMany(SpaCard::class, 'city_id');
+    }
 }

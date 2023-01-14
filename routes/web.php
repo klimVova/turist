@@ -109,6 +109,15 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::patch('/{category}', UpdateController::class)->name('admin.category.update');
         Route::delete('/{category}', DeleteController::class)->name('admin.category.delete');
     });
+    Route::group(['namespace' => 'Type', 'prefix' => 'types'], function () {
+        Route::get('/', IndexController::class)->name('admin.type.index');
+        Route::get('/create', CreateController::class)->name('admin.type.create');
+        Route::post('/', StoreController::class)->name('admin.type.store');
+        Route::get('/{type}', ShowController::class)->name('admin.type.show');
+        Route::get('/{type}/edit', EditController::class)->name('admin.type.edit');
+        Route::patch('/{type}', UpdateController::class)->name('admin.type.update');
+        Route::delete('/{type}', DeleteController::class)->name('admin.type.delete');
+    });
     Route::group(['namespace' => 'city', 'prefix' => 'cities'], function () {
         Route::get('/', IndexController::class)->name('admin.city.index');
         Route::get('/create', CreateController::class)->name('admin.city.create');
@@ -180,6 +189,15 @@ Route::group(['namespace' => 'Cafe', 'prefix' => 'cafe', 'middleware' => ['auth'
         Route::patch('/{cafeCard}', UpdateController::class)->name('cafe.card.update');
         Route::delete('/{cafeCard}', DeleteController::class)->name('cafe.card.delete');
     });
+    Route::group(['namespace' => 'Tag','prefix' => 'tags'], function () {
+        Route::get('/', IndexController::class)->name('cafe.tag.index');
+        Route::get('/create', CreateController::class)->name('cafe.tag.create');
+        Route::post('/', StoreController::class)->name('cafe.tag.store');
+        Route::get('/{cafeTag}', ShowController::class)->name('cafe.tag.show');
+        Route::get('/{cafeTag}/edit', EditController::class)->name('cafe.tag.edit');
+        Route::patch('/{cafeTag}', UpdateController::class)->name('cafe.tag.update');
+        Route::delete('/{cafeTag}', DeleteController::class)->name('cafe.tag.delete');
+    });
     Route::group(['namespace' => 'Time','prefix' => 'times'],  function () {
         Route::get('/', IndexController::class)->name('cafe.time.index');
         Route::get('/create', CreateController::class)->name('cafe.time.create');
@@ -228,6 +246,15 @@ Route::group(['namespace' => 'Medical', 'prefix' => 'medical', 'middleware' => [
         Route::patch('/{medicalCard}', UpdateController::class)->name('medical.card.update');
         Route::delete('/{medicalCard}', DeleteController::class)->name('medical.card.delete');
     });
+    Route::group(['namespace' => 'Tag','prefix' => 'tags'], function () {
+        Route::get('/', IndexController::class)->name('medical.tag.index');
+        Route::get('/create', CreateController::class)->name('medical.tag.create');
+        Route::post('/', StoreController::class)->name('medical.tag.store');
+        Route::get('/{medicalTag}', ShowController::class)->name('medical.tag.show');
+        Route::get('/{medicalTag}/edit', EditController::class)->name('medical.tag.edit');
+        Route::patch('/{medicalTag}', UpdateController::class)->name('medical.tag.update');
+        Route::delete('/{medicalTag}', DeleteController::class)->name('medical.tag.delete');
+    });
     Route::group(['namespace' => 'Time','prefix' => 'times'],  function () {
         Route::get('/', IndexController::class)->name('medical.time.index');
         Route::get('/create', CreateController::class)->name('medical.time.create');
@@ -275,6 +302,15 @@ Route::group(['namespace' => 'Spa', 'prefix' => 'spa', 'middleware' => ['auth', 
         Route::get('/{spaCard}/edit', EditController::class)->name('spa.card.edit');
         Route::patch('/{spaCard}', UpdateController::class)->name('spa.card.update');
         Route::delete('/{spaCard}', DeleteController::class)->name('spa.card.delete');
+    });
+    Route::group(['namespace' => 'Tag','prefix' => 'tags'], function () {
+        Route::get('/', IndexController::class)->name('spa.tag.index');
+        Route::get('/create', CreateController::class)->name('spa.tag.create');
+        Route::post('/', StoreController::class)->name('spa.tag.store');
+        Route::get('/{spaTag}', ShowController::class)->name('spa.tag.show');
+        Route::get('/{spaTag}/edit', EditController::class)->name('spa.tag.edit');
+        Route::patch('/{spaTag}', UpdateController::class)->name('spa.tag.update');
+        Route::delete('/{spaTag}', DeleteController::class)->name('spa.tag.delete');
     });
     Route::group(['namespace' => 'Time','prefix' => 'times'],  function () {
         Route::get('/', IndexController::class)->name('spa.time.index');

@@ -29,8 +29,15 @@
                             <div class="text-danger">{{$message}}</div>
                             @enderror
                         </div>
+                        <label>краткое описание</label>
                         <div class="form-group">
-                            <textarea id="summernote" name="content">{{old('content')}}</textarea>
+                            <textarea rows='5' cols='70' name="desc">{{old('desc')}}</textarea>
+                            @error('content')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="10" cols="70" name="content">{{old('content')}}</textarea>
                             @error('content')
                             <div class="text-danger">{{$message}}</div>
                             @enderror
@@ -57,6 +64,22 @@
                             <div class="text-danger">Это поле необходимо заполнить</div>
                             @enderror
                         </div>
+                        <div class="form-group w-50">
+                            <label for="exampleInputFile">Добавить логотип организации</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="logo">
+                                    <label class="custom-file-label">Выберите логоти</label>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Загрузить</span>
+                                </div>
+                            </div>
+                            @error('logo')
+                            <div class="text-danger">Это поле необходимо заполнить</div>
+                            @enderror
+                        </div>
+
                         <div class="form-group w-25">
                             <input type="tel" class="form-control" name="phone" placeholder="Введите номер телефона"
                                    value="{{old('phone')}}">
@@ -65,11 +88,79 @@
                             @enderror
                         </div>
                         <div class="form-group w-25">
-                            <input type="text" class="form-control" name="coordinate" placeholder="Введите координаты расположения"
-                                   value="{{old('coordinate')}}">
+                            <input type="text" class="form-control" name="name_link" placeholder="Введите название ccылки на сайт вашей организации"
+                                   value="{{old('name_link')}}">
+                            @error('link')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group w-25">
+                            <input type="text" class="form-control" name="link" placeholder="Введите ccылку на сайт вашей организации"
+                                   value="{{old('link')}}">
+                            @error('link')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group w-25">
+                            <input type="text" class="form-control" name="coordinate_l" placeholder="Введите координаты расположения, до запятой"
+                                   value="{{old('coordinate_l')}}">
                             @error('coordinate')
                             <div class="text-danger">{{$message}}</div>
                             @enderror
+                        </div>
+                        <div class="form-group w-25">
+                            <input type="text" class="form-control" name="coordinate_r" placeholder="Введите координаты расположения, после запятой"
+                                   value="{{old('coordinate_r')}}">
+                            @error('coordinate')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group w-50">
+                            <label>Выберите тип организации</label>
+                            <select name="type_id" class="form-control">
+                                @foreach($types as $type)
+                                    <option value="{{$type->id}}"
+                                            {{$type->id == old('type_id') ? ' selected' : '' }}>{{$type->title}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group w-50">
+                            <label>Выберите округ</label>
+                            <select name="district_id" class="form-control">
+                                @foreach($districts as $district)
+                                    <option value="{{$district->id}}"
+                                            {{$district->id == old('district_id') ? ' selected' : '' }}>{{$district->title}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group w-50">
+                            <label>Выберите республику</label>
+                            <select name="republic_id" class="form-control">
+                                @foreach($republics as $republic)
+                                    <option value="{{$republic->id}}"
+                                            {{$republic->id == old('republic_id') ? ' selected' : '' }}>{{$republic->title}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group w-50">
+                            <label>Выберите город</label>
+                            <select name="city_id" class="form-control">
+                                @foreach($cities as $city)
+                                    <option value="{{$city->id}}"
+                                            {{$city->id == old('city_id') ? ' selected' : '' }}>{{$city->title}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group w-50">
+                            <label>Тэги</label>
+                            <select class="select2" name="cafe_tag_ids[]" multiple="multiple"
+                                    data-placeholder="Выберите тэги" style="width: 100%;">
+                                @foreach($cafeTags as $cafeTag)
+                                    <option
+                                            {{is_array(old('$cafeTag_ids')) && in_array($cafeTag->id, old('cafeTag_ids')) ? ' selected' : ''}}
+                                            value="{{$cafeTag->id}}">{{$cafeTag->title}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group w-50">
                             <input type="hidden" name="user_id" value="{{$user}}">
