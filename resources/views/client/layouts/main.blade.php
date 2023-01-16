@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="{{asset('assets/md/css/mdb.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/js/animate.css')}}">
     <link rel="icon" type="image/png" href="{{asset('assets/img/fav.png')}}" />
-
+    <scritp src="{{asset('assets/js/app.js')}}" defer></scritp>
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/index.css')}}">
     <title>ТурМедДрайвер</title>
 </head>
