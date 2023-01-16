@@ -1,0 +1,50 @@
+<template>
+  <div>
+    <div class="container-fluid main catalog">
+      <div class="section-label">
+        <h2>Каталог</h2>
+        <hr>
+
+      </div>
+      <div class="row sort">
+        <div class="col  col-md-2"></div>
+        <div class="col  col-md-10">
+          <div class="org-type-sort">
+            <ul>
+                <router-link
+                    exact
+                    active-class="active"
+                    :to="{name:'med'}">
+                  <li>Мед.центр</li>
+                </router-link>
+              <router-link
+                  active-class="active"
+                  :to="{name:'spa'}">
+                <li>СПА\Бьюти</li>
+              </router-link>
+              <router-link
+                  active-class="active"
+                  :to="{name:'cafe'}">
+                <li>Кафе\Рестораны</li>
+              </router-link>
+            </ul>
+          </div>
+        </div>
+        <div class="container-fluid">
+        <router-view></router-view>
+        </div>
+      </div>
+
+      </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "Catalogs",
+}
+</script>
+
+<style scoped>
+
+</style>

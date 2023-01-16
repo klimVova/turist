@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['prefix' => 'main'],function (){
 
 Route::group(['namespace' => 'Main'], function () {
     Route::get('/', IndexController::class)->name('main.index');
@@ -118,7 +119,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::patch('/{type}', UpdateController::class)->name('admin.type.update');
         Route::delete('/{type}', DeleteController::class)->name('admin.type.delete');
     });
-    Route::group(['namespace' => 'city', 'prefix' => 'cities'], function () {
+    Route::group(['namespace' => 'City', 'prefix' => 'cities'], function () {
         Route::get('/', IndexController::class)->name('admin.city.index');
         Route::get('/create', CreateController::class)->name('admin.city.create');
         Route::post('/', StoreController::class)->name('admin.city.store');
@@ -127,7 +128,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::patch('/{city}', UpdateController::class)->name('admin.city.update');
         Route::delete('/{city}', DeleteController::class)->name('admin.city.delete');
     });
-    Route::group(['namespace' => 'republic', 'prefix' => 'republics'], function () {
+    Route::group(['namespace' => 'Republic', 'prefix' => 'republics'], function () {
         Route::get('/', IndexController::class)->name('admin.republic.index');
         Route::get('/create', CreateController::class)->name('admin.republic.create');
         Route::post('/', StoreController::class)->name('admin.republic.store');
@@ -136,7 +137,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::patch('/{republic}', UpdateController::class)->name('admin.republic.update');
         Route::delete('/{republic}', DeleteController::class)->name('admin.republic.delete');
     });
-    Route::group(['namespace' => 'district', 'prefix' => 'districts'], function () {
+    Route::group(['namespace' => 'District', 'prefix' => 'districts'], function () {
         Route::get('/', IndexController::class)->name('admin.district.index');
         Route::get('/create', CreateController::class)->name('admin.district.create');
         Route::post('/', StoreController::class)->name('admin.district.store');
@@ -346,5 +347,6 @@ Route::group(['namespace' => 'Spa', 'prefix' => 'spa', 'middleware' => ['auth', 
     });
 });
 
+});
 Auth::routes();
-
+Route::get('{page}', \App\Http\Controllers\Client\IndexController::class)->where('page','.*');
