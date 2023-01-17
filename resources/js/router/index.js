@@ -51,11 +51,6 @@ const router = createRouter({
             name: 'single_blog',
             component: () => import('../views/blogItem.vue')
         },
-        {
-            path: '/login',
-            name: 'login',
-            component: () => import('../../views/layouts/app.blade.php')
-        }
     ],
     mode: 'history'
 })
