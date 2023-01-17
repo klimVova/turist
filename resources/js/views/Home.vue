@@ -60,7 +60,6 @@ export default {
     blog,
   },
   mounted() {
-    console.log(this.$refs.index.getFilter());
   }
 }
 </script>

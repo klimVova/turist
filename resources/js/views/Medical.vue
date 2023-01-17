@@ -102,6 +102,9 @@ export default {
           .then(res => {
             this.medicals = res.data.data
           })
+          .catch(e => {
+            commit('SET_LOAD_ERROR')
+          })
     },
     getFilter() {
       this.axios.post('/api/medicals', {
@@ -118,11 +121,17 @@ export default {
             this.medicals = res.data.data
             console.log(this.medicals);
           })
+          .catch(e => {
+            commit('SET_LOAD_ERROR')
+          })
     },
     getFilterList() {
       this.axios.get('/api/medicals/filters',)
           .then(res => {
             this.filterList = res.data
+          })
+          .catch(e => {
+            commit('SET_LOAD_ERROR')
           })
     },
     getSearch() {

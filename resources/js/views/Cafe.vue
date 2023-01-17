@@ -94,7 +94,9 @@ export default {
       this.axios.post('/api/cafes', {})
           .then(res => {
             this.cafes = res.data.data
-            console.log(res);
+          })
+          .catch(e => {
+            commit('SET_LOAD_ERROR')
           })
     },
     getFilter() {
@@ -111,11 +113,17 @@ export default {
             this.state.republic = ''
             this.cafes = res.data.data
           })
+          .catch(e => {
+            commit('SET_LOAD_ERROR')
+          })
     },
     getFilterList() {
       this.axios.get('/api/cafes/filters',)
           .then(res => {
             this.filterList = res.data
+          })
+          .catch(e => {
+            commit('SET_LOAD_ERROR')
           })
     },
     getSearch() {

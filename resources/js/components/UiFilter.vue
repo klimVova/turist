@@ -74,6 +74,9 @@ export default {
           .then(res => {
             this.filterList = res.data
           })
+          .catch(e => {
+            commit('SET_LOAD_ERROR')
+          })
     },
   },
   mounted() {

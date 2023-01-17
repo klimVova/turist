@@ -35,6 +35,9 @@ export default {
             this.post = res.data.data
             console.log(res);
           })
+          .catch(e => {
+            commit('SET_LOAD_ERROR')
+          })
     }
   },
   mounted() {

@@ -140,7 +140,9 @@ export default {
       this.axios.get('/api/cafetimes')
           .then(res => {
             this.times = res.data.data;
-            console.log(res);
+          })
+          .catch(e => {
+            commit('SET_LOAD_ERROR')
           })
     },
     getList() {
@@ -148,17 +150,26 @@ export default {
           .then(res => {
             this.lists = res.data.data;
           })
+          .catch(e => {
+            commit('SET_LOAD_ERROR')
+          })
     },
     getItem() {
       this.axios.get('/api/cafeitems')
           .then(res => {
             this.items = res.data.data;
           })
+          .catch(e => {
+            commit('SET_LOAD_ERROR')
+          })
     },
     getProduct() {
       this.axios.get('/api/cafeproducts')
           .then(res => {
             this.products = res.data.data;
+          })
+          .catch(e => {
+            commit('SET_LOAD_ERROR')
           })
     },
     getCard() {
@@ -192,6 +203,9 @@ export default {
             }
 
             ymaps.ready(init);
+          })
+          .catch(e => {
+            commit('SET_LOAD_ERROR')
           })
     },
   },
