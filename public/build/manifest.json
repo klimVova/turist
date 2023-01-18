@@ -1,0 +1,126 @@
+{
+  "resources/js/app.js": {
+    "file": "assets/app.2a8b07f4.js",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "resources/js/views/Home.vue",
+      "resources/js/views/Catalogs.vue",
+      "resources/js/views/Medical.vue",
+      "resources/js/views/Spa.vue",
+      "resources/js/views/Cafe.vue",
+      "resources/js/views/medicalCard.vue",
+      "resources/js/views/spaCard.vue",
+      "resources/js/views/cafeCard.vue",
+      "resources/js/views/blogItem.vue"
+    ]
+  },
+  "resources/js/views/Home.vue": {
+    "file": "assets/Home.57a8c094.js",
+    "src": "resources/js/views/Home.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_global.fb101c82.js"
+    ]
+  },
+  "_global.fb101c82.js": {
+    "file": "assets/global.fb101c82.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/views/Catalogs.vue": {
+    "file": "assets/Catalogs.ed98a50c.js",
+    "src": "resources/js/views/Catalogs.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/views/Medical.vue": {
+    "file": "assets/Medical.d0a4d7de.js",
+    "src": "resources/js/views/Medical.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_global.fb101c82.js",
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/Medical.b5eca04e.css"
+    ]
+  },
+  "resources/js/views/Spa.vue": {
+    "file": "assets/Spa.05567e61.js",
+    "src": "resources/js/views/Spa.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_global.fb101c82.js",
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/Spa.a87a84db.css"
+    ]
+  },
+  "resources/js/views/Cafe.vue": {
+    "file": "assets/Cafe.80adb2ba.js",
+    "src": "resources/js/views/Cafe.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_global.fb101c82.js",
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/Cafe.cedddeb8.css"
+    ]
+  },
+  "resources/js/views/medicalCard.vue": {
+    "file": "assets/medicalCard.2f7dff83.js",
+    "src": "resources/js/views/medicalCard.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/views/spaCard.vue": {
+    "file": "assets/spaCard.7d355a97.js",
+    "src": "resources/js/views/spaCard.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/views/cafeCard.vue": {
+    "file": "assets/cafeCard.a3de4cb4.js",
+    "src": "resources/js/views/cafeCard.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/views/blogItem.vue": {
+    "file": "assets/blogItem.4fdd689d.js",
+    "src": "resources/js/views/blogItem.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/views/Medical.css": {
+    "file": "assets/Medical.b5eca04e.css",
+    "src": "resources/js/views/Medical.css"
+  },
+  "resources/js/views/Cafe.css": {
+    "file": "assets/Cafe.cedddeb8.css",
+    "src": "resources/js/views/Cafe.css"
+  },
+  "resources/js/views/Spa.css": {
+    "file": "assets/Spa.a87a84db.css",
+    "src": "resources/js/views/Spa.css"
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app.67dcdfd2.css",
+    "src": "resources/sass/app.scss",
+    "isEntry": true
+  }
+}
