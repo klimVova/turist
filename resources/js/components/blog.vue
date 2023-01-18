@@ -42,9 +42,7 @@ export default {
           .then(res => {
             this.posts = res.data.data
           })
-          .catch(e => {
-            commit('SET_LOAD_ERROR')
-          })
+
     }
   },
   mounted() {

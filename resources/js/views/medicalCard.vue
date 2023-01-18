@@ -141,9 +141,6 @@ export default {
           .then(res => {
             this.times = res.data.data;
           })
-          .catch(e => {
-            commit('SET_LOAD_ERROR')
-          })
     },
     getList() {
       this.axios.get('/api/list')
@@ -151,26 +148,17 @@ export default {
             this.lists = res.data.data;
             this.cats = res.data.data;
           })
-          .catch(e => {
-            commit('SET_LOAD_ERROR')
-          })
     },
     getItem() {
       this.axios.get('/api/item')
           .then(res => {
             this.items = res.data.data;
           })
-          .catch(e => {
-            commit('SET_LOAD_ERROR')
-          })
     },
     getProduct() {
       this.axios.get('/api/product')
           .then(res => {
             this.products = res.data.data;
-          })
-          .catch(e => {
-            commit('SET_LOAD_ERROR')
           })
     },
     getCard() {
@@ -201,9 +189,6 @@ export default {
             }
 
             ymaps.ready(init);
-          })
-          .catch(e => {
-            commit('SET_LOAD_ERROR')
           })
     },
   },
