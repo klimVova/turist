@@ -140,8 +140,8 @@ export default {
       this.axios.get('/api/spatimes')
           .then(res => {
             this.times = res.data.data;
-            console.log(res);
           })
+
     },
     getList() {
       this.axios.get('/api/spalists')
@@ -154,13 +154,14 @@ export default {
           .then(res => {
             this.items = res.data.data;
           })
+
     },
     getProduct() {
       this.axios.get('/api/spaproducts')
           .then(res => {
             this.products = res.data.data;
-            console.log(res);
           })
+
     },
     getCard() {
       this.axios.get('/api/spa/' + this.$route.params.id)
@@ -193,6 +194,7 @@ export default {
 
             ymaps.ready(init);
           })
+
     },
   },
   mounted() {

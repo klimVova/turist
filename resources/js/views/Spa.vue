@@ -111,14 +111,15 @@ export default {
             this.state.district = ''
             this.state.republic = ''
             this.spa = res.data.data
-            console.log(this.spa);
           })
+
     },
     getFilterList() {
       this.axios.get('/api/spa/filters',)
           .then(res => {
             this.filterList = res.data
           })
+
     },
     getSearch() {
       const raw = localStorage.getItem('person')
