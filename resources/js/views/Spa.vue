@@ -97,9 +97,6 @@ export default {
           .then(res => {
             this.spa = res.data.data
           })
-          .catch(e => {
-            commit('SET_LOAD_ERROR')
-          })
     },
     getFilter() {
       this.axios.post('/api/spa', {
@@ -114,12 +111,6 @@ export default {
             this.state.district = ''
             this.state.republic = ''
             this.spa = res.data.data
-<<<<<<< HEAD
-          })
-          .catch(e => {
-            commit('SET_LOAD_ERROR')
-=======
->>>>>>> devs
           })
 
     },
@@ -128,13 +119,6 @@ export default {
           .then(res => {
             this.filterList = res.data
           })
-<<<<<<< HEAD
-          .catch(e => {
-            commit('SET_LOAD_ERROR')
-          })
-=======
-
->>>>>>> devs
     },
     getSearch() {
       const raw = localStorage.getItem('person')

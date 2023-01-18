@@ -140,49 +140,26 @@ export default {
       this.axios.get('/api/spatimes')
           .then(res => {
             this.times = res.data.data;
-<<<<<<< HEAD
           })
-          .catch(e => {
-            commit('SET_LOAD_ERROR')
-=======
->>>>>>> devs
-          })
-
     },
     getList() {
       this.axios.get('/api/spalists')
           .then(res => {
             this.lists = res.data.data;
           })
-          .catch(e => {
-            commit('SET_LOAD_ERROR')
-          })
+
     },
     getItem() {
       this.axios.get('/api/spaitems')
           .then(res => {
             this.items = res.data.data;
           })
-<<<<<<< HEAD
-          .catch(e => {
-            commit('SET_LOAD_ERROR')
-          })
-=======
-
->>>>>>> devs
     },
     getProduct() {
       this.axios.get('/api/spaproducts')
           .then(res => {
             this.products = res.data.data;
-<<<<<<< HEAD
           })
-          .catch(e => {
-            commit('SET_LOAD_ERROR')
-=======
->>>>>>> devs
-          })
-
     },
     getCard() {
       this.axios.get('/api/spa/' + this.$route.params.id)
@@ -215,13 +192,6 @@ export default {
 
             ymaps.ready(init);
           })
-<<<<<<< HEAD
-          .catch(e => {
-            commit('SET_LOAD_ERROR')
-          })
-=======
-
->>>>>>> devs
     },
   },
   mounted() {
