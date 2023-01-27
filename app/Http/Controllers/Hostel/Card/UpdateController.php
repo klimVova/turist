@@ -17,7 +17,19 @@ class UpdateController extends Controller
         if (isset($data['preview_image'])) {
             $data['preview_image'] = Storage::disk('public')->put('/hostel_images_card', $data['preview_image']);
         }
+        if (isset($data['logo'])) {
+            $data['logo'] = Storage::disk('public')->put('/hostel_images_card', $data['logo']);
+        }
+        if (isset($data['hostel_cardTag_ids'])) {
+            $hostel_tagIds = $data['hostel_cardTag_ids'];
+            unset($data['hostel_cardTag_ids']);
+        }
         $hostelCard->update($data);
-        return back();
+
+        if (isset($hostel_tagIds)) {
+            $hostelCard->tags()->sync($hostel_tagIds);
+        }
+
+        return redirect()->route('hostel.card.index');
     }
 }

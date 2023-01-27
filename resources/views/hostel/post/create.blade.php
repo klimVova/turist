@@ -84,7 +84,7 @@
                                         data-placeholder="Выберите тэги" style="width: 100%;">
                                     @foreach($hostelTags as $hostelTag)
                                         <option
-                                                {{is_array(old('$hostelTag_ids')) && in_array($hostelTag->id, old('hostelTag_ids')) ? ' selected' : ''}}
+                                                {{is_array(old('hostelTag_ids')) && in_array($hostelTag->id, old('hostelTag_ids')) ? ' selected' : ''}}
                                                 value="{{$hostelTag->id}}">{{$hostelTag->title}}</option>
                                     @endforeach
                                 </select>

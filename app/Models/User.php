@@ -119,7 +119,18 @@ class User extends Authenticatable
     {
         return $this->hasMany(HostelTag::class, 'user_id');
     }
-
+    public function hostelCardTag()
+    {
+        return $this->hasMany(HostelCardTag::class, 'user_id');
+    }
+    public function hostelActions()
+    {
+        return $this->hasMany(HostelAction::class, 'user_id');
+    }
+    public function hostelServics()
+    {
+        return $this->hasMany(HostelServic::class, 'user_id');
+    }
     //cafes
 
     public function cafeCards()

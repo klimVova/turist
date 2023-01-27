@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('hostel_cards', function (Blueprint $table) {
-            $table->unsignedBigInteger('phone')->nullable();
+        Schema::create('hostel_card_tags', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('hostel_cards', function (Blueprint $table) {
-            $table->dropColumn('phone');
-        });
+        Schema::dropIfExists('hostel_card_tags');
     }
 };

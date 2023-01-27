@@ -41,6 +41,30 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{route('hostel.tagCard.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-list-ul"></i>
+                    <p>
+                        Услуги (вывод в каталог)
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('hostel.action.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-tag"></i>
+                    <p>
+                        Преференции для клиентов платформы
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('hostel.servic.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-tags"></i>
+                    <p>
+                        Услуги и удобства
+                    </p>
+                </a>
+            </li>
         </ul>
     </div>
     <!-- /.sidebar -->

@@ -78,6 +78,36 @@ Route::group(['namespace' => 'Hostel', 'prefix' => 'hostel', 'middleware' => ['a
         Route::get('/{hostelCard}/edit', EditController::class)->name('hostel.card.edit');
         Route::patch('/{hostelCard}', UpdateController::class)->name('hostel.card.update');
         Route::delete('/{hostelCard}', DeleteController::class)->name('hostel.card.delete');
+        Route::get('/{hostelCard}/image/',ImageController::class)->name('hostel.card.image');
+        Route::post('/{hostelCard}/image/',ImageStoreController::class)->name('hostel.card.image_store');
+        Route::delete('{hostelCard}/image/',ImageRemoveController::class)->name('hostel.card.image_remove');
+    });
+    Route::group(['namespace' => 'TagCard','prefix' => 'cardTags'], function () {
+        Route::get('/', IndexController::class)->name('hostel.tagCard.index');
+        Route::get('/create', CreateController::class)->name('hostel.tagCard.create');
+        Route::post('/', StoreController::class)->name('hostel.tagCard.store');
+        Route::get('/{hostelCardTag}', ShowController::class)->name('hostel.tagCard.show');
+        Route::get('/{hostelCardTag}/edit', EditController::class)->name('hostel.tagCard.edit');
+        Route::patch('/{hostelCardTag}', UpdateController::class)->name('hostel.tagCard.update');
+        Route::delete('/{hostelCardTag}', DeleteController::class)->name('hostel.tagCard.delete');
+    });
+    Route::group(['namespace' => 'Action','prefix' => 'action'], function () {
+        Route::get('/', IndexController::class)->name('hostel.action.index');
+        Route::get('/create', CreateController::class)->name('hostel.action.create');
+        Route::post('/', StoreController::class)->name('hostel.action.store');
+        Route::get('/{hostelAction}', ShowController::class)->name('hostel.action.show');
+        Route::get('/{hostelAction}/edit', EditController::class)->name('hostel.action.edit');
+        Route::patch('/{hostelAction}', UpdateController::class)->name('hostel.action.update');
+        Route::delete('/{hostelAction}', DeleteController::class)->name('hostel.action.delete');
+    });
+    Route::group(['namespace' => 'Servic','prefix' => 'servic'], function () {
+        Route::get('/', IndexController::class)->name('hostel.servic.index');
+        Route::get('/create', CreateController::class)->name('hostel.servic.create');
+        Route::post('/', StoreController::class)->name('hostel.servic.store');
+        Route::get('/{hostelServic}', ShowController::class)->name('hostel.servic.show');
+        Route::get('/{hostelServic}/edit', EditController::class)->name('hostel.servic.edit');
+        Route::patch('/{hostelServic}', UpdateController::class)->name('hostel.servic.update');
+        Route::delete('/{hostelServic}', DeleteController::class)->name('hostel.servic.delete');
     });
 });
 

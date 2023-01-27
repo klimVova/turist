@@ -11,6 +11,7 @@ class EditController extends Controller
 {
     public function __invoke(HostelCard $hostelCard)
     {
-        return view('hostel.card.edit' , compact('hostelCard'));
+        $hostelCardTags =auth()->user()->hostelCardTag;
+        return view('hostel.card.edit' , compact('hostelCard','hostelCardTags'));
     }
 }

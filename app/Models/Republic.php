@@ -26,4 +26,8 @@ class Republic extends Model
     {
         return $this->hasMany(SpaCard::class, 'republic_id');
     }
+    public function hostelCards()
+    {
+        return $this->hasMany(HostelCard::class, 'republic_id');
+    }
 }

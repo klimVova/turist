@@ -26,4 +26,8 @@ class Type extends Model
     {
         return $this->hasMany(SpaCard::class, 'type_id');
     }
+    public function HostalCards()
+    {
+        return $this->hasMany(HostelCard::class, 'type_id');
+    }
 }

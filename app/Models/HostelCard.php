@@ -14,4 +14,11 @@ class HostelCard extends Model
     protected $table = 'hostel_cards';
     protected $guarded = false;
 
+    public function images(){
+        return $this->hasMany(HostelCardImage::class);
+    }
+
+    public function tags(){
+        return $this->belongsToMany(HostelCardTag::class, 'hostel_card_tag_cards','hostel_card_id','hostel_cardTag_id');
+    }
 }
