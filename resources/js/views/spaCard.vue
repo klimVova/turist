@@ -24,7 +24,7 @@
                   <h2>{{ card.title }}</h2>
                   <span><a href="#review">(11 отзывов)</a></span>
                   <p>{{ card.content }}</p>
-                  <input type="submit" value="Забронировать стол">
+                  <input type="submit" value="Заказать ">
                   <p></p>
                 </div>
               </div>
@@ -43,7 +43,7 @@
                   <p>{{ card.address }}</p>
                 </div>
                 <div class="number">
-                  <img src="src/assets/img/tel.svg">
+                  <img src="assets/img/tel.svg">
                   <p>{{ card.phone }}</p>
                 </div>
               </div>
@@ -60,8 +60,13 @@
                         list.title
                       }}</label>
                     <div v-for="subcat in items" class="subcategory">
-                      <label
-                          v-if="subcat.spa_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{subcat.title}}</label>
+                      <div class="d-flex col justify-content-between">
+                        <div><label
+                            v-if="subcat.spa_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{subcat.title}}</label></div>
+                        <div><label
+                            v-if="subcat.spa_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{subcat.price}}</label></div>
+                      </div>
+
                       <div v-for="product in products" class="service">
                         <div class="d-flex col justify-content-between" v-if="product.spa_todo_item_id === subcat.id && subcat.spa_todo_list_id === list.id && list.user_id === card.user_id && product.deleted_at === null ">
                           <p>{{product.title}}</p>
@@ -174,7 +179,7 @@ export default {
 
               let placemark = new ymaps.Placemark(center, {}, {
                 iconLayout: 'default#image',
-                iconImageHref: 'src/assets/img/location.png',
+                iconImageHref: 'assets/img/location.png',
                 iconImageSize: [40, 40],
                 iconImageOffset: [-19, -44]
               });

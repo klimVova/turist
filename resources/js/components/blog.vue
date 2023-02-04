@@ -8,7 +8,7 @@
         </div>
         <div class="row blog-items">
 
-          <div v-for="post in posts" class="col col-12 col-md-6 blog-item">
+          <div v-for="post in posts"  class="col col-12 col-md-6 blog-item">
             <router-link :to="'/blog/'+ post.id">
               <div class="blog-img">
                 <img :src="post.image_url" class="zoomIn wow " data-wow-offset='0'
@@ -17,7 +17,7 @@
               </div>
               <div class="blog-descr"><label>{{ post.title }}</label>
                 <p>{{ post.content }}</p>
-                <span>{{ localeDate }}</span>
+                <span>{{localeDate}}</span>
               </div>
             </router-link>
           </div>
@@ -38,11 +38,11 @@ export default {
   },
   methods: {
     getBlog() {
-      this.axios.get('http://127.0.0.1:8000/api/posts',)
+      this.axios.get('/api/posts',)
           .then(res => {
             this.posts = res.data.data
           })
-
+          .catch(error => console.log(error))
     }
   },
   mounted() {
@@ -63,5 +63,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

@@ -73,7 +73,7 @@
                                                     <td>
                                                         <div class="d-flex">
                                                             <h3>{{$item->title}}</h3>
-                                                            <h3 class="ml-5">{{$item->price}}$</h3>
+                                                            <h3 class="ml-5">{{$item->price}}</h3>
                                                         </div>
 
 

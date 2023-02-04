@@ -25,11 +25,18 @@ class UpdateRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
+            'desc' => 'required|string',
             'content' => 'required|string',
-            'location' => 'required|string',
-            'phone' => 'required|integer',
-            'coordinate' => 'required|string',
+            'address' => 'required|string',
+            'coordinate_l' => 'required|string',
+            'coordinate_r' => 'required|string',
             'preview_image' => 'nullable|file',
+            'logo' => 'nullable|file',
+            'phone' => 'required|integer',
+            'link' => 'required|string',
+            'name_link' => 'required|string',
+            'hostel_cardTag_ids' => 'nullable|array',
+            'hostel_cardTag_ids.*' => 'nullable|integer|exists:hostel_card_tags,id',
         ];
     }
     public function messages(){

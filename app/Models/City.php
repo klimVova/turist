@@ -27,4 +27,8 @@ class City extends Model
     {
         return $this->hasMany(SpaCard::class, 'city_id');
     }
+    public function hostelCards()
+    {
+        return $this->hasMany(HostelCard::class, 'city_id');
+    }
 }

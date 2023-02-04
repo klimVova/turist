@@ -6,8 +6,8 @@
           <div id="menu_categories" class="menu-categories-items">
             <ul>
               <a v-for="list in lists" :href="`#${list.title}`">
-                <div >
-                <li v-if="list.user_id === card.user_id">{{ list.title }}</li>
+                <div>
+                  <li v-if="list.user_id === card.user_id">{{ list.title }}</li>
                 </div>
               </a>
             </ul>
@@ -25,7 +25,7 @@
                   <h2>{{ card.title }} </h2>
                   <span><a href="#review">(11 отзывов)</a></span>
                   <p>{{ card.content }}</p>
-                  <input type="submit" value="Забронировать стол">
+                  <input type="submit" value="Заказать услугу">
                   <p></p>
                 </div>
               </div>
@@ -44,7 +44,7 @@
                   <p>{{ card.address }}</p>
                 </div>
                 <div class="number">
-                  <img src="src/assets/img/tel.svg">
+                  <img src="assets/img/tel.svg">
                   <p>{{ card.phone }}</p>
                 </div>
               </div>
@@ -61,12 +61,20 @@
                         list.title
                       }}</label>
                     <div v-for="subcat in items" class="subcategory">
-                      <label
-                          v-if="subcat.medical_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{subcat.title}}</label>
+                      <div class="d-flex col justify-content-between">
+                        <div><label
+                            v-if="subcat.medical_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{ subcat.title }} </label>
+                        </div>
+                        <div><label
+                            v-if="subcat.medical_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{ subcat.price }} </label>
+                        </div>
+                      </div>
+
                       <div v-for="product in products" class="service">
-                        <div class="d-flex col justify-content-between" v-if="product.medical_todo_item_id === subcat.id && subcat.medical_todo_list_id === list.id && list.user_id === card.user_id && product.deleted_at === null ">
-                          <p>{{product.title}}</p>
-                          <p>{{product.price}}</p>
+                        <div class="d-flex col justify-content-between"
+                             v-if="product.medical_todo_item_id === subcat.id && subcat.medical_todo_list_id === list.id && list.user_id === card.user_id && product.deleted_at === null ">
+                          <p>{{ product.title }}</p>
+                          <p>{{ product.price }}</p>
                         </div>
                       </div>
                     </div>
@@ -111,7 +119,6 @@
                     <p><input type="submit" value="Отправить"></p>
                   </form>
                 </div>
-
               </div>
 
             </div>
@@ -133,6 +140,10 @@ export default {
       lists: [],
       items: [],
       products: [],
+      message: [],
+      comments: [],
+      users: [],
+      user_name: [],
     }
   },
   methods: {
@@ -165,7 +176,8 @@ export default {
       this.axios.get('/api/medicals/' + this.$route.params.id)
           .then(res => {
             this.card = res.data.data;
-            let center = [this.card.coordinate_l , this.card.coordinate_r];
+            let center = [this.card.coordinate_l, this.card.coordinate_r];
+
             function init() {
               let map = new ymaps.Map('map-test', {
                 center: center,
@@ -173,7 +185,7 @@ export default {
               });
               let placemark = new ymaps.Placemark(center, {}, {
                 iconLayout: 'default#image',
-                iconImageHref: 'src/assets/img/location.png',
+                iconImageHref: 'assets/img/location.png',
                 iconImageSize: [40, 40],
                 iconImageOffset: [-19, -44]
               });
@@ -191,6 +203,26 @@ export default {
             ymaps.ready(init);
           })
     },
+    commentMed() {
+      this.axios.post(`/api/medicals/${this.card.id}/comments`, {
+        message: this.message,
+        medicalCard_id: this.card.id,
+        user_name: this.user
+      })
+          .then(res => {
+            this.getComment()
+          })
+    },
+    getComment() {
+      this.axios.get('/api/comments')
+          .then(res => {
+            this.comments = res.data.data
+            this.message = '';
+          })
+    },
+    getUsers() {
+
+    },
   },
   mounted() {
     this.getList()
@@ -198,6 +230,8 @@ export default {
     this.getTime()
     this.getItem()
     this.getProduct()
+    this.getComment()
+    this.getUsers()
   }
 }
 </script>

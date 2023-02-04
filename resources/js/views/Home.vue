@@ -3,7 +3,7 @@
     <div class="welcome">
       <div class="text">
         <div>
-          <h1>Настало время отдыха!</h1>
+          <h1>Настало время восстановления и отдыха!</h1>
           <p>200+ курортов<br>23+ санаториев</p>
           <p>для Вас и Вашей семьи!</p>
           <p>Поможем с выбором, учтем все пожелания!</p>
@@ -16,7 +16,7 @@
     </div>
 
     <div class="search fadeInUp wow">
-     <UiFilter ref="index"></UiFilter>
+      <UiFilter ref="index"></UiFilter>
     </div>
   </div>
   <div class="container-fluid">
@@ -52,7 +52,6 @@
 <script>
 import blog from "../components/blog.vue";
 import UiFilter from "../components/UiFilter.vue";
-
 export default {
   name: "Home",
   components: {
@@ -65,5 +64,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

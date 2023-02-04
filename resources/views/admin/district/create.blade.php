@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Добавить округ</h1>
+                    <h1 class="m-0">Добавить страну</h1>
                 </div><!-- /.col -->
 
             </div><!-- /.row -->
@@ -23,7 +23,7 @@
                     <form action="{{route('admin.district.store')}}" method="POST" class="w-25">
                         @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control" name="title" placeholder="Название округа">
+                            <input type="text" class="form-control" name="title" placeholder="Название страны">
                             @error('title')
                                 <div class="text-danger">Это поле необходимо заполнить</div>
                             @enderror

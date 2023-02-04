@@ -37,7 +37,7 @@
                 <a href="{{route('admin.republic.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-globe-asia"></i>
                     <p>
-                        Добавить область/республику
+                        Добавить регион
                     </p>
                 </a>
             </li>
@@ -45,7 +45,7 @@
                 <a href="{{route('admin.district.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-globe"></i>
                     <p>
-                        Добавить федеральный округ
+                        Добавить страну
                     </p>
                 </a>
             </li>

@@ -1,7 +1,5 @@
 import {reactive} from "vue";
 
-
-
 const state = reactive({
     type: 'type',
     district:'dist',

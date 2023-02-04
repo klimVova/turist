@@ -25,12 +25,23 @@ class StoreRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
+            'desc' => 'required|string',
             'content' => 'required|string',
-            'location' => 'required|string',
-            'coordinate' => 'required|string',
+            'address' => 'required|string',
+            'coordinate_l' => 'required|string',
+            'coordinate_r' => 'required|string',
             'preview_image' => 'required|file',
+            'logo' => 'required|file',
             'phone' => 'required|integer',
+            'link' => 'required|string',
+            'name_link' => 'required|string',
             'user_id' => 'required|integer|exists:users,id',
+            'type_id' => 'required|integer|exists:types,id',
+            'district_id' => 'required|integer|exists:districts,id',
+            'republic_id' => 'required|integer|exists:republics,id',
+            'city_id' => 'required|integer|exists:cities,id',
+            'hostel_cardTag_ids' => 'nullable|array',
+            'hostel_cardTag_ids.*' => 'nullable|integer|exists:hostel_card_tags,id',
         ];
     }
 
