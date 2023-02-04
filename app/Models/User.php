@@ -78,7 +78,6 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class, 'user_id', 'id');
     }
-
     public function type()
     {
         return $this->belongsTo(Type::class, 'type_id', 'id');

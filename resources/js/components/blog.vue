@@ -29,6 +29,7 @@
 </template>
 
 <script>
+
 export default {
   name: "blog",
   data() {
@@ -38,11 +39,11 @@ export default {
   },
   methods: {
     getBlog() {
-      this.axios.get('http://127.0.0.1:8000/api/posts',)
+      this.axios.get('/api/posts',)
           .then(res => {
             this.posts = res.data.data
-            console.log();
           })
+          .catch(error => console.log(error))
     }
   },
   mounted() {

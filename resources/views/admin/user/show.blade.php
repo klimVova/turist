@@ -46,11 +46,11 @@
                                         <td>@if($user->city == null){{'-'}}@else{{$user->city->title}}@endif</td>
                                     </tr>
                                     <tr>
-                                        <td class="text-bold">Область/республика</td>
+                                        <td class="text-bold">Регион (область)</td>
                                         <td>@if($user->republic == null){{'-'}}@else{{$user->republic->title}}@endif</td>
                                     </tr>
                                     <tr>
-                                        <td class="text-bold">Федеральный округ</td>
+                                        <td class="text-bold">Страна</td>
                                         <td>@if($user->district == null){{'-'}}@else{{$user->district->title}}@endif</td>
                                     </tr>
                                     </tbody>

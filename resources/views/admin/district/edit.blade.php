@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Редактирование округа</h1>
+                        <h1 class="m-0">Редактирование страны</h1>
                     </div><!-- /.col -->
 
                 </div><!-- /.row -->
@@ -24,7 +24,7 @@
                             @csrf
                             @method('PATCH')
                             <div class="form-group">
-                                <input type="text" class="form-control" name="title" placeholder="Название округа"
+                                <input type="text" class="form-control" name="title" placeholder="Название страны"
                                        value="{{$district->title}}"
                                 >
                                 @error('title')

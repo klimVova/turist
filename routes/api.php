@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\District;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +33,8 @@ Route::get('/time', \App\Http\Controllers\API\Medical\TimeController::class);
 Route::get('/list', \App\Http\Controllers\API\Medical\ListController::class);
 Route::get('/item', \App\Http\Controllers\API\Medical\ItemController::class);
 Route::get('/product', \App\Http\Controllers\API\Medical\ProductController::class);
+Route::post('medicals/{medicalCard}/comments', \App\Http\Controllers\Medical\Card\CommentController::class);
+Route::get('/comments', \App\Http\Controllers\Medical\Card\IndexCommentController::class);
 
 Route::post('/spa', \App\Http\Controllers\API\Spa\IndexController::class);
 Route::get('/spa/filters', \App\Http\Controllers\API\Spa\FilterListController::class);

@@ -3,7 +3,7 @@
     <div class="welcome">
       <div class="text">
         <div>
-          <h1>Настало время отдыха!</h1>
+          <h1>Настало время восстановления и отдыха!</h1>
           <p>200+ курортов<br>23+ санаториев</p>
           <p>для Вас и Вашей семьи!</p>
           <p>Поможем с выбором, учтем все пожелания!</p>
@@ -60,7 +60,7 @@ export default {
     blog,
   },
   mounted() {
-    console.log(this.$refs.index.getFilter());
+
   }
 }
 </script>

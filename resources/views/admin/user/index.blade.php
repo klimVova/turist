@@ -35,8 +35,8 @@
                                         <th>Почта</th>
                                         <th>Вид организации</th>
                                         <th>Город</th>
-                                        <th>Республика</th>
-                                        <th>Округ</th>
+                                        <th>Регион (область)</th>
+                                        <th>Страна</th>
                                         <th colspan="3" class="text-center">Действие</th>
                                     </tr>
                                     </thead>

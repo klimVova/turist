@@ -5,7 +5,7 @@
         <img onclick="openBlock('sort')" class="sort-but" src="src/assets/img/sort.svg">
         <div id="sort" class="sort-items">
           <div class="sort-item">
-            <span>Федеральный округ</span>
+            <span>Страна</span>
             <form>
               <label :for="district.id" class="d-block" v-for="district in filterList.districts">
                 <input :id="district.id" type="checkbox" name="federal" v-model="districts" :value="district.id">
@@ -14,7 +14,7 @@
             </form>
           </div>
           <div class="sort-item">
-            <span>Область</span>
+            <span>Регион (область)</span>
             <form>
               <label :for=" `republic` + republic.id" class="d-block" v-for="republic in filterList.republics">
                 <input :id=" `republic` + republic.id" type="checkbox" name="district" v-model="republics" :value="republic.id">
