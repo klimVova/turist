@@ -127,10 +127,18 @@ export default {
     getSearch() {
       const raw = localStorage.getItem('person')
       const person = JSON.parse(raw)
-      this.state.city = person.city
-      this.state.type = person.type
-      this.state.district = person.district
-      this.state.republic = person.republic
+      if( person === null){
+        this.state.city = ''
+        this.state.type = ''
+        this.state.district = ''
+        this.state.republic = ''
+      }
+      else if(person != null){
+        this.state.city = person.city
+        this.state.type = person.type
+        this.state.district = person.district
+        this.state.republic = person.republic
+      }
     },
   },
   mounted() {
