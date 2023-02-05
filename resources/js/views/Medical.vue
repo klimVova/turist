@@ -46,7 +46,8 @@
              && state.district === medical.district_id
              && state.republic === medical.republic_id
              || state.city === '' && state.district === ''  && state.republic === ''
-             || cities === medical.city_id && districts === medical.district_id && republics === medical.republic_id
+             || cities === medical.city_id
+             && districts === medical.district_id && republics === medical.republic_id
               ">
               <router-link class="d-flex" :to="'/medical/'+ medical.id">
                 <div class="item-img">
@@ -127,13 +128,12 @@ export default {
     getSearch() {
       const raw = localStorage.getItem('person')
       const person = JSON.parse(raw)
-      if( person === null){
+      if (person === null) {
         this.state.city = ''
         this.state.type = ''
         this.state.district = ''
         this.state.republic = ''
-      }
-      else if(person != null){
+      } else if (person != null) {
         this.state.city = person.city
         this.state.type = person.type
         this.state.district = person.district
