@@ -130,6 +130,7 @@
 </template>
 
 <script>
+
 export default {
   name: "medicalCard",
   data() {

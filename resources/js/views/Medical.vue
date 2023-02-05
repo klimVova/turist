@@ -131,6 +131,7 @@ export default {
       this.state.type = person.type
       this.state.district = person.district
       this.state.republic = person.republic
+
     },
   },
   mounted() {
