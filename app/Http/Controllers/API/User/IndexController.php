@@ -10,12 +10,11 @@ use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
 {
-    public function __invoke()
+    public function __invoke(User $user)
     {
-
-        $users = Auth::loginUsingId(1);
+        $this->middleware('auth:sanctum');
         return response([
-            'data' => $users,
+            'data' => auth('sanctum')->user($user),
         ]);
     }
 }
