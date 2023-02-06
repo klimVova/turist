@@ -15,14 +15,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+    return $request->user()->id;
 });
 
 Route::get('/posts', \App\Http\Controllers\API\Blog\IndexController::class);
 Route::get('/posts/{post}', \App\Http\Controllers\API\Blog\ShowController::class);
 
-
-Route::get('/users', \App\Http\Controllers\API\User\IndexController::class);
+Route::group(['middleware'=> 'auth:sanctum'],function (){
+    Route::get('/login', \App\Http\Controllers\API\User\IndexController::class);
+});
 Route::get('/users/filters', \App\Http\Controllers\API\User\FilterListController::class);
 
 

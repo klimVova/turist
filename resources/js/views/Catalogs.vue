@@ -12,7 +12,6 @@
           <div class="org-type-sort">
             <ul>
                 <router-link
-                    exact
                     active-class="active"
                     :to="{name:'med'}">
                   <li>Мед.центр</li>
@@ -25,7 +24,7 @@
               <router-link
                   active-class="active"
                   :to="{name:'cafe'}">
-                <li>Кафе\Рестораны</li>
+                <li>Рестораны/Кафе</li>
               </router-link>
             </ul>
           </div>

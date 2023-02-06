@@ -25,7 +25,8 @@
         </div>
         <div class="media">
           <img src="assets/img/vk.svg">
-          <img src="assets/img/fb.svg">
+          <img src="assets/img/telegram.svg">
+          <img src="assets/img/youtube.svg">
         </div>
       </div>
       <img class="f-logo" src="assets/img/logo-l.png">

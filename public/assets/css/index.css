@@ -80,7 +80,7 @@ header{
 	margin-bottom: 24px;
 }
 .welcome .text p{
-	color: white;	
+	color: white;
 	font-weight: 500;
 	font-size: 14px;
 }
@@ -352,7 +352,7 @@ footer .media img{
 	.blog .col{
 		padding-right: 0;
 	}
-	
+
 	.blog-item{
 		/*display: !*flex*!;*/
 	}
@@ -463,9 +463,12 @@ footer .media img{
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
 }
+
+.org-type-sort ul li .active:active{
+   color: #fff0e8 !important;
+}
 .org-type-sort ul .active a{
 	color: white;
-
 }
 
 .list a{
@@ -549,7 +552,7 @@ footer .media img{
 	.org-type-sort{
 		overflow-x: scroll;
 	}
-	.sort{		
+	.sort{
 		margin-top: 16px;
 		padding-left: 0;
 	}

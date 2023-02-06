@@ -222,7 +222,10 @@ export default {
           })
     },
     getUsers() {
-
+      this.axios.get('/api/users')
+          .then(res => {
+            console.log(res);
+          })
     },
   },
   mounted() {
