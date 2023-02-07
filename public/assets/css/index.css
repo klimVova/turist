@@ -957,3 +957,6 @@ footer .media img{
 		width: 100%;
 	}
 }
+.org-type-sort ul .active li {
+    color: white;
+}

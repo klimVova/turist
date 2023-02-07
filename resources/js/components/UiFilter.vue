@@ -16,7 +16,7 @@
         </select>
       </div>
       <div class="search-item">
-        <label>Регион</label>
+        <label>Регион (область)</label>
         <select v-model="republics">
           <option v-for="republic in filterList.republics" :value="republic.id">{{republic.title}}</option>
         </select>
