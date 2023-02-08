@@ -21,11 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/posts', \App\Http\Controllers\API\Blog\IndexController::class);
 Route::get('/posts/{post}', \App\Http\Controllers\API\Blog\ShowController::class);
 
-Route::group(['middleware'=> 'auth:sanctum'],function (){
-    Route::get('/login', \App\Http\Controllers\API\User\IndexController::class);
-});
 Route::get('/users/filters', \App\Http\Controllers\API\User\FilterListController::class);
-
+Route::get('/users', \App\Http\Controllers\API\User\IndexController::class);
 
 Route::post('/medicals', \App\Http\Controllers\API\Medical\IndexController::class);
 Route::get('/medicals/filters', \App\Http\Controllers\API\Medical\FilterListController::class);
@@ -35,7 +32,7 @@ Route::get('/list', \App\Http\Controllers\API\Medical\ListController::class);
 Route::get('/item', \App\Http\Controllers\API\Medical\ItemController::class);
 Route::get('/product', \App\Http\Controllers\API\Medical\ProductController::class);
 Route::post('medicals/{medicalCard}/comments', \App\Http\Controllers\Medical\Card\CommentController::class);
-Route::get('/comments', \App\Http\Controllers\Medical\Card\IndexCommentController::class);
+Route::get('/showcomments', \App\Http\Controllers\Medical\Card\ShowCommentController::class);
 
 Route::post('/spa', \App\Http\Controllers\API\Spa\IndexController::class);
 Route::get('/spa/filters', \App\Http\Controllers\API\Spa\FilterListController::class);

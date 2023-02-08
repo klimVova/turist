@@ -9,12 +9,12 @@ use App\Models\MedicalCard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class CommentController extends Controller
+class ShowCommentController extends Controller
 {
-    public function __invoke(CommentStoreRequest $request , MedicalCard $medicalCard)
+    public function __invoke()
     {
-        $data = $request->validated();
-        $comment = CommentMed::create($data);
-        return response([]);
+
+        $comment = CommentMed::all();
+        return response($comment);
     }
 }

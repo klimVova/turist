@@ -63,10 +63,14 @@
                     <div v-for="subcat in items" class="subcategory">
                       <div class="d-flex col justify-content-between">
                         <div><label
-                            v-if="subcat.medical_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{ subcat.title }} </label>
+                            v-if="subcat.medical_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{
+                            subcat.title
+                          }} </label>
                         </div>
                         <div><label
-                            v-if="subcat.medical_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{ subcat.price }} </label>
+                            v-if="subcat.medical_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{
+                            subcat.price
+                          }} </label>
                         </div>
                       </div>
 
@@ -89,35 +93,24 @@
                 </div>
                 <div class="section-label">
                   <h2><span id="review"></span> Отзывы</h2>
+
                   <hr>
                 </div>
-                <div class="reviews">
-                  <div class="reviews-item">
-                    <label>Лариса</label>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                      exercitation ullamco laboris nisi ut aliquip ex</p>
-                  </div>
-                  <div class="reviews-item">
-                    <label>Лариса</label>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                      exercitation ullamco laboris nisi ut aliquip ex</p>
-                  </div>
-                  <div class="reviews-item">
-                    <label>Лариса</label>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                      exercitation ullamco laboris nisi ut aliquip ex</p>
-                  </div>
+                <div  class="reviews">
+                  <div v-for="comment in comments" class="reviews-item">
+                    <div v-if="comment.medicalCard_id === card.id">
+                      <div v-for="user in persons">
+                        <div v-if="user.id === Number(comment.user_name)">
+                          <label>{{user.name}}</label>
+                        </div>
+                      </div>
+                      <p>{{ comment.message }}</p>
 
-                  <!-- pagination -->
-
-                  <form action="" method="">
-                    <span>Введите ваш отзыв:</span>
-                    <p><textarea rows="3" name="text"></textarea></p>
-                    <p><input type="submit" value="Отправить"></p>
-                  </form>
+                    </div>
+                  </div>
+                  <span>Введите ваш отзыв:</span>
+                  <p><input v-model="message" name="text"></p>
+                  <p><input @click.prevent="commentMed" type="submit" value="Отправить"></p>
                 </div>
               </div>
 
@@ -126,12 +119,20 @@
         </div>
       </div>
     </div>
+    {{typeof (Number(state.user))}}
+
   </div>
 </template>
 
 <script>
 
+import user from "../user";
+
 export default {
+  setup() {
+    const {state} = user;
+    return {state};
+  },
   name: "medicalCard",
   data() {
     return {
@@ -143,10 +144,11 @@ export default {
       products: [],
       message: [],
       comments: [],
-      users: [],
+      persons: [],
       user_name: [],
     }
   },
+
   methods: {
     getTime() {
       this.axios.get('/api/time')
@@ -208,23 +210,26 @@ export default {
       this.axios.post(`/api/medicals/${this.card.id}/comments`, {
         message: this.message,
         medicalCard_id: this.card.id,
-        user_name: this.user
+        user_name: this.state.user
       })
           .then(res => {
             this.getComment()
+            this.getUser()
           })
     },
     getComment() {
-      this.axios.get('/api/comments')
+      this.axios.get('/api/showcomments')
           .then(res => {
-            this.comments = res.data.data
-            this.message = '';
+            this.comments = res.data
+            this.message = ''
+            console.log(res);
           })
     },
-    getUsers() {
+    getUser() {
       this.axios.get('/api/users')
           .then(res => {
-            console.log(res);
+            this.persons = res.data.data
+            this.pers = JSON.parse(JSON.stringify(this.persons))
           })
     },
   },
@@ -235,8 +240,8 @@ export default {
     this.getItem()
     this.getProduct()
     this.getComment()
-    this.getUsers()
-  }
+    this.getUser()
+  },
 }
 </script>
 
