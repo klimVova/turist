@@ -32,7 +32,10 @@ Route::get('/list', \App\Http\Controllers\API\Medical\ListController::class);
 Route::get('/item', \App\Http\Controllers\API\Medical\ItemController::class);
 Route::get('/product', \App\Http\Controllers\API\Medical\ProductController::class);
 Route::post('medicals/{medicalCard}/comments', \App\Http\Controllers\Medical\Card\CommentController::class);
-Route::get('/showcomments', \App\Http\Controllers\Medical\Card\ShowCommentController::class);
+Route::post('/show/{medicalCard}/comments', \App\Http\Controllers\API\Medical\ShowCommentController::class);
+Route::delete('/medicals/comment/{id}', \App\Http\Controllers\API\Medical\DeleteCommentController::class);
+
+
 
 Route::post('/spa', \App\Http\Controllers\API\Spa\IndexController::class);
 Route::get('/spa/filters', \App\Http\Controllers\API\Spa\FilterListController::class);

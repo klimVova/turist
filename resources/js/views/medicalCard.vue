@@ -93,21 +93,34 @@
                 </div>
                 <div class="section-label">
                   <h2><span id="review"></span> Отзывы</h2>
-
                   <hr>
                 </div>
-                <div  class="reviews">
+                <div class="reviews">
                   <div v-for="comment in comments" class="reviews-item">
                     <div v-if="comment.medicalCard_id === card.id">
                       <div v-for="user in persons">
                         <div v-if="user.id === Number(comment.user_name)">
-                          <label>{{user.name}}</label>
+                          <label>{{ user.name }}</label>
                         </div>
                       </div>
-                      <p>{{ comment.message }}</p>
-
+                      <div class="d-flex align-items-center">
+                        <p>{{ comment.message }}</p>
+                          <a @click.prevent="deleteComment(comment.id)"
+                             href="#"
+                             :class="(Number(state.user) === card.user_id || state.user === comment.user_name) ? 'btn btn-danger' : 'btn btn-danger disabled' ">Delete</a>
+                      </div>
                     </div>
                   </div>
+                  <nav aria-label="...">
+                    <ul class="pagination pagination-lg ">
+                      <li v-for="link in pagination.links" class="page-item">
+                        <template v-if="Number(link.label)">
+                          <a @click.prevent="getComment(link.label)"  :class="link.active ? 'active page-link' : 'page-link'">{{link.label}}</a>
+                        </template>
+
+                      </li>
+                    </ul>
+                  </nav>
                   <span>Введите ваш отзыв:</span>
                   <p><input v-model="message" name="text"></p>
                   <p><input @click.prevent="commentMed" type="submit" value="Отправить"></p>
@@ -119,16 +132,17 @@
         </div>
       </div>
     </div>
-    {{typeof (Number(state.user))}}
+    {{ typeof (Number(state.user)) }}
 
   </div>
 </template>
 
 <script>
-
 import user from "../user";
 
+
 export default {
+
   setup() {
     const {state} = user;
     return {state};
@@ -146,6 +160,8 @@ export default {
       comments: [],
       persons: [],
       user_name: [],
+      pageOfItems: [],
+      pagination:[],
     }
   },
 
@@ -208,20 +224,22 @@ export default {
     },
     commentMed() {
       this.axios.post(`/api/medicals/${this.card.id}/comments`, {
-        message: this.message,
-        medicalCard_id: this.card.id,
-        user_name: this.state.user
+        'message': this.message,
+        'medicalCard_id': this.card.id,
+        'user_name': this.state.user,
       })
           .then(res => {
             this.getComment()
-            this.getUser()
           })
     },
-    getComment() {
-      this.axios.get('/api/showcomments')
+    getComment(page=1) {
+      this.axios.post('/api/show/' + this.$route.params.id + '/comments' , {
+        'page' : page
+      })
           .then(res => {
-            this.comments = res.data
+            this.comments = res.data.data
             this.message = ''
+            this.pagination = res.data.meta
             console.log(res);
           })
     },
@@ -232,6 +250,12 @@ export default {
             this.pers = JSON.parse(JSON.stringify(this.persons))
           })
     },
+    deleteComment(id){
+      this.axios.delete(`/api/medicals/comment/${id}`)
+          .then(res=>{
+            this.getComment()
+          })
+    }
   },
   mounted() {
     this.getList()
