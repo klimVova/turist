@@ -44,6 +44,9 @@ Route::get('/spatimes', \App\Http\Controllers\API\Spa\TimeController::class);
 Route::get('/spalists', \App\Http\Controllers\API\Spa\ListController::class);
 Route::get('/spaitems', \App\Http\Controllers\API\Spa\ItemController::class);
 Route::get('/spaproducts', \App\Http\Controllers\API\Spa\ProductController::class);
+Route::post('/spa/{spaCard}/comments', \App\Http\Controllers\API\Spa\CommentController::class);
+Route::post('/spa/show/{spaCard}/comments', \App\Http\Controllers\API\Spa\ShowCommentController::class);
+Route::delete('/spa/comment/{id}', \App\Http\Controllers\API\Spa\DeleteCommentController::class);
 
 Route::post('/cafes', \App\Http\Controllers\API\Cafe\IndexController::class);
 Route::get('/cafes/filters', \App\Http\Controllers\API\Cafe\FilterListController::class);
@@ -52,3 +55,6 @@ Route::get('/cafetimes', \App\Http\Controllers\API\Cafe\TimeController::class);
 Route::get('/cafelists', \App\Http\Controllers\API\Cafe\ListController::class);
 Route::get('/cafeitems', \App\Http\Controllers\API\Cafe\ItemController::class);
 Route::get('/cafeproducts', \App\Http\Controllers\API\Cafe\ProductController::class);
+Route::post('/cafe/{cafeCard}/comments', \App\Http\Controllers\API\Cafe\CommentController::class);
+Route::post('/cafe/show/{cafeCard}/comments', \App\Http\Controllers\API\Cafe\ShowCommentController::class);
+Route::delete('/cafe/comment/{id}', \App\Http\Controllers\API\Cafe\DeleteCommentController::class);

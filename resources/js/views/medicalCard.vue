@@ -104,9 +104,13 @@
                       </div>
                       <div class="d-flex align-items-center justify-content-sm-between">
                         <p>{{ comment.message }}</p>
+                        <div :class="state.user !== '' ? '' : 'hide'">
                           <a @click.prevent="deleteComment(comment.id)"
-                             href="#"
-                             :class="(Number(state.user) === card.user_id || state.user === comment.user_name) ? 'btn btn-danger btn-delete-active' : 'btn btn-danger btn-delete disabled' ">Delete</a>
+                             :class="(Number(state.user) === card.user_id ||
+                              state.user === comment.user_name) ?
+                               'btn btn-danger btn-delete-active' :
+                               'btn btn-danger btn-delete disabled' ">Delete</a>
+                        </div>
                       </div>
                     </div>
                   </div>

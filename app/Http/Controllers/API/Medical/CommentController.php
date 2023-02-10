@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\API\Medical;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Medical\Card\CommentStoreRequest;
+use App\Http\Requests\API\Medical\CommentStoreRequest;
 use App\Models\CommentMed;
 use App\Models\MedicalCard;
 use function response;

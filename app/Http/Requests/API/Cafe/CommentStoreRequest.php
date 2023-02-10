@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Medical\Card;
+namespace App\Http\Requests\API\Cafe;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -26,7 +26,7 @@ class CommentStoreRequest extends FormRequest
         return [
             'message' => 'required|string',
             'user_name' => 'required|string',
-            'medicalCard_id' => 'required|integer|exists:medical_cards,id',
+            'cafeCard_id' => 'required|integer|exists:cafe_cards,id',
         ];
     }
 
