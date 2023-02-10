@@ -19,6 +19,6 @@ class ShowCommentController extends Controller
         $comment = DB::table('comment_meds')->where('medicalCard_id', '=', $medicalCard->id)->
         orderBy('id', 'desc')->
         paginate(4 , ['*'],'page',$data['page']);
-        return MedicalCommentResource::collection($comment);;
+        return MedicalCommentResource::collection($comment);
     }
 }

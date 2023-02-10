@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Medical\Card;
+namespace App\Http\Controllers\API\Medical;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Medical\Card\CommentStoreRequest;
 use App\Models\CommentMed;
 use App\Models\MedicalCard;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use function response;
 
 class CommentController extends Controller
 {

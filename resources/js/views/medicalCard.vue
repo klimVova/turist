@@ -14,7 +14,7 @@
           </div>
         </div>
 
-        <div class="card-cafe col col-12 col-md-10">
+        <div  class="card-cafe col col-12 col-md-10">
           <div class="container-fluid">
             <div class="row">
               <div class="card-main-info col col-12 col-md-9">
@@ -23,7 +23,6 @@
                 </div>
                 <div class="card-item-descr">
                   <h2>{{ card.title }} </h2>
-                  <span><a href="#review">(11 отзывов)</a></span>
                   <p>{{ card.content }}</p>
                   <input type="submit" value="Заказать услугу">
                   <p></p>
@@ -103,27 +102,29 @@
                           <label>{{ user.name }}</label>
                         </div>
                       </div>
-                      <div class="d-flex align-items-center">
+                      <div class="d-flex align-items-center justify-content-sm-between">
                         <p>{{ comment.message }}</p>
                           <a @click.prevent="deleteComment(comment.id)"
                              href="#"
-                             :class="(Number(state.user) === card.user_id || state.user === comment.user_name) ? 'btn btn-danger' : 'btn btn-danger disabled' ">Delete</a>
+                             :class="(Number(state.user) === card.user_id || state.user === comment.user_name) ? 'btn btn-danger btn-delete-active' : 'btn btn-danger btn-delete disabled' ">Delete</a>
                       </div>
                     </div>
                   </div>
                   <nav aria-label="...">
                     <ul class="pagination pagination-lg ">
                       <li v-for="link in pagination.links" class="page-item">
-                        <template v-if="Number(link.label)">
+                        <template v-if="Number(link.label)" >
                           <a @click.prevent="getComment(link.label)"  :class="link.active ? 'active page-link' : 'page-link'">{{link.label}}</a>
                         </template>
 
                       </li>
                     </ul>
                   </nav>
+                  <div :class="state.user !== '' ? '' : 'hide'">
                   <span>Введите ваш отзыв:</span>
                   <p><input v-model="message" name="text"></p>
                   <p><input @click.prevent="commentMed" type="submit" value="Отправить"></p>
+                  </div>
                 </div>
               </div>
 
@@ -132,8 +133,6 @@
         </div>
       </div>
     </div>
-    {{ typeof (Number(state.user)) }}
-
   </div>
 </template>
 
@@ -240,7 +239,6 @@ export default {
             this.comments = res.data.data
             this.message = ''
             this.pagination = res.data.meta
-            console.log(res);
           })
     },
     getUser() {
@@ -255,7 +253,7 @@ export default {
           .then(res=>{
             this.getComment()
           })
-    }
+    },
   },
   mounted() {
     this.getList()
@@ -270,5 +268,13 @@ export default {
 </script>
 
 <style scoped>
-
+.btn-delete{
+ opacity: 0.1;
+}
+.btn-delete-active{
+  opacity: 1;
+}
+.hide{
+  display: none;
+}
 </style>

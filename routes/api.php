@@ -31,7 +31,7 @@ Route::get('/time', \App\Http\Controllers\API\Medical\TimeController::class);
 Route::get('/list', \App\Http\Controllers\API\Medical\ListController::class);
 Route::get('/item', \App\Http\Controllers\API\Medical\ItemController::class);
 Route::get('/product', \App\Http\Controllers\API\Medical\ProductController::class);
-Route::post('medicals/{medicalCard}/comments', \App\Http\Controllers\Medical\Card\CommentController::class);
+Route::post('medicals/{medicalCard}/comments', \App\Http\Controllers\API\Medical\CommentController::class);
 Route::post('/show/{medicalCard}/comments', \App\Http\Controllers\API\Medical\ShowCommentController::class);
 Route::delete('/medicals/comment/{id}', \App\Http\Controllers\API\Medical\DeleteCommentController::class);
 
