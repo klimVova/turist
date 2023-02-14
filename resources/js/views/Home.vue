@@ -58,11 +58,6 @@ export default {
     UiFilter,
     blog,
   },
-<<<<<<< HEAD
-  mounted() {
-  }
-=======
->>>>>>> devs
 }
 </script>
 
