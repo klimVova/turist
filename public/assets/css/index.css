@@ -960,3 +960,11 @@ footer .media img{
 .org-type-sort ul .active li {
     color: white;
 }
+@media (max-width: 480px) {
+    .org-type-sort ul li{
+        height: 68px;
+    }
+    .org-type-sort {
+        margin-top: 16px;
+    }
+}

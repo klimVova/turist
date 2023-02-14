@@ -4,7 +4,7 @@
 <body>
 <script src="{{asset('assets/js/wow.min.js')}}"></script>
 <script> new WOW().init(); </script>
-<div id="app" data-user=@json($data) ref="div"></div>
+<div id="app" data-user=@json($data)></div>
 </body>
 @endsection
 <script>

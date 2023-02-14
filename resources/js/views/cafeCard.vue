@@ -55,7 +55,7 @@
                   <!-- <div class="service-item"> -->
                   <div v-for="list in lists" class="category fadeInUp wow animated"
                        style="visibility: visible; animation-name: fadeInUp;">
-                    <label v-if="list.user_id === card.user_id"><span :id="`#${list.title}`"></span>{{
+                    <label v-if="list.user_id === card.user_id"><span :id="`${list.title}`"></span>{{
                         list.title
                       }}</label>
                     <div v-for="subcat in items" class="subcategory">
@@ -119,8 +119,8 @@
                   </nav>
                   <div :class="state.user !== '' ? '' : 'hide'">
                     <span>Введите ваш отзыв:</span>
-                    <p><input v-model="message" name="text"></p>
-                    <p><input @click.prevent="commentCafe" type="submit" value="Отправить"></p>
+                    <p><textarea v-model="message" class="comment-input" name="text"></textarea></p>
+                    <p><input  class="comment-button" @click.prevent="commentCafe" type="submit" value="Отправить"></p>
                   </div>
                 </div>
 
@@ -276,5 +276,26 @@ export default {
 }
 .hide{
   display: none;
+}
+.comment-input{
+  width: 100%;
+  max-width: 485px;
+  height: 80px;
+  border: 1px solid #51D3B7;
+  border-radius: 3px;
+}
+.comment-button {
+  width: 200px;
+  background-color: #51D3B7;
+  color: white;
+  padding: 14px 24px;
+  margin-top: 12px;
+  border: none;
+  -webkit-box-shadow: 0 1px 5px rgb(81 211 183 / 25%);
+  box-shadow: 0 1px 5px rgb(81 211 183 / 25%);
+}
+.active{
+  border:1px solid  #51D3B7 !important;
+
 }
 </style>

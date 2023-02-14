@@ -41,6 +41,11 @@
             </li>
         </ul>
         <ul class="navbar-nav">
+            <li class="nav-item mr-3">
+                <a href="http://127.0.0.1:8000/">
+                    <input type="submit" class="btn btn-outline-primary" value="Перейти на сайт">
+                </a>
+            </li>
             <li class="nav-item">
                 <form action="{{route('logout')}}" method="POST">
                     @csrf

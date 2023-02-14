@@ -59,9 +59,6 @@ export default {
     UiFilter,
     blog,
   },
-  mounted() {
-
-  }
 }
 </script>
 
