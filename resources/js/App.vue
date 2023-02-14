@@ -8,7 +8,7 @@
             <li><router-link :to="{name: 'med'}">Каталог</router-link></li>
             <li><a href="#">О компании</a></li>
             <li><a href="#">Консалтинг</a></li>
-            <li><a href="#">Контакты</a></li>
+            <li><router-link :to="{name:'contact'}">Контакты</router-link></li>
           </ul>
           <login></login>
         </div>
@@ -22,7 +22,7 @@
             <li><router-link :to="{name:'med'}">Каталог</router-link></li>
             <li><a href="#">О компании</a></li>
             <li><a href="#">Консалтинг</a></li>
-            <li><a href="#">Контакты</a></li>
+            <li><router-link :to="{name:'contact'}">Контакты</router-link></li>
           </ul>
         </div>
         <div class="media">

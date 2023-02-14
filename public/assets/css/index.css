@@ -968,3 +968,35 @@ footer .media img{
         margin-top: 16px;
     }
 }
+/*...........CONTACTS///////////////*/
+
+.contacts-content{
+    padding-left: 15px;
+    padding-top: 30px;
+}
+.contacts-item label{
+    font-weight: bold;
+    font-size: 16px;
+    color: #242424;
+    margin-bottom: 0;
+}
+.contacts-item p{
+    font-size: 16px;
+    color: #242424;
+}
+
+@media (max-width: 480px){
+    .contacts-main .row{
+        margin: 0;
+        padding: 0;
+    }
+    .contacts-main .col{
+        padding: 0;
+        margin: 0;
+    }
+    .contacts{
+        padding-left: 24px!important;
+        padding-right: 24px!important;
+    }
+
+}
