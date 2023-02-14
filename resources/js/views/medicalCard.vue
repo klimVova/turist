@@ -14,7 +14,7 @@
           </div>
         </div>
 
-        <div class="card-cafe col col-12 col-md-10">
+        <div  class="card-cafe col col-12 col-md-10">
           <div class="container-fluid">
             <div class="row">
               <div class="card-main-info col col-12 col-md-9">
@@ -23,7 +23,6 @@
                 </div>
                 <div class="card-item-descr">
                   <h2>{{ card.title }} </h2>
-                  <span><a href="#review">(11 отзывов)</a></span>
                   <p>{{ card.content }}</p>
                   <input type="submit" value="Заказать услугу">
                   <p></p>
@@ -55,18 +54,23 @@
                 </div>
                 <div class="service-list">
                   <!-- <div class="service-item"> -->
-                  <div v-for="list in lists" class="category fadeInUp wow animated"
-                       style="visibility: visible; animation-name: fadeInUp;">
-                    <label v-if="list.user_id === card.user_id"><span :id="`#${list.title}`"></span>{{
-                        list.title
-                      }}</label>
+                  <div v-for="list in lists"
+                       :id="`${list.title}`"
+                       class="category fadeInUp wow animated"
+                       style="visibility: visible;  animation-name: fadeInUp;"
+                  >
+                    <label v-if="list.user_id === card.user_id"   >{{list.title }}</label>
                     <div v-for="subcat in items" class="subcategory">
                       <div class="d-flex col justify-content-between">
                         <div><label
-                            v-if="subcat.medical_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{ subcat.title }} </label>
+                            v-if="subcat.medical_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{
+                            subcat.title
+                          }} </label>
                         </div>
                         <div><label
-                            v-if="subcat.medical_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{ subcat.price }} </label>
+                            v-if="subcat.medical_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{
+                            subcat.price
+                          }} </label>
                         </div>
                       </div>
 
@@ -92,32 +96,40 @@
                   <hr>
                 </div>
                 <div class="reviews">
-                  <div class="reviews-item">
-                    <label>Лариса</label>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                      exercitation ullamco laboris nisi ut aliquip ex</p>
+                  <div v-for="comment in comments" class="reviews-item">
+                    <div v-if="comment.medicalCard_id === card.id">
+                      <div v-for="user in persons">
+                        <div v-if="user.id === Number(comment.user_name)">
+                          <label>{{ user.name }}</label>
+                        </div>
+                      </div>
+                      <div class="d-flex align-items-center justify-content-sm-between">
+                        <p>{{ comment.message }}</p>
+                        <div :class="state.user !== '' ? '' : 'hide'">
+                          <a @click.prevent="deleteComment(comment.id)"
+                             :class="(Number(state.user) === card.user_id ||
+                              state.user === comment.user_name) ?
+                               'btn btn-danger btn-delete-active' :
+                               'btn btn-danger btn-delete disabled' ">Delete</a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="reviews-item">
-                    <label>Лариса</label>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                      exercitation ullamco laboris nisi ut aliquip ex</p>
-                  </div>
-                  <div class="reviews-item">
-                    <label>Лариса</label>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                      exercitation ullamco laboris nisi ut aliquip ex</p>
-                  </div>
+                  <nav aria-label="...">
+                    <ul class="pagination pagination-lg ">
+                      <li v-for="link in pagination.links" class="page-item">
+                        <template v-if="Number(link.label)" >
+                          <a @click.prevent="getComment(link.label)"  :class="link.active ? 'active page-link' : 'page-link'">{{link.label}}</a>
+                        </template>
 
-                  <!-- pagination -->
-
-                  <form action="" method="">
-                    <span>Введите ваш отзыв:</span>
-                    <p><textarea rows="3" name="text"></textarea></p>
-                    <p><input type="submit" value="Отправить"></p>
-                  </form>
+                      </li>
+                    </ul>
+                  </nav>
+                  <div :class="state.user !== '' ? '' : 'hide'">
+                  <span>Введите ваш отзыв:</span>
+                    <p><textarea v-model="message" class="comment-input" name="text"></textarea></p>
+                  <p><input class="comment-button" @click.prevent="commentMed" type="submit" value="Отправить"></p>
+                  </div>
                 </div>
               </div>
 
@@ -130,8 +142,15 @@
 </template>
 
 <script>
+import user from "../user";
+
 
 export default {
+
+  setup() {
+    const {state} = user;
+    return {state};
+  },
   name: "medicalCard",
   data() {
     return {
@@ -143,10 +162,13 @@ export default {
       products: [],
       message: [],
       comments: [],
-      users: [],
+      persons: [],
       user_name: [],
+      pageOfItems: [],
+      pagination:[],
     }
   },
+
   methods: {
     getTime() {
       this.axios.get('/api/time')
@@ -206,25 +228,35 @@ export default {
     },
     commentMed() {
       this.axios.post(`/api/medicals/${this.card.id}/comments`, {
-        message: this.message,
-        medicalCard_id: this.card.id,
-        user_name: this.user
+        'message': this.message,
+        'medicalCard_id': this.card.id,
+        'user_name': this.state.user,
       })
           .then(res => {
             this.getComment()
           })
     },
-    getComment() {
-      this.axios.get('/api/comments')
+    getComment(page=1) {
+      this.axios.post('/api/show/' + this.$route.params.id + '/comments' , {
+        'page' : page
+      })
           .then(res => {
             this.comments = res.data.data
-            this.message = '';
+            this.message = ''
+            this.pagination = res.data.meta
           })
     },
-    getUsers() {
+    getUser() {
       this.axios.get('/api/users')
           .then(res => {
-            console.log(res);
+            this.persons = res.data.data
+            this.pers = JSON.parse(JSON.stringify(this.persons))
+          })
+    },
+    deleteComment(id){
+      this.axios.delete(`/api/medicals/comment/${id}`)
+          .then(res=>{
+            this.getComment()
           })
     },
   },
@@ -235,11 +267,40 @@ export default {
     this.getItem()
     this.getProduct()
     this.getComment()
-    this.getUsers()
-  }
+    this.getUser()
+  },
 }
 </script>
 
 <style scoped>
+.btn-delete{
+ opacity: 0.1;
+}
+.btn-delete-active{
+  opacity: 1;
+}
+.hide{
+  display: none;
+}
+.comment-input{
+  width: 100%;
+  max-width: 485px;
+  height: 80px;
+  border: 1px solid #51D3B7;
+  border-radius: 3px;
+}
+.comment-button {
+  width: 200px;
+  background-color: #51D3B7;
+  color: white;
+  padding: 14px 24px;
+  margin-top: 12px;
+  border: none;
+  -webkit-box-shadow: 0 1px 5px rgb(81 211 183 / 25%);
+  box-shadow: 0 1px 5px rgb(81 211 183 / 25%);
+}
+.active{
+  border:1px solid  #51D3B7 !important;
 
+}
 </style>

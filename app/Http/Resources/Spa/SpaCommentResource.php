@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Medical;
+namespace App\Http\Resources\Spa;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CommentResource extends JsonResource
+class SpaCommentResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,8 +16,8 @@ class CommentResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'spaCard_id' => $this->spaCard_id,
             'message' => $this->message,
-            'medicalCard_id' => $this->medicalCard_id,
             'user_name' => $this->user_name
         ];
     }

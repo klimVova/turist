@@ -7,9 +7,10 @@
           <ul>
             <li><router-link :to="{name: 'med'}">Каталог</router-link></li>
             <li><a href="#">О компании</a></li>
-            <li><a href="#">Контакты</a></li>
+            <li><a href="#">Консалтинг</a></li>
+            <li><router-link :to="{name:'contact'}">Контакты</router-link></li>
           </ul>
-          <router-link :to="{name: 'home'}"><img src="assets/img/office.svg"></router-link>
+          <login></login>
         </div>
       </div>
     </header>
@@ -20,7 +21,8 @@
           <ul>
             <li><router-link :to="{name:'med'}">Каталог</router-link></li>
             <li><a href="#">О компании</a></li>
-            <li><a href="#">Контакты</a></li>
+            <li><a href="#">Консалтинг</a></li>
+            <li><router-link :to="{name:'contact'}">Контакты</router-link></li>
           </ul>
         </div>
         <div class="media">
@@ -31,12 +33,21 @@
       </div>
       <img class="f-logo" src="assets/img/logo-l.png">
     </footer>
+    <div v-for="user in persons">
+    <template v-if="Number(state.user) === user.id && user.role === 0  && state.user !== ''">
+    </template>
+    </div>
   </div>
 </template>
 
 <script>
+
+import Login from "./components/login.vue";
+
 export default {
+  components: {Login},
   name:'App',
+
 }
 </script>
 

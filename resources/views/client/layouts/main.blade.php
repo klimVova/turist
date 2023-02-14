@@ -21,6 +21,7 @@
 <script type="text/javascript" src="{{asset('assets/md/js/popper.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/md/js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/md/js/mdb.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
 <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU"></script>
 <script type="text/javascript"></script>
 <script type="text/javascript" src="{{asset('assets/js/main-js.js')}}"></script>
