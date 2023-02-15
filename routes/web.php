@@ -205,6 +205,7 @@ Route::group(['namespace' => 'User', 'prefix' => 'user', 'middleware' => ['auth'
 <<<<<<< HEAD
 =======
     });
+<<<<<<< HEAD
     Route::group(['namespace' => 'Card','prefix' => 'cards'],  function () {
         Route::get('/', IndexController::class)->name('cafe.card.index');
         Route::get('/create', CreateController::class)->name('cafe.card.create');
@@ -215,6 +216,8 @@ Route::group(['namespace' => 'User', 'prefix' => 'user', 'middleware' => ['auth'
         Route::delete('/{cafeCard}', DeleteController::class)->name('cafe.card.delete');
 >>>>>>> devs
     });
+=======
+>>>>>>> devs
 });
 
 
