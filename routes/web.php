@@ -202,7 +202,15 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
 Route::group(['namespace' => 'User', 'prefix' => 'user', 'middleware' => ['auth', 'user', 'verified']], function () {
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', IndexController::class)->name('user.main.index');
-
+    });
+    Route::group(['namespace' => 'Card','prefix' => 'cards'],  function () {
+        Route::get('/', IndexController::class)->name('cafe.card.index');
+        Route::get('/create', CreateController::class)->name('cafe.card.create');
+        Route::post('/', StoreController::class)->name('cafe.card.store');
+        Route::get('/{cafeCard}', ShowController::class)->name('cafe.card.show');
+        Route::get('/{cafeCard}/edit', EditController::class)->name('cafe.card.edit');
+        Route::patch('/{cafeCard}', UpdateController::class)->name('cafe.card.update');
+        Route::delete('/{cafeCard}', DeleteController::class)->name('cafe.card.delete');
     });
 });
 
