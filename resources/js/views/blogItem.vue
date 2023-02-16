@@ -11,9 +11,14 @@
             <hr>
           </div>
           <p>{{post.content}}</p>
-          <input type="submit" name="" value="Следующая статья">
+            <input
+                :class=" item === Number(post.id + 1) ? 'hide mr-3' : 'mr-3'"
+                @click.prevent="getNext(Number(post.id + 1))" type="submit" name="" value="Следующая статья">
+          <input
+              @click.prevent="getHome()" type="submit" name="" value="Перейти на главную">
+           <div>
+          </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -26,6 +31,8 @@ export default {
     return {
       id: this.$route.params.id,
       post:[],
+      count: [],
+      item:0
     }
   },
   methods: {
@@ -34,6 +41,20 @@ export default {
           .then(res => {
             this.post = res.data.data
           })
+    },
+    getNext(id){
+      this.axios.get('/api/posts/' + id)
+          .then(res => {
+            this.axios.get('/api/posts')
+             .then(resp => {
+                this.count = resp.data.data
+                this.item = this.count.length
+             })
+            this.post = res.data.data
+          })
+    },
+    getHome(){
+      this.$router.push({name:'home'})
     }
   },
   mounted() {
@@ -43,5 +64,7 @@ export default {
 </script>
 
 <style scoped>
-
+.hide{
+  display: none;
+}
 </style>
