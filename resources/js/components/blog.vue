@@ -9,28 +9,16 @@
         <div class="row blog-items " id="container">
           <div v-for="post in posts"  class="col col-12 col-md-6 blog-item">
             <router-link :to="'/blog/'+ post.id">
-<<<<<<< HEAD
               <div class="blog-img">
                 <img :src="post.image_url" class="zoomIn wow " data-wow-offset='0'
                      data-wow-delay='0.2s'
                      data-wow-duration='1s'>
               </div>
-              <div class="blog-descr"><label>{{ post.title }}</label>
+              <div class="blog-descr">
+                <label>{{ post.title }}</label>
                 <p>{{ post.content }}</p>
                 <span>{{localeDate}}</span>
               </div>
-=======
-            <div class="blog-img">
-              <img :src="post.image_url" class="zoomIn wow " data-wow-offset='0'
-                   data-wow-delay='0.2s'
-                   data-wow-duration='1s'>
-            </div>
-            <div class="blog-descr">
-              <label>{{ post.title }}</label>
-              <p>{{ post.content }}</p>
-              <span>{{localeDate}}</span>
-            </div>
->>>>>>> devs
             </router-link>
           </div>
         </div>
@@ -41,10 +29,7 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-=======
 import BlogItem from "../views/blogItem.vue";
->>>>>>> devs
 export default {
   name: "blog",
   components: {BlogItem},
@@ -96,8 +81,6 @@ export default {
 </script>
 
 <style scoped>
-<<<<<<< HEAD
-=======
 .blog-item {
   display: none;
 }
@@ -111,5 +94,4 @@ export default {
   border-radius: 10px;
   transition: 0.5s ease;
 }
->>>>>>> devs
 </style>
