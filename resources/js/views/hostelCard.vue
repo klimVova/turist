@@ -22,6 +22,7 @@
               </div>
               <div class="card-item-descr">
                 <h2>{{ card.title }}</h2>
+                <span><a href="#review">({{pagination.total}} отзывов)</a></span>
                 <p>{{ card.content }}</p>
                 <div class="hotel-gallery">
                   <ul>
@@ -113,8 +114,8 @@
                     </div>
                   </div>
                 </div>
-                <nav aria-label="...">
-                  <ul class="pagination pagination-lg ">
+                <nav aria-label="..." :class="comments.length === 0 ? 'hide' : ''">
+                  <ul class="pagination pagination-lg">
                     <li v-for="link in pagination.links" class="page-item">
                       <template v-if="Number(link.label)" >
                         <a @click.prevent="getComment(link.label)"  :class="link.active ? 'active page-link' : 'page-link'">{{link.label}}</a>
@@ -222,7 +223,6 @@ export default {
     getCatagoties(){
       this.axios.get('/api/hostelCategories')
           .then(res => {
-            console.log(res);
             this.categories = res.data.data;
           })
     },
@@ -233,6 +233,7 @@ export default {
         'user_name': this.state.user,
       })
           .then(res => {
+            console.log(res);
             this.getComment()
           })
     },
