@@ -22,6 +22,15 @@
                 </div>
                 <div class="card-item-descr">
                   <h2>{{ card.title }}</h2>
+                  <template v-if="pagination.total === 1">
+                    <span><a href="#review">({{pagination.total}}  отзыв)</a></span>
+                  </template>
+                  <template v-else-if="pagination.total >= 2 && pagination.total <= 4">
+                    <span><a href="#review">({{pagination.total}}  отзыва)</a></span>
+                  </template>
+                  <template v-else-if="pagination.total >= 5">
+                    <span><a href="#review">({{pagination.total}}  отзывов)</a></span>
+                  </template>
                   <p>{{ card.content }}</p>
                   <input type="submit" value="Забронировать cтол">
                   <p></p>
@@ -82,7 +91,6 @@
                      data-wow-duration="1s"
                      style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: zoomIn;">
                 </div>
-
                 <div class="section-label">
                   <h2><span id="review"></span> Отзывы</h2>
                   <hr>
@@ -107,7 +115,7 @@
                       </div>
                     </div>
                   </div>
-                  <nav aria-label="...">
+                  <nav aria-label="..." :class="comments.length === 0 ? 'hide' : ''">
                     <ul class="pagination pagination-lg ">
                       <li v-for="link in pagination.links" class="page-item">
                         <template v-if="Number(link.label)" >

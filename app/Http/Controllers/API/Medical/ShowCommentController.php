@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\API\Medical\CommentRequest;
 use App\Http\Resources\Medical\MedicalCommentResource;
 use App\Models\MedicalCard;
+use Egulias\EmailValidator\Parser\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
