@@ -64,6 +64,7 @@ Route::get('/hostels/filters', \App\Http\Controllers\API\Hostel\FilterListContro
 Route::get('/hostel/{hostelCard}', \App\Http\Controllers\API\Hostel\ShowController::class);
 Route::get('/hostelAction', \App\Http\Controllers\API\Hostel\ActionController::class);
 Route::get('/hostelServic', \App\Http\Controllers\API\Hostel\ServicController::class);
+Route::get('/hostelCategories', \App\Http\Controllers\API\Hostel\CategoryController::class);
 Route::get('/hostelPost', \App\Http\Controllers\API\Hostel\PostController::class);
 Route::post('/hostel/{hostelCard}/comments', \App\Http\Controllers\API\Hostel\CommentController::class);
 Route::post('/hostelShow/{hostelCard}/comments', \App\Http\Controllers\API\Hostel\ShowCommentController::class);

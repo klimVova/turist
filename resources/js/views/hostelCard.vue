@@ -4,17 +4,10 @@
       <div class="sort col col-12 col-md-2">
         <div id="menu_categories" class="menu-categories-items">
           <ul>
-            <a href="#zavtraki">
-              <li>Услуги и удобства</li>
-            </a>
-            <a href="#rolly">
-              <li>Стандарт</li>
-            </a>
-            <a href="#zakuski">
-              <li>Люкс</li>
-            </a>
-            <a href="#napitki">
-              <li>Семейный полулюкс</li>
+            <a v-for="category in categories" :href="`#${category.title}`">
+              <div >
+                <li v-if="category.user_id === card.user_id">{{ category.title }}</li>
+              </div>
             </a>
           </ul>
         </div>
@@ -82,12 +75,11 @@
                 <hr>
               </div>
               <div class="rooms">
-
                 <div v-for="post in posts" class="rooms-item">
 <!--                  <template v-for="image in post.image_post">-->
                   <img :src="post.hostel_preview_image">
 <!--                  </template>-->
-                  <label>{{post.category}}<br>{{post.berth}}</label>
+                  <label :id="`${post.category}`">{{post.category}}<br>{{post.berth}}</label>
                   <ul>
                     <li v-for="tag in post.tags"><img src="assets/img/check-list.svg">{{tag.title}}</li>
                   </ul>
@@ -174,6 +166,7 @@ export default {
       user_name: [],
       pageOfItems: [],
       pagination:[],
+      categories:[],
     }
   },
   methods:{
@@ -224,7 +217,13 @@ export default {
       this.axios.get('/api/hostelPost')
           .then(res => {
             this.posts = res.data.data;
-            console.log(this.posts);
+          })
+    },
+    getCatagoties(){
+      this.axios.get('/api/hostelCategories')
+          .then(res => {
+            console.log(res);
+            this.categories = res.data.data;
           })
     },
     commentHostel() {
@@ -269,6 +268,7 @@ export default {
     this.getPost()
     this.getComment()
     this.getUser()
+    this.getCatagoties()
   }
 }
 </script>
