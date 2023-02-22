@@ -28,6 +28,7 @@ class UpdateRequest extends FormRequest
             'content' => 'required|string',
             'price' => 'required|integer',
             'hostel_preview_image' => 'nullable|file',
+            'berth' => 'required|string',
             'hostel_category_id' => 'required|integer|exists:hostel_categories,id',
             'hostel_tag_ids' => 'nullable|array',
             'hostel_tag_ids.*' => 'nullable|integer|exists:hostel_tags,id',

@@ -1011,3 +1011,137 @@ footer .media img{
     }
 
 }
+/*//////////////HOTEL CARD////////////////*/
+
+.hotel-gallery ul{
+    display: flex;
+    list-style-type: none;
+}
+.hotel-gallery ul li img{
+    width: 65px;
+    height: 65px;
+    margin-right: 8px;
+    -o-object-fit: cover ;
+    object-fit: cover ;
+}
+.hotels-inf-item{
+    margin-top: 30px;
+}
+.prefer-list{
+    margin-top: 20px;
+}
+.prefer-list img{
+    margin-right: 4px;
+}
+.rooms-item img{
+    margin-right: 4px;
+    width: 170px;
+    height: 130px;
+    -o-object-fit: cover ;
+    object-fit: cover ;
+}
+.rooms-item ul li img{
+    margin-right: 4px;
+    width: 22px;
+    height: 22px;
+}
+.prefer-list ul{
+    column-count: 5;
+    list-style-type: none;
+}
+.rooms-item ul{
+    width: 150px;
+    height: 130px;
+    list-style-type: none;
+}
+.rooms{
+    margin-top: 20px;
+}
+.rooms-item label{
+    font-weight: bold;
+    color: #08366A;
+    width: 200px;
+    text-align: center;
+}
+.rooms-item .cost{
+    color: #505050;
+}
+.rooms-item{
+    margin-top: 12px;
+    height: 130px;
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+    align-items: center;
+}
+.rooms-item input{
+    height: 56px;
+    background-color: #51D3B7;
+    color: white;
+    padding: 14px 24px;
+    margin-top: 0px;
+    border: none;
+    -webkit-box-shadow: 0 1px 5px rgba(81,211,183,0.25);
+    box-shadow: 0 1px 5px rgba(81,211,183,0.25);
+}
+.rooms-item input:hover{
+    background-color: #69EED1;
+}
+.rooms-item input:active{
+    background-color: #46B9A0;
+}
+
+@media (max-width: 480px){
+    .prefer-list ul{
+        column-count: 2;
+    }
+    .prefer-list{
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+    .rooms-item{
+        margin-top: 30px;
+        height: auto;
+        display: block;
+    }
+    .rooms-item img{
+        margin-right: 0px;
+        width: 100%;
+        height: 250px;
+        margin-bottom: 16px;
+    }
+    .rooms-item ul li img{
+        margin-right: 4px;
+        width: 22px;
+        height: 22px;
+        margin-bottom: 0;
+    }
+    .rooms-item input{
+        width: 90%;
+        margin-left: 5%;
+    }
+    .rooms-item label{
+        font-size: 18px;
+        width: 300px;
+        text-align: left;
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+    .rooms-item ul{
+        column-count: 2;
+        width: 350px;
+        height: auto;
+        margin-left: 24px;
+        margin-right: 24px;
+        margin-top: 12px;
+        margin-bottom: 24px;
+    }
+}
+
+/*.........footer.............*/
+.payment-img{
+    width: 300px;
+}
+footer .f-logo{
+    height: 70px;
+}

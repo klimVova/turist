@@ -10,14 +10,20 @@
     <template v-else-if="Number(state.user) === user.id && user.role === 1  && state.user !== ''">
       <a href="http://127.0.0.1:8000/main/user"><img src="assets/img/office.svg"></a>
     </template>
+    <template v-else-if="Number(state.user) === user.id && user.role === 2  && state.user !== ''">
+      <a href="http://127.0.0.1:8000/main/hostel"><img src="assets/img/office.svg"></a>
+    </template>
+    <template v-else-if="Number(state.user) === user.id && user.role === 3  && state.user !== ''">
+      <a href="http://127.0.0.1:8000/main/cafe"><img src="assets/img/office.svg"></a>
+    </template>
     <template v-else-if="Number(state.user) === user.id && user.role === 4  && state.user !== ''">
       <a href="http://127.0.0.1:8000/main/medical"><img src="assets/img/office.svg"></a>
     </template>
     <template v-else-if="Number(state.user) === user.id && user.role === 5  && state.user !== ''">
       <a href="http://127.0.0.1:8000/main/spa"><img src="assets/img/office.svg"></a>
     </template>
-    <template v-else-if="Number(state.user) === user.id && user.role === 3  && state.user !== ''">
-      <a href="http://127.0.0.1:8000/main/cafe"><img src="assets/img/office.svg"></a>
+    <template v-else-if="Number(state.user) === user.id && user.role === 6  && state.user !== ''">
+      <a href="http://127.0.0.1:8000/main/sanatorium"><img src="assets/img/office.svg"></a>
     </template>
   </div>
   </div>

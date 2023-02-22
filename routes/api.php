@@ -58,3 +58,14 @@ Route::get('/cafeproducts', \App\Http\Controllers\API\Cafe\ProductController::cl
 Route::post('/cafe/{cafeCard}/comments', \App\Http\Controllers\API\Cafe\CommentController::class);
 Route::post('/cafe/show/{cafeCard}/comments', \App\Http\Controllers\API\Cafe\ShowCommentController::class);
 Route::delete('/cafe/comment/{id}', \App\Http\Controllers\API\Cafe\DeleteCommentController::class);
+
+Route::post('/hostels', \App\Http\Controllers\API\Hostel\IndexController::class);
+Route::get('/hostels/filters', \App\Http\Controllers\API\Hostel\FilterListController::class);
+Route::get('/hostel/{hostelCard}', \App\Http\Controllers\API\Hostel\ShowController::class);
+Route::get('/hostelAction', \App\Http\Controllers\API\Hostel\ActionController::class);
+Route::get('/hostelServic', \App\Http\Controllers\API\Hostel\ServicController::class);
+Route::get('/hostelCategories', \App\Http\Controllers\API\Hostel\CategoryController::class);
+Route::get('/hostelPost', \App\Http\Controllers\API\Hostel\PostController::class);
+Route::post('/hostel/{hostelCard}/comments', \App\Http\Controllers\API\Hostel\CommentController::class);
+Route::post('/hostelShow/{hostelCard}/comments', \App\Http\Controllers\API\Hostel\ShowCommentController::class);
+Route::delete('/hostel/comment/{id}', \App\Http\Controllers\API\Hostel\DeleteCommentController::class);

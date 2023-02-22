@@ -102,6 +102,7 @@ export default {
       this.axios.post('/api/medicals', {})
           .then(res => {
             this.medicals = res.data.data
+            console.log(this.medicals);
           })
     },
     getFilter() {

@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div class="container-fluid main contacts-main">
     <div class="section-label">
       <h2>Контакты</h2>

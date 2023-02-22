@@ -13,4 +13,7 @@ class HostelCardImage extends Model
     public function cards(){
         return $this->belongsTo(HostelPost::class);
     }
+    public function getPhotoUrlAttribute(){
+        return url('storage/hostel_card_images/' . $this->images);
+    }
 }

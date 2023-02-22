@@ -42,6 +42,13 @@
                                 <div class="text-danger">{{$message}}</div>
                                 @enderror
                             </div>
+                            <div class="form-group w-25">
+                                <input type="text" class="form-control" name="berth" placeholder="Укажите количество спальных мест"
+                                       value="{{old('berth')}}">
+                                @error('title')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
                             <div class="form-group w-50">
                                 <label for="exampleInputFile">Добавить превью</label>
                                 <div class="input-group">

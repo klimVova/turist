@@ -13,4 +13,8 @@ class HostelCardTag extends Model
 
     protected $guarded = false;
     protected $table = 'hostel_card_tags';
+
+    public function hostelTags(){
+        return $this->belongsToMany(hostelTag::class, 'hostel_card_tags','hostel_card_id','hostel_tag_id');
+    }
 }

@@ -34,6 +34,11 @@ const router = createRouter({
                     name: 'cafe',
                     component: () => import('../views/Cafe.vue')
                 },
+                {
+                    path: 'hostel',
+                    name: 'hostel',
+                    component: () => import('../views/Hostel.vue')
+                },
             ]
         },
         {
@@ -50,6 +55,11 @@ const router = createRouter({
             path: '/cafe/:id',
             name: 'cafe_card',
             component: () => import('../views/cafeCard.vue')
+        },
+        {
+            path: '/hostel/:id',
+            name: 'hostel_card',
+            component: () => import('../views/hostelCard.vue')
         },
         {
             path: '/blog/:id',
