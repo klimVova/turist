@@ -22,7 +22,15 @@
               </div>
               <div class="card-item-descr">
                 <h2>{{ card.title }}</h2>
-                <span><a href="#review">({{pagination.total}} отзывов)</a></span>
+                <template v-if="pagination.total === 1">
+                  <span><a href="#review">({{pagination.total}}  отзыв)</a></span>
+                </template>
+                <template v-else-if="pagination.total >= 2 && pagination.total <= 4">
+                  <span><a href="#review">({{pagination.total}}  отзыва)</a></span>
+                </template>
+                <template v-else-if="pagination.total >= 5">
+                  <span><a href="#review">({{pagination.total}}  отзывов)</a></span>
+                </template>
                 <p>{{ card.content }}</p>
                 <div class="hotel-gallery">
                   <ul>
