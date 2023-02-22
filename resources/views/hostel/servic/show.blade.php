@@ -1,4 +1,4 @@
-@extends('medical.layouts.main')
+@extends('hostel.layouts.main')
 @section('content')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->

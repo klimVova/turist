@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\HostelCard;
 use App\Models\HostelCardImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ImageStoreController extends Controller
 {

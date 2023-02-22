@@ -15,4 +15,7 @@ class HostelImage extends Model
     public function posts(){
         return $this->belongsTo(HostelPost::class);
     }
+    public function getPhotoPostUrlAttribute(){
+        return url('storage/hostel_post_images/' . $this->images);
+    }
 }

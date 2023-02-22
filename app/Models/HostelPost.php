@@ -24,4 +24,7 @@ class HostelPost extends Model
     public function category(){
         return $this->belongsTo(HostelCategory::class, 'hostel_category_id','id');
     }
+    public function getPostImageUrlAttribute(){
+        return url('storage/' . $this->hostel_preview_image);
+    }
 }

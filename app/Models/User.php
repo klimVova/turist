@@ -22,6 +22,7 @@ class User extends Authenticatable
     const ROLE_CAFE = 3;
     const ROLE_MEDICAL = 4;
     const ROLE_SPA = 5;
+    const ROLE_SANATORIUM = 6;
 
 
     public static function getRoles()
@@ -33,6 +34,7 @@ class User extends Authenticatable
             self::ROLE_CAFE => 'Кофе',
             self::ROLE_MEDICAL => 'Медецина',
             self::ROLE_SPA => 'CПА',
+            self::ROLE_SANATORIUM => 'Санатории',
         ];
     }
 
@@ -188,5 +190,37 @@ class User extends Authenticatable
     public function spaTags()
     {
         return $this->hasMany(SpaTag::class, 'user_id');
+    }
+    //sanatorium
+    public function sanatoriumPosts()
+    {
+        return $this->hasMany(SanatoriumPost::class, 'user_id', 'id');
+    }
+
+    public function sanatoriumCards()
+    {
+        return $this->hasMany(SanatoriumCard::class, 'user_id');
+    }
+
+    public function sanatoriumCategories()
+    {
+        return $this->hasMany(SanatoriumCategory::class, 'user_id');
+    }
+
+    public function sanatoriumTags()
+    {
+        return $this->hasMany(SanatoriumTag::class, 'user_id');
+    }
+    public function sanatoriumCardTag()
+    {
+        return $this->hasMany(SanatoriumCardTag::class, 'user_id');
+    }
+    public function sanatoriumActions()
+    {
+        return $this->hasMany(SanatoriumAction::class, 'user_id');
+    }
+    public function sanatoriumServics()
+    {
+        return $this->hasMany(SanatoriumServic::class, 'user_id');
     }
 }

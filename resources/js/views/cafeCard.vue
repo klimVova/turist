@@ -236,6 +236,7 @@ export default {
         'page' : page
       })
           .then(res => {
+            console.log(res);
             this.comments = res.data.data
             this.message = ''
             this.pagination = res.data.meta

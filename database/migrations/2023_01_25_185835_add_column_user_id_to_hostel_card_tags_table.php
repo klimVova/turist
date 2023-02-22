@@ -28,7 +28,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('hostel_card_tags', function (Blueprint $table) {
-            $table->dropForeign('cafe_card_tags_user_fk');
+            $table->dropForeign('hostel_card_tags_user_fk');
             $table->dropColumn('user_id');
         });
     }

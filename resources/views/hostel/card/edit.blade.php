@@ -123,10 +123,8 @@
                                         data-placeholder="Выберите услугу" style="width: 100%;">
                                     @foreach($hostelCardTags as $hostelCardTag)
                                         <option
-                                        <option
                                                 {{is_array( $hostelCard->tags->pluck('id')->toArray()) && in_array($hostelCardTag->id, $hostelCard->tags->pluck('id')->toArray()) ? ' selected' : ''}}
                                                 value="{{$hostelCardTag->id}}">{{$hostelCardTag->title}}
-                                        </option>
                                         </option>
                                     @endforeach
                                 </select>
