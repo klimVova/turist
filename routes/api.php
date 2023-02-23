@@ -69,3 +69,18 @@ Route::get('/hostelPost', \App\Http\Controllers\API\Hostel\PostController::class
 Route::post('/hostel/{hostelCard}/comments', \App\Http\Controllers\API\Hostel\CommentController::class);
 Route::post('/hostelShow/{hostelCard}/comments', \App\Http\Controllers\API\Hostel\ShowCommentController::class);
 Route::delete('/hostel/comment/{id}', \App\Http\Controllers\API\Hostel\DeleteCommentController::class);
+
+
+Route::post('/sanatoriums', \App\Http\Controllers\API\Sanatorium\IndexController::class);
+Route::get('/sanatoriums/filters', \App\Http\Controllers\API\Sanatorium\FilterListController::class);
+Route::get('/sanatorium/{sanatoriumCard}', \App\Http\Controllers\API\Sanatorium\ShowController::class);
+Route::get('/sanatoriumAction', \App\Http\Controllers\API\Sanatorium\ActionController::class);
+Route::get('/sanatoriumServic', \App\Http\Controllers\API\Sanatorium\ServicController::class);
+Route::get('/sanatoriumCategories', \App\Http\Controllers\API\Sanatorium\CategoryController::class);
+Route::get('/sanatoriumPost', \App\Http\Controllers\API\Sanatorium\PostController::class);
+Route::post('/sanatorium/{sanatoriumCard}/comments', \App\Http\Controllers\API\Sanatorium\CommentController::class);
+Route::post('/sanatoriumShow/{sanatoriumCard}/comments', \App\Http\Controllers\API\Sanatorium\ShowCommentController::class);
+Route::delete('/sanatorium/comment/{id}', \App\Http\Controllers\API\Sanatorium\DeleteCommentController::class);
+Route::get('/sanatoriumLists', \App\Http\Controllers\API\Sanatorium\ListController::class);
+Route::get('/sanatoriumItems', \App\Http\Controllers\API\Sanatorium\ItemController::class);
+Route::get('/sanatoriumProducts', \App\Http\Controllers\API\Sanatorium\ProductController::class);

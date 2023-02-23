@@ -15,4 +15,7 @@ class SanatoriumImage extends Model
     public function posts(){
         return $this->belongsTo(SanatoriumPost::class);
     }
+    public function getPhotoPostUrlAttribute(){
+        return url('storage/sanatorium_post_images/' . $this->images);
+    }
 }

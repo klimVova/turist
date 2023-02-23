@@ -88,7 +88,7 @@
 <!--                  <template v-for="image in post.image_post">-->
                   <img :src="post.hostel_preview_image">
 <!--                  </template>-->
-                  <label :id="`${post.category}`">{{post.category}}<br>{{post.berth}}</label>
+                  <label :id="`${post.category}`">{{post.category}}<br>({{post.berth}} спальное место)</label>
                   <ul>
                     <li v-for="tag in post.tags"><img src="assets/img/check-list.svg">{{tag.title}}</li>
                   </ul>
@@ -311,6 +311,5 @@ export default {
 }
 .active{
   border:1px solid  #51D3B7 !important;
-
 }
 </style>

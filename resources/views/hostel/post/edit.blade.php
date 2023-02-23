@@ -32,7 +32,6 @@
                             </div>
                             <div class="form-group">
                                 <textarea id="summernote" name="content">{{$hostelPost->content}}</textarea>
-
                                 @error('content')
                                 <div class="text-danger">{{$message}}</div>
                                 @enderror

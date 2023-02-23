@@ -14,4 +14,7 @@ class SanatoriumCardImage extends Model
     public function cards(){
         return $this->belongsTo(SanatoriumPost::class);
     }
+    public function getPhotoUrlAttribute(){
+        return url('storage/sanatorium_card_images/' . $this->images);
+    }
 }

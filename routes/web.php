@@ -455,6 +455,31 @@ Route::group(['prefix' => 'main'], function () {
             Route::patch('/{sanatoriumServic}', UpdateController::class)->name('sanatorium.servic.update');
             Route::delete('/{sanatoriumServic}', DeleteController::class)->name('sanatorium.servic.delete');
         });
+        Route::group(['namespace' => 'TodoList', 'prefix' => 'todolist'], function () {
+            Route::get('/', IndexController::class)->name('sanatorium.todolist.index');
+            Route::get('/create', CreateController::class)->name('sanatorium.todolist.create');
+            Route::post('/', StoreController::class)->name('sanatorium.todolist.store');
+            Route::get('/{sanatoriumTodoList}', ShowController::class)->name('sanatorium.todolist.show');
+            Route::get('/{sanatoriumTodoList}/edit', EditController::class)->name('sanatorium.todolist.edit');
+            Route::patch('/{sanatoriumTodoList}', UpdateController::class)->name('sanatorium.todolist.update');
+            Route::delete('/{sanatoriumTodoList}', DeleteController::class)->name('sanatorium.todolist.delete');
+            Route::get('/{sanatoriumTodoList}/item/', ItemController::class)->name('sanatorium.todolist.item');
+            Route::post('/{sanatoriumTodoList}/item/', ItemStoreController::class)->name('sanatorium.todolist.item_store');
+            Route::delete('{sanatoriumTodoList}/item/', ItemRemoveController::class, 'remove')->name('sanatorium.todolist.item_remove');
+        });
+        Route::group(['namespace' => 'TodoItem', 'prefix' => 'todoitem'], function () {
+            ;
+            Route::get('/{sanatoriumTodoItem}/edit', EditController::class)->name('sanatorium.todoitem.edit');
+            Route::patch('/{sanatoriumTodoItem}', UpdateController::class)->name('sanatorium.todoitem.update');
+            Route::get('/{sanatoriumTodoItem}/product/', ProductController::class)->name('sanatorium.todoitem.product');
+            Route::post('/{sanatoriumTodoItem}/product/', ProductStoreController::class)->name('sanatorium.todoitem.product_store');
+            Route::delete('{sanatoriumTodoItem}/product/', ProductRemoveController::class, 'remove')->name('sanatorium.todoitem.product_remove');
+        });
+        Route::group(['namespace' => 'TodoProduct', 'prefix' => 'todoproduct'], function () {
+            ;
+            Route::get('/{sanatoriumTodoProduct}/edit', EditController::class)->name('sanatorium.todoproduct.edit');
+            Route::patch('/{sanatoriumTodoProduct}', UpdateController::class)->name('sanatorium.todoproduct.update');
+        });
     });
 
 
