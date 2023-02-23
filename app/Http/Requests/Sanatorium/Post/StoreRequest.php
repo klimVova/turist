@@ -27,6 +27,7 @@ class StoreRequest extends FormRequest
             'title' => 'required|string',
             'content' => 'required|string',
             'price' => 'required|integer',
+            'berth' => 'required|string',
             'sanatorium_preview_image' => 'required|file',
             'sanatorium_category_id' => 'required|integer|exists:sanatorium_categories,id',
             'user_id' => 'required|integer|exists:users,id',

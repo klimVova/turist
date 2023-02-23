@@ -44,6 +44,13 @@
                                 <div class="text-danger">{{$message}}</div>
                                 @enderror
                             </div>
+                            <div class="form-group w-25">
+                                <input type="text" class="form-control" name="berth" placeholder="Укажите количество спальных мест"
+                                       value="{{$sanatoriumPost->berth}}">
+                                @error('title')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
                             <div class="form-group w-50">
                                 <label for="exampleInputFile"> Обновить превью</label>
                                 <div class="mb-3 d-flex">

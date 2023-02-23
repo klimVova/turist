@@ -39,6 +39,11 @@ const router = createRouter({
                     name: 'hostel',
                     component: () => import('../views/Hostel.vue')
                 },
+                {
+                    path: 'sanatorium',
+                    name: 'sanatorium',
+                    component: () => import('../views/Sanatoruim.vue')
+                },
             ]
         },
         {
@@ -60,6 +65,11 @@ const router = createRouter({
             path: '/hostel/:id',
             name: 'hostel_card',
             component: () => import('../views/hostelCard.vue')
+        },
+        {
+            path: '/sanatorium/:id',
+            name: 'sanatorium_card',
+            component: () => import('../views/sanatoriumCard.vue')
         },
         {
             path: '/blog/:id',

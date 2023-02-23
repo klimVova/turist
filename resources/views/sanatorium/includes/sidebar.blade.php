@@ -26,6 +26,14 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{route('sanatorium.todolist.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-list-ul"></i>
+                    <p>
+                        Cписок процедур
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{route('sanatorium.category.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-clipboard"></i>
                     <p>
@@ -65,6 +73,7 @@
                     </p>
                 </a>
             </li>
+
         </ul>
     </div>
     <!-- /.sidebar -->

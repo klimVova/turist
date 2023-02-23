@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="{{asset('assets/md/css/mdb.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/js/animate.css')}}">
     <link rel="icon" type="image/png" href="{{asset('assets/img/fav.png')}}" />
+<<<<<<< HEAD
+=======
+
+    <scritp src="{{asset('assets/js/app.js')}}" defer></scritp>
+>>>>>>> devs
     @vite(['resources/js/app.js'])
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/index.css')}}">
     <title>ТурМедДрайвер</title>

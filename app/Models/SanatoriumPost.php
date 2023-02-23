@@ -24,4 +24,7 @@ class SanatoriumPost extends Model
     public function category(){
         return $this->belongsTo(SanatoriumCategory::class, 'sanatorium_category_id','id');
     }
+    public function getPostImageUrlAttribute(){
+        return url('storage/' . $this->sanatorium_preview_image);
+    }
 }

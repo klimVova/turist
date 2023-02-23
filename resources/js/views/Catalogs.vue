@@ -31,6 +31,11 @@
                   :to="{name:'hostel'}">
                 <li>Отели</li>
               </router-link>
+              <router-link
+                  active-class="active"
+                  :to="{name:'sanatorium'}">
+                <li>Санатории</li>
+              </router-link>
             </ul>
           </div>
         </div>

@@ -223,4 +223,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(SanatoriumServic::class, 'user_id');
     }
+    public function sanatoriumTodoLists()
+    {
+        return $this->hasMany(SanatoriumTodoList::class, 'user_id');
+    }
 }
