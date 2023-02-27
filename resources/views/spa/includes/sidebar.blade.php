@@ -41,6 +41,14 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{route('spa.action.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-tag"></i>
+                    <p>
+                        Преференции для клиентов платформы
+                    </p>
+                </a>
+            </li>
         </ul>
     </div>
     <!-- /.sidebar -->

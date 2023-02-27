@@ -20,7 +20,11 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-1 mb-3">
-                        <a href="{{route('spa.tag.create')}}" class="btn btn-block btn-primary">Добавить</a>
+                         @if(count($spaTags) < 5)
+                        <a href="{{route('spa.tag.create')}}" class="btn btn-block btn-primary ">Добавить</a>
+                        @else
+                        <a href="{{route('spa.tag.create')}}" class="btn btn-block btn-primary disabled">Добавить</a>
+                        @endif
                     </div>
                 </div>
                 <div class="row">
@@ -61,7 +65,6 @@
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
-
                     </div>
                 </div>
             </div>

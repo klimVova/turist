@@ -13,7 +13,6 @@
             </ul>
           </div>
         </div>
-
         <div  class="card-cafe col col-12 col-md-10">
           <div class="container-fluid">
             <div class="row">
@@ -54,6 +53,19 @@
                 <div class="number">
                   <img src="assets/img/tel.svg">
                   <p>{{ card.phone }}</p>
+                </div>
+              </div>
+              <div class="col col-12 col-md-12 hotels-inf-item">
+                <div class="section-label">
+                  <h2>Преференции для клиентов платформы</h2>
+                  <hr>
+                </div>
+                <div class="prefer-list">
+                  <ul>
+                    <li  v-for="action in actions"><img src="assets/img/check-list.svg">
+                      <template v-if="action.user_id === card.user_id"> {{action.title}}</template>
+                    </li>
+                  </ul>
                 </div>
               </div>
               <div class="col col-12 col-md-6 mb-3">
@@ -175,6 +187,7 @@ export default {
       user_name: [],
       pageOfItems: [],
       pagination:[],
+      actions:[],
     }
   },
 
@@ -268,6 +281,12 @@ export default {
             this.getComment()
           })
     },
+    getAction() {
+      this.axios.get('/api/medicalAction')
+          .then(res => {
+            this.actions = res.data.data;
+          })
+    },
   },
   mounted() {
     this.getList()
@@ -277,6 +296,7 @@ export default {
     this.getProduct()
     this.getComment()
     this.getUser()
+    this.getAction()
   },
 }
 </script>

@@ -286,6 +286,15 @@ Route::group(['namespace' => 'User', 'prefix' => 'user', 'middleware' => ['auth'
             Route::get('/{cafeTodoProduct}/edit', EditController::class)->name('cafe.todoproduct.edit');
             Route::patch('/{cafeTodoProduct}', UpdateController::class)->name('cafe.todoproduct.update');
         });
+        Route::group(['namespace' => 'Action', 'prefix' => 'action'], function () {
+            Route::get('/', IndexController::class)->name('cafe.action.index');
+            Route::get('/create', CreateController::class)->name('cafe.action.create');
+            Route::post('/', StoreController::class)->name('cafe.action.store');
+            Route::get('/{cafeAction}', ShowController::class)->name('cafe.action.show');
+            Route::get('/{cafeAction}/edit', EditController::class)->name('cafe.action.edit');
+            Route::patch('/{cafeAction}', UpdateController::class)->name('cafe.action.update');
+            Route::delete('/{cafeAction}', DeleteController::class)->name('cafe.action.delete');
+        });
     });
 
 //Medical
@@ -345,6 +354,15 @@ Route::group(['namespace' => 'User', 'prefix' => 'user', 'middleware' => ['auth'
             Route::get('/{medicalTodoProduct}/edit', EditController::class)->name('medical.todoproduct.edit');
             Route::patch('/{medicalTodoProduct}', UpdateController::class)->name('medical.todoproduct.update');
         });
+        Route::group(['namespace' => 'Action', 'prefix' => 'action'], function () {
+            Route::get('/', IndexController::class)->name('medical.action.index');
+            Route::get('/create', CreateController::class)->name('medical.action.create');
+            Route::post('/', StoreController::class)->name('medical.action.store');
+            Route::get('/{medicalAction}', ShowController::class)->name('medical.action.show');
+            Route::get('/{medicalAction}/edit', EditController::class)->name('medical.action.edit');
+            Route::patch('/{medicalAction}', UpdateController::class)->name('medical.action.update');
+            Route::delete('/{medicalAction}', DeleteController::class)->name('medical.action.delete');
+        });
     });
 
 //Spa
@@ -403,6 +421,15 @@ Route::group(['namespace' => 'User', 'prefix' => 'user', 'middleware' => ['auth'
             ;
             Route::get('/{spaTodoProduct}/edit', EditController::class)->name('spa.todoproduct.edit');
             Route::patch('/{spaTodoProduct}', UpdateController::class)->name('spa.todoproduct.update');
+        });
+        Route::group(['namespace' => 'Action', 'prefix' => 'action'], function () {
+            Route::get('/', IndexController::class)->name('spa.action.index');
+            Route::get('/create', CreateController::class)->name('spa.action.create');
+            Route::post('/', StoreController::class)->name('spa.action.store');
+            Route::get('/{spaAction}', ShowController::class)->name('spa.action.show');
+            Route::get('/{spaAction}/edit', EditController::class)->name('spa.action.edit');
+            Route::patch('/{spaAction}', UpdateController::class)->name('spa.action.update');
+            Route::delete('/{spaAction}', DeleteController::class)->name('spa.action.delete');
         });
     });
     //sanatorium

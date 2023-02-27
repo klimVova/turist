@@ -14,7 +14,11 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-1 mb-3">
+                        @if(count($hostelCardTags) < 5 )
                         <a href="{{route('hostel.tagCard.create')}}" class="btn btn-block btn-primary">Добавить</a>
+                        @else
+                            <a href="{{route('hostel.tagCard.create')}}" class="btn btn-block btn-primary disabled">Добавить</a>
+                        @endif
                     </div>
                 </div>
                 <div class="row">

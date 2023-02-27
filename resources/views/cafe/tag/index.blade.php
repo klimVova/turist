@@ -20,7 +20,12 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-1 mb-3">
-                        <a href="{{route('cafe.tag.create')}}" class="btn btn-block btn-primary">Добавить</a>
+                        @if(count($cafeTags) < 5)
+                            <a href="{{route('cafe.tag.create')}}" class="btn btn-block btn-primary">Добавить</a>
+                        @else
+                            <a href="{{route('cafe.tag.create')}}"
+                               class="btn btn-block btn-primary disabled">Добавить</a>
+                        @endif
                     </div>
                 </div>
                 <div class="row">
