@@ -152,6 +152,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(CafeTag::class, 'user_id');
     }
+    public function cafeActions()
+    {
+        return $this->hasMany(CafeAction::class, 'user_id');
+    }
 
     //medical
     public function medicalCards()
@@ -172,6 +176,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(MedicalTag::class, 'user_id');
     }
+    public function medicalActions()
+    {
+        return $this->hasMany(MedicalAction::class, 'user_id');
+    }
     //spa
     public function spaCards()
     {
@@ -190,6 +198,10 @@ class User extends Authenticatable
     public function spaTags()
     {
         return $this->hasMany(SpaTag::class, 'user_id');
+    }
+    public function spaActions()
+    {
+        return $this->hasMany(SpaAction::class, 'user_id');
     }
     //sanatorium
     public function sanatoriumPosts()
