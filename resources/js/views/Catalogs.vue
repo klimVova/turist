@@ -28,7 +28,7 @@
               </router-link>
               <router-link
                   active-class="active"
-                  :to="{name:'hostel'}">
+                  :to="{name:'hotel'}">
                 <li>Отели</li>
               </router-link>
               <router-link
