@@ -1168,3 +1168,68 @@ footer .f-logo{
 .remark{
     margin-top: 20px;
 }
+.sub-section-label{
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+.sub-section-label label{
+    font-size: 18px;
+    font-weight: 700;
+    color: #51D3B7;
+}
+.consalt ul li{
+    list-style-type: none;
+}
+.consalt ul li ul{
+    margin-left: 16px;
+}
+.audit-list{
+    display: flex;
+}
+
+@media (max-width: 480px){
+    .consalt-section{
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    .consalt-section .section-label{
+        padding-left: 0;
+    }
+    .audit-list{
+        display: block;
+    }
+}
+.burger{
+    display: none;
+}
+@media (max-width: 480px){
+    header{
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    #mob-menu{
+        display: none;
+    }
+    .menu ul{
+        display: block;
+    }
+    .menu ul li{
+        margin-bottom: 12px;
+    }
+    .mob-menu-div{
+        position: relative;
+    }
+    .menu{
+        display: block;
+        background-color: #08366A;
+        padding: 24px 24px;
+        margin-top: 24px;
+        margin-right: -24px;
+    }
+    .burger{
+        display: block;
+        width: 36px;
+        position: absolute;
+        right: 0;
+    }
+}

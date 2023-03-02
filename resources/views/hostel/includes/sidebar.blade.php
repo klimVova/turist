@@ -21,7 +21,7 @@
                 <a href="{{route('hostel.post.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-users"></i>
                     <p>
-                        Мои посты
+                        Список номеров
                     </p>
                 </a>
             </li>
@@ -29,7 +29,7 @@
                 <a href="{{route('hostel.category.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-clipboard"></i>
                     <p>
-                        Категории
+                        Категории номеров
                     </p>
                 </a>
             </li>
@@ -37,7 +37,7 @@
                 <a href="{{route('hostel.tag.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-list-ul"></i>
                     <p>
-                        Услуги
+                        Услуги в номере
                     </p>
                 </a>
             </li>
