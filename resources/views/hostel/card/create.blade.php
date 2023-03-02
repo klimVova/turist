@@ -163,7 +163,7 @@
                                 </select>
                             </div>
                             <div class="form-group w-50">
-                                <label>Тэги</label>
+                                <label>Услуги в номере</label>
                                 <select class="select2" name="hostel_cardTag_ids[]" multiple="multiple"
                                         data-placeholder="Выберите тэги" style="width: 100%;">
                                     @foreach($hostelCardTags as $hostelCardTag)
