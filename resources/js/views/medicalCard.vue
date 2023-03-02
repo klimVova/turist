@@ -68,9 +68,9 @@
                   </ul>
                 </div>
               </div>
-              <div class="col col-12 col-md-6 mb-3">
+              <div class="col col-12 col-md-6 mb-3 hotels-inf-item">
                 <div class="section-label">
-                  <h2>Меню</h2>
+                  <h2>Услуги</h2>
                   <hr>
                 </div>
                 <div class="service-list">
@@ -107,7 +107,7 @@
                   <!-- </div> -->
                 </div>
               </div>
-              <div class="col col-12 col-md-6">
+              <div class="col col-12 col-md-6 hotels-inf-item">
                 <div id="map-test" class="map zoomIn wow  animated" data-wow-offset="0" data-wow-delay="0.2s"
                      data-wow-duration="1s"
                      style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: zoomIn;">
