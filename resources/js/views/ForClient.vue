@@ -4,12 +4,8 @@
             <div class="sort col col-12 col-md-2">
                 <div id="menu_categories" class="menu-categories-items">
                     <ul>
-                        <a href="rules-org.html">
-                            <li>Организации</li>
-                        </a>
-                        <a href="rules-client.html">
-                            <li>Клиенты</li>
-                        </a>
+                        <li><router-link :to="{name: 'fororganization'}">Для организация</router-link></li>
+                        <li><router-link :to="{name: 'forclient'}">Для клиентов</router-link></li>
                     </ul>
                 </div>
             </div>

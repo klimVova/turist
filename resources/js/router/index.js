@@ -15,12 +15,12 @@ const router = createRouter({
             component: () => import('../views/Constaling.vue')
         },
         {
-            path: '/fororganization',
+            path: '/rules-organization',
             name: 'fororganization',
             component: () => import('../views/ForOrganization.vue')
         },
         {
-            path: '/forclient',
+            path: '/rules-client',
             name: 'forclient',
             component: () => import('../views/ForClient.vue')
         },
