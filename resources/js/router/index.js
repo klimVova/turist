@@ -15,6 +15,21 @@ const router = createRouter({
             component: () => import('../views/Constaling.vue')
         },
         {
+            path: '/fororganization',
+            name: 'fororganization',
+            component: () => import('../views/ForOrganization.vue')
+        },
+        {
+            path: '/forclient',
+            name: 'forclient',
+            component: () => import('../views/ForClient.vue')
+        },
+        {
+            path: '/ecosistem',
+            name: 'ecosistem',
+            component: () => import('../views/Ecosistem.vue')
+        },
+        {
             path: '/contact',
             name: 'contact',
             component: () => import('../views/Contact.vue')

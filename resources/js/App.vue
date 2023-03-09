@@ -1,27 +1,31 @@
 <template>
   <div class="wrapper">
     <header>
-      <div class="nav">
-        <router-link :to="{name: 'home'}"><img src="assets/img/logo-s.png"></router-link>
-        <div class="mob-menu-div">
-          <img onclick="openBlock('mob-menu')" class="burger" src="assets/img/menu.svg">
-          <div id="mob-menu" class="menu">
-            <ul>
-              <li>
-                <router-link :to="{name: 'med'}">Каталог</router-link>
-              </li>
-              <li><a href="#">О компании</a></li>
-              <li>
-                <router-link :to="{name:'constaling'}">Консалтинг</router-link>
-              </li>
-              <li>
-                <router-link :to="{name:'contact'}">Контакты</router-link>
-              </li>
-            </ul>
-            <login></login>
-          </div>
+        <div class="nav">
+            <router-link :to="{name: 'home'}"><img src="assets/img/logo-s.png"></router-link>
+            <div class="mob-menu-div">
+                <img onclick="openBlock('mob-menu')" class="burger" src="assets/img/menu.svg">
+                <div id="mob-menu" class="menu">
+                    <ul>
+                        <li>   <router-link :to="{name: 'med'}">Каталог</router-link></li>
+                        <li><a href="#">О компании</a>
+                            <ul>
+                                <li><router-link :to="{name: 'fororganization'}">Для организация</router-link></li>
+                                <li><router-link :to="{name: 'forclient'}">Для клиентов</router-link></li>
+                                <li><router-link :to="{name: 'ecosistem'}">Экосистема турмеддрайвер</router-link></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <router-link :to="{name:'constaling'}">Консалтинг</router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{name:'contact'}">Контакты</router-link>
+                        </li>
+                    </ul>
+                    <login></login>
+                </div>
+            </div>
         </div>
-      </div>
     </header>
     <router-view></router-view>
     <footer>

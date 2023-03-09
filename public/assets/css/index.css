@@ -1199,6 +1199,59 @@ footer .f-logo{
         display: block;
     }
 }
+.nav{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.menu{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 4px;
+}
+.menu ul{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    text-decoration: none;
+    list-style-type: none;
+    margin-top: 4px;
+    position: relative;
+}
+.menu ul li{
+    margin-right: 24px;
+}
+
+.menu ul li ul{
+    min-width: 200px;
+    display: none;
+    position: absolute;
+    margin-top: -4px;
+    padding: 24px 24px 12px 24px;
+    background-color: #08366A;
+    left: 0;
+    right: 0;
+}
+.menu ul li:hover ul{
+    display: block;
+}
+.menu ul li ul li{
+    margin-bottom: 12px;
+    display: block;
+    background-color: #08366A;
+    color: white;
+}
+@media (max-width: 480px){
+    .menu ul li ul{
+        position: relative;
+    }
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////*/
 .burger{
     display: none;
 }
@@ -1218,12 +1271,15 @@ footer .f-logo{
     }
     .mob-menu-div{
         position: relative;
+        width: 100vw;
+        margin-left: -24px;
+        margin-top: -42px;
     }
     .menu{
         display: block;
         background-color: #08366A;
         padding: 24px 24px;
-        margin-top: 24px;
+        margin-top: 44px;
         margin-right: -24px;
     }
     .burger{
