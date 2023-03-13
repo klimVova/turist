@@ -73,7 +73,7 @@ export default {
 .image_post{
     float:left;
     margin: 7px 25px 9px 0;
-    width: 200px;
+    width: 380px;
     height: auto;
 }
 </style>
