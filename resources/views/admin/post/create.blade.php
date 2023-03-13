@@ -29,9 +29,16 @@
                                 <div class="text-danger">Это поле необходимо заполнить</div>
                                 @enderror
                             </div>
+                            <label>Краткое описание</label>
+                            <div class="form-group">
+                                <textarea cols="70" rows="10" name="desc">{{old('desc')}}</textarea>
+                                @error('content')
+                                <div class="text-danger">Это поле необходимо заполнить</div>
+                                @enderror
+                            </div>
+                            <label>Контент поста</label>
                             <div class="form-group">
                                 <textarea cols="70" rows="10" name="content">{{old('content')}}</textarea>
-
                                 @error('content')
                                 <div class="text-danger">Это поле необходимо заполнить</div>
                                 @enderror
@@ -64,26 +71,6 @@
                                 @enderror
                             </div>
                             <div class="form-group w-50">
-                                <label>Выберите категорию</label>
-                                <select name="category_id" class="form-control">
-                                    @foreach($categories as $category)
-                                        <option value="{{$category->id}}"
-                                                {{$category->id == old('category_id') ? ' selected' : '' }}>{{$category->title}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group w-50">
-                                <label>Тэги</label>
-                                <select class="select2" name="tag_ids[]" multiple="multiple"
-                                        data-placeholder="Выберите тэги" style="width: 100%;">
-                                    @foreach($tags as $tag)
-                                        <option
-                                                {{is_array(old('tag_ids')) && in_array($tag->id, old('tag_ids')) ? ' selected' : ''}}
-                                                value="{{$tag->id}}">{{$tag->title}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group w-50">
                                 <input type="hidden" name="user_id" value="{{$user}}">
                             </div>
                             <div class="form-group">
@@ -92,7 +79,7 @@
                         </form>
                     </div>
                 </div>
+            </div>
         </section>
-        <!-- /.content -->
     </div>
 @endsection

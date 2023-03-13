@@ -16,7 +16,7 @@
               </div>
               <div class="blog-descr">
                 <label>{{ post.title }}</label>
-                <p>{{ post.content }}</p>
+                <p>{{ post.desc }}</p>
                 <span>{{localeDate}}</span>
               </div>
             </router-link>

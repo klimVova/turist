@@ -31,8 +31,17 @@
                                 <div class="text-danger">Это поле необходимо заполнить</div>
                                 @enderror
                             </div>
+                            <label>Краткое описание поста</label>
                             <div class="form-group">
-                                <textarea id="summernote" name="content">{{$post->content}}</textarea>
+                                <textarea cols="70" rows="10" name="desc">{{$post->desc}}</textarea>
+
+                                @error('content')
+                                <div class="text-danger">Это поле необходимо заполнить</div>
+                                @enderror
+                            </div>
+                            <label>Контент поста</label>
+                            <div class="form-group">
+                                <textarea cols="70" rows="10" name="content">{{$post->content}}</textarea>
 
                                 @error('content')
                                 <div class="text-danger">Это поле необходимо заполнить</div>
@@ -53,26 +62,6 @@
                                 @error('preview_image')
                                 <div class="text-danger">Это поле необходимо заполнить</div>
                                 @enderror
-                            </div>
-                            <div class="form-group w-50">
-                                <label>Выберите категорию</label>
-                                <select name="category_id" class="form-control">
-                                    @foreach($categories as $category)
-                                        <option value="{{$category->id}}"
-                                                {{$category->id == $post->category_id ? ' selected' : '' }}>{{$category->title}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group w-50">
-                                <label>Тэги</label>
-                                <select class="select2" name="tag_ids[]" multiple="multiple"
-                                        data-placeholder="Выберите тэги" style="width: 100%;">
-                                    @foreach($tags as $tag)
-                                        <option
-                                                {{is_array( $post->tags->pluck('id')->toArray()) && in_array($tag->id, $post->tags->pluck('id')->toArray()) ? ' selected' : ''}}
-                                                value="{{$tag->id}}">{{$tag->title}}</option>
-                                    @endforeach
-                                </select>
                             </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary" value="Обновить">
