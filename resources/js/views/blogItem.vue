@@ -3,14 +3,17 @@
     <div class="container-fluid main">
       <div class="blog-page">
         <div class="blog-page-img">
-          <img :src="post.image_url">
+            <img src="assets/img/blog-bgs.jpg">
+
         </div>
         <div class="blog-page-text">
           <div class="section-label">
             <h2>{{post.title}}</h2>
             <hr>
           </div>
-          <p>{{post.content}}</p>
+            <p>
+            <img :src="post.image_url" class="image_post">
+          {{post.content}}</p>
             <input
                 :class=" item === Number(post.id + 1) ? 'hide mr-3' : 'mr-3'"
                 @click.prevent="getNext(Number(post.id + 1))" type="submit" name="" value="Следующая статья">
@@ -66,5 +69,11 @@ export default {
 <style scoped>
 .hide{
   display: none;
+}
+.image_post{
+    float:left;
+    margin: 7px 25px 9px 0;
+    width: 200px;
+    height: auto;
 }
 </style>
