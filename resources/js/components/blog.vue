@@ -48,7 +48,7 @@ export default {
     },
     load(){
       let loadMoreBtn = document.querySelector('#load-more-btn');
-      let currentItem = 2;
+        let currentItem = 2;
       loadMoreBtn.onclick = () => {
         let boxes = [...document.querySelectorAll('.blog-items .blog-item')];
         for (var i = currentItem; i < currentItem + 2; i++) {
@@ -95,3 +95,4 @@ export default {
   transition: 0.5s ease;
 }
 </style>
+

@@ -409,7 +409,7 @@ Route::group(['prefix' => 'main'], function () {
             Route::delete('/{spaAction}', DeleteController::class)->name('spa.action.delete');
         });
     });
-    //sanatorium
+//sanatorium
     Route::group(['namespace' => 'Sanatorium', 'prefix' => 'sanatorium', 'middleware' => ['auth', 'sanatorium', 'verified']], function () {
         Route::group(['namespace' => 'Main'], function () {
             Route::get('/', IndexController::class)->name('sanatorium.main.index');
@@ -506,6 +506,106 @@ Route::group(['prefix' => 'main'], function () {
             ;
             Route::get('/{sanatoriumTodoProduct}/edit', EditController::class)->name('sanatorium.todoproduct.edit');
             Route::patch('/{sanatoriumTodoProduct}', UpdateController::class)->name('sanatorium.todoproduct.update');
+        });
+    });
+
+//turoperator
+    Route::group(['namespace' => 'Turoperator', 'prefix' => 'turoperator', 'middleware' => ['auth', 'turoperator', 'verified']], function () {
+        Route::group(['namespace' => 'Main'], function () {
+            Route::get('/', IndexController::class)->name('turoperator.main.index');
+        });
+        Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
+            Route::get('/', IndexController::class)->name('turoperator.post.index');
+            Route::get('/create', CreateController::class)->name('turoperator.post.create');
+            Route::post('/', StoreController::class)->name('turoperator.post.store');
+            Route::get('/{turoperatorPost}/edit', EditController::class)->name('turoperator.post.edit');
+            Route::patch('/{turoperatorPost}', UpdateController::class)->name('turoperator.post.update');
+            Route::delete('/{turoperatorPost}', DeleteController::class)->name('turoperator.post.delete');
+            Route::get('/{turoperatorPost}/image/', ImageController::class)->name('turoperator.post.image');
+            Route::post('/{turoperatorPost}/image/', ImageStoreController::class)->name('turoperator.post.image_store');
+            Route::delete('{turoperatorPost}/image/', ImageRemoveController::class, 'remove')->name('turoperator.post.image_remove');
+        });
+        Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function () {
+            Route::get('/', IndexController::class)->name('turoperator.category.index');
+            Route::get('/create', CreateController::class)->name('turoperator.category.create');
+            Route::post('/', StoreController::class)->name('turoperator.category.store');
+            Route::get('/{turoperatorCategory}', ShowController::class)->name('turoperator.category.show');
+            Route::get('/{turoperatorCategory}/edit', EditController::class)->name('turoperator.category.edit');
+            Route::patch('/{turoperatorCategory}', UpdateController::class)->name('turoperator.category.update');
+            Route::delete('/{turoperatorCategory}', DeleteController::class)->name('turoperator.category.delete');
+        });
+        Route::group(['namespace' => 'Tag', 'prefix' => 'tags'], function () {
+            Route::get('/', IndexController::class)->name('turoperator.tag.index');
+            Route::get('/create', CreateController::class)->name('turoperator.tag.create');
+            Route::post('/', StoreController::class)->name('turoperator.tag.store');
+            Route::get('/{turoperatorTag}', ShowController::class)->name('turoperator.tag.show');
+            Route::get('/{turoperatorTag}/edit', EditController::class)->name('turoperator.tag.edit');
+            Route::patch('/{turoperatorTag}', UpdateController::class)->name('turoperator.tag.update');
+            Route::delete('/{turoperatorTag}', DeleteController::class)->name('turoperator.tag.delete');
+        });
+        Route::group(['namespace' => 'Card', 'prefix' => 'cards'], function () {
+            Route::get('/', IndexController::class)->name('turoperator.card.index');
+            Route::get('/create', CreateController::class)->name('turoperator.card.create');
+            Route::post('/', StoreController::class)->name('turoperator.card.store');
+            Route::get('/{turoperatorCard}', ShowController::class)->name('turoperator.card.show');
+            Route::get('/{turoperatorCard}/edit', EditController::class)->name('turoperator.card.edit');
+            Route::patch('/{turoperatorCard}', UpdateController::class)->name('turoperator.card.update');
+            Route::delete('/{turoperatorCard}', DeleteController::class)->name('turoperator.card.delete');
+            Route::get('/{turoperatorCard}/image/', ImageController::class)->name('turoperator.card.image');
+            Route::post('/{turoperatorCard}/image/', ImageStoreController::class)->name('turoperator.card.image_store');
+            Route::delete('{turoperatorCard}/image/', ImageRemoveController::class)->name('turoperator.card.image_remove');
+        });
+        Route::group(['namespace' => 'TagCard', 'prefix' => 'cardTags'], function () {
+            Route::get('/', IndexController::class)->name('turoperator.tagCard.index');
+            Route::get('/create', CreateController::class)->name('turoperator.tagCard.create');
+            Route::post('/', StoreController::class)->name('turoperator.tagCard.store');
+            Route::get('/{turoperatorCardTag}', ShowController::class)->name('turoperator.tagCard.show');
+            Route::get('/{turoperatorCardTag}/edit', EditController::class)->name('turoperator.tagCard.edit');
+            Route::patch('/{turoperatorCardTag}', UpdateController::class)->name('turoperator.tagCard.update');
+            Route::delete('/{turoperatorCardTag}', DeleteController::class)->name('turoperator.tagCard.delete');
+        });
+        Route::group(['namespace' => 'Action', 'prefix' => 'action'], function () {
+            Route::get('/', IndexController::class)->name('turoperator.action.index');
+            Route::get('/create', CreateController::class)->name('turoperator.action.create');
+            Route::post('/', StoreController::class)->name('turoperator.action.store');
+            Route::get('/{turoperatorAction}', ShowController::class)->name('turoperator.action.show');
+            Route::get('/{turoperatorAction}/edit', EditController::class)->name('turoperator.action.edit');
+            Route::patch('/{turoperatorAction}', UpdateController::class)->name('turoperator.action.update');
+            Route::delete('/{turoperatorAction}', DeleteController::class)->name('turoperator.action.delete');
+        });
+        Route::group(['namespace' => 'Servic', 'prefix' => 'servic'], function () {
+            Route::get('/', IndexController::class)->name('turoperator.servic.index');
+            Route::get('/create', CreateController::class)->name('turoperator.servic.create');
+            Route::post('/', StoreController::class)->name('turoperator.servic.store');
+            Route::get('/{turoperatorServic}', ShowController::class)->name('turoperator.servic.show');
+            Route::get('/{turoperatorServic}/edit', EditController::class)->name('turoperator.servic.edit');
+            Route::patch('/{turoperatorServic}', UpdateController::class)->name('turoperator.servic.update');
+            Route::delete('/{turoperatorServic}', DeleteController::class)->name('turoperator.servic.delete');
+        });
+        Route::group(['namespace' => 'TodoList', 'prefix' => 'todolist'], function () {
+            Route::get('/', IndexController::class)->name('turoperator.todolist.index');
+            Route::get('/create', CreateController::class)->name('turoperator.todolist.create');
+            Route::post('/', StoreController::class)->name('turoperator.todolist.store');
+            Route::get('/{turoperatorTodoList}', ShowController::class)->name('turoperator.todolist.show');
+            Route::get('/{turoperatorTodoList}/edit', EditController::class)->name('turoperator.todolist.edit');
+            Route::patch('/{turoperatorTodoList}', UpdateController::class)->name('turoperator.todolist.update');
+            Route::delete('/{turoperatorTodoList}', DeleteController::class)->name('turoperator.todolist.delete');
+            Route::get('/{turoperatorTodoList}/item/', ItemController::class)->name('turoperator.todolist.item');
+            Route::post('/{turoperatorTodoList}/item/', ItemStoreController::class)->name('turoperator.todolist.item_store');
+            Route::delete('{turoperatorTodoList}/item/', ItemRemoveController::class, 'remove')->name('turoperator.todolist.item_remove');
+        });
+        Route::group(['namespace' => 'TodoItem', 'prefix' => 'todoitem'], function () {
+            ;
+            Route::get('/{turoperatorTodoItem}/edit', EditController::class)->name('turoperator.todoitem.edit');
+            Route::patch('/{turoperatorTodoItem}', UpdateController::class)->name('turoperator.todoitem.update');
+            Route::get('/{turoperatorTodoItem}/product/', ProductController::class)->name('turoperator.todoitem.product');
+            Route::post('/{turoperatorTodoItem}/product/', ProductStoreController::class)->name('turoperator.todoitem.product_store');
+            Route::delete('{turoperatorTodoItem}/product/', ProductRemoveController::class, 'remove')->name('turoperator.todoitem.product_remove');
+        });
+        Route::group(['namespace' => 'TodoProduct', 'prefix' => 'todoproduct'], function () {
+            ;
+            Route::get('/{turoperatorTodoProduct}/edit', EditController::class)->name('turoperator.todoproduct.edit');
+            Route::patch('/{turoperatorTodoProduct}', UpdateController::class)->name('turoperator.todoproduct.update');
         });
     });
 

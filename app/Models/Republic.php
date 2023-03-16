@@ -30,4 +30,8 @@ class Republic extends Model
     {
         return $this->hasMany(HostelCard::class, 'republic_id');
     }
+    public function turoperatorCards()
+    {
+        return $this->hasMany(TuroperatorCard::class, 'republic_id');
+    }
 }

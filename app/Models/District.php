@@ -30,4 +30,8 @@ class District extends Model
     {
         return $this->hasMany(HostelCard::class, 'district_id');
     }
+    public function turoperatorCards()
+    {
+        return $this->hasMany(TuroperatorCard::class, 'district_id');
+    }
 }

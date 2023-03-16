@@ -11,6 +11,7 @@ class EditController extends Controller
 {
     public function __invoke(HostelPost $hostelPost)
     {
+
         $hostelCategories = auth()->user()->hostelCategories;
         $hostelTags =auth()->user()->hostelTags;
         return view('hostel.post.edit' , compact('hostelPost', 'hostelCategories', 'hostelTags'));

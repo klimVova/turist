@@ -12,7 +12,6 @@ class UpdateController extends Controller
     public function __invoke(UpdateRequest $request, HostelPost $hostelPost)
     {
         $data = $request->validated();
-
         if (isset($data['hostel_preview_image'])) {
             $data['hostel_preview_image'] = Storage::disk('public')->put('/hostel_images', $data['hostel_preview_image']);
         }

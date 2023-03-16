@@ -8,6 +8,7 @@ use App\Http\Middleware\HostelMiddleware;
 use App\Http\Middleware\MedicalMiddleware;
 use App\Http\Middleware\SanatoriumMiddleware;
 use App\Http\Middleware\SpaMiddleware;
+use App\Http\Middleware\TurOperatorMiddleware;
 use App\Http\Middleware\UserMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -78,5 +79,6 @@ class Kernel extends HttpKernel
         'medical' => MedicalMiddleware::class,
         'spa' => SpaMiddleware::class,
         'sanatorium' => SanatoriumMiddleware::class,
+        'turoperator' => TurOperatorMiddleware::class,
     ];
 }

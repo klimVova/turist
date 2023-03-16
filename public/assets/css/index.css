@@ -1289,3 +1289,78 @@ footer .f-logo{
         right: 0;
     }
 }
+/*///////////////////////////touragency/////////////////////////*/
+.rooms-item label span{
+    color: #505050;
+    font-size: 12px;
+    font-weight: 400;
+}
+.rooms .details{
+    display: none;
+    padding: 20px 30px;
+    background: linear-gradient(rgba(225,225,255,0), rgba(81,211,183,.4));
+}
+.rooms .details label{
+    color: #51D3B7;
+    margin: 0;
+}
+.rooms-item-agency{
+    cursor: pointer;
+}
+.rooms-item-agency:hover{
+    /*background-color: #F1F1F1;*/
+    background: linear-gradient(white, #F1F1F1);
+}
+/*///////////////////////////touragency/////////////////////////*/
+.rooms-item__slider {
+    width: 170px;
+    height: 130px;
+    /* тут задай свои размеры фотки */
+    position: relative;
+    overflow: hidden;
+    -o-object-fit: cover ;
+    object-fit: cover ;
+    margin-right: 4px;
+}
+.rooms-item__line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    transition: 0.3s;
+}
+.rooms-item__line > div {
+    width: 170px;
+    height: 130px;
+
+    /* и тут вставь свои размеры */
+}
+.rooms-item__line > div > img {
+    width: 100%;
+    height: 100%;
+}
+.arrow {
+    position: absolute;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+    width: 95%;
+    left: 2.5%;
+}
+.arrow img {
+    width: 10px;
+    height: 10px;
+}
+.arrow > div.left {
+    transform: rotate(180deg); /*Тут просто переворачиваю левую фотку*/
+}
+.left{
+    width: 7px;
+    height: 20px;
+}
+.right{
+    width: 7px;
+    height: 20px;
+}

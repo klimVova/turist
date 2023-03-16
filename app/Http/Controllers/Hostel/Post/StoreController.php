@@ -15,6 +15,7 @@ class StoreController extends Controller
     {
 
         $data = $request->validated();
+
         if (isset($data['hostel_tag_ids'])) {
             $hostel_tagIds = $data['hostel_tag_ids'];
             unset($data['hostel_tag_ids']);

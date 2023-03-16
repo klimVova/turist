@@ -16,6 +16,7 @@ class StoreController extends Controller
     public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
+
         if (isset($data['hostel_cardTag_ids'])) {
             $hostel_tagIds = $data['hostel_cardTag_ids'];
             unset($data['hostel_cardTag_ids']);

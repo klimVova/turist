@@ -10,7 +10,6 @@ class SanatoriumCardTag extends Model
 {
     use HasFactory;
 
-    use HasFactory;
     use SoftDeletes;
 
     protected $guarded = false;

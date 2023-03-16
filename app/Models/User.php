@@ -23,6 +23,7 @@ class User extends Authenticatable
     const ROLE_MEDICAL = 4;
     const ROLE_SPA = 5;
     const ROLE_SANATORIUM = 6;
+    const ROLE_TUROPERATOR = 7;
 
 
     public static function getRoles()
@@ -35,6 +36,7 @@ class User extends Authenticatable
             self::ROLE_MEDICAL => 'Медецина',
             self::ROLE_SPA => 'CПА',
             self::ROLE_SANATORIUM => 'Санатории',
+            self::ROLE_TUROPERATOR => 'ТурОператор'
         ];
     }
 
@@ -238,5 +240,42 @@ class User extends Authenticatable
     public function sanatoriumTodoLists()
     {
         return $this->hasMany(SanatoriumTodoList::class, 'user_id');
+    }
+
+    //turoperator
+    public function turoperatorPosts()
+    {
+        return $this->hasMany(TuroperatorPost::class, 'user_id', 'id');
+    }
+
+    public function turoperatorCards()
+    {
+        return $this->hasMany(TuroperatorCard::class, 'user_id');
+    }
+
+    public function turoperatorCategories()
+    {
+        return $this->hasMany(TuroperatorCategory::class, 'user_id');
+    }
+
+    public function turoperatorTags()
+    {
+        return $this->hasMany(TuroperatorTag::class, 'user_id');
+    }
+    public function turoperatorCardTag()
+    {
+        return $this->hasMany(TuroperatorCardTag::class, 'user_id');
+    }
+    public function turoperatorActions()
+    {
+        return $this->hasMany(TuroperatorAction::class, 'user_id');
+    }
+    public function turoperatorServics()
+    {
+        return $this->hasMany(TuroperatorServic::class, 'user_id');
+    }
+    public function turoperatorTodoLists()
+    {
+        return $this->hasMany(TuroperatorTodoList::class, 'user_id');
     }
 }
