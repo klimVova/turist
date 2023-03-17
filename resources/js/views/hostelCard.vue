@@ -85,23 +85,13 @@
                             </div>
                             <div class="rooms">
                                 <div v-for="post in posts" class="rooms-item" id="rooms-item">
-                                    <div class="arrow">
-                                        <div class="left">
-                                            <img
-                                                src="assets/img/right.svg"
-                                                alt=""
-                                            />
-                                        </div>
-                                        <div class="right">
-                                            <img
-                                                src="assets/img/right.svg"
-                                                alt=""
-                                            />
-                                        </div>
-                                    </div>
                                     <div class="rooms-item__line">
-                                        <div v-for="image in post.image_post">
-                                            <img :src="image.images" alt=""/>
+
+                                        <div class='slides'>
+                                            <swiper
+                                                :images="post.image_post"
+                                            ></swiper>
+
                                         </div>
                                     </div>
                                     <label :id="`${post.category}`">{{ post.category }}<br>({{ post.berth }} спальное
@@ -116,6 +106,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col col-12 col-md-6 hotels-inf-item">
                             <div class="section-label">
                                 <h2><span id="review"></span> Отзывы</h2>
@@ -176,8 +167,11 @@
 
 <script>
 import user from "../user";
+import swiper from '../components/swiper.vue'
+
 export default {
     name: "hostelCard",
+    components:{swiper},
     setup() {
         const {state} = user;
         return {state};
@@ -336,5 +330,10 @@ export default {
 
 .active {
     border: 1px solid #51D3B7 !important;
+}
+@media (max-width: 480px){
+    .slides{
+        width: 100%;
+    }
 }
 </style>
