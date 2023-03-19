@@ -11,7 +11,7 @@
                 @mouseenter="stopSlideTimer"
                 @mouseout="startSlideTimer"
             ></carousel-item>
-            <carousel-controls @prev="prev" @next="next"></carousel-controls>
+            <carousel-controls v-if="slides.length > 1" @prev="prev" @next="next"></carousel-controls>
         </div>
     </div>
 </template>
