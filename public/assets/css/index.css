@@ -1279,13 +1279,13 @@ footer .f-logo{
         position: relative;
         width: 100vw;
         margin-left: -24px;
-        margin-top: -42px;
+        /*margin-top: -42px;*/
     }
     .menu{
         display: block;
         background-color: #08366A;
         padding: 24px 24px;
-        margin-top: 44px;
+        /*margin-top: 44px;*/
         margin-right: -24px;
     }
     .burger{
@@ -1293,6 +1293,7 @@ footer .f-logo{
         width: 36px;
         position: absolute;
         right: 0;
+        top:-40px;
     }
 }
 /*///////////////////////////touragency/////////////////////////*/
