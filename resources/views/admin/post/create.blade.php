@@ -38,7 +38,7 @@
                             </div>
                             <label>Контент поста</label>
                             <div class="form-group">
-                                <textarea cols="70" rows="10" name="content">{{old('content')}}</textarea>
+                                <textarea id="summernote" name="content">{{old('content')}}</textarea>
                                 @error('content')
                                 <div class="text-danger">Это поле необходимо заполнить</div>
                                 @enderror
