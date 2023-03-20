@@ -33,7 +33,7 @@
                             </div>
                             <label>Краткое описание поста</label>
                             <div class="form-group">
-                                <textarea cols="70" rows="10" name="desc">{{$post->desc}}</textarea>
+                                <textarea id="summernote" name="desc">{{$post->desc}}</textarea>
 
                                 @error('content')
                                 <div class="text-danger">Это поле необходимо заполнить</div>
