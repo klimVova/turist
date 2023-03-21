@@ -83,15 +83,13 @@
                                 <h2>Номера</h2>
                                 <hr>
                             </div>
-                            <div class="rooms">
-                                <div v-for="post in posts" class="rooms-item" id="rooms-item">
+                            <div class="rooms" v-for="post in posts">
+                                <div v-if="post.user_id === card.user_id" class="rooms-item" id="rooms-item">
                                     <div class="rooms-item__line">
-
                                         <div class='slides'>
                                             <swiper
                                                 :images="post.image_post"
                                             ></swiper>
-
                                         </div>
                                     </div>
                                     <label :id="`${post.category}`">{{ post.category }}<br>({{ post.berth }} спальное
@@ -137,7 +135,9 @@
                                         <li v-for="link in pagination.links" class="page-item">
                                             <template v-if="Number(link.label)">
                                                 <a @click.prevent="getComment(link.label)"
-                                                   :class="link.active ? 'active page-link' : 'page-link'">{{ link.label }}</a>
+                                                   :class="link.active ? 'active page-link' : 'page-link'">{{
+                                                        link.label
+                                                    }}</a>
                                             </template>
 
                                         </li>
@@ -171,7 +171,7 @@ import swiper from '../components/swiper.vue'
 
 export default {
     name: "hostelCard",
-    components:{swiper},
+    components: {swiper},
     setup() {
         const {state} = user;
         return {state};
@@ -197,6 +197,7 @@ export default {
         getCard() {
             this.axios.get('/api/hostel/' + this.$route.params.id)
                 .then(res => {
+                    console.log(res);
                     this.card = res.data.data;
                     let center = [this.card.coordinate_l, this.card.coordinate_r];
 
@@ -241,7 +242,7 @@ export default {
             this.axios.get('/api/hostelPost')
                 .then(res => {
                     this.posts = res.data.data;
-                    console.log(this.posts);
+                    console.log(res);
                 })
         },
         getCatagoties() {
@@ -331,8 +332,9 @@ export default {
 .active {
     border: 1px solid #51D3B7 !important;
 }
-@media (max-width: 480px){
-    .slides{
+
+@media (max-width: 480px) {
+    .slides {
         width: 100%;
     }
 }
