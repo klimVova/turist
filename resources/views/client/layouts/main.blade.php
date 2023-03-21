@@ -26,7 +26,8 @@
 <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU"></script>
 <script type="text/javascript"></script>
 <script type="text/javascript" src="{{asset('assets/js/main-js.js')}}"></script>
-<script type="text/javascript" src="{{asset('assets/js/slider1.js')}}"></script>
+
 <script type="text/javascript" src="{{asset('assets/js/slider2.js')}}"></script>
+
 
 </html>

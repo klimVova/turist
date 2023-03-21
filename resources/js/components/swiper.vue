@@ -14,14 +14,6 @@ export default {
         return {
             slide: this.images,
         }
-    },
-    mounted() {
-        this.getSlides()
-    },
-    methods: {
-        getSlides() {
-            console.log(this.slide);
-        }
     }
 }
 </script>
