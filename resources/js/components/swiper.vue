@@ -1,6 +1,5 @@
 <template >
         <carousel :slides=images></carousel>
-<div></div>
 </template>
 <script>
 import Carousel from "./carousel/Carousel.vue"

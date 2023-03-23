@@ -61,11 +61,13 @@
                   <hr>
                 </div>
                 <div class="prefer-list">
-                  <ul>
-                    <li  v-for="action in actions"><img src="assets/img/check-list.svg">
-                      <template v-if="action.user_id === card.user_id"> {{action.title}}</template>
-                    </li>
-                  </ul>
+                    <ul>
+                        <template  v-for="action in actions">
+                            <li v-if="action.user_id === card.user_id"><img src="assets/img/check-list.svg">
+                                {{ action.title }}
+                            </li>
+                        </template>
+                    </ul>
                 </div>
               </div>
               <div class="col col-12 col-md-6 hotels-inf-item">

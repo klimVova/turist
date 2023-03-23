@@ -33,7 +33,7 @@
                                         <span><a href="#review">({{ pagination.total }}  отзывов)</a></span>
                                     </template>
                                     <p>{{ card.content }}</p>
-                                    <input type="submit" value="Забронировать стол">
+                                    <input @click.prevent="toggleModal" type="submit" value="Забронировать стол">
                                     <p></p>
                                 </div>
                             </div>
@@ -63,10 +63,12 @@
                                 </div>
                                 <div class="prefer-list">
                                     <ul>
-                                        <li v-for="action in actions"><img src="assets/img/check-list.svg">
-                                            <template v-if="action.user_id === card.user_id"> {{ action.title }}
-                                            </template>
-                                        </li>
+                                        <template v-for="action in actions">
+                                            <li v-if="action.user_id === card.user_id"><img
+                                                src="assets/img/check-list.svg">
+                                                {{ action.title }}
+                                            </li>
+                                        </template>
                                     </ul>
                                 </div>
                             </div>
@@ -85,10 +87,14 @@
                                         <div v-for="subcat in items" class="subcategory">
                                             <div class="d-flex col justify-content-between">
                                                 <div><label
-                                                    v-if="subcat.cafe_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{ subcat.title }}</label>
+                                                    v-if="subcat.cafe_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{
+                                                        subcat.title
+                                                    }}</label>
                                                 </div>
                                                 <div><label
-                                                    v-if="subcat.cafe_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{ subcat.price }}</label>
+                                                    v-if="subcat.cafe_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{
+                                                        subcat.price
+                                                    }}</label>
                                                 </div>
                                             </div>
 
@@ -139,7 +145,9 @@
                                             <li v-for="link in pagination.links" class="page-item">
                                                 <template v-if="Number(link.label)">
                                                     <a @click.prevent="getComment(link.label)"
-                                                       :class="link.active ? 'active page-link' : 'page-link'">{{ link.label }}</a>
+                                                       :class="link.active ? 'active page-link' : 'page-link'">{{
+                                                            link.label
+                                                        }}</a>
                                                 </template>
 
                                             </li>
@@ -154,24 +162,42 @@
                                 </div>
 
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div>
+        <modal-cafe
+            :modal-active="modalActive"
+            :lists="lists"
+            :items="items"
+            :products="products"
+            :card="card"
+            @close="toggleModal"
+        >
+        </modal-cafe>
+    </div>
 </template>
 
 <script>
 import user from "../user";
-
+import modalCafe from "../components/modal/modalCafe.vue";
+import {ref} from "vue";
 
 export default {
-
+    components: {
+        modalCafe
+    },
     setup() {
         const {state} = user;
-        return {state};
+        const modalActive = ref(false);
+        const toggleModal = () => {
+            modalActive.value = !modalActive.value;
+        }
+        return {state, modalActive, toggleModal};
+
     },
     name: "spaCard",
     data() {
@@ -341,4 +367,5 @@ export default {
     border: 1px solid #51D3B7 !important;
 
 }
+
 </style>

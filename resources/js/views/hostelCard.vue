@@ -199,10 +199,8 @@ export default {
         getCard() {
             this.axios.get('/api/hostel/' + this.$route.params.id)
                 .then(res => {
-                    console.log(res);
                     this.card = res.data.data;
                     let center = [this.card.coordinate_l, this.card.coordinate_r];
-
                     function init() {
                         let map = new ymaps.Map('map-test', {
                             center: center,
@@ -224,7 +222,6 @@ export default {
                         // map.behaviors.disable(['scrollZoom']); // отключаем скролл карты (опционально)
                         map.geoObjects.add(placemark);
                     }
-
                     ymaps.ready(init);
                 })
         },
@@ -244,7 +241,6 @@ export default {
             this.axios.get('/api/hostelPost')
                 .then(res => {
                     this.posts = res.data.data;
-                    console.log(res);
                 })
         },
         getCatagoties() {
