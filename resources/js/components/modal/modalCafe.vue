@@ -9,6 +9,7 @@
                                 <h2>Услуги</h2>
                                 <hr>
                             </div>
+                            <form-picker></form-picker>
                             <div class="service-list">
                                 <!-- <div class="service-item"> -->
                                 <div v-for="list in lists" class="category fadeInUp wow animated"
@@ -44,9 +45,10 @@
 <script>
 
 import cafeListItem from "./cafe/cafeListItem.vue";
+import FormPicker from "./FormPicker.vue";
 export default {
     name: "modalCafe",
-    components: {cafeListItem},
+    components: {cafeListItem, FormPicker},
     props:['modalActive','lists','items','products', 'card', "products"],
     setup(props, {emit}){
         const close = () => {

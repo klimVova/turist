@@ -10,6 +10,7 @@
                                 <div>
                                     <li v-if="list.user_id === card.user_id">{{ list.title }}</li>
                                 </div>
+
                             </a>
                         </ul>
                     </div>
