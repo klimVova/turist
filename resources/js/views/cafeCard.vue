@@ -35,6 +35,7 @@
                                     </template>
                                     <p>{{ card.content }}</p>
                                     <input @click.prevent="toggleModal" type="submit" value="Забронировать стол">
+
                                     <p></p>
                                 </div>
                             </div>

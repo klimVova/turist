@@ -1,5 +1,4 @@
 <template>
-
     <div class="subcategory">
         <div class="d-flex col justify-content-between align-items-center">
             <div
@@ -18,7 +17,6 @@
                 </div>
             </div>
         </div>
-
         <cafe-product-item
             v-for="product in products"
             :product="product"
@@ -44,7 +42,7 @@ export default {
         return {
             counts: 0,
             Prproducts: this.products,
-            Pritems: this.item,
+            Pritems: this.subcat,
             Prcards: this.card,
             Prlists: this.list,
         }
@@ -52,11 +50,63 @@ export default {
     methods: {
         plus() {
             this.counts = this.counts + 1;
+
+            let cafeProductList = localStorage.getItem('cafeProductList')
+            let newCafeProductList = [{
+                'id': this.subcat.id,
+                'product': this.subcat.title,
+                'price': this.subcat.price,
+                'qty': 1,
+            },]
+
+            if (!cafeProductList) {
+                localStorage.setItem('cafeProductList', JSON.stringify(newCafeProductList))
+            } else {
+                cafeProductList = JSON.parse(cafeProductList)
+
+                cafeProductList.forEach(productInCafe => {
+                    if (productInCafe.id === this.subcat.id) {
+                        productInCafe.qty = this.counts
+                        productInCafe.price = Number(productInCafe.qty) * this.subcat.price
+                        newCafeProductList = null
+                    }
+                })
+
+                Array.prototype.push.apply(cafeProductList, newCafeProductList)
+                localStorage.setItem('cafeProductList', JSON.stringify(cafeProductList))
+
+            }
         },
         minus() {
             this.counts = this.counts - 1;
-        }
-    }
+            let cafeProductList = localStorage.getItem('cafeProductList')
+
+            let newCafeProductList = [{
+                'id': this.subcat.id,
+                'product': this.subcat.title,
+                'price': this.subcat.price,
+                'qty': this.counts,
+            },
+            ]
+            if (!cafeProductList) {
+                localStorage.setItem('cafeProductList', JSON.stringify(newCafeProductList))
+            } else {
+                cafeProductList = JSON.parse(cafeProductList)
+
+                cafeProductList.forEach(productInCafe => {
+                    if (productInCafe.id === this.subcat.id) {
+                        productInCafe.qty = this.counts
+                        productInCafe.price = Number(productInCafe.qty) * this.subcat.price
+                        newCafeProductList = null
+                    }
+                })
+                Array.prototype.push.apply(cafeProductList, newCafeProductList)
+                localStorage.setItem('cafeProductList', JSON.stringify(cafeProductList))
+
+                // console.log(cafeProduct);
+            }
+        },
+    },
 }
 </script>
 

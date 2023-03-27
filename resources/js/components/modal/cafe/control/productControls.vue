@@ -1,8 +1,8 @@
 <template>
-    <button :class="counts === 0 ? 'btn btn-secondary disabled' :'btn btn-secondary' "  @click.prevent="$emit('minus')">
+    <button :class="counts === 0 ? 'btn btn-secondary disabled' :'btn btn-secondary' " @click.prevent="$emit('minus')">
         -
     </button>
-    {{counts}}
+    {{ counts }}
     <button class="btn btn-secondary" @click.prevent="$emit('plus')">
         +
     </button>
@@ -11,8 +11,8 @@
 <script>
 export default {
     name: "productControls",
-    props:['counts'],
-    emits:['plus','minus']
+    props: ['counts'],
+    emits: ['plus', 'minus'],
 }
 </script>
 
