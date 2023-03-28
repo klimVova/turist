@@ -32,7 +32,7 @@
                     <span><a href="#review">({{pagination.total}}  отзывов)</a></span>
                   </template>
                   <p>{{ card.content }}</p>
-                  <input type="submit" value="Заказать ">
+                  <input  @click.prevent="toggleModal" type="submit" value="Заказать ">
                   <p></p>
                 </div>
               </div>
@@ -61,11 +61,13 @@
                   <hr>
                 </div>
                 <div class="prefer-list">
-                  <ul>
-                    <li  v-for="action in actions"><img src="assets/img/check-list.svg">
-                      <template v-if="action.user_id === card.user_id"> {{action.title}}</template>
-                    </li>
-                  </ul>
+                    <ul>
+                        <template  v-for="action in actions">
+                            <li v-if="action.user_id === card.user_id"><img src="assets/img/check-list.svg">
+                                {{ action.title }}
+                            </li>
+                        </template>
+                    </ul>
                 </div>
               </div>
               <div class="col col-12 col-md-6 hotels-inf-item">
@@ -154,15 +156,33 @@
       </div>
     </div>
   </div>
+    <div>
+        <modal-spa
+            :modal-active="modalActive"
+            :lists="lists"
+            :items="items"
+            :products="products"
+            :card="card"
+            @close="toggleModal"
+        >
+        </modal-spa>
+    </div>
 </template>
 
 <script>
 import user from "../user";
+import {ref} from "vue";
+import ModalSpa from "../components/modal/modalSpa.vue";
 
 export default {
-  setup() {
+    components: {ModalSpa},
+    setup() {
     const {state} = user;
-    return {state};
+      const modalActive = ref(false);
+      const toggleModal = () => {
+          modalActive.value = !modalActive.value;
+      }
+      return {state, modalActive, toggleModal};
   },
   name: "spaCard",
   data() {

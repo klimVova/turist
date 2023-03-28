@@ -32,7 +32,7 @@
                     <span><a href="#review">({{pagination.total}}  отзывов)</a></span>
                   </template>
                   <p>{{ card.content }}</p>
-                  <input type="submit" value="Заказать услугу">
+                  <input @click.prevent="toggleModal" type="submit" value="Заказать услугу">
                   <p></p>
                 </div>
               </div>
@@ -61,11 +61,13 @@
                   <hr>
                 </div>
                 <div class="prefer-list">
-                  <ul>
-                    <li  v-for="action in actions"><img src="assets/img/check-list.svg">
-                      <template v-if="action.user_id === card.user_id"> {{action.title}}</template>
-                    </li>
-                  </ul>
+                    <ul>
+                        <template  v-for="action in actions">
+                            <li v-if="action.user_id === card.user_id"><img src="assets/img/check-list.svg">
+                                {{ action.title }}
+                            </li>
+                        </template>
+                    </ul>
                 </div>
               </div>
               <div class="col col-12 col-md-6 mb-3 hotels-inf-item">
@@ -160,17 +162,35 @@
       </div>
     </div>
   </div>
+    <div>
+        <modal-med
+            :modal-active="modalActive"
+            :lists="lists"
+            :items="items"
+            :products="products"
+            :card="card"
+            @close="toggleModal"
+        >
+        </modal-med>
+    </div>
 </template>
 
 <script>
 import user from "../user";
-
+import modalMed from "../components/modal/modalMed.vue";
+import {ref} from "vue";
 
 export default {
-
+    components: {
+        modalMed
+    },
   setup() {
     const {state} = user;
-    return {state};
+      const modalActive = ref(false);
+      const toggleModal = () => {
+          modalActive.value = !modalActive.value;
+      }
+      return {state, modalActive, toggleModal};
   },
   name: "medicalCard",
   data() {

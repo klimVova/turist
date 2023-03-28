@@ -70,7 +70,7 @@ export default {
       else if (person.type === 3)
         this.$router.push({name:'cafe'})
       else if (person.type === 4)
-        this.$router.push({name:'hostel'})
+        this.$router.push({name:'hotel'})
       else if (person.type === 5)
         this.$router.push({name:'sanatorium'})
     },

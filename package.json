@@ -17,6 +17,7 @@
     },
     "dependencies": {
         "@vitejs/plugin-vue": "^3.0.0",
+        "@vuepic/vue-datepicker": "^4.2.2",
         "bootstrap-vue": "^2.23.1",
         "jw-vue-pagination": "^1.0.3",
         "laravel-vue-pagination": "^4.0.0",
