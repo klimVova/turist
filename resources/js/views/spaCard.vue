@@ -32,7 +32,7 @@
                     <span><a href="#review">({{pagination.total}}  отзывов)</a></span>
                   </template>
                   <p>{{ card.content }}</p>
-                  <input type="submit" value="Заказать ">
+                  <input  @click.prevent="toggleModal" type="submit" value="Заказать ">
                   <p></p>
                 </div>
               </div>
@@ -156,15 +156,33 @@
       </div>
     </div>
   </div>
+    <div>
+        <modal-spa
+            :modal-active="modalActive"
+            :lists="lists"
+            :items="items"
+            :products="products"
+            :card="card"
+            @close="toggleModal"
+        >
+        </modal-spa>
+    </div>
 </template>
 
 <script>
 import user from "../user";
+import {ref} from "vue";
+import ModalSpa from "../components/modal/modalSpa.vue";
 
 export default {
-  setup() {
+    components: {ModalSpa},
+    setup() {
     const {state} = user;
-    return {state};
+      const modalActive = ref(false);
+      const toggleModal = () => {
+          modalActive.value = !modalActive.value;
+      }
+      return {state, modalActive, toggleModal};
   },
   name: "spaCard",
   data() {

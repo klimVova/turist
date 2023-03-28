@@ -1,9 +1,9 @@
 <template>
     <transition name="modal-animation">
-        <div v-show="modalActive" class="modal-cafe">
+        <div v-show="modalActive" class="modal-spa">
             <transition name="modal-animation-inner">
-                <div v-show="modalActive" class="modal-inner-cafe">
-                    <div class=" modal-content-cafe">
+                <div v-show="modalActive" class="modal-inner-spa">
+                    <div class=" modal-content-spa">
                         <div class="col col-12 col-md-6 hotels-inf-item">
                             <div class="section-label">
                                 <h2>Услуги</h2>
@@ -18,7 +18,7 @@
                                             list.title
                                         }}</label>
 
-                                    <cafe-list-item
+                                    <spa-list-item
                                         v-for="( subcat ,index) in items"
                                         :ref="`item-${index}`"
                                         :subcat="subcat"
@@ -28,7 +28,7 @@
                                         :items="items"
                                         :index="index"
                                         :products="products"
-                                    ></cafe-list-item>
+                                    ></spa-list-item>
                                 </div>
                                 <!-- </div> -->
                             </div>
@@ -37,7 +37,7 @@
                                 <p class="price-total ">{{ totalPrice }}</p>
                             </div>
 
-                            <button class="btn btn-success mt-3 btn-price" @click.prevent="orderCafe">
+                            <button class="btn btn-success mt-3 btn-price" @click.prevent="orderSpa">
                                 {{message}}
                             </button>
                         </div>
@@ -53,13 +53,13 @@
 
 <script>
 
-import cafeListItem from "./cafe/cafeListItem.vue";
+import spaListItem from "./spa/spaListItem.vue";
 import FormPicker from "./FormPicker.vue";
 
 
 export default {
-    name: "modalCafe",
-    components: {cafeListItem, FormPicker},
+    name: "modalSpa",
+    components: {spaListItem, FormPicker},
     props: ['modalActive', 'lists', 'items', 'products', 'card'],
     setup(props, {emit}) {
         const close = () => {
@@ -77,7 +77,7 @@ export default {
     },
     methods: {
         price() {
-            const raws = localStorage.getItem('cafeProduct')
+            const raws = localStorage.getItem('spaProduct')
             const product = JSON.parse(raws)
 
             const calculatePrice = (total) => {
@@ -90,7 +90,7 @@ export default {
                 }
             }
 
-            const rawsList = localStorage.getItem('cafeProductList')
+            const rawsList = localStorage.getItem('spaProductList')
             const productList = JSON.parse(rawsList)
             const calculatePriceList = (totals) => {
                 if (totals === null) {
@@ -112,12 +112,13 @@ export default {
             }
         },
 
-        orderCafe() {
+
+        orderSpa() {
              this.message='Заказ добавлен в корзину'
-            const raws = localStorage.getItem('cafeProduct')
+            const raws = localStorage.getItem('spaProduct')
             const product = JSON.parse(raws)
 
-            const rawsList = localStorage.getItem('cafeProductList')
+            const rawsList = localStorage.getItem('spaProductList')
             const productList = JSON.parse(rawsList)
             const calculatePrice = (total) => {
                 if (total === null) {
@@ -155,9 +156,9 @@ export default {
                 totalPrice: this.totalPrice
             }
 
-            localStorage.setItem('orderProductCafe', JSON.stringify(order))
+            localStorage.setItem('orderProductSpa', JSON.stringify(order))
             const raw = localStorage.getItem('order')
-            const orderProductCafe = JSON.parse(raw)
+            const orderProductSpa = JSON.parse(raw)
         },
     },
     mounted() {
@@ -188,7 +189,7 @@ export default {
     opacity: 0;
 }
 
-.modal-cafe {
+.modal-spa {
 
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -201,7 +202,7 @@ export default {
     background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
-.modal-content-cafe {
+.modal-content-spa {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;

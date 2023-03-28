@@ -32,7 +32,7 @@
                     <span><a href="#review">({{pagination.total}}  отзывов)</a></span>
                   </template>
                   <p>{{ card.content }}</p>
-                  <input type="submit" value="Заказать услугу">
+                  <input @click.prevent="toggleModal" type="submit" value="Заказать услугу">
                   <p></p>
                 </div>
               </div>
@@ -162,17 +162,35 @@
       </div>
     </div>
   </div>
+    <div>
+        <modal-med
+            :modal-active="modalActive"
+            :lists="lists"
+            :items="items"
+            :products="products"
+            :card="card"
+            @close="toggleModal"
+        >
+        </modal-med>
+    </div>
 </template>
 
 <script>
 import user from "../user";
-
+import modalMed from "../components/modal/modalMed.vue";
+import {ref} from "vue";
 
 export default {
-
+    components: {
+        modalMed
+    },
   setup() {
     const {state} = user;
-    return {state};
+      const modalActive = ref(false);
+      const toggleModal = () => {
+          modalActive.value = !modalActive.value;
+      }
+      return {state, modalActive, toggleModal};
   },
   name: "medicalCard",
   data() {
