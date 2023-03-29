@@ -102,11 +102,10 @@
                                         </li>
                                     </ul>
                                     <label class="cost">{{ post.price }}р за сутки</label>
-                                    <input type="submit" value="Забронировать">
+                                    <input type="submit" :class="state.user !== '' ? '' : 'disabled '" @click.prevent="toggleModal(post.id)"  value="Забронировать">
                                 </div>
                             </div>
                         </div>
-
                         <div class="col col-12 col-md-6 hotels-inf-item">
                             <div class="section-label">
                                 <h2><span id="review"></span> Отзывы</h2>
@@ -165,15 +164,26 @@
             </div>
         </div>
     </div>
+    <div>
+        <modal-hostel
+            :modal-active="modalActive"
+            :posts="posts"
+            :card="card"
+            :modalPost = 'modalPost'
+            @close="toggleModal"
+        >
+        </modal-hostel>
+    </div>
 </template>
 
 <script>
 import user from "../user";
 import swiper from '../components/swiper.vue'
-
+import modalHostel from "../components/modal/modalHostel.vue";
+import {ref} from "vue";
 export default {
     name: "hostelCard",
-    components: {swiper},
+    components: {swiper ,  modalHostel},
     setup() {
         const {state} = user;
         return {state};
@@ -193,6 +203,8 @@ export default {
             pageOfItems: [],
             pagination: [],
             categories: [],
+            modalActive: ref(false),
+            modalPost:null,
         }
     },
     methods: {
@@ -282,6 +294,10 @@ export default {
                     this.getComment()
                 })
         },
+        toggleModal(id){
+            this.modalActive = !this.modalActive;
+            this.modalPost = id
+        }
     },
     mounted() {
         this.getCard()
@@ -335,5 +351,9 @@ export default {
     .slides {
         width: 100%;
     }
+}
+.disabled{
+    pointer-events: none !important;
+    opacity: 0.3;
 }
 </style>

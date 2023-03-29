@@ -32,7 +32,7 @@
                     <span><a href="#review">({{pagination.total}}  отзывов)</a></span>
                   </template>
                   <p>{{ card.content }}</p>
-                  <input  @click.prevent="toggleModal" type="submit" value="Заказать ">
+                  <input  @click.prevent="toggleModal" :class="state.user !== '' ? '' : 'disabled '" type="submit" value="Заказать ">
                   <p></p>
                 </div>
               </div>
@@ -343,5 +343,9 @@ export default {
 .active{
   border:1px solid  #51D3B7 !important;
 
+}
+.disabled{
+    pointer-events: none !important;
+    opacity: 0.3;
 }
 </style>

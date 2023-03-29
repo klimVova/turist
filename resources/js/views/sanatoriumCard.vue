@@ -110,7 +110,7 @@
                                         </li>
                                     </ul>
                                     <label class="cost">{{ post.price }}р за сутки</label>
-                                    <input type="submit" value="Забронировать">
+                                    <input  @click.prevent="toggleModal(post.id)" type="submit"  :class="state.user !== '' ? '' : 'disabled '" value="Забронировать">
                                 </div>
                             </div>
                         </div>
@@ -206,15 +206,31 @@
             </div>
         </div>
     </div>
+    <div>
+        <modal-sanatorium
+            :modal-active="modalActive"
+            :posts="posts"
+            :card="card"
+            :lists="lists"
+            :items="items"
+            :products="products"
+            :modalPost = 'modalPost'
+            @close="toggleModal"
+
+        >
+        </modal-sanatorium>
+    </div>
 </template>
 
 <script>
 import user from "../user";
 import swiper from '../components/swiper.vue';
+import {ref} from "vue";
+import ModalSanatorium from "../components/modal/modalSanatorium.vue";
 
 export default {
     name: "sanatoriumCard",
-    components: {swiper},
+    components: {ModalSanatorium, swiper},
     setup() {
         const {state} = user;
         return {state};
@@ -236,6 +252,8 @@ export default {
             lists: [],
             items: [],
             products: [],
+            modalActive: ref(false),
+            modalPost:null,
         }
     },
     methods: {
@@ -347,6 +365,10 @@ export default {
                     this.products = res.data.data;
                 })
         },
+        toggleModal(id){
+            this.modalActive = !this.modalActive;
+            this.modalPost = id
+        }
     },
     mounted() {
         this.getCard()
@@ -397,5 +419,9 @@ export default {
 
 .active {
     border: 1px solid #51D3B7 !important;
+}
+.disabled{
+    pointer-events: none !important;
+    opacity: 0.3;
 }
 </style>

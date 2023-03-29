@@ -111,7 +111,6 @@ export default {
                 this.totalPrice = calculatePrice(product) + calculatePriceList(productList)
             }
         },
-
         orderCafe() {
              this.message='Заказ добавлен в корзину'
             const raws = localStorage.getItem('cafeProduct')
@@ -221,5 +220,9 @@ export default {
 
 .btn-price {
     margin: 0;
+}
+.disabled{
+    pointer-events: none !important;
+    opacity: 0.3;
 }
 </style>

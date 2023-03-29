@@ -34,7 +34,7 @@
                                         <span><a href="#review">({{ pagination.total }}  отзывов)</a></span>
                                     </template>
                                     <p>{{ card.content }}</p>
-                                    <input @click.prevent="toggleModal" type="submit" value="Забронировать стол">
+                                    <input @click.prevent="toggleModal" :class="state.user !== '' ? '' : 'disabled '" type="submit" value="Забронировать стол">
 
                                     <p></p>
                                 </div>
@@ -217,6 +217,7 @@ export default {
             pageOfItems: [],
             pagination: [],
             actions: [],
+
         }
     },
     methods: {
@@ -369,5 +370,8 @@ export default {
     border: 1px solid #51D3B7 !important;
 
 }
-
+.disabled{
+    pointer-events: none !important;
+    opacity: 0.3;
+}
 </style>
