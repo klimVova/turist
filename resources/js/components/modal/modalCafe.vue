@@ -160,8 +160,6 @@ export default {
         },
     },
     mounted() {
-        console.log(this.$refs.formDate.countPeople);
-        console.log(this.$refs.formDate.date);
 
     }
 

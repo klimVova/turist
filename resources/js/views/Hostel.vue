@@ -114,26 +114,26 @@ export default {
     getFilterList() {
       this.axios.get('/api/hostels/filters',)
           .then(res => {
-            this.filterList = res.data
-          })
-    },
-    getSearch() {
-      const raw = localStorage.getItem('person')
-      const person = JSON.parse(raw)
-      if( person === null){
+
+  },            this.filterList = res.data
+})
+},
+getSearch() {
+    const raw = localStorage.getItem('person')
+    const person = JSON.parse(raw)
+    if( person === null){
         this.state.city = ''
         this.state.type = ''
         this.state.district = ''
         this.state.republic = ''
-      }
-      else if(person != null){
+    }
+    else if(person != null){
         this.state.city = person.city
         this.state.type = person.type
         this.state.district = person.district
         this.state.republic = person.republic
-      }
-    },
-  },
+    }
+},
   mounted() {
     this.getHostel()
     this.getFilterList()
