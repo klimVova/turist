@@ -8,137 +8,174 @@
             </div>
             <nav class="office-nav org-type-sort">
                 <ul>
-                    <li data-f="profile" class="active spisok">Личные денные</li>
-                    <li data-f="cart"  class="spisok">Корзина</li>
+                    <li data-f="profile" class=" spisok">Личные денные</li>
+                    <li data-f="cart" class="active spisok">Корзина</li>
                     <li data-f="promocodes" class="spisok">Промокоды</li>
                 </ul>
             </nav>
-            <div class="row profile box">
-                <div><img class="edit" onclick="edit()" src="{{asset('assets/img/edit.svg')}}"></div>
 
-                <div class="profile-data">
-                    <div class="profile-data-item">
-                        <label>Фамилия</label>
-                        <input class="edit-dis" type="text" name="surname" value="Иванов">
-                    </div>
-                    <div class="profile-data-item">
-                        <label>Имя</label>
-                        <input class="edit-dis" type="text" name="name" value="Иван">
-                    </div>
-                    <div class="profile-data-item">
-                        <label>email</label>
-                        <input class="edit-dis" type="text" name="email" value="vanya@gmail">
-                    </div>
-                    <div class="profile-data-item">
-                        <label>Пол</label>
-                        <div class="radio">
-                            <input class="edit-dis" type="radio" name="sex" value="men" checked=""> <p>Мужской</p>
-                            <input class="edit-dis" type="radio" name="sex" value="women"> <p>Женский</p>
+            <div class="row profile hide box">
+                <form action="{{route('user.main.update', $user->id)}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PATCH')
+                    <div class="profile-data">
+                        <div class="profile-data-item">
+                            <label>Фамилия</label>
+                            <input class="edit-dis" type="text" name="surname" value="{{$user->surname}}">
+                        </div>
+                        <div class="profile-data-item">
+                            <label>Имя</label>
+                            <input class="edit-dis" type="text" name="name" value="{{$user->name}}">
+                        </div>
+                        <div class="profile-data-item">
+                            <label>email</label>
+                            <input class="edit-dis" type="text" name="email" value="{{$user->email}}">
+                        </div>
+                        <div class="profile-data-item">
+                            <label>Пол</label>
+                            <div class="radio">
+                                @if($user->gender == 'men')
+                                    <input class="edit-dis" type="radio" name="gender" value="men" checked="">
+                                    <p>Мужской</p>
+                                    <input class="edit-dis" type="radio" name="gender" value="women">
+                                    <p>Женский</p>
+                                @else
+                                    <input class="edit-dis" type="radio" name="gender" value="men">
+                                    <p>Мужской</p>
+                                    <input class="edit-dis" type="radio" name="gender" value="women" checked="">
+                                    <p>Женский</p>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="profile-data-item">
+                            <label>Возраст</label>
+                            <input class="edit-dis" type="text" name="age" value="{{$user->age}}">
+                        </div>
+                        <div class="profile-data-item">
+                            <label>Телефон</label>
+                            @if($user->phone == '')
+                                <input class="edit-dis" type="text" name="phone" placeholder="Номер телефона" value="">
+                            @else
+                                <input class="edit-dis" type="text" name="phone" value="{{$user->phone}}">
+                            @endif
+                        </div>
+                        <div class="profile-data-item">
+                            <label>Страна</label>
+                            @if($user->user_district == null)
+                                <input class="edit-dis" type="text" name="user_district" placeholder="Введите страну"
+                                       value="">
+                            @else
+                                <input class="edit-dis" type="text" name="user_district"
+                                       value="{{$user->user_district}}">
+                            @endif
+                        </div>
+                        <div class="profile-data-item">
+                            <label>Город</label>
+                            @if($user->user_city == null)
+                                <input class="edit-dis" type="text" name="user_city" placeholder="Введите город"
+                                       value="">
+                            @else
+                                <input class="edit-dis" type="text" name="user_city" value="{{$user->user_city}}">
+                            @endif
                         </div>
                     </div>
-                    <div class="profile-data-item">
-                        <label>Возраст</label>
-                        <input class="edit-dis" type="text" name="age" value="26">
+                    <div class="form-group w-50">
+                        <input type="hidden" name="user_id" value="{{$user->id}}">
                     </div>
-                    <div class="profile-data-item">
-                        <label>Телефон</label>
-                        <input class="edit-dis" type="text" name="tel" value="8 800 888 88 88">
+                    <div class="button">
+                        <input
+                            type="submit"
+                            value="Сохранить изменения"
+                        />
                     </div>
-                    <div class="profile-data-item">
-                        <label>Страна</label>
-                        <input class="edit-dis" type="text" name="country" value="Россия">
-                    </div>
-                    <div class="profile-data-item">
-                        <label>Город</label>
-                        <input class="edit-dis" type="text" name="city" value="Санкт-Петербург">
-                    </div>
-                </div>
-                <div class="button">
-                    <input
-                        type="submit"
-                        value="Сохранить изменения"
-                    />
-                </div>
+                </form>
             </div>
 
-            <div class="cart row box hide">
+            <div class="cart row box ">
                 <div class="col col-12 col-md-9">
+
                     <div class="cart-section">
                         <div class="section-label">
                             <h2>Отели</h2>
                             <hr>
                         </div>
-                        <div class="rooms">
+                        @foreach($preOrders as $preOrder)
+                            <div class="rooms">
+                                <div class="rooms-item">
+                                    <img src=" {{$preOrder->image_product}}">
+                                    {{--                                {{json_decode($preOrder->products, true)['totalPrice']}}--}}
+                                    <label class="name"> {{$preOrder->role}}<br>" {{$preOrder->name_product}}"</label>
+                                    <ul class="service">
+                                        @foreach((json_decode($preOrder->products, true)['productList']) as $list)
+                                            <li>
+                                                {{$list['product']}}
+                                                <span>{{$list['qty']}}</span>
+                                                <label class="cost">  {{$list['price']}}р</label>
+                                            </li>
 
-                            <div class="rooms-item">
-                                <img src="{{asset('assets/img/room.jpg')}}">
+                                        @endforeach
+                                    </ul>
+                                    <label class="date">  {{json_decode($preOrder->products, true)['date']}}</label>
+                                    <form action="{{route('user.maim.delete', $preOrder->id)}}"
+                                          method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="border-0 bg-transparent" l>
+                                            <i class="fas fa-trash text-danger mr-5" role="button"></i>
+                                        </button>
+                                    </form>
 
-                                <label class="name">Отель<br>"Comfortee"</label>
-                                <label class="service">Стандарт<br>(1 человек)</label>
-                                <label class="date">24.03.2023-25.03.2023</label>
-                                <label class="cost">1240р</label>
-                                <img onclick="" class="delete" src="{{asset('assets/img/delete.svg')}}">
+                                </div>
                             </div>
-                            <div class="rooms-item">
-                                <img src="{{asset('assets/img/card-cafe.jpg')}}">
-
-                                <label class="name">Отель<br>"Comfortee"</label>
-                                <label class="service">Стандарт<br>(1 человек)</label>
-                                <label class="date">24.03.2023-25.03.2023</label>
-                                <label class="cost">1240р</label>
-                                <img onclick="" class="delete" src="{{asset('assets/img/delete.svg')}}">
-                            </div>
-
-                        </div>
-
+                        @endforeach
                     </div>
 
-                    <div class="cart-section">
-                        <div class="section-label">
-                            <h2>Медицинские центры</h2>
-                            <hr>
-                        </div>
-                        <div class="rooms">
+{{--                    <div class="cart-section">--}}
+{{--                        <div class="section-label">--}}
+{{--                            <h2>Медицинские центры</h2>--}}
+{{--                            <hr>--}}
+{{--                        </div>--}}
+{{--                        <div class="rooms">--}}
 
-                            <div class="rooms-item">
-                                <img src="{{asset('assets/img/med.jpg')}}">
+{{--                            <div class="rooms-item">--}}
+{{--                                <img src="{{asset('assets/img/med.jpg')}}">--}}
 
-                                <label class="name">Мед. центр<br>"FamilyMed"</label>
-                                <label class="service">Консультация гастроэнтеролога</label>
-                                <label class="date">24.03.2023<br>18:10</label>
-                                <label class="cost">800р</label>
-                                <img onclick="" class="delete" src="{{asset('assets/img/delete.svg')}}">
-                            </div>
+{{--                                <label class="name">Мед. центр<br>"FamilyMed"</label>--}}
+{{--                                <label class="service">Консультация гастроэнтеролога</label>--}}
+{{--                                <label class="date">24.03.2023<br>18:10</label>--}}
+{{--                                <label class="cost">800р</label>--}}
+{{--                                <img onclick="" class="delete" src="{{asset('assets/img/delete.svg')}}">--}}
+{{--                            </div>--}}
 
-                        </div>
+{{--                        </div>--}}
 
-                    </div>
+{{--                    </div>--}}
 
-                    <div class="cart-section">
-                        <div class="section-label">
-                            <h2>Рестораны/Кафе</h2>
-                            <hr>
-                        </div>
-                        <div class="rooms">
+{{--                    <div class="cart-section">--}}
+{{--                        <div class="section-label">--}}
+{{--                            <h2>Рестораны/Кафе</h2>--}}
+{{--                            <hr>--}}
+{{--                        </div>--}}
+{{--                        <div class="rooms">--}}
 
-                            <div class="rooms-item">
-                                <img src="{{asset('assets/img/room.jpg')}}">
+{{--                            <div class="rooms-item">--}}
+{{--                                <img src="{{asset('assets/img/room.jpg')}}">--}}
 
-                                <label class="name">Ресторан<br>"Устрица"</label>
-                                <ul class="service">
-                                    <li>Ролл "Калифорния" <span>(2шт)</span></li>
-                                    <li>Омлет с мидиями <span>(2шт)</span></li>
-                                    <li>Чай "Молочный улун" <span>(1шт)</span></li>
+{{--                                <label class="name">Ресторан<br>"Устрица"</label>--}}
+{{--                                <ul class="service">--}}
+{{--                                    <li>Ролл "Калифорния" <span>(2шт)</span></li>--}}
+{{--                                    <li>Омлет с мидиями <span>(2шт)</span></li>--}}
+{{--                                    <li>Чай "Молочный улун" <span>(1шт)</span></li>--}}
 
-                                </ul>
-                                <label class="date">24.03.2023</label>
-                                <label class="cost">4650р</label>
-                                <img onclick="" class="delete" src="{{asset('assets/img/delete.svg')}}">
-                            </div>
+{{--                                </ul>--}}
+{{--                                <label class="date">24.03.2023</label>--}}
+{{--                                <label class="cost">4650р</label>--}}
+{{--                                <img onclick="" class="delete" src="{{asset('assets/img/delete.svg')}}">--}}
+{{--                            </div>--}}
 
-                        </div>
+{{--                        </div>--}}
 
-                    </div>
+{{--                    </div>--}}
                 </div>
                 <div class="col col-md-3">
                     <div class="all-cost">

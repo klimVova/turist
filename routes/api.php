@@ -86,3 +86,6 @@ Route::delete('/sanatorium/comment/{id}', \App\Http\Controllers\API\Sanatorium\D
 Route::get('/sanatoriumLists', \App\Http\Controllers\API\Sanatorium\ListController::class);
 Route::get('/sanatoriumItems', \App\Http\Controllers\API\Sanatorium\ItemController::class);
 Route::get('/sanatoriumProducts', \App\Http\Controllers\API\Sanatorium\ProductController::class);
+
+
+Route::post('/preOrder', \App\Http\Controllers\API\PreOrder\StoreController::class);

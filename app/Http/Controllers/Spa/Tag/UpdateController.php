@@ -12,6 +12,7 @@ class UpdateController extends Controller
     {
         $data = $request->validated();
         $spaTag->update($data);
+
         return view('spa.tag.show' , compact('spaTag'));
     }
 }

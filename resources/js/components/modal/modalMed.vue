@@ -38,11 +38,16 @@
                             </div>
 
                             <button class="btn btn-success mt-3 btn-price" @click.prevent="orderMed">
-                                {{message}}
+                                {{ message }}
+                            </button>
+                            <input class="hide" v-model="role" name="medical">
+                            <button class="btn btn-success mt-3 btn-price" @click.prevent="storePreOreder">
+                                Заказ
                             </button>
                         </div>
                         <button class="btn btn-danger modal-close" @click.prevent="close"
-                        >Close</button>
+                        >Close
+                        </button>
                     </div>
 
                 </div>
@@ -52,29 +57,48 @@
 </template>
 
 
-
 <script>
 import medListItem from "./med/medListItem.vue";
 import FormPicker from "./FormPicker.vue";
+import user from "../../user";
+
 export default {
     name: "modalMed",
     components: {medListItem, FormPicker},
     props: ['modalActive', 'lists', 'items', 'products', 'card'],
     setup(props, {emit}) {
+        const {state} = user;
         const close = () => {
             emit('close');
         }
-        return {close}
+        return {close , state}
     },
     data() {
         return {
             date: [],
             people: [],
             totalPrice: null,
-            message:'Добавить',
+            message: 'Добавить',
+            order: [],
+            role: 'medical',
         }
     },
     methods: {
+        storePreOreder() {
+            this.axios.post('/api/preOrder', {
+                'total_price': this.totalPrice,
+                'date': this.$refs.formDate.date,
+                'products': this.order,
+                'user_id': this.state.user,
+                'name_product': this. card.title,
+                'image_product':this.card.image_url,
+                'role' : this.role
+            })
+                .then(res => {
+                   localStorage.clear()
+                })
+        },
+
         price() {
             const raws = localStorage.getItem('medProduct')
             const product = JSON.parse(raws)
@@ -112,7 +136,7 @@ export default {
         },
 
         orderMed() {
-            this.message='Заказ добавлен в корзину'
+            this.message = 'Заказ добавлен в корзину'
             const raws = localStorage.getItem('medProduct')
             const product = JSON.parse(raws)
 
@@ -146,7 +170,7 @@ export default {
                 this.totalPrice = calculatePrice(product) + calculatePriceList(productList)
             }
             const totalPrice = this.totalPrice
-            const order = {
+            this.order = {
                 date: this.$refs.formDate.date,
                 people: this.$refs.formDate.countPeople,
                 product: product,
@@ -160,8 +184,6 @@ export default {
         },
     },
     mounted() {
-        console.log(this.$refs.formDate.countPeople);
-        console.log(this.$refs.formDate.date);
 
     }
 

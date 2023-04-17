@@ -202,6 +202,8 @@ Route::group(['prefix' => 'main'], function () {
     Route::group(['namespace' => 'User', 'prefix' => 'user', 'middleware' => ['auth', 'user', 'verified']], function () {
         Route::group(['namespace' => 'Main'], function () {
             Route::get('/', IndexController::class)->name('user.main.index');
+            Route::patch('/{user}', UpdateController::class)->name('user.main.update');
+            Route::delete('/{preOrder}', DeleteController::class)->name('user.maim.delete');
         });
     });
 
