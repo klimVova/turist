@@ -1646,7 +1646,7 @@ footer .f-logo{
 .cart-section .rooms-item .service{
     font-weight: bold;
     color: #08366A;
-    width: 250px;
+    width: 550px;
 }
 .cart-section .rooms-item .service li{
     color: #08366A;
@@ -1664,6 +1664,7 @@ footer .f-logo{
 
 .cart-section .rooms-item{
     position: relative;
+    align-items: center;
 }
 .rooms-item .delete{
     width: 22px;
@@ -1829,4 +1830,12 @@ footer .f-logo{
 }
 .hide{
     display: none !important;
+}
+.product_list{
+    justify-content: space-between;
+    display: flex;
+}
+.product_item_header{
+    width: 350px;
+    max-width: 100%;
 }

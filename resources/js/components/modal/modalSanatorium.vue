@@ -66,7 +66,10 @@
                                 </button>
                             </div>
                         </div>
-
+                        <input class="hide" v-model="role" name="medical">
+                        <button class="btn btn-success mt-3 btn-price" @click.prevent="storePreOreder">
+                            Заказ
+                        </button>
                         <button class="btn btn-danger modal-close" @click.prevent="close"
                         >Close
                         </button>
@@ -83,16 +86,18 @@
 import swiper from "../swiper.vue";
 import FormPickerSelect from "./FormPickerSelect.vue";
 import SanatoriumListItem from "./sanatorium/sanatoriumListItem.vue";
+import user from "../../user";
 
 export default {
     name: "modalSanatorium",
     components: {SanatoriumListItem, FormPickerSelect, swiper},
     props: ['modalActive', 'posts', 'card', 'modalPost', 'lists', 'items', 'products',],
     setup(props, {emit}) {
+        const {state} = user;
         const close = () => {
             emit('close');
         }
-        return {close}
+        return {close, state}
     },
     data() {
         return {
@@ -110,10 +115,27 @@ export default {
             srartnMM:null,
             endMM:null,
             days:null,
-
+            order: [],
+            role: 'sanatorium',
+            berth: null,
         }
     },
     methods: {
+
+        storePreOreder() {
+            this.axios.post('/api/preOrder', {
+                'total_price': this.sumPrice,
+                'date': '-',
+                'products': this.order,
+                'user_id': this.state.user,
+                'name_product': this.card.title,
+                'image_product': this.card.image_url,
+                'role': this.role
+            })
+                .then(res => {
+                    localStorage.clear()
+                })
+        },
         orderCafe() {
 
             this.days = this.$refs.formDate.date
@@ -175,6 +197,7 @@ export default {
                     this.title = post.title
                     this.price = post.price
                     this.category = post.category
+                    this.berth = post.berth
                 }
             })
 
@@ -183,7 +206,7 @@ export default {
             this.sumPrice = this.totalPrice + (this.price*this.day)
 
 
-            const order = {
+            this.order  = {
                 date: this.$refs.formDate.date,
                 people: this.$refs.formDate.countPeople,
                 product: product,
@@ -191,7 +214,8 @@ export default {
                 totalPrice: this.totalPrice + this.price,
                 title: this.title,
                 category: this.category,
-                nomerId: this.id
+                id: this.id,
+                berth: this.berth,
             }
 
             localStorage.setItem('orderProductSanatorium', JSON.stringify(order))

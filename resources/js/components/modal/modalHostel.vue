@@ -29,12 +29,18 @@
                                             </li>
                                         </ul>
                                         <label class="cost">{{ post.price }}р за сутки</label>
-                                        <label :class="sumPrice === null ? 'hide' : 'cost'">Общая стоимость {{ sumPrice }}р</label>
+                                        <label :class="sumPrice === null ? 'hide' : 'cost'">Общая стоимость {{
+                                                sumPrice
+                                            }}р</label>
                                         <input type="submit" @click.prevent="orderHostel(post.id)"
                                                :class="(this.$refs.formDate.date === undefined ||
                                                this.$refs.formDate.date === null
                                                ) ? 'disabled' : ''"
                                                :value="post.id === id ? message: 'Забронировать'">
+                                        <input class="hide" v-model="role" name="medical">
+                                        <button class="btn btn-success mt-3 btn-price" @click.prevent="storePreOreder">
+                                            Заказ
+                                        </button>
                                     </div>
                                 </template>
                             </div>
@@ -55,54 +61,74 @@
 
 import swiper from "../swiper.vue";
 import FormPickerSelect from "./FormPickerSelect.vue";
+import user from "../../user";
 
 export default {
     name: "modalHostel",
     components: {FormPickerSelect, swiper},
     props: ['modalActive', 'posts', 'card', 'modalPost'],
     setup(props, {emit}) {
+        const {state} = user;
         const close = () => {
             emit('close');
         }
-        return {close}
+        return {close, state}
     },
     data() {
         return {
-            date: [],
+            date: '',
             post: this.posts,
             title: null,
             price: null,
             category: null,
-            id:null,
+            id: null,
             message: 'Забронировать',
-            sumPrice:null,
+            sumPrice: null,
             start: null,
-            end:null,
-            srartnMM:null,
-            endMM:null,
-            days:null,
+            end: null,
+            srartnMM: null,
+            endMM: null,
+            days: null,
+            order: [],
+            role: 'hostel',
+            berth: null,
         }
     },
     methods: {
+        storePreOreder() {
+            this.axios.post('/api/preOrder', {
+                'total_price': this.sumPrice,
+                'date': '-',
+                'products': this.order,
+                'user_id': this.state.user,
+                'name_product': this.card.title,
+                'image_product': this.card.image_url,
+                'role': this.role
+            })
+                .then(res => {
+                    localStorage.clear()
+                })
+        },
+
         orderHostel(id) {
 
             this.days = this.$refs.formDate.date
 
-            this.start =  Number(this.days[0].substr(0,2))
-            this.end =  Number(this.days[1].substr(0,2))
-            this.startMM = Number(this.days[0].substr(3,2))
-            this.endMM = Number(this.days[1].substr(3,2))
+            this.start = Number(this.days[0].substr(0, 2))
+            this.end = Number(this.days[1].substr(0, 2))
+            this.startMM = Number(this.days[0].substr(3, 2))
+            this.endMM = Number(this.days[1].substr(3, 2))
 
-            if(this.endMM > this.startMM && this.startMM === 3 || this.startMM === 1 || this.startMM === 5 || this.startMM === 7 || this.startMM === 8 ||this.startMM === 10||this.startMM === 12) {
-                this.day = (this.end  - this.start)+32
-            }else if(this.endMM > this.startMM && this.startMM === 2){
-                this.day =(this.end  - this.start)+29
-            } else if(this.endMM > this.startMM && this.startMM === 4 || this.startMM === 6 || this.startMM === 9 || this.startMM === 11 ){
-                this.day =(this.end  - this.start)+31
+            if (this.endMM > this.startMM && this.startMM === 3 || this.startMM === 1 || this.startMM === 5 || this.startMM === 7 || this.startMM === 8 || this.startMM === 10 || this.startMM === 12) {
+                this.day = (this.end - this.start) + 32
+            } else if (this.endMM > this.startMM && this.startMM === 2) {
+                this.day = (this.end - this.start) + 29
+            } else if (this.endMM > this.startMM && this.startMM === 4 || this.startMM === 6 || this.startMM === 9 || this.startMM === 11) {
+                this.day = (this.end - this.start) + 31
             } else {
-                this.day = this.end  - this.start
+                this.day = this.end - this.start
             }
-            console.log( this.day);
+
 
             this.message = 'Номер добавлен в корзину'
             this.posts.forEach(post => {
@@ -111,18 +137,20 @@ export default {
                     this.title = post.title
                     this.price = post.price
                     this.category = post.category
+                    this.berth = post.berth
                 }
             })
-         if(this.$refs.formDate.date === undefined){
-            this.message = 'Укажите дату'
-         }
-         this.sumPrice = this.price*this.day
-            const order = {
+            if (this.$refs.formDate.date === undefined) {
+                this.message = 'Укажите дату'
+            }
+            this.sumPrice = this.price * this.day
+            this.order = {
                 date: this.$refs.formDate.date,
                 id: this.id,
                 title: this.title,
                 price: this.sumPrice,
-                category: this.category
+                category: this.category,
+                berth: this.berth,
             }
 
             localStorage.setItem('orderHostel', JSON.stringify(order))
@@ -131,10 +159,6 @@ export default {
 
         },
     },
-    mounted() {
-        console.log(this.$refs.formDate.date);
-
-    }
 
 }
 </script>
@@ -182,7 +206,8 @@ export default {
 .hide {
     display: none;
 }
-.disabled{
+
+.disabled {
     pointer-events: none !important;
     opacity: 0.3;
 }

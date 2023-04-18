@@ -80,7 +80,7 @@ export default {
             totalPrice: null,
             message: 'Добавить',
             order: [],
-            role: 'medical',
+            role: 'Мед.центр',
         }
     },
     methods: {

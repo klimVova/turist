@@ -39,6 +39,7 @@ export default {
                 'product': this.product.title,
                 'price': this.product.price,
                 'qty': 1,
+                'cat': this.items.title,
             },]
 
             if (!cafeProduct) {
@@ -68,6 +69,7 @@ export default {
                 'product': this.product.title,
                 'price': this.product.price,
                 'qty': this.counts,
+                'cat': this.items.title,
             },
             ]
             if (!cafeProduct) {

@@ -17,7 +17,7 @@ const liItem = document.querySelectorAll('ul li')
 liItem.forEach(li => {
     li.onclick = function(){
         liItem.forEach(li => {
-            li.className= '';
+            li.className= 'product_list';
         })
         li.className = 'active'
     }

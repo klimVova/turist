@@ -40,6 +40,10 @@
                             <button class="btn btn-success mt-3 btn-price" @click.prevent="orderCafe">
                                 {{message}}
                             </button>
+                            <input class="hide" v-model="role" name="medical">
+                            <button class="btn btn-success mt-3 btn-price" @click.prevent="storePreOreder">
+                                Заказ
+                            </button>
                         </div>
                         <button class="btn btn-danger modal-close" @click.prevent="close"
                         >Close</button>
@@ -55,6 +59,7 @@
 
 import cafeListItem from "./cafe/cafeListItem.vue";
 import FormPicker from "./FormPicker.vue";
+import user from "../../user";
 
 
 export default {
@@ -62,10 +67,11 @@ export default {
     components: {cafeListItem, FormPicker},
     props: ['modalActive', 'lists', 'items', 'products', 'card'],
     setup(props, {emit}) {
+        const {state} = user;
         const close = () => {
             emit('close');
         }
-        return {close}
+        return {close , state}
     },
     data() {
         return {
@@ -73,9 +79,26 @@ export default {
             people: [],
             totalPrice: null,
             message:'Добавить',
+            order: [],
+            role: 'cafe',
         }
     },
     methods: {
+        storePreOreder() {
+            this.axios.post('/api/preOrder', {
+                'total_price': this.totalPrice,
+                'date': this.$refs.formDate.date,
+                'products': this.order,
+                'user_id': this.state.user,
+                'name_product': this. card.title,
+                'image_product':this.card.image_url,
+                'role' : this.role
+            })
+                .then(res => {
+                    localStorage.clear()
+                })
+        },
+
         price() {
             const raws = localStorage.getItem('cafeProduct')
             const product = JSON.parse(raws)
@@ -146,7 +169,7 @@ export default {
                 this.totalPrice = calculatePrice(product) + calculatePriceList(productList)
             }
             const totalPrice = this.totalPrice
-            const order = {
+            this.order = {
                 date: this.$refs.formDate.date,
                 people: this.$refs.formDate.countPeople,
                 product: product,
