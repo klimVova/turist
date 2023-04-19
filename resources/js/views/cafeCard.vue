@@ -76,7 +76,7 @@
                             </div>
                             <div class="col col-12 col-md-6 hotels-inf-item">
                                 <div class="section-label">
-                                    <h2>Услуги</h2>
+                                    <h2>Меню</h2>
                                     <hr>
                                 </div>
                                 <div class="service-list">
