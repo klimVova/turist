@@ -37,7 +37,7 @@
                 <a href="{{route('medical.tag.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-list-ul"></i>
                     <p>
-                        Тэги
+                        Услуги вывод в каталог
                     </p>
                 </a>
             </li>

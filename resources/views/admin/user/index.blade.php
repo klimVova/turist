@@ -79,3 +79,10 @@
         <!-- /.content -->
     </div>
 @endsection
+<style>
+    @media (max-width: 480px) {
+        .btn-block {
+            width: 100px !important;
+        }
+    }
+</style>

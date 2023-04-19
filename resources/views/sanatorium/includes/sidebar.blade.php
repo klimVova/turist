@@ -37,7 +37,7 @@
                 <a href="{{route('sanatorium.category.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-clipboard"></i>
                     <p>
-                        Категории
+                        Категории в номеров
                     </p>
                 </a>
             </li>
@@ -45,7 +45,7 @@
                 <a href="{{route('sanatorium.tag.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-list-ul"></i>
                     <p>
-                        Услуги
+                        Услуги в номере
                     </p>
                 </a>
             </li>
