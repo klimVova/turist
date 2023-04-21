@@ -36,7 +36,7 @@
                                 @enderror
                             </div>
                             <div class="form-group w-25">
-                                <input type="text" class="form-control" name="berth" placeholder="Укажите количество спальных мест"
+                                <input type="text" class="form-control" name="berth" placeholder="Количество человек"
                                        value="{{old('berth')}}">
                                 @error('title')
                                 <div class="text-danger">{{$message}}</div>
@@ -45,6 +45,13 @@
                             <div class="form-group w-25">
                                 <input type="text" class="form-control" name="price" placeholder="Укажите цену"
                                        value="{{old('price')}}">
+                                @error('price')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group w-25">
+                                <input type="text" class="form-control" name="date" placeholder="Укажите время действия путевки"
+                                       value="{{old('date')}}">
                                 @error('price')
                                 <div class="text-danger">{{$message}}</div>
                                 @enderror
@@ -96,6 +103,7 @@
                                     @endforeach
                                 </select>
                             </div>
+
                             <div class="form-group w-50">
                                 <input type="hidden" name="user_id" value="{{$user}}">
                             </div>

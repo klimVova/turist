@@ -28,6 +28,7 @@ class StoreRequest extends FormRequest
             'content' => 'required|string',
             'price' => 'required|integer',
             'berth' => 'required|string',
+            'date' => 'required|string',
             'turoperator_preview_image' => 'required|file',
             'turoperator_category_id' => 'required|integer|exists:turoperator_categories,id',
             'user_id' => 'required|integer|exists:users,id',

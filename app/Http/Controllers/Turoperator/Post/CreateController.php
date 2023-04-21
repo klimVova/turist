@@ -15,7 +15,6 @@ class CreateController extends Controller
         $turoperatorCategories = auth()->user()->turoperatorCategories;
         $turoperatorTags =auth()->user()->turoperatorTags;
         $user = Auth::id();
-
         return view('turoperator.post.create', compact('turoperatorCategories', 'user', 'turoperatorTags'));
     }
 }

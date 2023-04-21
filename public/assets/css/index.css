@@ -1313,7 +1313,6 @@ footer .f-logo{
     font-weight: 400;
 }
 .rooms .details{
-    display: none;
     padding: 20px 30px;
     background: linear-gradient(rgba(225,225,255,0), rgba(81,211,183,.4));
 }

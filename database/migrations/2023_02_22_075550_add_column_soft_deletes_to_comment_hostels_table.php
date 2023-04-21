@@ -14,7 +14,6 @@ return new class extends Migration
     public function up()
     {
         Schema::table('comment_hostels', function (Blueprint $table) {
-
             $table->softDeletes();
         });
     }

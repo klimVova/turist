@@ -584,31 +584,6 @@ Route::group(['prefix' => 'main'], function () {
             Route::patch('/{turoperatorServic}', UpdateController::class)->name('turoperator.servic.update');
             Route::delete('/{turoperatorServic}', DeleteController::class)->name('turoperator.servic.delete');
         });
-        Route::group(['namespace' => 'TodoList', 'prefix' => 'todolist'], function () {
-            Route::get('/', IndexController::class)->name('turoperator.todolist.index');
-            Route::get('/create', CreateController::class)->name('turoperator.todolist.create');
-            Route::post('/', StoreController::class)->name('turoperator.todolist.store');
-            Route::get('/{turoperatorTodoList}', ShowController::class)->name('turoperator.todolist.show');
-            Route::get('/{turoperatorTodoList}/edit', EditController::class)->name('turoperator.todolist.edit');
-            Route::patch('/{turoperatorTodoList}', UpdateController::class)->name('turoperator.todolist.update');
-            Route::delete('/{turoperatorTodoList}', DeleteController::class)->name('turoperator.todolist.delete');
-            Route::get('/{turoperatorTodoList}/item/', ItemController::class)->name('turoperator.todolist.item');
-            Route::post('/{turoperatorTodoList}/item/', ItemStoreController::class)->name('turoperator.todolist.item_store');
-            Route::delete('{turoperatorTodoList}/item/', ItemRemoveController::class, 'remove')->name('turoperator.todolist.item_remove');
-        });
-        Route::group(['namespace' => 'TodoItem', 'prefix' => 'todoitem'], function () {
-            ;
-            Route::get('/{turoperatorTodoItem}/edit', EditController::class)->name('turoperator.todoitem.edit');
-            Route::patch('/{turoperatorTodoItem}', UpdateController::class)->name('turoperator.todoitem.update');
-            Route::get('/{turoperatorTodoItem}/product/', ProductController::class)->name('turoperator.todoitem.product');
-            Route::post('/{turoperatorTodoItem}/product/', ProductStoreController::class)->name('turoperator.todoitem.product_store');
-            Route::delete('{turoperatorTodoItem}/product/', ProductRemoveController::class, 'remove')->name('turoperator.todoitem.product_remove');
-        });
-        Route::group(['namespace' => 'TodoProduct', 'prefix' => 'todoproduct'], function () {
-            ;
-            Route::get('/{turoperatorTodoProduct}/edit', EditController::class)->name('turoperator.todoproduct.edit');
-            Route::patch('/{turoperatorTodoProduct}', UpdateController::class)->name('turoperator.todoproduct.update');
-        });
     });
 
 

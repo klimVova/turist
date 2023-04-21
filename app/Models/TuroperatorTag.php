@@ -12,6 +12,6 @@ class TuroperatorTag extends Model
 
     use SoftDeletes;
 
-    protected $table = 'spa_tags';
+    protected $table = 'turoperator_tags';
     protected $guarded = false;
 }

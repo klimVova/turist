@@ -7,7 +7,7 @@ use App\Http\Filters\SanatoriumFilter;
 use App\Http\Requests\API\PreOrder\StoreRequest;
 use App\Http\Requests\API\Sanatorium\IndexRequest;
 use App\Http\Resources\PreOrder\PreOrderResource;
-use App\Http\Resources\Sanatorium\SanatoriumResource;
+use App\Http\Resources\Sanatorium\TurResource;
 use App\Models\preOrder;
 use App\Models\SanatoriumCard;
 

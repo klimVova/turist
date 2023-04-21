@@ -45,7 +45,14 @@
                                 @enderror
                             </div>
                             <div class="form-group w-25">
-                                <input type="text" class="form-control" name="berth" placeholder="Укажите количество спальных мест"
+                                <input type="text" class="form-control" name="date" placeholder="Укажите время действия путевки"
+                                       value="{{$turoperatorPost->date}}">
+                                @error('price')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group w-25">
+                                <input type="text" class="form-control" name="berth" placeholder="Укажите количество человек"
                                        value="{{$turoperatorPost->berth}}">
                                 @error('title')
                                 <div class="text-danger">{{$message}}</div>

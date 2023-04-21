@@ -313,6 +313,41 @@
 
                                     </div>
                                 </div>
+                            @elseif($preOrder->role == 'tur')
+                                <div class="section-label">
+                                    <h2 class="mt-5">
+                                        Туроператор
+                                    </h2>
+                                    <hr>
+                                </div>
+                                <div class="rooms">
+                                    <div class="rooms-item">
+                                        <img src=" {{$preOrder->image_product}}">
+                                        {{--                                {{json_decode($preOrder->products, true)['totalPrice']}}--}}
+                                        <label class="name">"{{$preOrder->name_product}}"</label>
+                                        <div class="product_cat">
+                                            <span>{{json_decode($preOrder->products, true)['title'] }}</span> <br>
+                                            <span>({{json_decode($preOrder->products, true)['berth'] }} человек)</span>
+                                        </div>
+                                        <ul class="service">
+                                            <li class="product_list">
+                                                <span>{{json_decode($preOrder->products, true)['date'] }}</span>
+                                                <label class="cost">  {{json_decode($preOrder->products, true)['price']}}р</label>
+                                            </li>
+
+                                        </ul>
+                                        {{--                                        <label class="date">  {{json_decode($preOrder->products, true)['date']}}</label>--}}
+                                        <form action="{{route('user.maim.delete', $preOrder->id)}}"
+                                              method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="border-0 bg-transparent" l>
+                                                <i class="fas fa-trash text-danger mr-5" role="button"></i>
+                                            </button>
+                                        </form>
+
+                                    </div>
+                                </div>
                             @else
                             @endif
                         @endforeach

@@ -210,7 +210,6 @@ export default {
 }
 
 .modal-med {
-
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;

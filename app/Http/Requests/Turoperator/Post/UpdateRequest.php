@@ -28,6 +28,7 @@ class UpdateRequest extends FormRequest
             'content' => 'required|string',
             'price' => 'required|integer',
             'berth' => 'required|string',
+            'date' => 'required|string',
             'turoperator_preview_image' => 'nullable|file',
             'turoperator_category_id' => 'required|integer|exists:turoperator_categories,id',
             'turoperator_tag_ids' => 'nullable|array',

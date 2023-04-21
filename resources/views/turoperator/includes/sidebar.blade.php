@@ -26,14 +26,6 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{route('turoperator.todolist.index')}}" class="nav-link">
-                    <i class="nav-icon fas fa-list-ul"></i>
-                    <p>
-                        Cписок процедур
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item">
                 <a href="{{route('turoperator.category.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-clipboard"></i>
                     <p>

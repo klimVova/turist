@@ -87,5 +87,16 @@ Route::get('/sanatoriumLists', \App\Http\Controllers\API\Sanatorium\ListControll
 Route::get('/sanatoriumItems', \App\Http\Controllers\API\Sanatorium\ItemController::class);
 Route::get('/sanatoriumProducts', \App\Http\Controllers\API\Sanatorium\ProductController::class);
 
+Route::post('/turs', \App\Http\Controllers\API\Tur\IndexController::class);
+Route::get('/turs/filters', \App\Http\Controllers\API\Tur\FilterListController::class);
+Route::get('/tur/{turCard}', \App\Http\Controllers\API\Tur\ShowController::class);
+Route::get('/turAction', \App\Http\Controllers\API\Tur\ActionController::class);
+Route::get('/turServic', \App\Http\Controllers\API\Tur\ServicController::class);
+Route::get('/turCategories', \App\Http\Controllers\API\Tur\CategoryController::class);
+Route::get('/turPost', \App\Http\Controllers\API\Tur\PostController::class);
+Route::post('/tur/{turCard}/comments', \App\Http\Controllers\API\Tur\CommentController::class);
+Route::post('/turShow/{turCard}/comments', \App\Http\Controllers\API\Tur\ShowCommentController::class);
+Route::delete('/tur/comment/{id}', \App\Http\Controllers\API\Tur\DeleteCommentController::class);
+
 
 Route::post('/preOrder', \App\Http\Controllers\API\PreOrder\StoreController::class);

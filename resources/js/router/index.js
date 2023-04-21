@@ -64,6 +64,11 @@ const router = createRouter({
                     name: 'sanatorium',
                     component: () => import('../views/Sanatoruim.vue')
                 },
+                {
+                    path: 'tur',
+                    name: 'tur',
+                    component: () => import('../views/Tur.vue')
+                },
             ]
         },
         {
@@ -90,6 +95,11 @@ const router = createRouter({
             path: '/sanatorium/:id',
             name: 'sanatorium_card',
             component: () => import('../views/sanatoriumCard.vue')
+        },
+        {
+            path: '/tur/:id',
+            name: 'tur_card',
+            component: () => import('../views/turCard.vue')
         },
         {
             path: '/blog/:id',
