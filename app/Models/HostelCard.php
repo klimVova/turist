@@ -11,6 +11,7 @@ class HostelCard extends Model
 {
     use HasFactory;
     use Filterable;
+    use SoftDeletes;
 
     protected $table = 'hostel_cards';
     protected $guarded = false;

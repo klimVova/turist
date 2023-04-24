@@ -5,12 +5,14 @@ namespace App\Models;
 use App\Models\Traits\Filterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class MedicalCard extends Model
 {
 
     use HasFactory;
     use Filterable;
+    use SoftDeletes;
 
     protected $table = 'medical_cards';
     protected $guarded = false;

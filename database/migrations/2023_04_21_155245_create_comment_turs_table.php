@@ -18,8 +18,10 @@ return new class extends Migration
             $table->unsignedBigInteger('turCard_id');
             $table-> text('message');
             $table-> text('user_name');
+
             $table->index('turCard_id', 'tur_card_comment_idx');
             $table->foreign('turCard_id', 'tur_card_comment_fk')->on('turoperator_cards')->references('id');
+
             $table->timestamps();
         });
     }
