@@ -4,9 +4,9 @@
             <div class="sort col col-12 col-md-2">
                 <div id="menu_categories" class="menu-categories-items">
                     <ul>
-                        <a v-for="category in categories" :href="`#${category.title}`">
+                        <a v-for="post in posts" :href="`#${post.title}`">
                             <div>
-                                <li v-if="category.user_id === card.user_id">{{ category.title }}</li>
+                                <li v-if="post.user_id === card.user_id">{{ post.title }}</li>
                             </div>
                         </a>
                     </ul>
@@ -108,7 +108,7 @@
                                      <label class="cost">{{ post.price }}р<br>
                                          <span>
                                           <template v-if="Number(post.berth) === 1">
-                                         <label :id="`${post.category}`">({{ post.berth }}
+                                         <label :id="`${post.title}`">({{ post.berth }}
                                              человек)</label>
                                      </template>
                                      <template v-else-if="Number(post.berth) != 1">
