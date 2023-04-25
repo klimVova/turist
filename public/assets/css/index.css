@@ -1838,3 +1838,32 @@ footer .f-logo{
     width: 350px;
     max-width: 100%;
 }
+.policy ol li{
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+.policy ol li ol li{
+    font-weight: 400;
+    margin-left: 20px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+.policy ol li ol li ol li{
+    margin-left: 32px;
+}
+.policy ol {
+    list-style: none;
+    counter-reset: li;
+}
+.policy ol li:before {
+    counter-increment: li;
+    content: counters(li,".") ". ";
+}
+.policy p{
+    margin-left: 20px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+.policy {
+    text-align: justify;
+}

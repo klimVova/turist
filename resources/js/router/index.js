@@ -106,6 +106,16 @@ const router = createRouter({
             name: 'single_blog',
             component: () => import('../views/blogItem.vue')
         },
+        {
+            path: '/police',
+            name: 'police',
+            component: () => import('../views/Police.vue')
+        },
+        {
+            path: '/payment',
+            name: 'payment',
+            component: () => import('../views/Payment.vue')
+        },
     ],
     mode: 'history'
 })
