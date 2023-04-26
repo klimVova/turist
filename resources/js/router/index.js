@@ -15,17 +15,17 @@ const router = createRouter({
             component: () => import('../views/Constaling.vue')
         },
         {
-            path: '/rules-organization',
+            path: '/about-company/rules-organization',
             name: 'fororganization',
             component: () => import('../views/ForOrganization.vue')
         },
         {
-            path: '/rules-client',
+            path: '/about-company/rules-client',
             name: 'forclient',
             component: () => import('../views/ForClient.vue')
         },
         {
-            path: '/ecosistem',
+            path: '/about-company/ecosistem',
             name: 'ecosistem',
             component: () => import('../views/Ecosistem.vue')
         },

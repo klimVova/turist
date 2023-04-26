@@ -65,24 +65,24 @@
                                 </ul>
                             </div>
                         </div>
+<!--                        <div class="col col-12 col-md-12 hotels-inf-item">-->
+<!--                            <div class="section-label">-->
+<!--                                <h2>Услуги и удобства</h2>-->
+<!--                                <hr>-->
+<!--                            </div>-->
+<!--                            <div class="prefer-list">-->
+<!--                                <ul>-->
+<!--                                    <li v-for="servic in servics">-->
+<!--                                        <template v-if="servic.user_id === card.user_id">-->
+<!--                                            <img src="assets/img/check-list.svg">{{ servic.title }}-->
+<!--                                        </template>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                            </div>-->
+<!--                        </div>-->
                         <div class="col col-12 col-md-12 hotels-inf-item">
                             <div class="section-label">
-                                <h2>Услуги и удобства</h2>
-                                <hr>
-                            </div>
-                            <div class="prefer-list">
-                                <ul>
-                                    <li v-for="servic in servics">
-                                        <template v-if="servic.user_id === card.user_id">
-                                            <img src="assets/img/check-list.svg">{{ servic.title }}
-                                        </template>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col col-12 col-md-12 hotels-inf-item">
-                            <div class="section-label">
-                                <h2>Номера</h2>
+                                <h2>Туры</h2>
                                 <hr>
                             </div>
                             <div class="rooms" >
