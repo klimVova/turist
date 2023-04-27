@@ -636,7 +636,8 @@ footer .media img{
 /*.................CARD//////////////////////*/
 
 .menu-categories-items ul li a{
-    color: #08366A;
+    color: #505050!important;
+    font-size: 16px!important;
 }
 .menu-categories .sort{
     margin-top: 0;
@@ -1866,4 +1867,29 @@ footer .f-logo{
 }
 .policy {
     text-align: justify;
+}
+.instructions a{
+    color: #08366A!important;
+}
+.instructions .step{
+    margin-bottom: 24px;
+}
+.instructions .step .step-img{
+    display: flex;
+    justify-content: space-between;
+}
+.instructions .step .cntr{
+    display: block;
+    margin: 0 auto;
+}
+.attention{
+    border: 1px solid #A11F34;
+    background-color: rgb(161, 31, 52, 0.31);
+    padding: 15px 12px;
+    display: flex;
+    margin-bottom: 16px;
+}
+.attention p{
+    margin-left: 12px;
+    margin-bottom: 0;
 }

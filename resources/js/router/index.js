@@ -17,7 +17,34 @@ const router = createRouter({
         {
             path: '/about-company/rules-organization',
             name: 'fororganization',
-            component: () => import('../views/ForOrganization.vue')
+            component: () => import('../views/ForOrganization.vue'),
+            children: [
+                {
+                    path: 'instruction-cafe',
+                    name: 'instruction-cafe',
+                    component: () => import('../views/instruction/Cafe.vue')
+                },
+                {
+                    path: 'instruction-hotel',
+                    name: 'instruction-hotel',
+                    component: () => import('../views/instruction/Hotel.vue')
+                },
+                {
+                    path: 'instruction-medical',
+                    name: 'instruction-medical',
+                    component: () => import('../views/instruction/Medical.vue')
+                },
+                {
+                    path: 'instruction-spa',
+                    name: 'instruction-spa',
+                    component: () => import('../views/instruction/Spa.vue')
+                },
+                {
+                    path: 'instruction-sanatorium',
+                    name: 'instruction-sanatorium',
+                    component: () => import('../views/instruction/Sanatorium.vue')
+                },
+            ]
         },
         {
             path: '/about-company/rules-client',
