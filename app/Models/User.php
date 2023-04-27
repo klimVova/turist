@@ -284,4 +284,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(TuroperatorTodoList::class, 'user_id');
     }
+    public function turoperatorTimes()
+    {
+        return $this->hasMany(TuroperatorTime::class, 'user_id');
+    }
 }

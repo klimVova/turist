@@ -584,6 +584,15 @@ Route::group(['prefix' => 'main'], function () {
             Route::patch('/{turoperatorServic}', UpdateController::class)->name('turoperator.servic.update');
             Route::delete('/{turoperatorServic}', DeleteController::class)->name('turoperator.servic.delete');
         });
+        Route::group(['namespace' => 'Time', 'prefix' => 'times'], function () {
+            Route::get('/', IndexController::class)->name('turoperator.time.index');
+            Route::get('/create', CreateController::class)->name('turoperator.time.create');
+            Route::post('/', StoreController::class)->name('turoperator.time.store');
+            Route::get('/{turoperatorTime}', ShowController::class)->name('turoperator.time.show');
+            Route::get('/{turoperatorTime}/edit', EditController::class)->name('turoperator.time.edit');
+            Route::patch('/{turoperatorTime}', UpdateController::class)->name('turoperator.time.update');
+            Route::delete('/{turoperatorTime}', DeleteController::class)->name('turoperator.time.delete');
+        });
     });
 
 

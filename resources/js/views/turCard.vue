@@ -41,6 +41,15 @@
 
                         </div>
                         <div class="card-contacts col col-12 col-md-3">
+                            <div class="work-hours">
+                                <label>Время работы</label>
+                                <div v-for="time in times">
+                                    <div v-if="time.user_id === card.user_id">
+                                        <p>{{ time.time_date }}</p>
+                                        <span>{{ time.time_start }}-{{ time.time_end }}</span>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="address">
                                 <label>Адрес</label>
                                 <p>{{ card.address }}</p>
@@ -331,7 +340,14 @@ export default {
         togglePost(id) {
             this.turPost = !this.turPost;
             this.contentId = id
-        }
+        },
+        getTime() {
+            this.axios.get('/api/turtime')
+                .then(res => {
+                    this.times = res.data.data;
+                    console.log(res)
+                })
+        },
 
     },
     mounted() {
@@ -342,6 +358,7 @@ export default {
         this.getComment()
         this.getUser()
         this.getCatagoties()
+        this.getTime()
     }
 }
 </script>

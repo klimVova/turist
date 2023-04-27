@@ -97,6 +97,6 @@ Route::get('/turPost', \App\Http\Controllers\API\Tur\PostController::class);
 Route::post('/tur/{turCard}/comments', \App\Http\Controllers\API\Tur\CommentController::class);
 Route::post('/turShow/{turCard}/comments', \App\Http\Controllers\API\Tur\ShowCommentController::class);
 Route::delete('/tur/comment/{id}', \App\Http\Controllers\API\Tur\DeleteCommentController::class);
-
+Route::get('/turtime', \App\Http\Controllers\API\Tur\TimeController::class);
 
 Route::post('/preOrder', \App\Http\Controllers\API\PreOrder\StoreController::class);

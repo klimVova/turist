@@ -26,6 +26,14 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{route('turoperator.time.index')}}" class="nav-link">
+                    <i class="nav-icon fa fa-clock"></i>
+                    <p>
+                        Время работы
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{route('turoperator.category.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-clipboard"></i>
                     <p>
