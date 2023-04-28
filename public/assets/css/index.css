@@ -1913,5 +1913,8 @@ footer .f-logo{
     .description-hotel-txt{
         width: 320px!important;
     }
+    .item_margin{
+        height: auto;
+    }
 }
 
