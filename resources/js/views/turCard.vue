@@ -405,7 +405,7 @@ export default {
     opacity: 0.3;
 }
 .post_item_f{
-    height: 130px;
+    /*height: 130px;*/
     display: flex;
     justify-content: space-between;
     vertical-align: middle;
