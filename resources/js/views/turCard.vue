@@ -430,10 +430,6 @@ export default {
         width: 480px;
         max-width: 100%;
     }
-    .quantity_person{
-        margin: 0;
-        margin-top: 20px!important;
-    }
 }
 
 </style>
