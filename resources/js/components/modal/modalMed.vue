@@ -267,6 +267,8 @@ export default {
         text-decoration: none;
         border-radius: 3px;
         border: none;
+        z-index: 99999999999;
+        position: relative;
     }
 
 }
