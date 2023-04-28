@@ -122,7 +122,7 @@
                                      </template>
                                      <template v-else-if="Number(post.berth) != 1">
                                          <label :id="`${post.category}`">({{ post.berth }}
-                                             человека)</label>
+                                             человека.)</label>
                                      </template>
                                          </span>
                                      </label>
