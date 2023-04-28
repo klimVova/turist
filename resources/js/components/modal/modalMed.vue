@@ -10,7 +10,7 @@
                                 <hr>
                             </div>
                             <form-picker ref="formDate"></form-picker>
-                            <div class="service-list">
+                            <div class="service-list service-list-modal">
                                 <!-- <div class="service-item"> -->
                                 <div v-for="list in lists" class="category fadeInUp wow animated"
                                      style="visibility: visible; animation-name: fadeInUp;">
@@ -269,6 +269,9 @@ export default {
         border: none;
         z-index: 99999999999;
         position: relative;
+    }
+    .service-list-modal{
+        padding: 0;
     }
 
 }
