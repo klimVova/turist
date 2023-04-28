@@ -1899,7 +1899,7 @@ footer .f-logo{
 }
 
 
-@media(max-width:450px){
+@media(max-width:480px){
     .instructions .step .step-img{
         display: block;
     }
@@ -1911,7 +1911,10 @@ footer .f-logo{
         width: 100%;
     }
     .description-hotel-txt{
-        width: 430px;
+        width: 430px!important;
     }
 }
 
+.description-hotel-txt{
+    width: 850px!important;
+}
