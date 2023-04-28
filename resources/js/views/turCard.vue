@@ -117,7 +117,7 @@
                                      <label class="cost">{{ post.price }}р<br>
                                          <span>
                                           <template v-if="Number(post.berth) === 1">
-                                         <label :id="`${post.title}`">({{ post.berth }}
+                                         <label class="quantity_person" :id="`${post.title}`">({{ post.berth }}
                                              человек)</label>
                                      </template>
                                      <template v-else-if="Number(post.berth) != 1">
@@ -429,6 +429,9 @@ export default {
     .slides{
         width: 480px;
         max-width: 100%;
+    }
+    .quantity_person{
+        margin-top: 20px!important;
     }
 }
 
