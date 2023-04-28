@@ -405,8 +405,11 @@ export default {
     opacity: 0.3;
 }
 .post_item_f{
-    display:flex;
+    height: 130px;
+    display: flex;
     justify-content: space-between;
+    vertical-align: middle;
+    align-items: center;
 }
 .rooms-item{
     display: block;
