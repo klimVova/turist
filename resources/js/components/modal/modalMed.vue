@@ -43,7 +43,7 @@
                             <input class="hide" v-model="role" name="medical">
                         </div>
                         <button class="btn btn-danger modal-close" @click.prevent="close"
-                        >Close
+                        >Закрыть
                         </button>
                     </div>
 
