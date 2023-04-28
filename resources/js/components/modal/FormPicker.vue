@@ -7,7 +7,7 @@
                     locale="ru-ru"
                     model-type="dd MM yyyy"
         />
-        <div class="mt-3 d-flex justify-content-sm-between">
+        <div class="mt-3 people-count d-flex justify-content-sm-between">
             <p class="count-people">Количество человек:</p>
             <input class="w-25 count-people-input" type="text" v-model="countPeople">
         </div>
