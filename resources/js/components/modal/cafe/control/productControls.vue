@@ -1,9 +1,9 @@
 <template>
-    <button :class="counts === 0 ? 'btn btn-secondary disabled' :'btn btn-secondary' " @click.prevent="$emit('minus')">
+    <button :class="counts === 0 ? 'btn-control disabled' :'btn-control' " @click.prevent="$emit('minus')">
         -
     </button>
-    {{ counts }}
-    <button class="btn btn-secondary" @click.prevent="$emit('plus')">
+    <p class="counts">{{ counts }}</p>
+    <button class="btn-control" @click.prevent="$emit('plus')">
         +
     </button>
 </template>
@@ -17,5 +17,15 @@ export default {
 </script>
 
 <style scoped>
-
+.btn-control{
+    width: 30px;
+    background-color: #51D3B7;
+    border: none;
+    border-radius: 3px;
+    text-align: center;
+    align-items: center;
+}
+.counts{
+    padding: 0px 5px;
+}
 </style>

@@ -5,7 +5,7 @@
                 <div v-show="modalActive" class="modal-inner-med">
                     <div class=" modal-content-med">
                         <div class="col col-12 col-md-6 hotels-inf-item">
-                            <div class="section-label">
+                            <div class="section-label section-label-mob">
                                 <h2>Услуги</h2>
                                 <hr>
                             </div>
@@ -33,17 +33,14 @@
                                 <!-- </div> -->
                             </div>
                             <div class="d-flex align-items-center">
-                                <button class="btn badge-btn btn-price" @click.prevent="price">стоимость:</button>
+                                <button class="btn-total" @click.prevent="price">стоимость:</button>
                                 <p class="price-total ">{{ totalPrice }}</p>
                             </div>
 
-                            <button class="btn btn-success mt-3 btn-price" @click.prevent="orderMed">
+                            <button class="btn-price" @click.prevent="orderMed">
                                 {{ message }}
                             </button>
                             <input class="hide" v-model="role" name="medical">
-                            <button class="btn btn-success mt-3 btn-price" @click.prevent="storePreOreder">
-                                Заказ
-                            </button>
                         </div>
                         <button class="btn btn-danger modal-close" @click.prevent="close"
                         >Close
@@ -71,7 +68,7 @@ export default {
         const close = () => {
             emit('close');
         }
-        return {close , state}
+        return {close, state}
     },
     data() {
         return {
@@ -90,12 +87,12 @@ export default {
                 'date': this.$refs.formDate.date,
                 'products': this.order,
                 'user_id': this.state.user,
-                'name_product': this. card.title,
-                'image_product':this.card.image_url,
-                'role' : this.role
+                'name_product': this.card.title,
+                'image_product': this.card.image_url,
+                'role': this.role
             })
                 .then(res => {
-                   localStorage.clear()
+                    localStorage.clear()
                 })
         },
 
@@ -178,9 +175,10 @@ export default {
                 totalPrice: this.totalPrice
             }
 
-            localStorage.setItem('orderProductMed', JSON.stringify(order))
+            localStorage.setItem('orderProductMed', JSON.stringify(this.order))
             const raw = localStorage.getItem('order')
             const orderProductMed = JSON.parse(raw)
+            this.storePreOreder()
         },
     },
     mounted() {
@@ -240,6 +238,36 @@ export default {
 }
 
 .btn-price {
-    margin: 0;
+    width: 130px;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 3px;
+    background-color: #51D3B7;
+}
+.btn-total{
+    width: 130px;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 3px;
+    background-color: #51D3B7;
+}
+@media (max-width: 480px) {
+    .modal-content-med {
+        width: 85%;
+        padding: 10px;
+    }
+    .section-label-mob{
+        padding: 0;
+    }
+    .modal-close {
+        float: right;
+        margin-top: -45px;
+        text-decoration: none;
+        border-radius: 3px;
+        border: none;
+    }
+
 }
 </style>

@@ -9,7 +9,7 @@
                  v-if="subcat.cafe_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">
                 <div :class="subcat.price !== null ? 'd-flex' : 'd-none'">
                     <label class="price-margin">{{ subcat.price }} руб.</label>
-                    <div class="align-items-center">
+                    <div class="list-control ">
                         <product-controls
                             :counts="counts"
                             @minus="minus" @plus="plus"></product-controls>
@@ -113,5 +113,16 @@ export default {
 <style scoped>
 .price-margin {
     margin-right: 20px !important;
+}
+
+.list-control {
+    align-items: center;
+}
+
+@media (max-width: 480px) {
+    .price-margin {
+        margin: 0;
+        padding: 0;
+    }
 }
 </style>
