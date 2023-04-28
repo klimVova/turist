@@ -1917,12 +1917,12 @@ footer .f-logo{
         height: auto!important;
     }
     .quantity_person{
-        font-size: 18px;
-        width: 300px;
-        text-align: left;
-        margin-top: 10px;
-        margin-left: 24px;
-        margin-right: 24px;
+        font-size: 18px !important;
+        width: 300px !important;
+        text-align: left !important;
+        margin-top: 10px !important;
+        margin-left: 24px !important;
+        margin-right: 24px !important;
     }
 }
 
