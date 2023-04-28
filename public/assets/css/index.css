@@ -876,7 +876,7 @@ footer .media img{
         padding-top: 24px;
         padding-left: 24px;
         padding-right: 24px;
-        bottom: -85px;
+        /*bottom: -85px;*/
     }
 
 
@@ -1892,4 +1892,22 @@ footer .f-logo{
 .attention p{
     margin-left: 12px;
     margin-bottom: 0;
+}
+.instructions-label{
+    margin-top: 30px;
+    margin-bottom: 24px;
+}
+
+
+@media(max-width:450px){
+    .instructions .step .step-img{
+        display: block;
+    }
+    .instructions .step .step-img img{
+        width: 100%;
+        margin-bottom: 8px;
+    }
+    .instructions .permanent-instr img{
+        width: 100%;
+    }
 }

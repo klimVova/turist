@@ -228,6 +228,7 @@ export default {
             id: this.$route.params.id,
             card: [],
             actions: [],
+            times:[],
             servics: [],
             posts: [],
             message: [],
@@ -414,4 +415,18 @@ export default {
     height: 370px;
     overflow: auto;
 }
+@media (max-width: 480px) {
+    .post_item_f{
+        display: block;
+    }
+    .rooms-item__line  {
+        width: 480px;
+        max-width: 100%;
+    }
+    .slides{
+        width: 480px;
+        max-width: 100%;
+    }
+}
+
 </style>

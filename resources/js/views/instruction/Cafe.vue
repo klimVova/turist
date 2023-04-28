@@ -1,5 +1,5 @@
 <template>
-        <div class="section-label">
+        <div class="instructions-label section-label">
             <h2>Инструкция для организаций (Ресторан/Кафе)</h2>
             <hr>
         </div>
