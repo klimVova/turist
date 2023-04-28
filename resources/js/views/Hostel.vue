@@ -46,7 +46,7 @@
              || state.city === '' && state.district === ''  && state.republic === ''
              || cities === hostel.city_id && districts === hostel.district_id && republics === hostel.republic_id
               ">
-                            <router-link class="d-flex" :to="'/hotel/'+ hostel.id">
+                            <router-link  :to="'/hotel/'+ hostel.id">
                                 <div class="item-img">
                                     <img :src="hostel.image_url">
                                 </div>

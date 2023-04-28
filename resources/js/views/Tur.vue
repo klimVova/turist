@@ -46,7 +46,7 @@
              || state.city === '' && state.district === ''  && state.republic === ''
              || cities === tur.city_id && districts === tur.district_id && republics === tur.republic_id
               ">
-              <router-link class="d-flex" :to="'/tur/'+ tur.id">
+              <router-link :to="'/tur/'+ tur.id">
                 <div class="item-img">
                   <img :src="tur.image_url">
                 </div>
