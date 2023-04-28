@@ -1914,7 +1914,7 @@ footer .f-logo{
         width: 320px!important;
     }
     .item_margin{
-        height: auto;
+        height: auto!important;
     }
 }
 
