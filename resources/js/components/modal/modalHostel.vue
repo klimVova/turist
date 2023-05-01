@@ -43,7 +43,7 @@
                             </div>
                         </div>
                         <button class="btn btn-danger modal-close modal-close-hostel" @click.prevent="close"
-                        >Close
+                        >Закрыть
                         </button>
                     </div>
 

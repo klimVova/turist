@@ -427,4 +427,13 @@ export default {
     width: 170px;
     height: 130px;
 }
+@media (max-width: 480px) {
+    .slides {
+        width: 100%;
+    }
+}
+.disabled{
+    pointer-events: none !important;
+    opacity: 0.3;
+}
 </style>
