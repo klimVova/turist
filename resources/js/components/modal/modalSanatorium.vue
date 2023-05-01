@@ -298,6 +298,9 @@ export default {
     border-radius: 3px;
     background-color: #51D3B7;
 }
+.slides{
+    width: 170px;
+}
 @media (max-width: 480px) {
     .modal-content-cafe {
         width: 85%;

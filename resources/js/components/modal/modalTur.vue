@@ -184,7 +184,9 @@ export default {
 .modal-animation-leave-to {
     opacity: 0;
 }
-
+.slides{
+    width: 170px;
+}
 .modal-cafe {
 
     position: fixed; /* Stay in place */
