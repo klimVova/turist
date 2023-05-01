@@ -103,7 +103,6 @@ export default {
                 Array.prototype.push.apply(cafeProductList, newCafeProductList)
                 localStorage.setItem('cafeProductList', JSON.stringify(cafeProductList))
 
-                // console.log(cafeProduct);
             }
         },
     },

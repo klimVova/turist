@@ -346,7 +346,10 @@ export default {
 .active {
     border: 1px solid #51D3B7 !important;
 }
-
+.slides{
+    width: 170px;
+    height: 130px;
+}
 @media (max-width: 480px) {
     .slides {
         width: 100%;

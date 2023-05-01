@@ -94,7 +94,6 @@ export default {
       this.axios.post('/api/turs', {})
           .then(res => {
             this.turs = res.data.data
-            console.log(this.turs);
           })
     },
     getFilter() {

@@ -213,6 +213,7 @@ export default {
     opacity: 0.3;
     width: 240px;
 }
+
 @media (max-width: 480px) {
     .modal-content-med {
         width: 85%;

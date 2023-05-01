@@ -94,7 +94,6 @@ export default {
       this.axios.post('/api/sanatoriums', {})
           .then(res => {
             this.sanatoriums = res.data.data
-            console.log(this.sanatoriums);
           })
     },
     getFilter() {

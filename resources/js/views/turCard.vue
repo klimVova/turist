@@ -292,7 +292,6 @@ export default {
             this.axios.get('/api/turPost')
                 .then(res => {
                     this.posts = res.data.data;
-                    console.log(this.posts);
                 })
         },
         getCatagoties() {
@@ -346,7 +345,6 @@ export default {
             this.axios.get('/api/turtime')
                 .then(res => {
                     this.times = res.data.data;
-                    console.log(res)
                 })
         },
 
@@ -417,6 +415,10 @@ export default {
 .item_margin{
     height: 370px;
     overflow: auto;
+}
+.slides{
+    width: 170px;
+    height: 130px;
 }
 @media (max-width: 480px) {
     .post_item_f{

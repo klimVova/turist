@@ -304,7 +304,6 @@ export default {
             this.axios.get('/api/sanatoriumPost')
                 .then(res => {
                     this.posts = res.data.data;
-                    console.log(this.posts);
                 })
         },
         getCatagoties() {
@@ -423,5 +422,9 @@ export default {
 .disabled{
     pointer-events: none !important;
     opacity: 0.3;
+}
+.slides{
+    width: 170px;
+    height: 130px;
 }
 </style>

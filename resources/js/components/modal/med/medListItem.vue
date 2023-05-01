@@ -92,7 +92,7 @@ export default {
                 Array.prototype.push.apply(medProductList, newCafeProductList)
                 localStorage.setItem('medProductList', JSON.stringify(medProductList))
 
-                // console.log(medProduct);
+
             }
         },
     },

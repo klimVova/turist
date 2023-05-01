@@ -91,7 +91,6 @@ export default {
                 Array.prototype.push.apply(sanatoriumProductList, newCafeProductList)
                 localStorage.setItem('sanatoriumProductList', JSON.stringify(sanatoriumProductList))
 
-                // console.log(sanatoriumProduct);
             }
         },
     },
