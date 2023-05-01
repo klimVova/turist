@@ -1,11 +1,11 @@
 <template>
     <div class="subcategory">
-        <div class="d-flex col justify-content-between align-items-center">
+        <div class="med-list  col">
             <div
                 v-if="subcat.cafe_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">
-                <label>{{ subcat.title }}</label>
+                <label class="med-list-title">{{ subcat.title }}</label>
             </div>
-            <div class="d-flex align-items-center"
+            <div class="med-list-item"
                  v-if="subcat.cafe_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">
                 <div :class="subcat.price !== null ? 'd-flex' : 'd-none'">
                     <label class="price-margin">{{ subcat.price }} руб.</label>
@@ -114,15 +114,39 @@ export default {
 .price-margin {
     margin-right: 20px !important;
 }
-
-.list-control {
+.med-list{
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
+.med-list-item{
+    display:flex;
+    align-items: center;
+}
+.list-control{
+    display: flex;
+    align-items: center;
+}
+@media (max-width: 480px){
+    .med-list{
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+    }
+    .med-list-item{
+        display:flex;
 
-@media (max-width: 480px) {
-    .price-margin {
+        justify-content: space-between;
+    }
+    .med-list-title{
+
+    }
+    .price-margin{
         margin: 0;
-        padding: 0;
+        width: 50px;
+    }
+    .list-control{
+        display: flex;
     }
 }
 </style>

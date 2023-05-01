@@ -5,7 +5,7 @@
                 <div v-show="modalActive" class="modal-inner-cafe">
                     <div class=" modal-content-cafe">
                         <div class="col col-12 col-md-12 hotels-inf-item">
-                            <div class="section-label">
+                            <div class="section-label section-label-mob">
                                 <h2>Номера</h2>
                                 <hr>
                             </div>
@@ -20,32 +20,29 @@
                                                 ></swiper>
                                             </div>
                                         </div>
-                                        <label :id="`${post.category}`">{{ post.category }}<br>({{ post.berth }}
+                                        <label class="item-hostel" :id="`${post.category}`">{{ post.category }}<br>({{ post.berth }}
                                             спальное
                                             место)</label>
-                                        <ul>
+                                        <ul class="item-hostel">
                                             <li v-for="tag in post.tags"><img
                                                 src="assets/img/check-list.svg">{{ tag.title }}
                                             </li>
                                         </ul>
-                                        <label class="cost">{{ post.price }}р за сутки</label>
+                                        <label class="cost item-hostel">{{ post.price }}р за сутки</label>
                                         <label :class="sumPrice === null ? 'hide' : 'cost'">Общая стоимость {{
                                                 sumPrice
                                             }}р</label>
                                         <input type="submit" @click.prevent="orderHostel(post.id)"
                                                :class="(this.$refs.formDate.date === undefined ||
                                                this.$refs.formDate.date === null
-                                               ) ? 'disabled' : ''"
+                                               ) ? 'disabled btn-hostel' : 'btn-hostel'"
                                                :value="post.id === id ? message: 'Забронировать'">
                                         <input class="hide" v-model="role" name="medical">
-                                        <button class="btn btn-success mt-3 btn-price" @click.prevent="storePreOreder">
-                                            Заказ
-                                        </button>
                                     </div>
                                 </template>
                             </div>
                         </div>
-                        <button class="btn btn-danger modal-close" @click.prevent="close"
+                        <button class="btn btn-danger modal-close modal-close-hostel" @click.prevent="close"
                         >Close
                         </button>
                     </div>
@@ -153,10 +150,11 @@ export default {
                 berth: this.berth,
             }
 
-            localStorage.setItem('orderHostel', JSON.stringify(order))
+            localStorage.setItem('orderHostel', JSON.stringify(this.order))
             const raw = localStorage.getItem('order')
             const orderHostel = JSON.parse(raw)
 
+            this.storePreOreder()
         },
     },
 
@@ -206,9 +204,44 @@ export default {
 .hide {
     display: none;
 }
-
+.btn-hostel{
+    margin: 0;
+    width: 240px;
+}
 .disabled {
     pointer-events: none !important;
     opacity: 0.3;
+    width: 240px;
+}
+@media (max-width: 480px) {
+    .modal-content-med {
+        width: 85%;
+        padding: 10px;
+    }
+    .section-label-mob{
+        padding: 0;
+    }
+    .modal-close {
+        float: right;
+        margin-top: -40px;
+        text-decoration: none;
+        border-radius: 3px;
+        border: none;
+        z-index: 99999999999;
+        position: relative;
+        margin-right: 17px;
+    }
+    .service-list-modal{
+        padding: 0;
+    }
+    .slides{
+        width: 240px;
+    }
+    .item-hostel{
+        width: 220px;
+        margin-left: 0;
+    }
+
+
 }
 </style>

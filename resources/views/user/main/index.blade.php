@@ -112,13 +112,17 @@
                                         <label class="name"> {{$preOrder->role}}<br>" {{$preOrder->name_product}}
                                             "</label>
                                         <ul class="service">
+                                            @if((json_decode($preOrder->products, true)['productList']) !== null)
                                             @foreach((json_decode($preOrder->products, true)['productList']) as $list)
                                                 <li class="product_list">
                                                     <div class="product_item_header">{{$list['product']}}</div>
                                                     <span>{{$list['qty']}}</span>
                                                     <label class="cost">  {{$list['price']}}р</label>
                                                 </li>
+
                                             @endforeach
+                                            @else
+                                            @endif
                                         </ul>
                                         <label class="date">  {{json_decode($preOrder->products, true)['date']}}</label>
                                         <form action="{{route('user.maim.delete', $preOrder->id)}}"
@@ -146,6 +150,7 @@
                                         <label class="name"> {{$preOrder->role}}<br>" {{$preOrder->name_product}}
                                             "</label>
                                         <ul class="service">
+
                                             @foreach((json_decode($preOrder->products, true)['productList']) as $list)
                                                 <li class="product_list">
                                                     <div class="product_item_header">{{$list['product']}}</div>

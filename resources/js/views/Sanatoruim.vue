@@ -46,7 +46,7 @@
              || state.city === '' && state.district === ''  && state.republic === ''
              || cities === sanatorium.city_id && districts === sanatorium.district_id && republics === sanatorium.republic_id
               ">
-              <router-link class="d-flex" :to="'/sanatorium/'+ sanatorium.id">
+              <router-link  :to="'/sanatorium/'+ sanatorium.id">
                 <div class="item-img">
                   <img :src="sanatorium.image_url">
                 </div>

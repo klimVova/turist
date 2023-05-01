@@ -5,12 +5,12 @@
                 <div v-show="modalActive" class="modal-inner-cafe">
                     <div class=" modal-content-cafe">
                         <div class="col col-12 col-md-6 hotels-inf-item">
-                            <div class="section-label">
+                            <div class="section-label section-label-mob">
                                 <h2>Услуги</h2>
                                 <hr>
                             </div>
                             <form-picker ref="formDate"></form-picker>
-                            <div class="service-list">
+                            <div class="service-list service-list-modal">
                                 <!-- <div class="service-item"> -->
                                 <div v-for="list in lists" class="category fadeInUp wow animated"
                                      style="visibility: visible; animation-name: fadeInUp;">
@@ -32,20 +32,17 @@
                                 <!-- </div> -->
                             </div>
                             <div class="d-flex align-items-center">
-                                <button class="btn badge-btn btn-price" @click.prevent="price">стоимость:</button>
+                                <button class="btn-total" @click.prevent="price">Cтоимость:</button>
                                 <p class="price-total ">{{ totalPrice }}</p>
                             </div>
 
-                            <button class="btn btn-success mt-3 btn-price" @click.prevent="orderCafe">
+                            <button class="btn-price" @click.prevent="orderCafe">
                                 {{message}}
                             </button>
                             <input class="hide" v-model="role" name="medical">
-                            <button class="btn btn-success mt-3 btn-price" @click.prevent="storePreOreder">
-                                Заказ
-                            </button>
                         </div>
                         <button class="btn btn-danger modal-close" @click.prevent="close"
-                        >Close</button>
+                        >Закрыть</button>
                     </div>
 
                 </div>
@@ -176,9 +173,11 @@ export default {
                 totalPrice: this.totalPrice
             }
 
-            localStorage.setItem('orderProductCafe', JSON.stringify(order))
+            localStorage.setItem('orderProductCafe', JSON.stringify(this.order))
             const raw = localStorage.getItem('order')
             const orderProductCafe = JSON.parse(raw)
+
+            this.storePreOreder()
         },
     },
     mounted() {
@@ -208,7 +207,6 @@ export default {
 }
 
 .modal-cafe {
-
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -239,10 +237,41 @@ export default {
 }
 
 .btn-price {
-    margin: 0;
+    width: 130px;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 3px;
+    background-color: #51D3B7;
 }
-.disabled{
-    pointer-events: none !important;
-    opacity: 0.3;
+.btn-total{
+    width: 130px;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 3px;
+    background-color: #51D3B7;
+}
+@media (max-width: 480px) {
+    .modal-content-cafe {
+        width: 85%;
+        padding: 10px;
+    }
+    .section-label-mob{
+        padding: 0;
+    }
+    .modal-close {
+        float: right;
+        margin-top: -45px;
+        text-decoration: none;
+        border-radius: 3px;
+        border: none;
+        z-index: 99999999999;
+        position: relative;
+    }
+    .service-list-modal{
+        padding: 0;
+    }
+
 }
 </style>

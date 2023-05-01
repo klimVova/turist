@@ -47,7 +47,7 @@
              || state.city === '' && state.district === ''  && state.republic === ''
              || cities === item.city_id && districts === item.district_id && republics === item.republic_id
               ">
-              <router-link :to="'/spa/'+ item.id" class="d-flex">
+              <router-link :to="'/spa/'+ item.id" >
                 <div class="item-img">
                   <img :src="item.image_url">
                 </div>

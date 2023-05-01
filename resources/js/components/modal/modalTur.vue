@@ -5,7 +5,7 @@
                 <div v-show="modalActive" class="modal-inner-cafe">
                     <div class=" modal-content-cafe">
                         <div class="col col-12 col-md-12 hotels-inf-item">
-                            <div class="section-label">
+                            <div class="section-label section-label-mob">
                                 <h2>Номера</h2>
                                 <hr>
                             </div>
@@ -20,37 +20,34 @@
                                                 ></swiper>
                                             </div>
                                         </div>
-                                        <label>{{post.title}}<br><span>{{post.date}}</span></label>
+                                        <label  class="item-hostel">{{post.title}}<br><span>{{post.date}}</span></label>
 
-                                        <ul>
+                                        <ul  class="item-hostel">
                                             <li v-for="tag in post.tags"><img
                                                 src="assets/img/check-list.svg">{{ tag.title }}
                                             </li>
                                         </ul>
-                                        <label class="cost">{{ post.price }}р<br>
+                                        <label class="cost item-hostel-col">{{ post.price }}р<br>
                                             <span>
                                           <template v-if="Number(post.berth) === 1">
-                                         <label :id="`${post.category}`">({{ post.berth }}
+                                         <label class="item-hostel-col" :id="`${post.category}`">({{ post.berth }}
                                              человек)</label>
                                      </template>
                                      <template v-else-if="Number(post.berth) != 1">
-                                         <label :id="`${post.category}`">({{ post.berth }}
+                                         <label class="item-hostel-col" :id="`${post.category}`">({{ post.berth }}
                                              человека)</label>
                                      </template>
                                          </span>
                                         </label>
-                                        <input type="submit" @click.prevent="orderHostel(post.id)"
+                                        <input class='btn-hostel' type="submit" @click.prevent="orderHostel(post.id)"
                                                :value="post.id === id ? message: 'Забронировать'">
-                                        <input class="hide" v-model="role" name="medical">
-                                        <button class="btn btn-success mt-3 btn-price" @click.prevent="storePreOreder">
-                                            Заказ
-                                        </button>
+                                        <input class="hide" v-model="role" name="tur">
                                     </div>
                                 </template>
                             </div>
                         </div>
                         <button class="btn btn-danger modal-close" @click.prevent="close"
-                        >Close
+                        >Закрыть
                         </button>
                     </div>
 
@@ -157,15 +154,17 @@ export default {
                 berth: this.berth,
             }
 
-            localStorage.setItem('orderTur', JSON.stringify(order))
+            localStorage.setItem('orderTur', JSON.stringify(this.order))
             const raw = localStorage.getItem('order')
             const orderHostel = JSON.parse(raw)
 
+            this.storePreOreder()
         },
     },
 
 }
 </script>
+
 
 <style scoped>
 .modal-close {
@@ -210,9 +209,48 @@ export default {
 .hide {
     display: none;
 }
-
+.btn-hostel{
+    margin: 10px 0 0 0;
+    width: 240px;
+}
 .disabled {
     pointer-events: none !important;
     opacity: 0.3;
+    width: 240px;
+}
+@media (max-width: 480px) {
+    .modal-content-med {
+        width: 85%;
+        padding: 10px;
+    }
+    .section-label-mob{
+        padding: 0;
+    }
+    .modal-close {
+        float: right;
+        margin-top: -40px;
+        text-decoration: none;
+        border-radius: 3px;
+        border: none;
+        z-index: 99999999999;
+        position: relative;
+        margin-right: 17px;
+    }
+    .service-list-modal{
+        padding: 0;
+    }
+    .slides{
+        width: 255px;
+    }
+    .item-hostel{
+        width: 220px;
+        margin-left: 0 !important;
+    }
+    .item-hostel-col{
+        width: 220px;
+        margin: 0 !important;
+    }
+
+
 }
 </style>

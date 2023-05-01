@@ -5,7 +5,7 @@
                 <div v-show="modalActive" class="modal-inner-cafe">
                     <div class=" modal-content-cafe">
                         <div class="col col-12 col-md-12 hotels-inf-item">
-                            <div class="section-label">
+                            <div class="section-label section-label-mob">
                                 <h2>Номера</h2>
                                 <hr>
                             </div>
@@ -20,24 +20,24 @@
                                                 ></swiper>
                                             </div>
                                         </div>
-                                        <label :id="`${post.category}`">{{ post.category }}<br>({{ post.berth }}
+                                        <label class="item-hostel" :id="`${post.category}`">{{ post.category }}<br>({{ post.berth }}
                                             спальное
                                             место)</label>
-                                        <ul>
+                                        <ul class="item-hostel">
                                             <li v-for="tag in post.tags"><img
                                                 src="assets/img/check-list.svg">{{ tag.title }}
                                             </li>
                                         </ul>
-                                        <label class="cost">{{ post.price }}р за сутки</label>
+                                        <label class="cost item-hostel">{{ post.price }}р за сутки</label>
                                     </div>
                                 </template>
                             </div>
                             <div class="col col-12 col-md-6 hotels-inf-item">
-                                <div class="section-label">
+                                <div class="section-label section-label-mob">
                                     <h2>Услуги</h2>
                                     <hr>
                                 </div>
-                                <div class="service-list">
+                                <div class="service-list service-list-modal">
                                     <!-- <div class="service-item"> -->
                                     <div v-for="list in lists" class="category fadeInUp wow animated"
                                          style="visibility: visible; animation-name: fadeInUp;">
@@ -59,19 +59,16 @@
                                     <!-- </div> -->
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <p class="price-total ">Общая стоимость заказа : {{ this.sumPrice  }}</p>
+                                    <p class="price-total-san "> Общая стоимость заказа : {{ this.sumPrice  }}</p>
                                 </div>
-                                <button class="btn btn-success mt-3 btn-price" @click.prevent="orderCafe">
+                                <button class=" btn-price-san" @click.prevent="orderCafe">
                                     {{message}}
                                 </button>
                             </div>
                         </div>
                         <input class="hide" v-model="role" name="medical">
-                        <button class="btn btn-success mt-3 btn-price" @click.prevent="storePreOreder">
-                            Заказ
-                        </button>
                         <button class="btn btn-danger modal-close" @click.prevent="close"
-                        >Close
+                        >Закрыть
                         </button>
                     </div>
 
@@ -218,9 +215,11 @@ export default {
                 berth: this.berth,
             }
 
-            localStorage.setItem('orderProductSanatorium', JSON.stringify(order))
+            localStorage.setItem('orderProductSanatorium', JSON.stringify(this.order))
             const raw = localStorage.getItem('order')
             const orderProductSanatorium = JSON.parse(raw)
+
+            this.storePreOreder()
         },
     },
     mounted() {
@@ -251,7 +250,6 @@ export default {
 }
 
 .modal-cafe {
-
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -263,7 +261,7 @@ export default {
     background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
-.modal-content-cafe {
+.modal-content-cafe{
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
@@ -274,8 +272,74 @@ export default {
 .hide {
     display: none;
 }
-.disabled{
-    pointer-events: none !important;
-    opacity: 0.3;
+
+.price-total-san {
+    font-size: 14px;
+    font-weight: 700;
+    color: #505050;
+    margin: 0;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.btn-price-san {
+    width: 230px;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 3px;
+    background-color: #51D3B7;
+}
+.btn-total{
+    width: 130px;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 3px;
+    background-color: #51D3B7;
+}
+@media (max-width: 480px) {
+    .modal-content-cafe {
+        width: 85%;
+        padding: 10px;
+    }
+    .section-label-mob{
+        padding: 0;
+    }
+    .modal-close {
+        float: right;
+        margin-top: -45px;
+        text-decoration: none;
+        border-radius: 3px;
+        border: none;
+        z-index: 99999999999;
+        position: relative;
+    }
+    .service-list-modal{
+        padding: 0;
+    }
+    .item-hostel{
+        width: 220px;
+        margin-left: 0;
+    }
+    .price-total{
+        margin: 0 !important;
+        padding-left: 0px;
+        font-size: 12px;
+    }
+    .slides{
+        width: 280px;
+    }
+    .btn-price-san {
+        width: 150px;
+        border: none;
+        padding: 5px;
+        margin-top: 5px;
+        border-radius: 3px;
+        background-color: #51D3B7;
+        font-size: 16px;
+    }
 }
 </style>
+
+

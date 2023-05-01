@@ -1,5 +1,5 @@
 <template>
-    <div class="w-50 mt-3">
+    <div class="input-data">
         <VueDatePicker v-model="date"
                        range
                        :min-date='new Date()'
@@ -50,5 +50,25 @@ export default {
     text-align: center;
     border: 1px solid #aaaeb7;
     border-radius: 3px;
+}
+.input-data{
+    width: 450px;
+    max-width: 100%;
+    margin-top: 10px;
+}
+@media (max-width: 480px){
+    .modal-content-med{
+        width: 100%;
+        padding: 24px;
+    }
+    .modal-content-med .section-label{
+        padding-left: 0;
+    }
+    .w-50{
+        width: 100%!important;
+    }
+    .people-count{
+        justify-content: space-between;
+    }
 }
 </style>

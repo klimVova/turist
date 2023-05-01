@@ -1347,7 +1347,7 @@ footer .f-logo{
     transition: 0.3s;
 }
 .rooms-item__line > div {
-    width: 170px;
+    /*width: 170px;*/
     height: 130px;
 
     /* и тут вставь свои размеры */
@@ -1923,5 +1923,6 @@ footer .f-logo{
         margin-top: 10px !important;
        margin-left:0 !important;
     }
+
 }
 

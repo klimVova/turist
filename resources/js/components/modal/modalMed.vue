@@ -33,7 +33,7 @@
                                 <!-- </div> -->
                             </div>
                             <div class="d-flex align-items-center">
-                                <button class="btn-total" @click.prevent="price">стоимость:</button>
+                                <button class="btn-total" @click.prevent="price">Cтоимость:</button>
                                 <p class="price-total ">{{ totalPrice }}</p>
                             </div>
 
