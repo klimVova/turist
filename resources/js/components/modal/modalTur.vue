@@ -209,7 +209,7 @@ export default {
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px 5px 20px 20px;
     border: 1px solid #888;
-    width: 100%;
+    width: 85%;
 }
 
 .hide {
@@ -218,13 +218,13 @@ export default {
 
 .btn-hostel {
     margin: 10px 0 0 0;
-    width: 100%;
+    width: 200px;
 }
 
 .disabled {
     pointer-events: none !important;
     opacity: 0.3;
-    width: 100%;
+    width: 200px;
 }
 
 @media (max-width: 480px) {
@@ -259,13 +259,18 @@ export default {
     }
 
     .item-hostel {
-        width: 220px;
+        width: 100%;
         margin-left: 0 !important;
     }
 
     .item-hostel-col {
         width: 100%;
         margin: 0 !important;
+    }
+    .disabled {
+        pointer-events: none !important;
+        opacity: 0.3;
+        width: 100%;
     }
 }
 </style>

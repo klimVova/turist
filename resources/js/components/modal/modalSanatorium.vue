@@ -325,7 +325,7 @@ export default {
         padding: 0;
     }
     .item-hostel{
-        width: 220px;
+        width: 100%;
         margin-left: 0;
     }
     .price-total{
