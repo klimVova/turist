@@ -193,7 +193,7 @@ export default {
     margin-top: -35px;
     text-decoration: none;
     color: #fff;
-    background-color: #a11f34;
+    background-color: #a11f34 !important;
 }
 
 .modal-animation-enter-active,
