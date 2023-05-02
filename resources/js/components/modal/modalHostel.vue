@@ -235,7 +235,7 @@ export default {
         position: relative;
         margin-right: 17px;
         color: #fff;
-        background-color: #ff3547 !important;
+        background-color: #a11f34 !important;
     }
     .service-list-modal{
         padding: 0;

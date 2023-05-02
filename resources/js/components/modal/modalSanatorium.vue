@@ -320,6 +320,7 @@ export default {
         border: none;
         z-index: 99999999999;
         position: relative;
+        background-color: #a11f34 !important;
     }
     .service-list-modal{
         padding: 0;

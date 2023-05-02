@@ -228,8 +228,8 @@ export default {
 }
 
 @media (max-width: 480px) {
-    .modal-content-med {
-        width: 85%;
+    .modal-content-cafe {
+        width: 100%;
         padding: 10px;
     }
 
@@ -247,7 +247,7 @@ export default {
         position: relative;
         margin-right: 17px;
         color: #fff;
-        background-color: #ff3547 !important;
+        background-color: #a11f34 !important;
     }
 
     .service-list-modal {
@@ -266,6 +266,15 @@ export default {
     .item-hostel-col {
         width: 100%;
         margin: 0 !important;
+    }
+    .disabled {
+        pointer-events: none !important;
+        opacity: 0.3;
+        width: 100%;
+    }
+    .btn-hostel {
+        margin: 10px 0 0 0;
+        width: 100%;
     }
     .disabled {
         pointer-events: none !important;
