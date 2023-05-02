@@ -193,7 +193,8 @@ export default {
     float: right;
     margin-top: -35px;
     text-decoration: none;
-
+    color: #fff;
+    background-color: #ff3547 !important;
 }
 
 .modal-animation-enter-active,
@@ -255,7 +256,7 @@ export default {
 }
 @media (max-width: 480px) {
     .modal-content-med {
-        width: 85%;
+        width: 100%;
         padding: 10px;
     }
     .section-label-mob{

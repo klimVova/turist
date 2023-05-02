@@ -42,7 +42,7 @@
                             </button>
                             <input class="hide" v-model="role" name="medical">
                         </div>
-                        <button class="btn btn-danger modal-close" @click.prevent="close"
+                        <button class="btn  modal-close" @click.prevent="close"
                         >Закрыть</button>
                     </div>
 
@@ -195,7 +195,8 @@ export default {
     float: right;
     margin-top: -35px;
     text-decoration: none;
-
+    color: #fff;
+    background-color: #ff3547 !important;
 }
 
 .modal-animation-enter-active,
@@ -257,7 +258,7 @@ export default {
 }
 @media (max-width: 480px) {
     .modal-content-spa {
-        width: 85%;
+        width: 100%;
         padding: 10px;
     }
     .section-label-mob{

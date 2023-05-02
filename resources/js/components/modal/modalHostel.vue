@@ -42,7 +42,7 @@
                                 </template>
                             </div>
                         </div>
-                        <button class="btn btn-danger modal-close modal-close-hostel" @click.prevent="close"
+                        <button class="btn  modal-close modal-close-hostel" @click.prevent="close"
                         >Закрыть
                         </button>
                     </div>
@@ -166,7 +166,8 @@ export default {
     float: right;
     margin-top: -35px;
     text-decoration: none;
-
+    color: #fff;
+    background-color: #ff3547 !important;
 }
 
 .modal-animation-enter-active,
@@ -211,14 +212,14 @@ export default {
 .disabled {
     pointer-events: none !important;
     opacity: 0.3;
-    width: 240px;
+    width: 200px;
 }
 .slides{
     width: 170px;
 }
 @media (max-width: 480px) {
-    .modal-content-med {
-        width: 85%;
+    .modal-content-cafe {
+        width: 100%;
         padding: 10px;
     }
     .section-label-mob{
@@ -233,6 +234,8 @@ export default {
         z-index: 99999999999;
         position: relative;
         margin-right: 17px;
+        color: #fff;
+        background-color: #ff3547 !important;
     }
     .service-list-modal{
         padding: 0;
@@ -243,6 +246,14 @@ export default {
     .item-hostel{
         width: 220px;
         margin-left: 0;
+    }
+    .disabled {
+        pointer-events: none !important;
+        opacity: 0.3;
+        width: 100%;
+    }
+    .btn-hostel{
+        width: 100%;
     }
 
 

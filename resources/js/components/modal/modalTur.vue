@@ -20,9 +20,10 @@
                                                 ></swiper>
                                             </div>
                                         </div>
-                                        <label  class="item-hostel">{{post.title}}<br><span>{{post.date}}</span></label>
+                                        <label
+                                            class="item-hostel">{{ post.title }}<br><span>{{ post.date }}</span></label>
 
-                                        <ul  class="item-hostel">
+                                        <ul class="item-hostel">
                                             <li v-for="tag in post.tags"><img
                                                 src="assets/img/check-list.svg">{{ tag.title }}
                                             </li>
@@ -46,7 +47,7 @@
                                 </template>
                             </div>
                         </div>
-                        <button class="btn btn-danger modal-close" @click.prevent="close"
+                        <button class="btn modal-close" @click.prevent="close"
                         >Закрыть
                         </button>
                     </div>
@@ -171,7 +172,8 @@ export default {
     float: right;
     margin-top: -35px;
     text-decoration: none;
-
+    color: #fff;
+    background-color: #ff3547 !important;
 }
 
 .modal-animation-enter-active,
@@ -184,9 +186,11 @@ export default {
 .modal-animation-leave-to {
     opacity: 0;
 }
-.slides{
+
+.slides {
     width: 170px;
 }
+
 .modal-cafe {
 
     position: fixed; /* Stay in place */
@@ -203,31 +207,36 @@ export default {
 .modal-content-cafe {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
+    padding: 20px 5px 20px 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 100%;
 }
 
 .hide {
     display: none;
 }
-.btn-hostel{
+
+.btn-hostel {
     margin: 10px 0 0 0;
-    width: 240px;
+    width: 100%;
 }
+
 .disabled {
     pointer-events: none !important;
     opacity: 0.3;
-    width: 240px;
+    width: 100%;
 }
+
 @media (max-width: 480px) {
     .modal-content-med {
         width: 85%;
         padding: 10px;
     }
-    .section-label-mob{
+
+    .section-label-mob {
         padding: 0;
     }
+
     .modal-close {
         float: right;
         margin-top: -40px;
@@ -237,22 +246,26 @@ export default {
         z-index: 99999999999;
         position: relative;
         margin-right: 17px;
+        color: #fff;
+        background-color: #ff3547 !important;
     }
-    .service-list-modal{
+
+    .service-list-modal {
         padding: 0;
     }
-    .slides{
-        width: 255px;
+
+    .slides {
+        width: 100%;
     }
-    .item-hostel{
+
+    .item-hostel {
         width: 220px;
         margin-left: 0 !important;
     }
-    .item-hostel-col{
-        width: 220px;
+
+    .item-hostel-col {
+        width: 100%;
         margin: 0 !important;
     }
-
-
 }
 </style>
