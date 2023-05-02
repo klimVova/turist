@@ -237,6 +237,8 @@ export default {
     text-decoration: none;
     color: #fff;
     background-color: #ff3547 !important;
+    z-index: 99999999999;
+    position: relative;
 }
 
 .modal-animation-enter-active,
