@@ -236,7 +236,7 @@ export default {
     margin-top: -35px;
     text-decoration: none;
     color: #fff;
-    background-color: #ff3547 !important;
+    background-color: #a11f34;
     z-index: 99999999999;
     position: relative;
 }
