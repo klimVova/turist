@@ -1972,7 +1972,7 @@ footer .f-logo{
     justify-content: space-between;
 }
 .product_option_list{
-    width: 550px;
+    /*width: 550px;*/
     max-width: 100%;
     justify-content: space-between;
 }
@@ -1983,6 +1983,7 @@ footer .f-logo{
 .product_option_list_item_qty{
     display: flex;
     justify-content: center;
+    margin-left: 3px;
 }
 .product_option_list_item_cost{
     font-weight: bold;
@@ -1991,6 +1992,12 @@ footer .f-logo{
 }
 .product_list_item_header{
     font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+}
+.product_list_item_header_hostel{
+    font-weight: 700;
+    text-align: center;
 }
 .product_option_list_san{
     width: 600px;
@@ -2001,4 +2008,15 @@ footer .f-logo{
     width: 300px;
     max-width: 100%;
     justify-content: space-between;
+}
+.product_option_list_item_date{
+    width: 140px;
+    margin-left: 10px;
+}
+.product_option_list_item_date_san{
+    width: 140px;
+    margin-top: 10px;
+}
+.name{
+    margin-left: 10px;
 }
