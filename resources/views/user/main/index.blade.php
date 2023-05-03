@@ -376,7 +376,7 @@
                                             <br>
                                             <span>({{json_decode($preOrder->products, true)['berth'] }} человек)</span>
                                         </div>
-                                        <ul class="product_option_list">
+                                        <ul class="product_option_list_tur">
                                             <li class="product_option_list_item row">
                                                 <label class="date">{{json_decode($preOrder->products, true)['date'] }}</label>
                                                 <div class="col product_option_list_item_cost">
@@ -384,7 +384,6 @@
                                                     <p> p</p>
                                                 </div>
                                             </li>
-
                                         </ul>
                                         {{--                                        <label class="date">  {{json_decode($preOrder->products, true)['date']}}</label>--}}
                                         <form action="{{route('user.maim.delete', $preOrder->id)}}"
@@ -416,15 +415,12 @@
                         <hr>
                     </div>
                     <div class="rooms">
-
                         <div class="item">
-
                             <label class="name">Отель "Comfortee"<br>Стандарт (1 человек)</label>
                             <label class="promocode">500-20-303</label>
                             <label class="date">24.03.2023</label>
                         </div>
                         <div class="item promocode-used">
-
                             <label class="name">Отель "Звезда"<br>Люкс (1 человек)</label>
                             <label class="promocode">500-29-999</label>
                             <label class="date">14.01.2022</label>
