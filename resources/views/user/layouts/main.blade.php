@@ -72,6 +72,7 @@
         </div>
         <img class="f-logo" src="{{asset('assets/img/logo-l.png')}}">
     </footer>
+</div>
     <!-- jQuery -->
     <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>

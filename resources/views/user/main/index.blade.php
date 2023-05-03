@@ -1,6 +1,6 @@
 @extends('user.layouts.main')
 @section('content')
-    <div class="container-fluid main">
+    <div class="container-fluid main content">
         <div class="office">
             <div class="section-label">
                 <h2>Личный кабинет</h2>
@@ -13,6 +13,7 @@
                     <li data-f="promocodes" class="spisok">Промокоды</li>
                 </ul>
             </nav>
+
             <div class="row profile hide box">
                 <form action="{{route('user.main.update', $user->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -89,163 +90,193 @@
                     </div>
                 </form>
             </div>
+
             <div class="cart row box ">
                 <div class="col col-12 col-md-9">
                     <div class="cart-section">
                         @foreach($preOrders as $preOrder)
                             @if($preOrder->role == 'Мед.центр')
-                                <div class="section-label">
+                                <div class="product">
+                                    <div class="product_item">
+                                        <div class="product_item_header">
+                                            <p class="product_item_header_name">
+                                                Медицинский центр
+                                            </p>
+                                            <hr>
+                                        </div>
+                                        <div class="product_item_option">
+                                            <img class="product_image" src=" {{$preOrder->image_product}}">
+                                            <label class="name"> {{$preOrder->role}}<br>" {{$preOrder->name_product}}
+                                                "</label>
+                                            <ul class="product_option_list">
+                                                @if((json_decode($preOrder->products, true)['productList']) !== null)
+                                                    @foreach((json_decode($preOrder->products, true)['productList']) as $list)
+                                                        <li class="product_option_list_item row">
+                                                            <div
+                                                                class="product_list_item_header col"> {{$list['product']}} </div>
+                                                            <div class="col product_option_list_item_qty">
+                                                                <span>{{$list['qty']}} </span>
+                                                            </div>
+                                                            <div class="col product_option_list_item_cost">
+                                                                <p>{{$list['price']}} &nbsp</p>
+                                                                <p> p</p>
+                                                            </div>
+                                                        </li>
+                                                    @endforeach
+                                                @else
+                                                @endif
+                                            </ul>
+                                            <label
+                                                class="date">  {{json_decode($preOrder->products, true)['date']}}</label>
+                                            <form action="{{route('user.maim.delete', $preOrder->id)}}"
+                                                  method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="border-0 bg-transparent" l>
+                                                    <i class="fas fa-trash text-danger mr-5" role="button"></i>
+                                                </button>
+                                            </form>
 
-                                    <h2 class="mt-5">
-                                        Медицинский центр
-                                    </h2>
-                                    <hr>
-                                </div>
-                                <div class="rooms">
-                                    <div class="rooms-item">
-                                        <img src=" {{$preOrder->image_product}}">
-                                        {{--                                {{json_decode($preOrder->products, true)['totalPrice']}}--}}
-                                        <label class="name"> {{$preOrder->role}}<br>" {{$preOrder->name_product}}
-                                            "</label>
-                                        <ul class="service">
-                                            @if((json_decode($preOrder->products, true)['productList']) !== null)
-                                            @foreach((json_decode($preOrder->products, true)['productList']) as $list)
-                                                <li class="product_list">
-                                                    <div class="product_item_header">{{$list['product']}}</div>
-                                                    <span>{{$list['qty']}}</span>
-                                                    <label class="cost">  {{$list['price']}}р</label>
-                                                </li>
-
-                                            @endforeach
-                                            @else
-                                            @endif
-                                        </ul>
-                                        <label class="date">  {{json_decode($preOrder->products, true)['date']}}</label>
-                                        <form action="{{route('user.maim.delete', $preOrder->id)}}"
-                                              method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="border-0 bg-transparent" l>
-                                                <i class="fas fa-trash text-danger mr-5" role="button"></i>
-                                            </button>
-                                        </form>
-
+                                        </div>
                                     </div>
+
                                 </div>
                             @elseif($preOrder->role == 'spa')
-                                <div class="section-label">
-                                    <h2 class="mt-5">
-                                        CПА/БЬЮТИ
-                                    </h2>
-                                    <hr>
-                                </div>
-                                <div class="rooms">
-                                    <div class="rooms-item">
-                                        <img src=" {{$preOrder->image_product}}">
-                                        {{--                                {{json_decode($preOrder->products, true)['totalPrice']}}--}}
-                                        <label class="name"> {{$preOrder->role}}<br>" {{$preOrder->name_product}}
-                                            "</label>
-                                        <ul class="service">
-
-                                            @foreach((json_decode($preOrder->products, true)['productList']) as $list)
-                                                <li class="product_list">
-                                                    <div class="product_item_header">{{$list['product']}}</div>
-                                                    <span>{{$list['qty']}}</span>
-                                                    <label class="cost">  {{$list['price']}}р</label>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                        <label class="date">  {{json_decode($preOrder->products, true)['date']}}</label>
-                                        <form action="{{route('user.maim.delete', $preOrder->id)}}"
-                                              method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="border-0 bg-transparent" l>
-                                                <i class="fas fa-trash text-danger mr-5" role="button"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                            @elseif($preOrder->role == 'cafe')
-                                <div class="section-label">
-                                    <h2 class="mt-5">
-                                        Кафе\Ресторан
-                                    </h2>
-                                    <hr>
-                                </div>
-                                <div class="rooms">
-                                    <div class="rooms-item">
-                                        <img src=" {{$preOrder->image_product}}">
-                                        {{--                                {{json_decode($preOrder->products, true)['totalPrice']}}--}}
-                                        <label class="name"> {{$preOrder->role}}<br>" {{$preOrder->name_product}}
-                                            "</label>
-                                        <ul class="service">
-                                            @if((json_decode($preOrder->products, true)['productList']) !== null)
-                                            @foreach((json_decode($preOrder->products, true)['productList']) as $list)
-                                                <li class="product_list">
-                                                    <div class="product_item_header">{{$list['product']}}</div>
-                                                    <span>{{$list['qty']}}</span>
-                                                    <label class="cost">  {{$list['price']}}р</label>
-                                                </li>
-                                            @endforeach
-                                            @else
-                                            @endif
-                                        </ul>
-                                        <ul class="service">
-                                            @if((json_decode($preOrder->products, true)['product']) !== null)
-                                                @foreach((json_decode($preOrder->products, true)['product']) as $item)
-                                                    <li class="product_list">
-                                                        <div class="product_item_header">
-                                                            <h5 class="text-bold">{{$item['cat']}}</h5>
-                                                            <p>{{$item['product']}}</p>
+                                <div class="product">
+                                    <div class="product_item">
+                                        <div class="product_item_header">
+                                            <p class="product_item_header_name">
+                                                СПА/Бьюти
+                                            </p>
+                                            <hr>
+                                        </div>
+                                        <div class="product_item_option">
+                                            <img class="product_image" src=" {{$preOrder->image_product}}">
+                                            <label class="name"> {{$preOrder->role}}
+                                                <br>" {{$preOrder->name_product}}
+                                                "</label>
+                                            <ul class="product_option_list">
+                                                @foreach((json_decode($preOrder->products, true)['productList']) as $list)
+                                                    <li class="product_option_list_item row">
+                                                        <div
+                                                            class="product_list_item_header col">{{$list['product']}}</div>
+                                                        <div class="col product_option_list_item_qty">
+                                                            <span>{{$list['qty']}}</span>
                                                         </div>
-                                                        <span>{{$item['qty']}}</span>
-                                                        <label class="cost">  {{$item['price']}}р</label>
+                                                        <div class="col product_option_list_item_cost">
+                                                            <p>{{$list['price']}} &nbsp</p>
+                                                            <p> p</p>
+                                                        </div>
                                                     </li>
                                                 @endforeach
-                                            @else
-                                            @endif
-                                        </ul>
-
-                                        <label class="date">  {{json_decode($preOrder->products, true)['date']}}</label>
-                                        <form action="{{route('user.maim.delete', $preOrder->id)}}"
-                                              method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="border-0 bg-transparent" l>
-                                                <i class="fas fa-trash text-danger mr-5" role="button"></i>
-                                            </button>
-                                        </form>
+                                            </ul>
+                                            <label
+                                                class="date">  {{json_decode($preOrder->products, true)['date']}}</label>
+                                            <form action="{{route('user.maim.delete', $preOrder->id)}}"
+                                                  method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="border-0 bg-transparent" l>
+                                                    <i class="fas fa-trash text-danger mr-5" role="button"></i>
+                                                </button>
+                                            </form>
+                                        </div>
                                     </div>
-                                </div>
-                                @elseif($preOrder->role == 'hostel')
-                                <div class="section-label">
-                                    <h2 class="mt-5">
-                                        Отель
-                                    </h2>
-                                    <hr>
-                                </div>
-                                <div class="rooms">
-                                    <div class="rooms-item">
-                                        <img src=" {{$preOrder->image_product}}">
-                                        {{--                                {{json_decode($preOrder->products, true)['totalPrice']}}--}}
-                                        <label class="name"> {{$preOrder->role}}<br>" {{$preOrder->name_product}}"</label>
-                                            <div class="product_cat">
-                                           <span>{{json_decode($preOrder->products, true)['category'] }}</span> <br>
-                                           <span>({{json_decode($preOrder->products, true)['berth'] }} человек)</span>
+                                    @elseif($preOrder->role == 'cafe')
+                                        <div class="product">
+                                            <div class="product_item">
+                                                <div class="product_item_header">
+                                                    <p class="product_item_header_name">
+                                                        Кафе\Ресторан
+                                                    </p>
+                                                    <hr>
+                                                </div>
                                             </div>
-                                        <ul class="service">
-                                                <li class="product_list">
-                                                    @foreach(json_decode($preOrder->products, true)['date'] as $list)
-                                                    <div class="product_item_header">{{$list}}</div>
-{{--                                                    <div class="product_item_header">{{$list[1]}}</div>--}}
-                                                    @endforeach
+                                            <div class="product_item_option">
+                                                <img class="product_image" src=" {{$preOrder->image_product}}">
+                                                <label class="name"> {{$preOrder->role}}
+                                                    <br>" {{$preOrder->name_product}}
+                                                    "</label>
+                                                <ul class="product_option_list">
+                                                    @if((json_decode($preOrder->products, true)['productList']) !== null)
+                                                        @foreach((json_decode($preOrder->products, true)['productList']) as $list)
+                                                            <li class="product_option_list_item row">
+                                                                <div
+                                                                    class="product_list_item_header col">{{$list['product']}}</div>
+                                                                <div class="col product_option_list_item_qty">
+                                                                    <span>{{$list['qty']}}</span>
+                                                                </div>
+                                                                <div class="col product_option_list_item_cost">
+                                                                    <p>{{$list['price']}} &nbsp</p>
+                                                                    <p> p</p>
+                                                                </div>
+                                                            </li>
+                                                        @endforeach
+                                                    @else
+                                                    @endif
+                                                </ul>
+                                                {{--                                                    <ul class="service">--}}
+                                                {{--                                                        @if((json_decode($preOrder->products, true)['product']) !== null)--}}
+                                                {{--                                                            @foreach((json_decode($preOrder->products, true)['product']) as $item)--}}
+                                                {{--                                                                <li class="product_list">--}}
+                                                {{--                                                                    <div class="product_item_header">--}}
+                                                {{--                                                                        <h5 class="text-bold">{{$item['cat']}}</h5>--}}
+                                                {{--                                                                        <p>{{$item['product']}}</p>--}}
+                                                {{--                                                                    </div>--}}
+                                                {{--                                                                    <span>{{$item['qty']}}</span>--}}
+                                                {{--                                                                    <label class="cost">  {{$item['price']}}р</label>--}}
+                                                {{--                                                                </li>--}}
+                                                {{--                                                            @endforeach--}}
+                                                {{--                                                        @else--}}
+                                                {{--                                                        @endif--}}
+                                                {{--                                                    </ul>--}}
+                                                <label
+                                                    class="date">  {{json_decode($preOrder->products, true)['date']}}</label>
+                                                <form action="{{route('user.maim.delete', $preOrder->id)}}"
+                                                      method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="border-0 bg-transparent" l>
+                                                        <i class="fas fa-trash text-danger mr-5" role="button"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                </div>
+                            @elseif($preOrder->role == 'hostel')
+                                <div class="product">
+                                    <div class="product_item">
+                                        <div class="product_item_header">
+                                            <p class="product_item_header_name">
+                                                Отель
+                                            </p>
+                                            <hr>
+                                        </div>
+                                    </div>
+                                    <div class="product_item_option">
+                                        <img class="product_image" src=" {{$preOrder->image_product}}">
+                                        <label class="name"> {{$preOrder->role}}
+                                            <br>" {{$preOrder->name_product}}
+                                            "</label>
+                                        <ul class="product_option_list">
+                                            <li class="product_option_list_item row">
+                                                <div class="product_list_item_header col">
+                                                    <span>{{json_decode($preOrder->products, true)['category'] }}</span>
+                                                    <br>
+                                                    <span>({{json_decode($preOrder->products, true)['berth'] }} человек)</span>
+                                                </div>
+                                                <div class="product_list_item_header col">
                                                     <span>{{json_decode($preOrder->products, true)['title'] }}</span>
-                                                    <label class="cost">  {{json_decode($preOrder->products, true)['price']}}р</label>
-                                                </li>
-
+                                                </div>
+                                                <div class="col product_option_list_item_cost">
+                                                    <p>{{$list['price']}} &nbsp</p>
+                                                    <p> p</p>
+                                                </div>
+                                            </li>
                                         </ul>
-{{--                                        <label class="date">  {{json_decode($preOrder->products, true)['date']}}</label>--}}
+                                        @foreach(json_decode($preOrder->products, true)['date'] as $list)
+                                            <label class="date">{{$list}}</label>
+                                        @endforeach
                                         <form action="{{route('user.maim.delete', $preOrder->id)}}"
                                               method="post">
                                             @csrf
@@ -254,55 +285,66 @@
                                                 <i class="fas fa-trash text-danger mr-5" role="button"></i>
                                             </button>
                                         </form>
-
                                     </div>
                                 </div>
+
                             @elseif($preOrder->role == 'sanatorium')
-                                <div class="section-label">
-                                    <h2 class="mt-5">
-                                        Cанаторий
-                                    </h2>
-                                    <hr>
-                                </div>
-                                <div class="rooms">
-                                    <div class="rooms-item">
-                                        <img src=" {{$preOrder->image_product}}">
+                                <div class="product">
+                                    <div class="product_item">
+                                        <div class="product_item_header">
+                                            <p class="product_item_header_name">
+                                                Cанаторий
+                                            </p>
+                                            <hr>
+                                        </div>
+                                    </div>
+                                    <div class="product_item_option">
+                                        <img class="product_image" src=" {{$preOrder->image_product}}">
                                         {{--                                {{json_decode($preOrder->products, true)['totalPrice']}}--}}
-                                        <label class="name"> {{$preOrder->role}}<br>" {{$preOrder->name_product}}"</label>
-                                        <div class="product_cat">
-                                            <span>{{json_decode($preOrder->products, true)['category'] }}</span> <br>
+                                        <label class="name"> {{$preOrder->role}}
+                                            <br>" {{$preOrder->name_product}}
+                                            "</label>
+                                        <div class="product_list_item_header">
+                                            <span>{{json_decode($preOrder->products, true)['category'] }}</span>
+                                            <br>
                                             <span>({{json_decode($preOrder->products, true)['berth'] }} человек)</span>
                                         </div>
-                                        @foreach(json_decode($preOrder->products, true)['date'] as $list)
-                                        <div class="">{{$list}}</div>
-                                        @endforeach
-                                        <ul class="service">
+                                        <ul class="product_option_list_san">
                                             @if((json_decode($preOrder->products, true)['productList']) !== null)
                                                 @foreach((json_decode($preOrder->products, true)['productList']) as $list)
-                                                    <li class="product_list">
-                                                        <div class="product_item_header">{{$list['product']}}</div>
-                                                        <span>{{$list['qty']}}</span>
-                                                        <label class="cost">  {{$list['price']}}р</label>
-                                                    </li>
-                                                @endforeach
-                                            @else
-                                            @endif
-                                        </ul>
-                                        <ul class="service">
-                                            @if((json_decode($preOrder->products, true)['product']) !== null)
-                                                @foreach((json_decode($preOrder->products, true)['product']) as $item)
-                                                    <li class="product_list">
-                                                        <div class="product_item_header">
-                                                            <h5 class="text-bold">{{$item['cat']}}</h5>
-                                                            <p>{{$item['product']}}</p>
+                                                    <li class="product_option_list_item row">
+                                                        <div
+                                                            class="product_list_item_header col">{{$list['product']}}</div>
+                                                        <div class="col product_option_list_item_qty">
+                                                            <span>{{$list['qty']}}</span>
                                                         </div>
-                                                        <span>{{$item['qty']}}</span>
-                                                        <label class="cost">  {{$item['price']}}р</label>
+                                                        <div class="col product_option_list_item_cost">
+                                                            <p>{{$list['price']}} &nbsp</p>
+                                                            <p> p</p>
+                                                        </div>
                                                     </li>
                                                 @endforeach
                                             @else
                                             @endif
                                         </ul>
+{{--                                        <ul class="service">--}}
+{{--                                            @if((json_decode($preOrder->products, true)['product']) !== null)--}}
+{{--                                                @foreach((json_decode($preOrder->products, true)['product']) as $item)--}}
+{{--                                                    <li class="product_list">--}}
+{{--                                                        <div class="product_item_header">--}}
+{{--                                                            <h5 class="text-bold">{{$item['cat']}}</h5>--}}
+{{--                                                            <p>{{$item['product']}}</p>--}}
+{{--                                                        </div>--}}
+{{--                                                        <span>{{$item['qty']}}</span>--}}
+{{--                                                        <label class="cost">  {{$item['price']}}р</label>--}}
+{{--                                                    </li>--}}
+{{--                                                @endforeach--}}
+{{--                                            @else--}}
+{{--                                            @endif--}}
+{{--                                        </ul>--}}
+                                        @foreach(json_decode($preOrder->products, true)['date'] as $list)
+                                            <label class="date">{{$list}}</label>
+                                        @endforeach
                                         <form action="{{route('user.maim.delete', $preOrder->id)}}"
                                               method="post">
                                             @csrf
@@ -311,29 +353,36 @@
                                                 <i class="fas fa-trash text-danger mr-5" role="button"></i>
                                             </button>
                                         </form>
-
                                     </div>
                                 </div>
+
                             @elseif($preOrder->role == 'tur')
-                                <div class="section-label">
-                                    <h2 class="mt-5">
-                                        Туроператор
-                                    </h2>
-                                    <hr>
+                                <div class="product">
+                                    <div class="product_item">
+                                        <div class="product_item_header">
+                                            <p class="product_item_header_name">
+                                                Туроператор
+                                            </p>
+                                            <hr>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="rooms">
-                                    <div class="rooms-item">
-                                        <img src=" {{$preOrder->image_product}}">
+                                <div class="product_item_option">
+                                        <img class="product_image" src=" {{$preOrder->image_product}}">
                                         {{--                                {{json_decode($preOrder->products, true)['totalPrice']}}--}}
                                         <label class="name">"{{$preOrder->name_product}}"</label>
-                                        <div class="product_cat">
-                                            <span>{{json_decode($preOrder->products, true)['title'] }}</span> <br>
+                                        <div class="product_list_item_header">
+                                            <span>{{json_decode($preOrder->products, true)['title'] }}</span>
+                                            <br>
                                             <span>({{json_decode($preOrder->products, true)['berth'] }} человек)</span>
                                         </div>
-                                        <ul class="service">
-                                            <li class="product_list">
-                                                <span>{{json_decode($preOrder->products, true)['date'] }}</span>
-                                                <label class="cost">  {{json_decode($preOrder->products, true)['price']}}р</label>
+                                        <ul class="product_option_list">
+                                            <li class="product_option_list_item row">
+                                                <label class="date">{{json_decode($preOrder->products, true)['date'] }}</label>
+                                                <div class="col product_option_list_item_cost">
+                                                    <p>{{json_decode($preOrder->products, true)['price']}}&nbsp</p>
+                                                    <p> p</p>
+                                                </div>
                                             </li>
 
                                         </ul>
@@ -346,8 +395,6 @@
                                                 <i class="fas fa-trash text-danger mr-5" role="button"></i>
                                             </button>
                                         </form>
-
-                                    </div>
                                 </div>
                             @else
                             @endif

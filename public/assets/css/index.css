@@ -1013,6 +1013,7 @@ footer .media img{
     .contacts-main .col{
         padding: 0;
         margin: 0;
+        margin-top:24px;
     }
     .contacts{
         padding-left: 24px!important;
@@ -1067,7 +1068,7 @@ footer .media img{
 }
 .rooms-item ul{
     width: 150px;
-    height: 130px;
+    /*height: 130px;*/
     list-style-type: none;
 }
 .rooms{
@@ -1632,7 +1633,7 @@ footer .f-logo{
 }
 .cart-section .rooms-item{
     margin-top: 12px;
-    height: 130px;
+    /*height: 130px;*/
     display: flex;
     justify-content: space-between;
     vertical-align: middle;
@@ -1869,7 +1870,7 @@ footer .f-logo{
     text-align: justify;
 }
 .instructions a{
-    color: #08366A!important;
+    color: #08366A !important;
 }
 .instructions .step{
     margin-bottom: 24px;
@@ -1932,9 +1933,67 @@ footer .f-logo{
         width: 300px !important;
         text-align: left !important;
         margin-top: 10px !important;
-       margin-left:0 !important;
+        margin-left:0 !important;
     }
-
-
 }
 
+.wrapper {
+    position: relative;
+    min-height: 100%;
+}
+.content {
+    padding-bottom: 90px;
+}
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+}
+.product{
+    margin-top: 10px;
+}
+.product_image{
+    width: 170px;
+    height: 130px;
+}
+.product_header{
+    font-size: 24px;
+    color: #08366A;
+}
+.product_item_header_name{
+    font-size: 24px;
+    color: #08366A;
+    font-weight: 700;
+}
+.product_item_option{
+    display:flex;
+    justify-content: space-between;
+}
+.product_option_list{
+    width: 700px;
+    max-width: 100%;
+    justify-content: space-between;
+}
+.product_option_list_item{
+    display: flex;
+    justify-content: space-between;
+}
+.product_option_list_item_qty{
+    display: flex;
+    justify-content: center;
+}
+.product_option_list_item_cost{
+    font-weight: bold;
+    display:flex;
+    justify-content: end;
+}
+.product_list_item_header{
+    font-weight: 700;
+}
+.product_option_list_san{
+    width: 600px;
+    max-width: 100%;
+    justify-content: space-between;
+}
