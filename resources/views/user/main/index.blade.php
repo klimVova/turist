@@ -129,7 +129,7 @@
                                             </ul>
                                             <label
                                                 class="date">  {{json_decode($preOrder->products, true)['date']}}</label>
-                                            <form action="{{route('user.maim.delete', $preOrder->id)}}"
+                                            <form class="product_form" action="{{route('user.maim.delete', $preOrder->id)}}"
                                                   method="post">
                                                 @csrf
                                                 @method('DELETE')
@@ -174,7 +174,7 @@
                                             </ul>
                                             <label
                                                 class="date">  {{json_decode($preOrder->products, true)['date']}}</label>
-                                            <form action="{{route('user.maim.delete', $preOrder->id)}}"
+                                            <form class="product_form" action="{{route('user.maim.delete', $preOrder->id)}}"
                                                   method="post">
                                                 @csrf
                                                 @method('DELETE')
@@ -235,7 +235,7 @@
                                                 {{--                                                    </ul>--}}
                                                 <label
                                                     class="date">  {{json_decode($preOrder->products, true)['date']}}</label>
-                                                <form action="{{route('user.maim.delete', $preOrder->id)}}"
+                                                <form class="product_form" action="{{route('user.maim.delete', $preOrder->id)}}"
                                                       method="post">
                                                     @csrf
                                                     @method('DELETE')
@@ -264,8 +264,8 @@
                                         <ul class="product_option_list col-5">
                                             <li class="product_option_list_item row">
                                                 <div class="product_list_item_header_hostel ">
-                                                 <div> <span>{{json_decode($preOrder->products, true)['category'] }}</span></div>
-                                                 <div> <span>({{json_decode($preOrder->products, true)['berth'] }} человек)</span></div>
+                                                    <div> <span>{{json_decode($preOrder->products, true)['category'] }}</span></div>
+                                                    <div> <span>({{json_decode($preOrder->products, true)['berth'] }} человек)</span></div>
                                                 </div>
                                                 <div class="product_list_item_header ">
                                                     <span>{{json_decode($preOrder->products, true)['title'] }}</span>
@@ -277,11 +277,11 @@
                                             </li>
                                         </ul>
                                         <div class="col product_option_list_item_date" >
-                                        @foreach(json_decode($preOrder->products, true)['date'] as $list)
-                                            <label class="date">{{$list}}</label>
-                                        @endforeach
+                                            @foreach(json_decode($preOrder->products, true)['date'] as $list)
+                                                <label class="date">{{$list}}</label>
+                                            @endforeach
                                         </div>
-                                        <form action="{{route('user.maim.delete', $preOrder->id)}}"
+                                        <form  class="product_form" action="{{route('user.maim.delete', $preOrder->id)}}"
                                               method="post">
                                             @csrf
                                             @method('DELETE')
@@ -336,22 +336,22 @@
                                             @else
                                             @endif
                                         </ul>
-{{--                                        <ul class="service">--}}
-{{--                                            @if((json_decode($preOrder->products, true)['product']) !== null)--}}
-{{--                                                @foreach((json_decode($preOrder->products, true)['product']) as $item)--}}
-{{--                                                    <li class="product_list">--}}
-{{--                                                        <div class="product_item_header">--}}
-{{--                                                            <h5 class="text-bold">{{$item['cat']}}</h5>--}}
-{{--                                                            <p>{{$item['product']}}</p>--}}
-{{--                                                        </div>--}}
-{{--                                                        <span>{{$item['qty']}}</span>--}}
-{{--                                                        <label class="cost">  {{$item['price']}}р</label>--}}
-{{--                                                    </li>--}}
-{{--                                                @endforeach--}}
-{{--                                            @else--}}
-{{--                                            @endif--}}
-{{--                                        </ul>--}}
-                                        <form action="{{route('user.maim.delete', $preOrder->id)}}"
+                                        {{--                                        <ul class="service">--}}
+                                        {{--                                            @if((json_decode($preOrder->products, true)['product']) !== null)--}}
+                                        {{--                                                @foreach((json_decode($preOrder->products, true)['product']) as $item)--}}
+                                        {{--                                                    <li class="product_list">--}}
+                                        {{--                                                        <div class="product_item_header">--}}
+                                        {{--                                                            <h5 class="text-bold">{{$item['cat']}}</h5>--}}
+                                        {{--                                                            <p>{{$item['product']}}</p>--}}
+                                        {{--                                                        </div>--}}
+                                        {{--                                                        <span>{{$item['qty']}}</span>--}}
+                                        {{--                                                        <label class="cost">  {{$item['price']}}р</label>--}}
+                                        {{--                                                    </li>--}}
+                                        {{--                                                @endforeach--}}
+                                        {{--                                            @else--}}
+                                        {{--                                            @endif--}}
+                                        {{--                                        </ul>--}}
+                                        <form class="product_form" action="{{route('user.maim.delete', $preOrder->id)}}"
                                               method="post">
                                             @csrf
                                             @method('DELETE')
@@ -374,33 +374,33 @@
                                     </div>
                                 </div>
                                 <div class="product_item_option">
-                                        <img class="product_image" src=" {{$preOrder->image_product}}">
-                                        {{--                                {{json_decode($preOrder->products, true)['totalPrice']}}--}}
-                                        <label class="name col">"{{$preOrder->name_product}}"</label>
+                                    <img class="product_image" src=" {{$preOrder->image_product}}">
+                                    {{--                                {{json_decode($preOrder->products, true)['totalPrice']}}--}}
+                                    <label class="name col">"{{$preOrder->name_product}}"</label>
                                     <div class="product_list_item_header_hostel col">
                                         <div> <span>{{json_decode($preOrder->products, true)['title'] }}</span></div>
                                         <div> <span>({{json_decode($preOrder->products, true)['berth'] }} человек)</span></div>
                                     </div>
-                                        <ul class="product_option_list_tur col">
-                                            <li class="product_option_list_item row">
-                                                <div class="col-9">
-                                                    <label class="date">{{json_decode($preOrder->products, true)['date'] }}</label>
-                                                </div>
-                                                <div class="col-3 product_option_list_item_cost">
-                                                    <p>{{json_decode($preOrder->products, true)['price']}}&nbsp</p>
-                                                    <p> p</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        {{--                                        <label class="date">  {{json_decode($preOrder->products, true)['date']}}</label>--}}
-                                        <form action="{{route('user.maim.delete', $preOrder->id)}}"
-                                              method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="border-0 bg-transparent" l>
-                                                <i class="fas fa-trash text-danger mr-5" role="button"></i>
-                                            </button>
-                                        </form>
+                                    <ul class="product_option_list_tur col">
+                                        <li class="product_option_list_item row">
+                                            <div class="col-9">
+                                                <label class="date">{{json_decode($preOrder->products, true)['date'] }}</label>
+                                            </div>
+                                            <div class="col-3 product_option_list_item_cost">
+                                                <p>{{json_decode($preOrder->products, true)['price']}}&nbsp</p>
+                                                <p> p</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    {{--                                        <label class="date">  {{json_decode($preOrder->products, true)['date']}}</label>--}}
+                                    <form class="product_form" action="{{route('user.maim.delete', $preOrder->id)}}"
+                                          method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="border-0 bg-transparent" l>
+                                            <i class="fas fa-trash text-danger mr-5" role="button"></i>
+                                        </button>
+                                    </form>
                                 </div>
                             @else
                             @endif
@@ -448,7 +448,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 @endsection
