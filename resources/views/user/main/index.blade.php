@@ -106,9 +106,9 @@
                                         </div>
                                         <div class="product_item_option">
                                             <img class="product_image" src=" {{$preOrder->image_product}}">
-                                            <label class="name col"> {{$preOrder->role}}<br>" {{$preOrder->name_product}}
+                                            <label class="name"> {{$preOrder->role}}<br>" {{$preOrder->name_product}}
                                                 "</label>
-                                            <ul class="product_option_list col-5">
+                                            <ul class="product_option_list">
                                                 @if((json_decode($preOrder->products, true)['productList']) !== null)
                                                     @foreach((json_decode($preOrder->products, true)['productList']) as $list)
                                                         <li class="product_option_list_item row">
@@ -128,7 +128,7 @@
                                                 @endif
                                             </ul>
                                             <label
-                                                class="date col">  {{json_decode($preOrder->products, true)['date']}}</label>
+                                                class="date">  {{json_decode($preOrder->products, true)['date']}}</label>
                                             <form action="{{route('user.maim.delete', $preOrder->id)}}"
                                                   method="post">
                                                 @csrf
