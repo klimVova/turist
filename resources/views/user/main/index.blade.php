@@ -92,7 +92,7 @@
             </div>
 
             <div class="cart row box ">
-                <div class="col-9">
+                <div class="col-9 box_mob">
                     <div class="cart-section">
                         @foreach($preOrders as $preOrder)
                             @if($preOrder->role == 'Мед.центр')
@@ -262,7 +262,7 @@
                                             <br>" {{$preOrder->name_product}}
                                             "</label>
                                         <ul class="product_option_list col-5">
-                                            <li class="product_option_list_item row">
+                                            <li class="product_option_list_item product_option_list_item_m row">
                                                 <div class="product_list_item_header_hostel ">
                                                     <div> <span>{{json_decode($preOrder->products, true)['category'] }}</span></div>
                                                     <div> <span>({{json_decode($preOrder->products, true)['berth'] }} человек)</span></div>
@@ -309,8 +309,8 @@
                                             <br>" {{$preOrder->name_product}}
                                             "</label>
                                         <div class="product_list_item_header_hostel ">
-                                            <div> <span>{{json_decode($preOrder->products, true)['category'] }}</span></div>
-                                            <div> <span>({{json_decode($preOrder->products, true)['berth'] }} человек)</span></div>
+                                            <div class="product_list_item_header_hostel_m"> <span>{{json_decode($preOrder->products, true)['category'] }}</span></div>
+                                            <div class="product_list_item_header_hostel_m"> <span>({{json_decode($preOrder->products, true)['berth'] }} человек)</span></div>
                                             <div class="col product_option_list_item_date_san" >
                                                 @foreach(json_decode($preOrder->products, true)['date'] as $list)
                                                     <label class="date">{{$list}}</label>
@@ -378,8 +378,8 @@
                                     {{--                                {{json_decode($preOrder->products, true)['totalPrice']}}--}}
                                     <label class="name col">"{{$preOrder->name_product}}"</label>
                                     <div class="product_list_item_header_hostel col">
-                                        <div> <span>{{json_decode($preOrder->products, true)['title'] }}</span></div>
-                                        <div> <span>({{json_decode($preOrder->products, true)['berth'] }} человек)</span></div>
+                                        <div class="product_list_item_header_hostel_m"> <span>{{json_decode($preOrder->products, true)['title'] }}</span></div>
+                                        <div class="product_list_item_header_hostel_m"> <span>({{json_decode($preOrder->products, true)['berth'] }} человек)</span></div>
                                     </div>
                                     <ul class="product_option_list_tur col">
                                         <li class="product_option_list_item row">
@@ -407,11 +407,24 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-3  all-cost-mob">
                     <div class="all-cost">
-                        <p>Итого:</p>
-                        <label>6800р</label>
-                        <input type="submit" value="Оплатить">
+                        <div class="cost-item">
+                            <div class="cost-item-block">
+                                <p>Общая сумма заказа:</p>
+                                <label>6800р</label>
+                            </div>
+                            <span>(оплата на месте)</span>
+                        </div>
+                        <div class="cost-item">
+                            <div class="cost-item-block">
+                                <p>К оплате платформе (10%):</p>
+                                <label>680р</label>
+                            </div>
+                            <span>(оплата сейчас)</span>
+                        </div>
+
+                        <input type="submit" value="Оплатить 10%">
                     </div>
                 </div>
             </div>

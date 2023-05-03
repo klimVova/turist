@@ -1911,31 +1911,6 @@ footer .f-logo{
     height: 80px;
 }
 
-@media(max-width:480px){
-    .instructions .step .step-img{
-        display: block;
-    }
-    .instructions .step .step-img img{
-        width: 100%;
-        margin-bottom: 8px;
-    }
-    .instructions .permanent-instr img{
-        width: 100%;
-    }
-    .description-hotel-txt{
-        width: 320px!important;
-    }
-    .item_margin{
-        height: auto!important;
-    }
-    .quantity_person{
-        font-size: 18px !important;
-        width: 300px !important;
-        text-align: left !important;
-        margin-top: 10px !important;
-        margin-left:0 !important;
-    }
-}
 
 .wrapper {
     position: relative;
@@ -2022,4 +1997,96 @@ footer .f-logo{
 }
 .product_form{
     margin-left: 10px;
+}
+.all-cost p{
+    font-size: 14px;
+    margin-bottom: 0;
+
+}
+.all-cost label{
+    font-size: 14px;
+    font-weight: 500;
+    color: #08366A;
+    margin-bottom: 0;
+}
+.all-cost span{
+    font-size: 12px;
+    color: #A8A8A8;
+}
+.cost-item-block{
+    display: flex;
+    justify-content: space-between;
+}
+.cost-item{
+    margin-bottom: 16px;
+}
+@media(max-width:480px){
+    .instructions .step .step-img{
+        display: block;
+    }
+    .instructions .step .step-img img{
+        width: 100%;
+        margin-bottom: 8px;
+    }
+    .instructions .permanent-instr img{
+        width: 100%;
+    }
+    .description-hotel-txt{
+        width: 320px!important;
+    }
+    .item_margin{
+        height: auto!important;
+    }
+    .quantity_person{
+        font-size: 18px !important;
+        width: 300px !important;
+        text-align: left !important;
+        margin-top: 10px !important;
+        margin-left:0 !important;
+    }
+    .col-9{
+        padding: 0;
+        margin: 0;
+    }
+    .box{
+        display: block;
+    }
+    .product_item_option{
+        display: block;
+    }
+    .product_image{
+        width: 412px;
+        height: 220px;
+    }
+    .product_item_header{
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .product_option_list{
+        padding: 0 10px 0 10px;
+        margin: 0;
+    }
+    .date{
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .product_option_list_item_m{
+        display: block;
+    }
+    .product_list_item_header_hostel{
+        text-align: start;
+    }
+    .product_option_list_item_cost{
+        justify-content: start;
+    }
+    .product_option_list_item_date{
+        margin-left: 0;
+        width: 300px;
+    }
+    .product_list_item_header_hostel_m{
+        padding-left: 10px;
+    }
+    .all-cost-mob{
+        max-width: 100%;
+    }
 }
