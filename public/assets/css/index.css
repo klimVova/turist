@@ -1646,7 +1646,7 @@ footer .f-logo{
 .cart-section .rooms-item .service{
     font-weight: bold;
     color: #08366A;
-    width: 550px;
+    width: 90%;
 }
 .cart-section .rooms-item .service li{
     color: #08366A;
@@ -1836,7 +1836,7 @@ footer .f-logo{
     display: flex;
 }
 .product_item_header{
-    width: 350px;
+    width: 90%;
     max-width: 100%;
 }
 .policy ol li{
@@ -1898,6 +1898,17 @@ footer .f-logo{
     margin-bottom: 24px;
 }
 
+.wrapper {
+    position: relative;
+    min-height: 100%;
+}
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+}
 
 @media(max-width:480px){
     .instructions .step .step-img{
@@ -1923,6 +1934,7 @@ footer .f-logo{
         margin-top: 10px !important;
        margin-left:0 !important;
     }
+
 
 }
 

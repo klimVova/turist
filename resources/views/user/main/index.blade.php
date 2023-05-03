@@ -8,12 +8,11 @@
             </div>
             <nav class="office-nav org-type-sort">
                 <ul>
-                    <li data-f="profile" class=" spisok">Личные денные</li>
+                    <li data-f="profile" class=" spisok">Личные данные</li>
                     <li data-f="cart" class="active spisok">Корзина</li>
                     <li data-f="promocodes" class="spisok">Промокоды</li>
                 </ul>
             </nav>
-
             <div class="row profile hide box">
                 <form action="{{route('user.main.update', $user->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -90,18 +89,15 @@
                     </div>
                 </form>
             </div>
-
             <div class="cart row box ">
                 <div class="col col-12 col-md-9">
-
                     <div class="cart-section">
-
                         @foreach($preOrders as $preOrder)
                             @if($preOrder->role == 'Мед.центр')
                                 <div class="section-label">
 
                                     <h2 class="mt-5">
-                                        Медецинский центр
+                                        Медицинский центр
                                     </h2>
                                     <hr>
                                 </div>
@@ -394,9 +390,7 @@
                         <hr>
                     </div>
                     <div class="rooms">
-
                         <div class="item">
-
                             <label class="name">Мед. центр "FamilyMed"<br>Консультация хирурга</label>
                             <label class="promocode">540-27-657</label>
                             <label class="date">04.03.2023</label>
