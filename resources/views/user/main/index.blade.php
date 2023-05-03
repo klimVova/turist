@@ -92,7 +92,7 @@
             </div>
 
             <div class="cart row box ">
-                <div class="col col-12 col-md-9">
+                <div class="col-9">
                     <div class="cart-section">
                         @foreach($preOrders as $preOrder)
                             @if($preOrder->role == 'Мед.центр')
@@ -407,7 +407,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="col col-md-3">
+                <div class="col-3">
                     <div class="all-cost">
                         <p>Итого:</p>
                         <label>6800р</label>

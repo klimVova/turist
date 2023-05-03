@@ -68,7 +68,7 @@ header{
 
 .main{
     flex: 1 1 auto;
-    padding: 90px 120px;
+    padding: 90px 50px;
 }
 .welcome .text{
     background: url("../img/banner.jpg") no-repeat;
