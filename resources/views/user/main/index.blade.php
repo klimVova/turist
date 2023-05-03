@@ -108,7 +108,7 @@
                                             <img class="product_image" src=" {{$preOrder->image_product}}">
                                             <label class="name"> {{$preOrder->role}}<br>" {{$preOrder->name_product}}
                                                 "</label>
-                                            <ul class="product_option_list">
+                                            <ol class="product_option_list">
                                                 @if((json_decode($preOrder->products, true)['productList']) !== null)
                                                     @foreach((json_decode($preOrder->products, true)['productList']) as $list)
                                                         <li class="product_option_list_item row">
@@ -126,7 +126,7 @@
                                                     @endforeach
                                                 @else
                                                 @endif
-                                            </ul>
+                                            </ol>
                                             <label
                                                 class="date">  {{json_decode($preOrder->products, true)['date']}}</label>
                                             <form class="product_form" action="{{route('user.maim.delete', $preOrder->id)}}"
@@ -156,7 +156,7 @@
                                             <label class="name"> {{$preOrder->role}}
                                                 <br>" {{$preOrder->name_product}}
                                                 "</label>
-                                            <ul class="product_option_list">
+                                            <ol class="product_option_list">
                                                 @foreach((json_decode($preOrder->products, true)['productList']) as $list)
                                                     <li class="product_option_list_item row">
                                                         <div class="product_list_item_header col-9">
@@ -171,7 +171,7 @@
                                                         </div>
                                                     </li>
                                                 @endforeach
-                                            </ul>
+                                            </ol>
                                             <label
                                                 class="date">  {{json_decode($preOrder->products, true)['date']}}</label>
                                             <form class="product_form" action="{{route('user.maim.delete', $preOrder->id)}}"
@@ -199,7 +199,7 @@
                                                 <label class="name"> {{$preOrder->role}}
                                                     <br>" {{$preOrder->name_product}}
                                                     "</label>
-                                                <ul class="product_option_list">
+                                                <ol class="product_option_list">
                                                     @if((json_decode($preOrder->products, true)['productList']) !== null)
                                                         @foreach((json_decode($preOrder->products, true)['productList']) as $list)
                                                             <li class="product_option_list_item row">
@@ -217,7 +217,7 @@
                                                         @endforeach
                                                     @else
                                                     @endif
-                                                </ul>
+                                                </ol>
                                                 {{--                                                    <ul class="service">--}}
                                                 {{--                                                        @if((json_decode($preOrder->products, true)['product']) !== null)--}}
                                                 {{--                                                            @foreach((json_decode($preOrder->products, true)['product']) as $item)--}}
@@ -261,7 +261,7 @@
                                         <label class="name col"> {{$preOrder->role}}
                                             <br>" {{$preOrder->name_product}}
                                             "</label>
-                                        <ul class="product_option_list col-5">
+                                        <ol class="product_option_list col-5">
                                             <li class="product_option_list_item product_option_list_item_m row">
                                                 <div class="product_list_item_header_hostel ">
                                                     <div> <span>{{json_decode($preOrder->products, true)['category'] }}</span></div>
@@ -275,7 +275,7 @@
                                                     <p> p</p>
                                                 </div>
                                             </li>
-                                        </ul>
+                                        </ol>
                                         <div class="col product_option_list_item_date" >
                                             @foreach(json_decode($preOrder->products, true)['date'] as $list)
                                                 <label class="date">{{$list}}</label>
@@ -317,7 +317,7 @@
                                                 @endforeach
                                             </div>
                                         </div>
-                                        <ul class="product_option_list_san col-5">
+                                        <ol class="product_option_list_san col-5">
                                             @if((json_decode($preOrder->products, true)['productList']) !== null)
                                                 @foreach((json_decode($preOrder->products, true)['productList']) as $list)
                                                     <li class="product_option_list_item row">
@@ -335,7 +335,7 @@
                                                 @endforeach
                                             @else
                                             @endif
-                                        </ul>
+                                        </ol>
                                         {{--                                        <ul class="service">--}}
                                         {{--                                            @if((json_decode($preOrder->products, true)['product']) !== null)--}}
                                         {{--                                                @foreach((json_decode($preOrder->products, true)['product']) as $item)--}}
@@ -381,7 +381,7 @@
                                         <div class="product_list_item_header_hostel_m"> <span>{{json_decode($preOrder->products, true)['title'] }}</span></div>
                                         <div class="product_list_item_header_hostel_m"> <span>({{json_decode($preOrder->products, true)['berth'] }} человек)</span></div>
                                     </div>
-                                    <ul class="product_option_list_tur col">
+                                    <ol class="product_option_list_tur col">
                                         <li class="product_option_list_item row">
                                             <div class="col-9">
                                                 <label class="date">{{json_decode($preOrder->products, true)['date'] }}</label>
@@ -391,7 +391,7 @@
                                                 <p> p</p>
                                             </div>
                                         </li>
-                                    </ul>
+                                    </ol>
                                     {{--                                        <label class="date">  {{json_decode($preOrder->products, true)['date']}}</label>--}}
                                     <form class="product_form" action="{{route('user.maim.delete', $preOrder->id)}}"
                                           method="post">
