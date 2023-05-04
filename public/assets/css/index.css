@@ -2389,7 +2389,7 @@ footer .f-logo {
     .product_option_list {
         padding: 0 10px 0 10px;
         margin: 0;
-        width: 420px !important;
+        width: 370px !important;
         max-width: none;
     }
 
@@ -2419,7 +2419,7 @@ footer .f-logo {
         padding-left: 10px;
     }
     .product_option_list_san{
-        width: 420px;
+        width: 370px;
         max-width: none;
     }
     .all-cost-mob {
