@@ -407,26 +407,26 @@
                         @endforeach
                     </div>
                 </div>
-{{--                <div class="col-3  all-cost-mob">--}}
-{{--                    <div class="all-cost">--}}
-{{--                        <div class="cost-item">--}}
-{{--                            <div class="cost-item-block">--}}
-{{--                                <p>Общая сумма заказа:</p>--}}
-{{--                                <label>6800р</label>--}}
-{{--                            </div>--}}
-{{--                            <span>(оплата на месте)</span>--}}
-{{--                        </div>--}}
-{{--                        <div class="cost-item">--}}
-{{--                            <div class="cost-item-block">--}}
-{{--                                <p>К оплате платформе (10%):</p>--}}
-{{--                                <label>680р</label>--}}
-{{--                            </div>--}}
-{{--                            <span>(оплата сейчас)</span>--}}
-{{--                        </div>--}}
+                <div class="col-3  all-cost-mob">
+                    <div class="all-cost">
+                        <div class="cost-item">
+                            <div class="cost-item-block">
+                                <p>Общая сумма заказа:</p>
+                                <label>6800р</label>
+                            </div>
+                            <span>(оплата на месте)</span>
+                        </div>
+                        <div class="cost-item">
+                            <div class="cost-item-block">
+                                <p>К оплате платформе (10%):</p>
+                                <label>680р</label>
+                            </div>
+                            <span>(оплата сейчас)</span>
+                        </div>
 
-{{--                        <input type="submit" value="Оплатить 10%">--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                        <input type="submit" value="Оплатить 10%">
+                    </div>
+                </div>
             </div>
             <div class="promocodes box hide">
                 <div class="cart-section">
