@@ -96,6 +96,7 @@ export default {
         },
 
         price() {
+
             const raws = localStorage.getItem('cafeProduct')
             const product = JSON.parse(raws)
 
@@ -131,6 +132,7 @@ export default {
             }
         },
         orderCafe() {
+
              this.message='Заказ добавлен в корзину'
             const raws = localStorage.getItem('cafeProduct')
             const product = JSON.parse(raws)

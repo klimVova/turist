@@ -37,7 +37,9 @@
                                 <p class="price-total ">{{ totalPrice }}</p>
                             </div>
 
-                            <button class="btn-price" @click.prevent="orderMed">
+                            <button
+                                class="btn-price"
+                                @click.prevent="orderMed">
                                 {{ message }}
                             </button>
                             <input class="hide" v-model="role" name="medical">
@@ -58,6 +60,7 @@
 import medListItem from "./med/medListItem.vue";
 import FormPicker from "./FormPicker.vue";
 import user from "../../user";
+import {ref} from "vue";
 
 export default {
     name: "modalMed",
@@ -72,7 +75,7 @@ export default {
     },
     data() {
         return {
-            date: [],
+            date: ref(),
             people: [],
             totalPrice: null,
             message: 'Добавить',
@@ -95,7 +98,9 @@ export default {
                     localStorage.clear()
                 })
         },
+        getDate(){
 
+        },
         price() {
             const raws = localStorage.getItem('medProduct')
             const product = JSON.parse(raws)
@@ -179,11 +184,9 @@ export default {
             const raw = localStorage.getItem('order')
             const orderProductMed = JSON.parse(raw)
             this.storePreOreder()
+
         },
     },
-    mounted() {
-
-    }
 
 }
 </script>

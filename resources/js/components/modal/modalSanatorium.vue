@@ -20,7 +20,9 @@
                                                 ></swiper>
                                             </div>
                                         </div>
-                                        <label class="item-hostel" :id="`${post.category}`">{{ post.category }}<br>({{ post.berth }}
+                                        <label class="item-hostel" :id="`${post.category}`">{{
+                                                post.category
+                                            }}<br>({{ post.berth }}
                                             спальное
                                             место)</label>
                                         <ul class="item-hostel">
@@ -59,10 +61,10 @@
                                     <!-- </div> -->
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <p class="price-total-san "> Общая стоимость заказа : {{ this.sumPrice  }}</p>
+                                    <p class="price-total-san "> Общая стоимость заказа : {{ this.sumPrice }}</p>
                                 </div>
                                 <button class=" btn-price-san" @click.prevent="orderCafe">
-                                    {{message}}
+                                    {{ message }}
                                 </button>
                             </div>
                         </div>
@@ -103,15 +105,15 @@ export default {
             title: null,
             price: null,
             category: null,
-            id:null,
+            id: null,
             totalPrice: 0,
             message: 'Забронировать',
-            sumPrice:null,
+            sumPrice: null,
             start: null,
-            end:null,
-            srartnMM:null,
-            endMM:null,
-            days:null,
+            end: null,
+            srartnMM: null,
+            endMM: null,
+            days: null,
             order: [],
             role: 'sanatorium',
             berth: null,
@@ -137,23 +139,22 @@ export default {
 
             this.days = this.$refs.formDate.date
 
-            this.start =  Number(this.days[0].substr(0,2))
-            this.end =  Number(this.days[1].substr(0,2))
-            this.startMM = Number(this.days[0].substr(3,2))
-            this.endMM = Number(this.days[1].substr(3,2))
-
-            if(this.endMM > this.startMM && this.startMM === 3 || this.startMM === 1 || this.startMM === 5 || this.startMM === 7 || this.startMM === 8 ||this.startMM === 10||this.startMM === 12) {
-                this.day = (this.end  - this.start)+32
-            }else if(this.endMM > this.startMM && this.startMM === 2){
-                this.day =(this.end  - this.start)+29
-            } else if(this.endMM > this.startMM && this.startMM === 4 || this.startMM === 6 || this.startMM === 9 || this.startMM === 11 ){
-                this.day =(this.end  - this.start)+31
-            } else {
-                this.day = this.end  - this.start
+            this.start = Number(this.days[0].substr(0, 2))
+            this.end = Number(this.days[1].substr(0, 2))
+            this.startMM = Number(this.days[0].substr(3, 2))
+            this.endMM = Number(this.days[1].substr(3, 2))
+            if (this.endMM === this.startMM) {
+                this.day = (this.end - this.start) + 1
+            } else if (this.endMM > this.startMM && this.startMM === 3 || this.startMM === 1 || this.startMM === 5 || this.startMM === 7 || this.startMM === 8 || this.startMM === 10 || this.startMM === 12) {
+                this.day = (this.end - this.start) + 32
+            } else if (this.endMM > this.startMM && this.startMM === 2) {
+                this.day = (this.end - this.start) + 29
+            } else if (this.endMM > this.startMM && this.startMM === 4 || this.startMM === 6 || this.startMM === 9 || this.startMM === 11) {
+                this.day = (this.end - this.start) + 31
             }
-            console.log( this.day);
+            console.log(this.day);
 
-            this.message='Заказ добавлен в корзину'
+            this.message = 'Заказ добавлен в корзину'
             const raws = localStorage.getItem('sanatoriumProduct')
             const product = JSON.parse(raws)
 
@@ -189,7 +190,7 @@ export default {
 
 
             this.posts.forEach(post => {
-                if ( this.modalPost === post.id) {
+                if (this.modalPost === post.id) {
                     this.id = post.id
                     this.title = post.title
                     this.price = post.price
@@ -200,10 +201,10 @@ export default {
 
 
             const totalPrice = this.totalPrice
-            this.sumPrice = this.totalPrice + (this.price*this.day)
+            this.sumPrice = this.totalPrice + (this.price * this.day)
 
 
-            this.order  = {
+            this.order = {
                 date: this.$refs.formDate.date,
                 people: this.$refs.formDate.countPeople,
                 product: product,
@@ -264,7 +265,7 @@ export default {
     background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
-.modal-content-cafe{
+.modal-content-cafe {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
@@ -293,7 +294,8 @@ export default {
     border-radius: 3px;
     background-color: #51D3B7;
 }
-.btn-total{
+
+.btn-total {
     width: 130px;
     border: none;
     padding: 10px;
@@ -301,17 +303,21 @@ export default {
     border-radius: 3px;
     background-color: #51D3B7;
 }
-.slides{
+
+.slides {
     width: 170px;
 }
+
 @media (max-width: 480px) {
     .modal-content-cafe {
         width: 100%;
         padding: 10px;
     }
-    .section-label-mob{
+
+    .section-label-mob {
         padding: 0;
     }
+
     .modal-close {
         float: right;
         margin-top: -45px;
@@ -322,21 +328,26 @@ export default {
         position: relative;
         background-color: #a11f34 !important;
     }
-    .service-list-modal{
+
+    .service-list-modal {
         padding: 0;
     }
-    .item-hostel{
+
+    .item-hostel {
         width: 100%;
         margin-left: 0;
     }
-    .price-total{
+
+    .price-total {
         margin: 0 !important;
         padding-left: 0px;
         font-size: 12px;
     }
-    .slides{
+
+    .slides {
         width: 100%;
     }
+
     .btn-price-san {
         width: 150px;
         border: none;

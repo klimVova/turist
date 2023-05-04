@@ -108,25 +108,21 @@ export default {
         },
 
         orderHostel(id) {
-
             this.days = this.$refs.formDate.date
-
             this.start = Number(this.days[0].substr(0, 2))
             this.end = Number(this.days[1].substr(0, 2))
             this.startMM = Number(this.days[0].substr(3, 2))
             this.endMM = Number(this.days[1].substr(3, 2))
-
-            if (this.endMM > this.startMM && this.startMM === 3 || this.startMM === 1 || this.startMM === 5 || this.startMM === 7 || this.startMM === 8 || this.startMM === 10 || this.startMM === 12) {
+             if(this.endMM === this.startMM) {
+                this.day = (this.end - this.start)+1
+            }
+            else if (this.endMM > this.startMM && this.startMM === 3 || this.startMM === 1 || this.startMM === 5 || this.startMM === 7 || this.startMM === 8 || this.startMM === 10 || this.startMM === 12) {
                 this.day = (this.end - this.start) + 32
             } else if (this.endMM > this.startMM && this.startMM === 2) {
                 this.day = (this.end - this.start) + 29
             } else if (this.endMM > this.startMM && this.startMM === 4 || this.startMM === 6 || this.startMM === 9 || this.startMM === 11) {
                 this.day = (this.end - this.start) + 31
-            } else {
-                this.day = this.end - this.start
             }
-
-
             this.message = 'Номер добавлен в корзину'
             this.posts.forEach(post => {
                 if (post.id === id) {
@@ -140,6 +136,7 @@ export default {
             if (this.$refs.formDate.date === undefined) {
                 this.message = 'Укажите дату'
             }
+            console.log(this.day);
             this.sumPrice = this.price * this.day
             this.order = {
                 date: this.$refs.formDate.date,
@@ -157,6 +154,9 @@ export default {
             this.storePreOreder()
         },
     },
+    mounted() {
+
+    }
 
 }
 </script>

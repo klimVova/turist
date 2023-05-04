@@ -6,6 +6,8 @@
                     is-inline
                     locale="ru-ru"
                     model-type="dd MM yyyy"
+                    selectText="Выбрать"
+                    cancelText="Отмена"
         />
         <div class="mt-3 people-count d-flex justify-content-sm-between">
             <p class="count-people">Количество человек:</p>
@@ -27,7 +29,7 @@ export default {
     },
     data() {
         return {
-            date: ref(new Date),
+            date: ref(),
             countPeople: 1,
         }
     },

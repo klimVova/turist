@@ -12,8 +12,10 @@ class IndexController extends Controller
     {
         $user = auth()->user();
         $preOrders=  DB::table('pre_orders')->where('user_id', '=', $user['id'])->get();
-         $products = DB::table('pre_orders')->pluck('products');
-         //dd($user);
-        return view('user.main.index', compact('user', 'preOrders', 'products'));
+        $products = DB::table('pre_orders')->pluck('products');
+        $totals = DB::table('pre_orders')->pluck('total_price') ;
+
+//         dd($totals);
+        return view('user.main.index', compact('user', 'preOrders', 'products','totals'));
     }
 }
