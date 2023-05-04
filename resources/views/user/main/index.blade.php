@@ -162,7 +162,7 @@
                                                         <div class="product_list_item_header col-9">
                                                             <div class="product_list_item_header_head">{{$list['product']}}</div>
                                                             <div class="product_option_list_item_qty">
-                                                                <span>{{$list['qty']}}</span>
+                                                                <span>({{$list['qty']}})</span>
                                                             </div>
                                                         </div>
                                                         <div class="col-3 product_option_list_item_cost">
@@ -206,7 +206,7 @@
                                                                 <div class="product_list_item_header col-9 ">
                                                                     <div class="product_list_item_header_head">{{$list['product']}}</div>
                                                                     <div class="product_option_list_item_qty">
-                                                                        <span>{{$list['qty']}}</span>
+                                                                        <span>({{$list['qty']}})</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-3 product_option_list_item_cost">
@@ -324,7 +324,7 @@
                                                         <div class="product_list_item_header col-9">
                                                             <div class="product_list_item_header_head">{{$list['product']}}</div>
                                                             <div class="product_option_list_item_qty">
-                                                                <span>{{$list['qty']}}</span>
+                                                                <span>({{$list['qty']}})</span>
                                                             </div>
                                                         </div>
                                                         <div class="product_option_list_item_cost col-3">
