@@ -2389,6 +2389,8 @@ footer .f-logo {
     .product_option_list {
         padding: 0 10px 0 10px;
         margin: 0;
+        width: 420px !important;
+        max-width: none;
     }
 
     .date {
