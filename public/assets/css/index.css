@@ -2418,7 +2418,10 @@ footer .f-logo {
     .product_list_item_header_hostel_m {
         padding-left: 10px;
     }
-
+    .product_option_list_san{
+        width: 420px;
+        max-width: none;
+    }
     .all-cost-mob {
         max-width: 100%;
     }
