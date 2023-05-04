@@ -113,9 +113,9 @@
                                                     @foreach((json_decode($preOrder->products, true)['productList']) as $list)
                                                         <li class="product_option_list_item row">
                                                             <div class="product_list_item_header col-9">
-                                                                <div>{{$list['product']}}</div>
+                                                                <div class="product_list_item_header_head">{{$list['product']}}</div>
                                                                 <div class="product_option_list_item_qty">
-                                                                    <span>{{$list['qty']}} </span>
+                                                                    <span>({{$list['qty']}}) </span>
                                                                 </div>
                                                             </div>
                                                             <div class="col-3 product_option_list_item_cost">
@@ -160,7 +160,7 @@
                                                 @foreach((json_decode($preOrder->products, true)['productList']) as $list)
                                                     <li class="product_option_list_item row">
                                                         <div class="product_list_item_header col-9">
-                                                            <div>{{$list['product']}}</div>
+                                                            <div class="product_list_item_header_head">{{$list['product']}}</div>
                                                             <div class="product_option_list_item_qty">
                                                                 <span>{{$list['qty']}}</span>
                                                             </div>
@@ -204,7 +204,7 @@
                                                         @foreach((json_decode($preOrder->products, true)['productList']) as $list)
                                                             <li class="product_option_list_item row">
                                                                 <div class="product_list_item_header col-9 ">
-                                                                    <div>{{$list['product']}}</div>
+                                                                    <div class="product_list_item_header_head">{{$list['product']}}</div>
                                                                     <div class="product_option_list_item_qty">
                                                                         <span>{{$list['qty']}}</span>
                                                                     </div>
@@ -264,11 +264,11 @@
                                         <ol class="product_option_list col-5">
                                             <li class="product_option_list_item product_option_list_item_m row">
                                                 <div class="product_list_item_header_hostel ">
-                                                    <div> <span>{{json_decode($preOrder->products, true)['category'] }}</span></div>
+                                                    <div> <span  class="product_list_item_header_head">{{json_decode($preOrder->products, true)['category'] }}</span></div>
                                                     <div> <span>({{json_decode($preOrder->products, true)['berth'] }} человек)</span></div>
                                                 </div>
                                                 <div class="product_list_item_header ">
-                                                    <span>{{json_decode($preOrder->products, true)['title'] }}</span>
+                                                    <span  class="product_list_item_header_head">{{json_decode($preOrder->products, true)['title'] }}</span>
                                                 </div>
                                                 <div class="product_option_list_item_cost">
                                                     <p>{{$list['price']}} &nbsp</p>
@@ -309,7 +309,7 @@
                                             <br>" {{$preOrder->name_product}}
                                             "</label>
                                         <div class="product_list_item_header_hostel ">
-                                            <div class="product_list_item_header_hostel_m"> <span>{{json_decode($preOrder->products, true)['category'] }}</span></div>
+                                            <div class="product_list_item_header_hostel_m"> <span  class="product_list_item_header_head">{{json_decode($preOrder->products, true)['category'] }}</span></div>
                                             <div class="product_list_item_header_hostel_m"> <span>({{json_decode($preOrder->products, true)['berth'] }} человек)</span></div>
                                             <div class="col product_option_list_item_date_san" >
                                                 @foreach(json_decode($preOrder->products, true)['date'] as $list)
@@ -322,7 +322,7 @@
                                                 @foreach((json_decode($preOrder->products, true)['productList']) as $list)
                                                     <li class="product_option_list_item row">
                                                         <div class="product_list_item_header col-9">
-                                                            <div>{{$list['product']}}</div>
+                                                            <div class="product_list_item_header_head">{{$list['product']}}</div>
                                                             <div class="product_option_list_item_qty">
                                                                 <span>{{$list['qty']}}</span>
                                                             </div>
@@ -378,7 +378,7 @@
                                     {{--                                {{json_decode($preOrder->products, true)['totalPrice']}}--}}
                                     <label class="name col">"{{$preOrder->name_product}}"</label>
                                     <div class="product_list_item_header_hostel col">
-                                        <div class="product_list_item_header_hostel_m"> <span>{{json_decode($preOrder->products, true)['title'] }}</span></div>
+                                        <div class="product_list_item_header_hostel_m"> <span  class="product_list_item_header_head">{{json_decode($preOrder->products, true)['title'] }}</span></div>
                                         <div class="product_list_item_header_hostel_m"> <span>({{json_decode($preOrder->products, true)['berth'] }} человек)</span></div>
                                     </div>
                                     <ol class="product_option_list_tur col">
