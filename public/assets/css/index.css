@@ -2423,7 +2423,7 @@ footer .f-logo {
         max-width: none;
     }
     .all-cost-mob {
-        width: 375px;
+        max-width: 100%;
     }
 
     .profile-data {
