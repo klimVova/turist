@@ -68,7 +68,7 @@
                         <ul>
                             <router-link
                                 active-class="active"
-                                :to="{name:'instruction-hotel'}">
+                                :to="{name:'instruction-medical'}">
                                 <li>Медицинские центры</li>
                             </router-link>
                             <router-link
@@ -78,8 +78,8 @@
                             </router-link>
                             <router-link
                                 active-class="active"
-                                :to="{name:'instruction-sanatorium'}">
-                                <li>Курорты/Санатории</li>
+                                :to="{name:'instruction-hotel'}">
+                                <li>Отели</li>
                             </router-link>
                             <router-link
                                 active-class="active"
