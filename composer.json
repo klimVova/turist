@@ -8,10 +8,15 @@
         "php": "^8.0.2",
         "doctrine/dbal": "^3.5",
         "guzzlehttp/guzzle": "^7.2",
+        "illuminate/support": "*",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.1",
+<<<<<<< HEAD
+=======
+        "vhar/sberbank": "^1.0",
+>>>>>>> 4d56b2fc65be13b6bc57dc1acc9f173bb5c8f014
         "voronkovich/sberbank-acquiring-client": "^2.8"
     },
     "require-dev": {
