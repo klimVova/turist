@@ -597,7 +597,9 @@ Route::group(['prefix' => 'main'], function () {
 
 
 });
-
+Route::group(['namespace' => 'Payment'], function () {
+    Route::get('/payment/rest/', IndexController::class)->name('payment.index');
+});
 Auth::routes();
 
 Route::get('{page}', \App\Http\Controllers\Client\IndexController::class)->where('page', '.*');

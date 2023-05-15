@@ -461,8 +461,10 @@
                             </div>
                             <span>(оплата сейчас)</span>
                         </div>
+                        <a href="{{route('payment.index')}}">
+                            <input type="submit" value="Оплатить 10%">
+                        </a>
 
-                        <input type="submit" value="Оплатить 10%">
                     </div>
                 </div>
             </div>
