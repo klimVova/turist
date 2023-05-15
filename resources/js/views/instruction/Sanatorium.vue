@@ -1,6 +1,6 @@
 <template>
     <div class=" instructions-label section-label">
-        <h2>Инструкция для организаций (Санаторий)</h2>
+        <h2>Инструкция для организаций (Курорт/Санаторий)</h2>
         <hr>
     </div>
 
