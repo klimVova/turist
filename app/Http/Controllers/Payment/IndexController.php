@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Payment;
 
 use App\Http\Controllers\Controller;
+use App\Models\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -42,11 +43,10 @@ class IndexController extends Controller
         $name_product =$preOrder->name_product;
         $date_product =$preOrder->date;
         $total_price_product =$preOrder->total_price;
-        //dd($preOrder);
 
-        $returnUrl  = 'http://mycoolshop.local/payment-success';
+        $returnUrl  = 'http://127.0.0.1:8000/main/user';
 
-        $response = $client->registerOrder($orderId, $amount, $returnUrl , [
+        $payment = Payment::Create([
             'email' => $email,
             'name' => $name,
             'surname' => $surname,
@@ -55,8 +55,23 @@ class IndexController extends Controller
             'name_product' =>   $name_product,
             'date_product' =>   $date_product,
             'total_price_product' =>   $total_price_product,
+            'amount' => $amount,
+            'orderId' => $orderId,
         ]);
-//        dd($response);
+        $data = [ 'email' => $email,
+            'name' => $name,
+            'surname' => $surname,
+            'phone' => $phone,
+            'user_id' => $user_id,
+            'name_product' =>   $name_product,
+            'date_product' =>   $date_product,
+            'total_price_product' =>   $total_price_product,
+            'amount' => $amount,
+            'orderId' => $orderId,
+            ];
+
+        $response = $client->registerOrder($orderId, $amount, $returnUrl , $data );
+
         return redirect()->away($response['formUrl']);
     }
 }

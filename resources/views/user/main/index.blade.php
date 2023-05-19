@@ -187,7 +187,7 @@
                                                 </button>
                                             </form>
                                         </div>
-                                    </div>
+                                    </div></div>
                                     @elseif($preOrder->role == 'cafe')
                                         <div class="product">
                                             <div class="product_item">
@@ -251,7 +251,6 @@
                                                 </form>
                                             </div>
                                         </div>
-                                </div>
                             @elseif($preOrder->role == 'hostel')
                                 <div class="product">
                                     <div class="product_item">
@@ -354,7 +353,6 @@
                                                         </div>
                                                     </li>
                                                 @endforeach
-
                                             @else
                                             @endif
                                         </ol>
@@ -464,40 +462,39 @@
                         <a href="{{route('payment.index')}}">
                             <input type="submit" value="Оплатить 10%">
                         </a>
-
                     </div>
                 </div>
             </div>
-            <div class="promocodes box hide">
-                <div class="cart-section">
-                    <div class="section-label">
-                        <h2>Отели</h2>
-                        <hr>
+        </div>
+        <div class="promocodes box hide">
+            <div class="cart-section">
+                <div class="section-label">
+                    <h2>Отели</h2>
+                    <hr>
+                </div>
+                <div class="rooms">
+                    <div class="item">
+                        <label class="name">Отель "Comfortee"<br>Стандарт (1 человек)</label>
+                        <label class="promocode">500-20-303</label>
+                        <label class="date">24.03.2023</label>
                     </div>
-                    <div class="rooms">
-                        <div class="item">
-                            <label class="name">Отель "Comfortee"<br>Стандарт (1 человек)</label>
-                            <label class="promocode">500-20-303</label>
-                            <label class="date">24.03.2023</label>
-                        </div>
-                        <div class="item promocode-used">
-                            <label class="name">Отель "Звезда"<br>Люкс (1 человек)</label>
-                            <label class="promocode">500-29-999</label>
-                            <label class="date">14.01.2022</label>
-                        </div>
+                    <div class="item promocode-used">
+                        <label class="name">Отель "Звезда"<br>Люкс (1 человек)</label>
+                        <label class="promocode">500-29-999</label>
+                        <label class="date">14.01.2022</label>
                     </div>
                 </div>
-                <div class="cart-section">
-                    <div class="section-label">
-                        <h2>Медицинские центры</h2>
-                        <hr>
-                    </div>
-                    <div class="rooms">
-                        <div class="item">
-                            <label class="name">Мед. центр "FamilyMed"<br>Консультация хирурга</label>
-                            <label class="promocode">540-27-657</label>
-                            <label class="date">04.03.2023</label>
-                        </div>
+            </div>
+            <div class="cart-section">
+                <div class="section-label">
+                    <h2>Медицинские центры</h2>
+                    <hr>
+                </div>
+                <div class="rooms">
+                    <div class="item">
+                        <label class="name">Мед. центр "FamilyMed"<br>Консультация хирурга</label>
+                        <label class="promocode">540-27-657</label>
+                        <label class="date">04.03.2023</label>
                     </div>
                 </div>
             </div>
