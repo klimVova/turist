@@ -25,6 +25,9 @@ return new class extends Migration
             $table->string('total_price_product');
             $table->string('amount');
             $table->string('orderId');
+            $table->string('status')->default(0);
+            $table->jsonb('products');
+            $table->string('promocode')->nullable();
             $table->timestamps();
         });
     }

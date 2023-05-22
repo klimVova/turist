@@ -2087,7 +2087,7 @@ footer .f-logo {
 .promocodes .item {
     width: 50%;
     margin-top: 12px;
-    height: 80px;
+    height: auto;
     display: flex;
     justify-content: space-between;
     vertical-align: middle;

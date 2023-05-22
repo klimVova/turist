@@ -5,28 +5,33 @@ namespace App\Http\Controllers\Payment;
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Voronkovich\SberbankAcquiring\Client;
 use Voronkovich\SberbankAcquiring\OrderStatus;
 
 class StatusController extends Controller
 {
 
-    public function __invoke($orderId )
+    public function __invoke( Request $request)
     {
 
-        $client = new Client(['userName' => 't7717762693-api', 'password' => 't7717762693']);
+        $data = $request->all();
+        Log::info(json_encode($data));
 
-        $payment = Payment::all();
-        dd($payment);
-        $result = $client->getOrderStatusByOwnId($orderId);
+        $orderId = $data['orderNumber'];
+        $status = $data['status'];
 
-        if (OrderStatus::isDeposited($result['orderStatus'])) {
-            echo "Order #$orderId is deposited!";
+
+        if ($status == 1) {
+            $payment = Payment::where('id', $orderId)->first();
+            $promo = substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 8);
+            if($payment){
+                $payment->status = 1;
+                $payment->promocode = $promo;
+                $payment->save();
+            }
         }
-
-        if (OrderStatus::isDeclined($result['orderStatus'])) {
-            echo "Order #$orderId was declined!";
-        }
-        return  view('user.maim.success');
+        return response()->json([]);
     }
 }

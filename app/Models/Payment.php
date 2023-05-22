@@ -20,5 +20,8 @@ class Payment extends Model
         'total_price_product',
         'amount',
         'orderId',
+        'status',
+        'products',
+        'promocode',
     ];
 }

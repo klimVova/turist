@@ -202,6 +202,7 @@ Route::group(['prefix' => 'main'], function () {
     Route::group(['namespace' => 'User', 'prefix' => 'user', 'middleware' => ['auth', 'user', 'verified']], function () {
         Route::group(['namespace' => 'Main'], function () {
             Route::get('/', IndexController::class)->name('user.main.index');
+            Route::get('/success', StatusController::class)->name('user.main.success');
             Route::patch('/{user}', UpdateController::class)->name('user.main.update');
             Route::delete('/{preOrder}', DeleteController::class)->name('user.maim.delete');
 
@@ -600,7 +601,7 @@ Route::group(['prefix' => 'main'], function () {
 });
 Route::group(['namespace' => 'Payment'], function () {
     Route::get('/payment/rest/', IndexController::class)->name('payment.index');
-    Route::get('/payment', StatusController::class)->name('user.maim.payment');
+    Route::post('/payment/success/', StatusController::class)->name('payment.status');
 });
 Auth::routes();
 
