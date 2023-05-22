@@ -28,7 +28,7 @@ class IndexController extends Controller
             $a = array_sum(json_decode($total, true));
             $amount = $a * 0.1*100;
 
-        $orderId =  rand(1000, 9999999999999999);
+
 
         $user = auth()->user();
 
@@ -44,7 +44,7 @@ class IndexController extends Controller
         $date_product =$preOrder->date;
         $total_price_product =$preOrder->total_price;
 
-        $returnUrl  = 'http://127.0.0.1:8000/main/user';
+        $returnUrl  = 'http://127.0.0.1:8000/main/user/success/';
 
         $payment = Payment::Create([
             'email' => $email,
@@ -54,11 +54,16 @@ class IndexController extends Controller
             'user_id' => $user_id,
             'name_product' =>   $name_product,
             'date_product' =>   $date_product,
-            'total_price_product' =>   $total_price_product,
+            'total_price_product' =>  $total_price_product,
             'amount' => $amount,
-            'orderId' => $orderId,
+            'orderId' => $preOrder->id,
+            'status' => 0,
+            'products'=> json_encode($preOrders),
+            'promocode'=> null,
         ]);
-        $data = [ 'email' => $email,
+
+        $data = [
+            'email' => $email,
             'name' => $name,
             'surname' => $surname,
             'phone' => $phone,
@@ -67,10 +72,9 @@ class IndexController extends Controller
             'date_product' =>   $date_product,
             'total_price_product' =>   $total_price_product,
             'amount' => $amount,
-            'orderId' => $orderId,
             ];
 
-        $response = $client->registerOrder($orderId, $amount, $returnUrl , $data );
+        $response = $client->registerOrder($payment->id, $amount, $returnUrl , $data );
 
         return redirect()->away($response['formUrl']);
     }

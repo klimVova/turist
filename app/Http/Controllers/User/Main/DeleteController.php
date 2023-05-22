@@ -14,8 +14,8 @@ class DeleteController extends Controller
         $preOrder->delete();
         $user = auth()->user();
         $preOrders=  DB::table('pre_orders')->where('user_id', '=', $user['id'])->get();
-        $totals = DB::table('pre_orders')->pluck('total_price') ;
-
-        return view('user.main.index' , compact('user', 'preOrders' , 'totals'));
+        $totals = DB::table('pre_orders')->where('user_id', '=', $user['id'])->pluck('total_price') ;
+        $payments =  DB::table('payments')->where('user_id', '=', $user['id'])->get();
+        return view('user.main.index' , compact('user', 'preOrders' , 'totals', 'payments'));
     }
 }
