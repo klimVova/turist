@@ -16,7 +16,7 @@ class IndexController extends Controller
         $products = DB::table('pre_orders')->pluck('products');
         $totals = DB::table('pre_orders')->where('user_id', '=', $user['id'])->pluck('total_price') ;
 
-        $payments =  DB::table('payments')->where('user_id', '=', $user['id'])->get();
+        $payments =  DB::table('payments')->where('user_id', '=', $user['id'])->latest()->get();
 
 
 

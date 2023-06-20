@@ -1864,7 +1864,7 @@ footer .f-logo {
 
 /*.....................cart////////////////////*/
 .cart-section {
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .office-nav {
@@ -2108,12 +2108,11 @@ footer .f-logo {
     opacity: 0.5;
 }
 
-
 .promocodes .item label {
     font-weight: bold;
     color: #08366A;
     width: 200px;
-    text-align: center;
+    /*text-align: center;*/
 }
 
 .promocodes .item .name {
@@ -2127,7 +2126,7 @@ footer .f-logo {
 }
 
 .promocodes .item {
-    width: 50%;
+    width: 60%;
     margin-top: 12px;
     height: auto;
     display: flex;
@@ -2380,6 +2379,61 @@ footer .f-logo {
 .cost-item-block label {
     font-weight: 700 !important;
 }
+.name{
+    display: flex;
+}
+.name_organ{
+    display: block;
+}
+.times{
+    padding-left: 110px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #505050;
+}
+.product_promo{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: #505050;
+    padding-left: 50px;
+}
+.order_promo{
+    display: flex;
+    align-items: center;
+}
+.order_promo_num{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #A8A8A8;
+}
+.order_promo_days{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #A8A8A8;
+    padding-left: 10px;
+}
+.promocode{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #51D3B7 !important;
+    opacity: 0.8;
+}
+.promo{
+    align-items: center;
+}
 
 @media (max-width: 480px) {
     .instructions .step .step-img {
@@ -2500,4 +2554,33 @@ footer .f-logo {
     .slider-block .text p{
         font-size: 18px;
     }
+    .promo{
+        display: block;
+        margin-bottom: 20px;
+    }
+    .promo_mob{
+        display: block;
+    }
+    .name_organ{
+        margin-left: 35px;
+        margin-bottom:-10px;
+    }
+    .order_promo{
+        display: block;
+        margin-left: 20px;
+    }
+    .order_promo_days{
+        padding-left: 0;
+        padding-bottom: 10px;
+    }
+    .promocode{
+        margin-left: 35px;
+    }
+    .product_promo,.times {
+        margin-left: 40px;
+        padding: 0;
+        width: auto;
+        max-width: 100%;
+    }
+
 }
