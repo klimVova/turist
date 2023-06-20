@@ -82,4 +82,9 @@ export default {
     height: 500px;
     overflow: hidden;
 }
+@media (max-width: 480px){
+    .carousel-inner{
+        height: 260px;
+    }
+}
 </style>

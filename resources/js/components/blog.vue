@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div class="container-fluid container-blog main">
+        <div class="container-fluid container-blog main  main-mob-version">
             <div class="blog">
-                <div class="section-label">
+                <div class="section-label section-label-mob-version">
                     <h2>Экспертный блог</h2>
                     <hr>
                 </div>
@@ -93,5 +93,14 @@ export default {
     transform: scale(1.02);
     border-radius: 10px;
     transition: 0.5s ease;
+}
+@media (max-width: 480px){
+    .section-label-mob-version{
+        margin-top: 0px;
+    }
+    .main-mob-version{
+        padding-top: 15px;
+        padding-bottom: 45px;
+    }
 }
 </style>
