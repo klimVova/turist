@@ -1,9 +1,9 @@
 <template>
     <button class="carousel-control left" @click="$emit('prev')">
-        <img  class="arrow-left" src="assets/img/right.svg" alt=""/>
+        <img  class="arrow-left" src="assets/img/left-baner.svg" alt=""/>
     </button>
     <button class="carousel-control right" @click="$emit('next')">
-        <img  class="arrow-right" src="assets/img/right.svg" alt=""/>
+        <img  class="arrow-right" src="assets/img/right-baner.svg" alt=""/>
     </button>
 </template>
 
@@ -16,16 +16,14 @@ export default {
 
 <style scoped>
 .carousel-control{
-    background-color: rgba(0,0,0, 0);
-    border: none;
+    background-color: rgba(0,0,0, .1);
+    border: 0px ;
     display: inline-block;
     position: absolute;
     height: 320px;
     width: 50px;
     top: calc(20% - 15px);
-
     cursor: pointer;
-
 }
 .left{
     left: 0;

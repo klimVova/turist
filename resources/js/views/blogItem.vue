@@ -3,7 +3,7 @@
         <div class="blog-page-img">
             <img src="assets/img/all-blog.jpg">
         </div>
-        <div class="container-fluid main">
+        <div class="container-fluid main blog-info">
             <div class="blog-page">
 
                 <div class="blog-page-text">
