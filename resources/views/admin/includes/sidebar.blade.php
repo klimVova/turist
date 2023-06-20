@@ -65,6 +65,14 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{route('admin.baner.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-images"></i>
+                    <p>
+                        Банер
+                    </p>
+                </a>
+            </li>
 {{--            <li class="nav-item">--}}
 {{--                <a href="{{route('admin.tag.index')}}" class="nav-link">--}}
 {{--                    <i class="nav-icon fas fa-tags"></i>--}}

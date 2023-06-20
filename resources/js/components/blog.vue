@@ -3,7 +3,7 @@
         <div class="container-fluid container-blog main">
             <div class="blog">
                 <div class="section-label">
-                    <h2>Блог</h2>
+                    <h2>Экспертный блог</h2>
                     <hr>
                 </div>
                 <div class="row blog-items " id="container">

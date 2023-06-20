@@ -12,7 +12,7 @@
                 @mouseenter="stopSlideTimer"
                 @mouseout="startSlideTimer"
             ></carousel-item>
-            <carousel-controls v-if="slides.length > 1" @prev="prev" @next="next"></carousel-controls>
+            <carousel-baner-controls v-if="slides.length > 1" @prev="prev" @next="next"></carousel-baner-controls>
         </div>
     </div>
 </template>
@@ -20,11 +20,11 @@
 <script>
 
 import CarouselItem from "./CarouselItem.vue";
-import CarouselControls from "./CarouselControls.vue";
+import CarouselBanerControls from "./CarouselBanerControls.vue";
 
 export default {
-    name: "Carousel",
-    components: {CarouselItem, CarouselControls},
+    name: "CarouselBaner",
+    components: {CarouselItem, CarouselBanerControls},
     props: ['slides'],
     data: () => ({
         currentSlide: 0,
@@ -78,8 +78,8 @@ export default {
 
 .carousel-inner {
     position: relative;
-    width: 900px;
-    height: 200px;
+    width: 100%;
+    height: 500px;
     overflow: hidden;
 }
 </style>

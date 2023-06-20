@@ -81,48 +81,87 @@ header {
     padding: 90px 50px;
 }
 
-.welcome .text {
-    background: url("../img/banner.jpg") no-repeat;
+/*.welcome .text {*/
+/*    background: url("../img/banner.jpg") no-repeat;*/
+/*    width: 100%;*/
+/*    background-size: 100%;*/
+/*    min-height: 300px;*/
+/*    display: -webkit-box;*/
+/*    display: -ms-flexbox;*/
+/*    display: flex;*/
+/*    -webkit-box-pack: justify;*/
+/*    -ms-flex-pack: justify;*/
+/*    justify-content: space-between;*/
+/*    padding: 45px 80px;*/
+/*}*/
+
+/*.welcome .text h1 {*/
+/*    color: #08366A;*/
+/*    font-weight: 700;*/
+/*    font-size: 36px;*/
+/*    margin-bottom: 24px;*/
+/*}*/
+
+/*.welcome .text p {*/
+/*    color: white;*/
+/*    font-weight: 500;*/
+/*    font-size: 14px;*/
+/*}*/
+
+/*.welcome .text .sale p {*/
+/*    font-size: 36px;*/
+/*    font-weight: 700;*/
+/*}*/
+
+/*.welcome .text .sale label {*/
+/*    font-size: 64px;*/
+/*    font-weight: 700;*/
+/*    color: #08366A;*/
+/*}*/
+.slider-block{
+    padding: 50px 0px;
+
+}
+.slider-item img{
     width: 100%;
-    background-size: 100%;
-    min-height: 300px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    padding: 45px 80px;
+}
+.main-slider{
+    position: relative;
 }
 
-.welcome .text h1 {
+.main-slider .text{
+    position: absolute;
+    top: 90px;
+    left: 120px;
+}
+.slider-block .text{
+    padding: 45px 0px;
+}
+.slider-block .text h1{
     color: #08366A;
     font-weight: 700;
     font-size: 36px;
     margin-bottom: 24px;
 }
-
-.welcome .text p {
+.slider-block .text p{
     color: white;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 24px;
 }
-
-.welcome .text .sale p {
-    font-size: 36px;
-    font-weight: 700;
+.slogan{
+    padding-top: 30px;
 }
-
-.welcome .text .sale label {
-    font-size: 64px;
-    font-weight: 700;
-    color: #08366A;
+.slogan p{
+    font-size: 24px;
 }
-
+.slogan .slogan2{
+    padding-left: 70px;
+}
 
 .search {
+    position: relative;
     background-color: #08366A;
-    margin: -50px 100px;
+    margin: -50px 120px;
     padding: 24px 56px;
     -webkit-box-shadow: 0 3px 5px rgba(8, 54, 106, 0.25);
     box-shadow: 0 3px 5px rgba(8, 54, 106, 0.25);
@@ -334,23 +373,23 @@ footer .media img {
         padding-top: 36px;
     }
 
-    .welcome .text {
-        background: url("../img/banner-mob.jpg") no-repeat;
-        width: 100%;
-        background-size: 100%;
-        min-height: 400px;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        padding: 60px 24px;
-    }
+    /*.welcome .text {*/
+    /*    background: url("../img/banner-mob.jpg") no-repeat;*/
+    /*    width: 100%;*/
+    /*    background-size: 100%;*/
+    /*    min-height: 400px;*/
+    /*    display: -webkit-box;*/
+    /*    display: -ms-flexbox;*/
+    /*    display: flex;*/
+    /*    -webkit-box-pack: justify;*/
+    /*    -ms-flex-pack: justify;*/
+    /*    justify-content: space-between;*/
+    /*    padding: 60px 24px;*/
+    /*}*/
 
-    .welcome .text .sale {
-        display: none;
-    }
+    /*.welcome .text .sale {*/
+    /*    display: none;*/
+    /*}*/
 
     .search {
         height: auto;

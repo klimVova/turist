@@ -1,21 +1,6 @@
 <template>
-    <div class="container-fluid main">
-        <div class="welcome">
-            <div class="text">
-                <div>
-                    <h1>Настало время восстановления и отдыха!!!</h1>
-                    <p class="color_baner">200+ курортов<br>23+ санаториев <br> 20+ медицинских центров</p>
-
-                    <p class="color_baner">для Вас и Вашей семьи!</p>
-                    <p class="color_baner">Поможем с выбором, учтем все пожелания!</p>
-
-                </div>
-                <div class="sale">
-                    <p>Скидки до</p>
-                    <label>30%</label>
-                </div>
-            </div>
-        </div>
+    <div class="container-fluid slider-block">
+        <baners></baners>
         <div class="search fadeInUp wow">
             <UiFilter ref="index"></UiFilter>
         </div>
@@ -53,10 +38,12 @@
 <script>
 import blog from "../components/blog.vue";
 import UiFilter from "../components/UiFilter.vue";
+import Baners from "../components/baners.vue";
 
 export default {
     name: "Home",
     components: {
+        Baners,
         UiFilter,
         blog,
     },
