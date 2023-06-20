@@ -20,6 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/posts', \App\Http\Controllers\API\Blog\IndexController::class);
 Route::get('/posts/{post}', \App\Http\Controllers\API\Blog\ShowController::class);
+Route::get('/baners', \App\Http\Controllers\API\Baner\IndexController::class);
+
 
 Route::get('/users/filters', \App\Http\Controllers\API\User\FilterListController::class);
 Route::get('/users', \App\Http\Controllers\API\User\IndexController::class);

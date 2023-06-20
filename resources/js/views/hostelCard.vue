@@ -178,7 +178,7 @@
 
 <script>
 import user from "../user";
-import swiper from '../components/swiper.vue'
+import swiper from '../components/swiper.vue';
 import modalHostel from "../components/modal/modalHostel.vue";
 import {ref} from "vue";
 export default {

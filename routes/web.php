@@ -195,6 +195,13 @@ Route::group(['prefix' => 'main'], function () {
             Route::patch('/{user}', UpdateController::class)->name('admin.user.update');
             Route::delete('/{user}', DeleteController::class)->name('admin.user.delete');
         });
+
+        Route::group(['namespace' => 'Baner', 'prefix' => 'baners'], function () {
+            Route::get('/', IndexController::class)->name('admin.baner.index');
+            Route::post('/image/', ImageStoreController::class)->name('admin.baner.image_store');
+            Route::delete('{baner}/image/', ImageRemoveController::class, 'remove')->name('admin.baner.image_remove');
+        });
+
     });
 
 

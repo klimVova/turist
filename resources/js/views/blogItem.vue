@@ -1,11 +1,11 @@
 <template>
     <div>
+        <div class="blog-page-img">
+            <img src="assets/img/all-blog.jpg">
+        </div>
         <div class="container-fluid main">
             <div class="blog-page">
-                <div class="blog-page-img">
-                    <img src="assets/img/blog-bgs.jpg">
 
-                </div>
                 <div class="blog-page-text">
                     <div class="section-label">
                         <h2>{{post.title}}</h2>
