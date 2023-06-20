@@ -12,7 +12,7 @@
                 @mouseenter="stopSlideTimer"
                 @mouseout="startSlideTimer"
             ></carousel-item>
-            <carousel-baner-controls v-if="slides.length > 1" @prev="prev" @next="next"></carousel-baner-controls>
+<!--            <carousel-baner-controls v-if="slides.length > 1" @prev="prev" @next="next"></carousel-baner-controls>-->
         </div>
     </div>
 </template>
