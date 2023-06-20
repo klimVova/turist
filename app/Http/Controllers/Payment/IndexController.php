@@ -60,7 +60,7 @@ class IndexController extends Controller
             'status' => 0,
             'products'=> json_encode($preOrders),
             'promocode'=> null,
-            'days' => null,
+
         ]);
 
         $data = [
@@ -73,7 +73,6 @@ class IndexController extends Controller
             'date_product' =>   $date_product,
             'total_price_product' =>   $total_price_product,
             'amount' => $amount,
-            'days' => null,
             ];
 
         $response = $client->registerOrder($payment->id, $amount, $returnUrl , $data );

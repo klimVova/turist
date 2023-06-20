@@ -480,7 +480,7 @@
         <div class="promocodes box hide">
             @foreach($payments as $payment)
                 @if($payment->status == 1)
-                    @if($payment->created_at > date("Y-m-d H:i:s") )
+                    @if($payment->date_product >date(date("d m Y")) )
                         <div class="row promo">
                             <div class="col-8">
                                 <div class="order_promo">
