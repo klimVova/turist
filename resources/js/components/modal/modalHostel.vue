@@ -103,7 +103,7 @@ export default {
                 'role': this.role
             })
                 .then(res => {
-                    localStorage.clear()
+                     localStorage.clear()
                 })
         },
 
@@ -136,7 +136,6 @@ export default {
             if (this.$refs.formDate.date === undefined) {
                 this.message = 'Укажите дату'
             }
-            console.log(this.day);
             this.sumPrice = this.price * this.day
             this.order = {
                 date: this.$refs.formDate.date,
@@ -155,7 +154,6 @@ export default {
         },
     },
     mounted() {
-
     }
 
 }
