@@ -108,6 +108,37 @@
     .custom-file-input:lang(en)~.custom-file-label::after{
         content: "...";
     }
+     .counter {
+         position: absolute;
+         top: 190px;
+         left: 455px;
+     }
+    .counter1 {
+        position: absolute;
+        top: 455px;
+        left: 455px;
+    }
 </style>
+<script>
+    const textarea = document.querySelector('.textarea');
+    const counter = document.querySelector('.current');
+    const maxlength = 225;
+    textarea.addEventListener('input', onInput)
+    function onInput(event) {
+        event.target.value = event.target.value.substr(0, maxlength);
+        const length = event.target.value.length;
+        counter.textContent = length;
+    }
+    const textarea1 = document.querySelector('.textarea1');
+    const counter1 = document.querySelector('.current1');
+
+    textarea1.addEventListener('input', onInput1)
+    function onInput1(event) {
+        event.target.value = event.target.value.substr(0, maxlength);
+        const length1 = event.target.value.length;
+        counter1.textContent = length1;
+    }
+
+</script>
 </body>
 </html>

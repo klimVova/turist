@@ -32,13 +32,21 @@
                         </div>
                         <label> Краткое описание </label>
                         <div class="form-group">
-                            <textarea rows='5' cols='70' name="desc">{{$cafeCard->desc}}</textarea>
+                            <textarea class="textarea"  rows='5' cols='70' name="desc">{{$cafeCard->desc}}</textarea>
+                            <div class="counter">
+                                <span class="current">0</span>&nbsp;/
+                                <span class="total">225</span>
+                            </div>
                             @error('content')
                             <div class="text-danger">{{$message}}</div>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <textarea id="summernote" name="content">{{$cafeCard->content}}</textarea>
+                            <textarea class="textarea1"   rows='10' cols='70' name="content">{{$cafeCard->content}}</textarea>
+                            <div class="counter1">
+                                <span class="current1">0</span>&nbsp;/
+                                <span class="total">225</span>
+                            </div>
                             @error('content')
                             <div class="text-danger">{{$message}}</div>
                             @enderror
@@ -141,4 +149,5 @@
     </section>
     <!-- /.content -->
 </div>
+
 @endsection

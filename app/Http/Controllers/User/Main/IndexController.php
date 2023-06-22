@@ -18,8 +18,6 @@ class IndexController extends Controller
 
         $payments =  DB::table('payments')->where('user_id', '=', $user['id'])->latest()->get();
 
-
-
         return view('user.main.index', compact('user', 'preOrders', 'products','totals', 'payments'));
     }
 }

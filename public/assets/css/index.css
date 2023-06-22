@@ -2584,3 +2584,13 @@ footer .f-logo {
     }
 
 }
+.counter {
+    position: absolute;
+    top: 190px;
+    left: 455px;
+}
+.counter1 {
+    position: absolute;
+    top: 455px;
+    left: 455px;
+}
