@@ -14,7 +14,7 @@
                 <router-link
                     active-class="active"
                     :to="{name:'med'}">
-                  <li>Мед.центр</li>
+                  <li>Медцентры</li>
                 </router-link>
               <router-link
                   active-class="active"
@@ -39,7 +39,7 @@
                 <router-link
                     active-class="active"
                     :to="{name:'tur'}">
-                    <li>Туроператор</li>
+                    <li>Туроператоры </li>
                 </router-link>
             </ul>
           </div>

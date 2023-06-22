@@ -69,22 +69,22 @@
                             <router-link
                                 active-class="active"
                                 :to="{name:'instruction-medical'}">
-                                <li>Медицинские центры</li>
+                                <li>Медцентры</li>
                             </router-link>
                             <router-link
                                 active-class="active"
                                 :to="{name:'instruction-spa'}">
-                                <li>Бьюти/SPA</li>
-                            </router-link>
-                            <router-link
-                                active-class="active"
-                                :to="{name:'instruction-hotel'}">
-                                <li>Отели</li>
+                                <li>Спа/бьюти</li>
                             </router-link>
                             <router-link
                                 active-class="active"
                                 :to="{name:'instruction-cafe'}">
                                 <li>Кафе/Рестораны</li>
+                            </router-link>
+                            <router-link
+                                active-class="active"
+                                :to="{name:'instruction-hotel'}">
+                                <li>Отели</li>
                             </router-link>
                             <router-link
                                 active-class="active"

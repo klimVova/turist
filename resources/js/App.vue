@@ -8,11 +8,11 @@
                 <div id="mob-menu" class="menu">
                     <ul>
                         <li>   <router-link :to="{name: 'med'}">Каталог</router-link></li>
-                        <li><a href="#">О компании</a>
+                        <li><a href="#">О проекте</a>
                             <ul>
-                                <li><router-link :to="{name: 'fororganization'}">Для организация</router-link></li>
+                                <li><router-link :to="{name: 'fororganization'}">Для организаций</router-link></li>
                                 <li><router-link :to="{name: 'forclient'}">Для клиентов</router-link></li>
-                                <li><router-link :to="{name: 'ecosistem'}">Экосистема турмеддрайвер</router-link></li>
+                                <li><router-link :to="{name: 'ecosistem'}">Экосистема ТурМедДрайвер</router-link></li>
                             </ul>
                         </li>
                         <li>
