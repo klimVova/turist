@@ -36,7 +36,11 @@
                                     <p>{{ card.content }}</p>
                                     <div class="hotel-gallery">
                                         <ul>
-                                            <li v-for="image in images" id="1"><img :src="image.images"></li>
+                                            <li v-for="image in images" id="1">
+                                                <template v-if="image.cafe_card_id === card.id">
+                                                    <img :src="image.images">
+                                                </template>
+                                            </li>
                                         </ul>
                                     </div>
                                     <input @click.prevent="toggleModal" :class="state.user !== '' ? '' : 'disabled '" type="submit" value="Забронировать стол">

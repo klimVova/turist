@@ -34,7 +34,11 @@
                                     <p>{{ card.content }}</p>
                                     <div class="hotel-gallery">
                                         <ul>
-                                            <li v-for="image in images" id="1"><img :src="image.images"></li>
+                                            <li v-for="image in images" id="1">
+                                                <template v-if="image.medical_card_id === card.id">
+                                                    <img :src="image.images">
+                                                </template>
+                                            </li>
                                         </ul>
                                     </div>
                                     <input @click.prevent="toggleModal" :class="state.user !== '' ? '' : 'disabled '"
@@ -150,7 +154,9 @@
                                             <li v-for="link in pagination.links" class="page-item">
                                                 <template v-if="Number(link.label)">
                                                     <a @click.prevent="getComment(link.label)"
-                                                       :class="link.active ? 'active page-link' : 'page-link'">{{ link.label }}</a>
+                                                       :class="link.active ? 'active page-link' : 'page-link'">{{
+                                                            link.label
+                                                        }}</a>
                                                 </template>
 
                                             </li>
@@ -322,6 +328,7 @@ export default {
                 .then(res => {
 
                     this.images = res.data.data;
+                    console.log(this.images);
                 })
         },
     },

@@ -35,6 +35,7 @@
                                 <div class="hotel-gallery">
                                     <ul>
                                         <li v-for="image in card.images" id="1"><img :src="image.images"></li>
+
                                     </ul>
                                 </div>
                             </div>
