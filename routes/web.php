@@ -230,6 +230,9 @@ Route::group(['prefix' => 'main'], function () {
             Route::get('/{cafeCard}/edit', EditController::class)->name('cafe.card.edit');
             Route::patch('/{cafeCard}', UpdateController::class)->name('cafe.card.update');
             Route::delete('/{cafeCard}', DeleteController::class)->name('cafe.card.delete');
+            Route::get('/{cafeCard}/image/', ImageController::class)->name('cafe.card.image');
+            Route::post('/{cafeCard}/image/', ImageStoreController::class)->name('cafe.card.image_store');
+            Route::delete('{cafeCard}/image/', ImageRemoveController::class, 'remove')->name('cafe.card.image_remove');
         });
         Route::group(['namespace' => 'Tag', 'prefix' => 'tags'], function () {
             Route::get('/', IndexController::class)->name('cafe.tag.index');
@@ -298,6 +301,9 @@ Route::group(['prefix' => 'main'], function () {
             Route::get('/{medicalCard}/edit', EditController::class)->name('medical.card.edit');
             Route::patch('/{medicalCard}', UpdateController::class)->name('medical.card.update');
             Route::delete('/{medicalCard}', DeleteController::class)->name('medical.card.delete');
+            Route::get('/{medicalCard}/image/', ImageController::class)->name('medical.card.image');
+            Route::post('/{medicalCard}/image/', ImageStoreController::class)->name('medical.card.image_store');
+            Route::delete('{medicalCard}/image/', ImageRemoveController::class, 'remove')->name('medical.card.image_remove');
         });
         Route::group(['namespace' => 'Tag', 'prefix' => 'tags'], function () {
             Route::get('/', IndexController::class)->name('medical.tag.index');
@@ -366,6 +372,9 @@ Route::group(['prefix' => 'main'], function () {
             Route::get('/{spaCard}/edit', EditController::class)->name('spa.card.edit');
             Route::patch('/{spaCard}', UpdateController::class)->name('spa.card.update');
             Route::delete('/{spaCard}', DeleteController::class)->name('spa.card.delete');
+            Route::get('/{spaCard}/image/', ImageController::class)->name('spa.card.image');
+            Route::post('/{spaCard}/image/', ImageStoreController::class)->name('spa.card.image_store');
+            Route::delete('{spaCard}/image/', ImageRemoveController::class, 'remove')->name('spa.card.image_remove');
         });
         Route::group(['namespace' => 'Tag', 'prefix' => 'tags'], function () {
             Route::get('/', IndexController::class)->name('spa.tag.index');

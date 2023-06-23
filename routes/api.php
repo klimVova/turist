@@ -37,6 +37,7 @@ Route::post('medicals/{medicalCard}/comments', \App\Http\Controllers\API\Medical
 Route::post('/show/{medicalCard}/comments', \App\Http\Controllers\API\Medical\ShowCommentController::class);
 Route::delete('/medicals/comment/{id}', \App\Http\Controllers\API\Medical\DeleteCommentController::class);
 Route::get('/medicalAction', \App\Http\Controllers\API\Medical\ActionController::class);
+Route::get('/medicalImage', \App\Http\Controllers\API\Medical\ImagesController::class);
 
 
 Route::post('/spa', \App\Http\Controllers\API\Spa\IndexController::class);
@@ -50,6 +51,7 @@ Route::post('/spa/{spaCard}/comments', \App\Http\Controllers\API\Spa\CommentCont
 Route::post('/spa/show/{spaCard}/comments', \App\Http\Controllers\API\Spa\ShowCommentController::class);
 Route::delete('/spa/comment/{id}', \App\Http\Controllers\API\Spa\DeleteCommentController::class);
 Route::get('/spaAction', \App\Http\Controllers\API\Spa\ActionController::class);
+Route::get('/spaImage', \App\Http\Controllers\API\Spa\ImagesController::class);
 
 Route::post('/cafes', \App\Http\Controllers\API\Cafe\IndexController::class);
 Route::get('/cafes/filters', \App\Http\Controllers\API\Cafe\FilterListController::class);
@@ -62,6 +64,7 @@ Route::post('/cafe/{cafeCard}/comments', \App\Http\Controllers\API\Cafe\CommentC
 Route::post('/cafe/show/{cafeCard}/comments', \App\Http\Controllers\API\Cafe\ShowCommentController::class);
 Route::delete('/cafe/comment/{id}', \App\Http\Controllers\API\Cafe\DeleteCommentController::class);
 Route::get('/cafeAction', \App\Http\Controllers\API\Cafe\ActionController::class);
+Route::get('/cafeImage', \App\Http\Controllers\API\Cafe\ImagesController::class);
 
 Route::post('/hostels', \App\Http\Controllers\API\Hostel\IndexController::class);
 Route::get('/hostels/filters', \App\Http\Controllers\API\Hostel\FilterListController::class);

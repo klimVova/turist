@@ -34,6 +34,11 @@
                                         <span><a href="#review">({{ pagination.total }}  отзывов)</a></span>
                                     </template>
                                     <p>{{ card.content }}</p>
+                                    <div class="hotel-gallery">
+                                        <ul>
+                                            <li v-for="image in images" id="1"><img :src="image.images"></li>
+                                        </ul>
+                                    </div>
                                     <input @click.prevent="toggleModal" :class="state.user !== '' ? '' : 'disabled '" type="submit" value="Забронировать стол">
 
                                     <p></p>
@@ -217,7 +222,7 @@ export default {
             pageOfItems: [],
             pagination: [],
             actions: [],
-
+            images:[],
         }
     },
     methods: {
@@ -320,6 +325,12 @@ export default {
                     this.actions = res.data.data;
                 })
         },
+        getImage() {
+            this.axios.get('/api/cafeImage')
+                .then(res => {
+                    this.images = res.data.data;
+                })
+        },
     },
     mounted() {
         this.getList()
@@ -330,6 +341,7 @@ export default {
         this.getComment()
         this.getUser()
         this.getAction()
+        this.getImage()
     }
 }
 </script>

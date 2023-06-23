@@ -70,6 +70,18 @@
                             @enderror
                         </div>
                         <div class="form-group w-50">
+                            <label for="exampleInputFile">Добавить главное изображение</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" multiple name="main_image[]">
+                                    <label class="custom-file-label">Выберите изображение</label>
+                                </div>
+                            </div>
+                            @error('main_image')
+                            <div class="text-danger">Это поле необходимо заполнить</div>
+                            @enderror
+                        </div>
+                        <div class="form-group w-50">
                             <label for="exampleInputFile">Добавить логотип организации</label>
                             <div class="input-group">
                                 <div class="custom-file">
@@ -84,6 +96,7 @@
                             <div class="text-danger">Это поле необходимо заполнить</div>
                             @enderror
                         </div>
+
                         <div class="form-group w-25">
                             <input type="tel" class="form-control" name="phone" placeholder="Введите номер телефона"
                                    value="{{old('phone')}}">

@@ -25,11 +25,9 @@ class UpdateController extends Controller
             unset($data['hostel_cardTag_ids']);
         }
         $hostelCard->update($data);
-
         if (isset($hostel_tagIds)) {
             $hostelCard->tags()->sync($hostel_tagIds);
         }
-
         return redirect()->route('hostel.card.index');
     }
 }

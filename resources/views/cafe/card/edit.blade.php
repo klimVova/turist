@@ -142,7 +142,11 @@
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="Обновить">
                         </div>
-
+                        <div class="form-group w-25">
+                            <a style="width: 300px;height: 40px;"
+                               href="{{route('cafe.card.image', $cafeCard->id)}}"
+                               class="btn btn-block btn-primary"> Обновить фото</a>
+                        </div>
                     </form>
                 </div>
             </div>
