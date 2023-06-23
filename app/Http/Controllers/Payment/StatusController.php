@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Payment;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Payment\Promocode;
 use App\Models\Payment;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Voronkovich\SberbankAcquiring\Client;
-use Voronkovich\SberbankAcquiring\OrderStatus;
+use Illuminate\Support\Facades\Mail;
 
 class StatusController extends Controller
 {
@@ -17,6 +16,7 @@ class StatusController extends Controller
     {
 
         $data = $request->all();
+        dd($data);
         Log::info(json_encode($data));
 
         $orderId = $data['orderNumber'];
@@ -29,6 +29,8 @@ class StatusController extends Controller
                 $payment->status = 1;
                 $payment->promocode = $promo;
                 $payment->save();
+                $promocode = $payment->promocode;
+                Mail::to($data['email'])->send(new Promocode($promocode));
             }
         }
         return response()->json([]);

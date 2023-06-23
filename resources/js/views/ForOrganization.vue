@@ -89,7 +89,7 @@
                             <router-link
                                 active-class="active"
                                 :to="{name:'instruction-sanatorium'}">
-                                <li>Курорты/Санатории</li>
+                                <li>Санатории</li>
                             </router-link>
                         </ul>
                     </div>

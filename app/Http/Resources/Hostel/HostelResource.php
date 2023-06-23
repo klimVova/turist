@@ -34,7 +34,7 @@ class HostelResource extends JsonResource
             'republic_id' =>$this->republic_id,
             'city_id' => $this->city_id,
             'tags' => HostelTagsResource::collection($this->tags),
-            'images' => CafeCardImageResource::collection($this->images)
+            'images' => HostelImagesPostResource::collection($this->images)
         ];
     }
 }
