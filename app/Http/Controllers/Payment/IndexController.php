@@ -76,7 +76,7 @@ class IndexController extends Controller
             ];
 
         $response = $client->registerOrder($payment->id, $amount, $returnUrl  , $data );
-        dd($payment);
+
         return redirect()->away($response['formUrl']);
     }
 }

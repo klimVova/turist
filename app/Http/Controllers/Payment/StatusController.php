@@ -16,7 +16,7 @@ class StatusController extends Controller
     {
 
         $data = $request->all();
-        dd($data);
+
         Log::info(json_encode($data));
 
         $orderId = $data['orderNumber'];
