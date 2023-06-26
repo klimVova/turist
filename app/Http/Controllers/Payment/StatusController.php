@@ -29,8 +29,6 @@ class StatusController extends Controller
                 $payment->status = 1;
                 $payment->promocode = $promo;
                 $payment->save();
-                $promocode = $payment->promocode;
-                Mail::to($data['email'])->send(new Promocode($promocode));
             }
         }
         return response()->json([]);

@@ -1,3 +1,3 @@
 @component('mail::message')
-    Ваш промокод: {{$promo}}
+    Ваш промокод: {{$promocode}}
 @endcomponent
