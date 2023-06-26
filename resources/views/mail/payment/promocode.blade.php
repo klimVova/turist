@@ -28,7 +28,9 @@
                     @else
                         <tbody>
                         <tr>
-                            <th scope="row">{{json_decode($products,true)['id']}}</th>
+                            <th scope="row">1
+{{--                                {{json_decode($products,true)['id']}}--}}
+                            </th>
                             <td><p>{{json_decode($products,true)['title']}}</p></td>
                             <td><p>{{json_decode($products,true)['berth']}}</p></td>
                             @if(isset(json_decode($products,true)['price']))
