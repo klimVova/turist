@@ -14,6 +14,7 @@ class StatusController extends Controller
     {
         $user = auth()->user();
         $preOrders=  DB::table('pre_orders')->where('user_id', '=', $user['id'])->delete();
+
         return view('user.main.success' );
     }
 }

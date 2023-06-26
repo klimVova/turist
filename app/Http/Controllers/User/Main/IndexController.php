@@ -20,12 +20,22 @@ class IndexController extends Controller
 
         $payments = DB::table('payments')->where('user_id', '=', $user['id'])->latest()->get();
         $promocode = DB::table('payments')->where('user_id', '=', $user['id'])->pluck('promocode')->last();
-        $email = DB::table('payments')->where('user_id', '=', $user['id'])->pluck('email');
-
-        if ($promocode != null) {
-            Mail::to($email)->send(new Promocode($promocode));
+        $time = DB::table('payments')->where('user_id', '=', $user['id'])->pluck('created_at')->last();
+        $promocode_status = DB::table('payments')->where('user_id', '=', $user['id'])->pluck('status')->last();
+        $promocode = DB::table('payments')->where('user_id', '=', $user['id'])->pluck('promocode')->last();
+        $email = DB::table('payments')->where('user_id', '=', $user['id'])->pluck('email')->last();
+        $products_email = DB::table('payments')->where('user_id', '=', $user['id'])->pluck('products')->last();
+        $amount = DB::table('payments')->where('user_id', '=', $user['id'])->pluck('amount')->last();
+        $d= [
+            'promo' => $promocode,
+            'email' => $email,
+            'time' => $time,
+            'products' => $products_email,
+            'amount' => $amount,
+        ];
+        if ($promocode != NULL && $promocode_status != 0 ) {
+            Mail::to($email)->send(new Promocode($d));
         }
-
         return view('user.main.index', compact('user', 'preOrders', 'products', 'totals', 'payments'));
     }
 }

@@ -11,16 +11,16 @@ class Promocode extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $promocode;
+    public $d;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($promocode)
+    public function __construct($d)
     {
-        $this->promocode = $promocode;
+        $this->d = $d;
     }
 
     public function content()
