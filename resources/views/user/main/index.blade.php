@@ -586,6 +586,9 @@
                                             @elseif($items['role'] == 'sanatorium')
                                                 <h2>Санатории<br></h2>
                                                 <hr>
+                                            @elseif($items['role'] == 'sport')
+                                                <h2>Спортивная база<br></h2>
+                                                <hr>
                                             @elseif($items['role'] == 'tur')
                                                 <h2>Туроператоры<br></h2>
                                                 <hr>
@@ -671,6 +674,9 @@
                                                         @elseif($items['role'] == 'tur')
                                                             <h2>Туроператоры<br></h2>
                                                             <hr>
+                                                        @elseif($items['role'] == 'sport')
+                                                            <h2>Спортивная база<br></h2>
+                                                            <hr>
                                                         @endif
                                                     </div>
                                                     <div class="rooms">
@@ -750,6 +756,9 @@
                                                         @elseif($items['role'] == 'tur')
                                                             <h2>Туроператоры<br></h2>
                                                             <hr>
+                                                        @elseif($items['role'] == 'sport')
+                                                            <h2>Спортивная база<br></h2>
+                                                            <hr>
                                                         @endif
                                                     </div>
                                                     <div class="rooms">
@@ -801,7 +810,7 @@
                                             <label class="promocode">{{$payment->promocode}}</label>
                                         </div>
                                     </div>
-                                 @endif
+                                @endif
                             @endforeach
                         @endforeach
                     @else
@@ -831,6 +840,9 @@
                                                 <hr>
                                             @elseif($items['role'] == 'tur')
                                                 <h2>Туроператоры<br></h2>
+                                                <hr>
+                                            @elseif($items['role'] == 'sport')
+                                                <h2>Спортивная база<br></h2>
                                                 <hr>
                                             @endif
                                         </div>
