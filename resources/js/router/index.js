@@ -96,6 +96,11 @@ const router = createRouter({
                     name: 'tur',
                     component: () => import('../views/Tur.vue')
                 },
+                {
+                    path: 'sport',
+                    name: 'sport',
+                    component: () => import('../views/Sport.vue')
+                },
             ]
         },
         {
@@ -122,6 +127,11 @@ const router = createRouter({
             path: '/sanatorium/:id',
             name: 'sanatorium_card',
             component: () => import('../views/sanatoriumCard.vue')
+        },
+        {
+            path: '/sport/:id',
+            name: 'sport_card',
+            component: () => import('../views/sportCard.vue')
         },
         {
             path: '/tur/:id',

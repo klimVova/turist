@@ -104,4 +104,18 @@ Route::post('/turShow/{turCard}/comments', \App\Http\Controllers\API\Tur\ShowCom
 Route::delete('/tur/comment/{id}', \App\Http\Controllers\API\Tur\DeleteCommentController::class);
 Route::get('/turtime', \App\Http\Controllers\API\Tur\TimeController::class);
 
+Route::post('/sports', \App\Http\Controllers\API\Sport\IndexController::class);
+Route::get('/sports/filters', \App\Http\Controllers\API\Sport\FilterListController::class);
+Route::get('/sport/{sportCard}', \App\Http\Controllers\API\Sport\ShowController::class);
+Route::get('/sportAction', \App\Http\Controllers\API\Sport\ActionController::class);
+Route::get('/sportServic', \App\Http\Controllers\API\Sport\ServicController::class);
+Route::get('/sportCategories', \App\Http\Controllers\API\Sport\CategoryController::class);
+Route::get('/sportPost', \App\Http\Controllers\API\Sport\PostController::class);
+Route::post('/sport/{sportCard}/comments', \App\Http\Controllers\API\Sport\CommentController::class);
+Route::post('/sportShow/{sportCard}/comments', \App\Http\Controllers\API\Sport\ShowCommentController::class);
+Route::delete('/sport/comment/{id}', \App\Http\Controllers\API\Sport\DeleteCommentController::class);
+Route::get('/sportLists', \App\Http\Controllers\API\Sport\ListController::class);
+Route::get('/sportItems', \App\Http\Controllers\API\Sport\ItemController::class);
+Route::get('/sportProducts', \App\Http\Controllers\API\Sport\ProductController::class);
+
 Route::post('/preOrder', \App\Http\Controllers\API\PreOrder\StoreController::class);

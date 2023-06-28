@@ -28,6 +28,9 @@
             <template v-else-if="Number(state.user) === user.id && user.role === 7  && state.user !== ''">
                 <a href="http://127.0.0.1:8000/main/turoperator"><img src="assets/img/office.svg"></a>
             </template>
+            <template v-else-if="Number(state.user) === user.id && user.role === 8  && state.user !== ''">
+                <a href="http://127.0.0.1:8000/main/sport"><img src="assets/img/office.svg"></a>
+            </template>
         </div>
     </div>
 </template>

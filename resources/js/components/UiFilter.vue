@@ -75,6 +75,8 @@ export default {
         this.$router.push({name:'sanatorium'})
       else if (person.type === 6)
           this.$router.push({name:'tur'})
+      else if (person.type === 7)
+          this.$router.push({name:'sport'})
     },
     getFilterList() {
       this.axios.get('/api/medicals/filters',)

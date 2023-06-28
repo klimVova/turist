@@ -38,6 +38,7 @@
                                     <li><img src="assets/img/check-list.svg">Отели</li>
                                     <li><img src="assets/img/check-list.svg">Рестораны/кафе</li>
                                     <li><img src="assets/img/check-list.svg">Тур операторы</li>
+                                    <li><img src="assets/img/check-list.svg">Спортивные базы</li>
                                 </ul>
                                 в разных регионах страны и других стран.
                             </li>

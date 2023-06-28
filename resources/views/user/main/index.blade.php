@@ -384,7 +384,88 @@
                                         </form>
                                     </div>
                                 </div>
+                            @elseif($preOrder->role == 'sport')
+                                <div class="product">
+                                    <div class="product_item">
+                                        <div class="product_item_header">
+                                            <p class="product_item_header_name">
+                                                Cпортивная база
+                                            </p>
+                                            <hr>
+                                        </div>
+                                    </div>
+                                    <div class="product_item_option">
+                                        <img class="product_image" src=" {{$preOrder->image_product}}">
+                                        {{--                                {{json_decode($preOrder->products, true)['totalPrice']}}--}}
+                                        <label class="name col"> {{$preOrder->role}}
+                                            <br>" {{$preOrder->name_product}}
+                                            "</label>
+                                        <div class="product_list_item_header_hostel ">
+                                            <div class="product_list_item_header_hostel_m"><span
+                                                    class="product_list_item_header_head">{{json_decode($preOrder->products, true)['category'] }}</span>
+                                            </div>
+                                            <div class="product_list_item_header_hostel_m">
+                                                <span>
+                                                    ({{json_decode($preOrder->products, true)['berth'] }} человек)
 
+                                                </span>
+                                            </div>
+                                            <div class="col product_option_list_item_date_san">
+                                                @foreach(json_decode($preOrder->products, true)['date'] as $list)
+                                                    <label class="date">{{$list}}</label>
+                                                @endforeach<br>
+                                                <label
+                                                    class="date">{{json_decode($preOrder->products, true)['totalPrice'] }}
+                                                    р</label>
+                                            </div>
+                                        </div>
+                                        <ol class="product_option_list_san col-5">
+                                            @if((json_decode($preOrder->products, true)['productList']) !== null)
+                                                @foreach((json_decode($preOrder->products, true)['productList']) as $list)
+                                                    <li class="product_option_list_item row">
+                                                        <div class="product_list_item_header col-9">
+                                                            <div
+                                                                class="product_list_item_header_head">{{$list['product']}}</div>
+                                                            <div class="product_option_list_item_qty">
+                                                                <span>({{$list['qty']}})</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product_option_list_item_cost col-3">
+                                                            <p>{{$list['price']}} &nbsp</p>
+                                                            <p> p</p>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
+                                            @else
+                                            @endif
+                                        </ol>
+                                        <p>{{json_decode($preOrder->total_price, true)}} &nbsp</p>
+                                        <p> p</p>
+                                        {{--                                        <ul class="service">--}}
+                                        {{--                                            @if((json_decode($preOrder->products, true)['product']) !== null)--}}
+                                        {{--                                                @foreach((json_decode($preOrder->products, true)['product']) as $item)--}}
+                                        {{--                                                    <li class="product_list">--}}
+                                        {{--                                                        <div class="product_item_header">--}}
+                                        {{--                                                            <h5 class="text-bold">{{$item['cat']}}</h5>--}}
+                                        {{--                                                            <p>{{$item['product']}}</p>--}}
+                                        {{--                                                        </div>--}}
+                                        {{--                                                        <span>{{$item['qty']}}</span>--}}
+                                        {{--                                                        <label class="cost">  {{$item['price']}}р</label>--}}
+                                        {{--                                                    </li>--}}
+                                        {{--                                                @endforeach--}}
+                                        {{--                                            @else--}}
+                                        {{--                                            @endif--}}
+                                        {{--                                        </ul>--}}
+                                        <form class="product_form" action="{{route('user.maim.delete', $preOrder->id)}}"
+                                              method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="border-0 bg-transparent" l>
+                                                <i class="fas fa-trash text-danger mr-5" role="button"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
                             @elseif($preOrder->role == 'tur')
                                 <div class="product">
                                     <div class="product_item">

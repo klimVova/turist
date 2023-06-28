@@ -24,6 +24,7 @@ class User extends Authenticatable
     const ROLE_SPA = 5;
     const ROLE_SANATORIUM = 6;
     const ROLE_TUROPERATOR = 7;
+    const ROLE_SPORT = 8;
 
 
     public static function getRoles()
@@ -36,7 +37,8 @@ class User extends Authenticatable
             self::ROLE_MEDICAL => 'Медецина',
             self::ROLE_SPA => 'CПА',
             self::ROLE_SANATORIUM => 'Санатории',
-            self::ROLE_TUROPERATOR => 'ТурОператор'
+            self::ROLE_TUROPERATOR => 'ТурОператор',
+            self::ROLE_SPORT => 'Спорт',
         ];
     }
 
@@ -287,5 +289,42 @@ class User extends Authenticatable
     public function turoperatorTimes()
     {
         return $this->hasMany(TuroperatorTime::class, 'user_id');
+    }
+
+    //sport
+    public function sportPosts()
+    {
+        return $this->hasMany(SportPost::class, 'user_id', 'id');
+    }
+
+    public function sportCards()
+    {
+        return $this->hasMany(SportCard::class, 'user_id');
+    }
+
+    public function sportCategories()
+    {
+        return $this->hasMany(SportCategory::class, 'user_id');
+    }
+
+    public function sportTags()
+    {
+        return $this->hasMany(SportTag::class, 'user_id');
+    }
+    public function sportCardTag()
+    {
+        return $this->hasMany(SportCardTag::class, 'user_id');
+    }
+    public function sportActions()
+    {
+        return $this->hasMany(SportAction::class, 'user_id');
+    }
+    public function sportServics()
+    {
+        return $this->hasMany(SportServic::class, 'user_id');
+    }
+    public function sportTodoLists()
+    {
+        return $this->hasMany(SportTodoList::class, 'user_id');
     }
 }

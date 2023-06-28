@@ -1,0 +1,80 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <div class="sidebar">
+        <ul class="pt-3 nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <li class="nav-item">
+                <a href="{{route('sport.main.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-home"></i>
+                    <p>
+                        Главная
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('sport.card.index')}}" class="nav-link">
+                    <i class="nav-icon fa fa-hotel"></i>
+                    <p>
+                        Главная карточка Вашей спортбазы
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('sport.post.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>
+                        Мои посты
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('sport.todolist.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-list-ul"></i>
+                    <p>
+                        Cписок инвентаря
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('sport.category.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-clipboard"></i>
+                    <p>
+                        Категории в номеров
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('sport.tag.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-list-ul"></i>
+                    <p>
+                        Услуги в номере
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('sport.tagCard.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-list-ul"></i>
+                    <p>
+                        Услуги (вывод в каталог)
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('sport.action.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-tag"></i>
+                    <p>
+                        Преференции для клиентов платформы
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('sport.servic.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-tags"></i>
+                    <p>
+                        Услуги и удобства
+                    </p>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <!-- /.sidebar -->
+</aside>

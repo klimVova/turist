@@ -613,6 +613,105 @@ Route::group(['prefix' => 'main'], function () {
         });
     });
 
+//sport
+    Route::group(['namespace' => 'Sport', 'prefix' => 'sport', 'middleware' => ['auth', 'sport', 'verified']], function () {
+        Route::group(['namespace' => 'Main'], function () {
+            Route::get('/', IndexController::class)->name('sport.main.index');
+        });
+        Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
+            Route::get('/', IndexController::class)->name('sport.post.index');
+            Route::get('/create', CreateController::class)->name('sport.post.create');
+            Route::post('/', StoreController::class)->name('sport.post.store');
+            Route::get('/{sportPost}/edit', EditController::class)->name('sport.post.edit');
+            Route::patch('/{sportPost}', UpdateController::class)->name('sport.post.update');
+            Route::delete('/{sportPost}', DeleteController::class)->name('sport.post.delete');
+            Route::get('/{sportPost}/image/', ImageController::class)->name('sport.post.image');
+            Route::post('/{sportPost}/image/', ImageStoreController::class)->name('sport.post.image_store');
+            Route::delete('{sportPost}/image/', ImageRemoveController::class, 'remove')->name('sport.post.image_remove');
+        });
+        Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function () {
+            Route::get('/', IndexController::class)->name('sport.category.index');
+            Route::get('/create', CreateController::class)->name('sport.category.create');
+            Route::post('/', StoreController::class)->name('sport.category.store');
+            Route::get('/{sportCategory}', ShowController::class)->name('sport.category.show');
+            Route::get('/{sportCategory}/edit', EditController::class)->name('sport.category.edit');
+            Route::patch('/{sportCategory}', UpdateController::class)->name('sport.category.update');
+            Route::delete('/{sportCategory}', DeleteController::class)->name('sport.category.delete');
+        });
+        Route::group(['namespace' => 'Tag', 'prefix' => 'tags'], function () {
+            Route::get('/', IndexController::class)->name('sport.tag.index');
+            Route::get('/create', CreateController::class)->name('sport.tag.create');
+            Route::post('/', StoreController::class)->name('sport.tag.store');
+            Route::get('/{sportTag}', ShowController::class)->name('sport.tag.show');
+            Route::get('/{sportTag}/edit', EditController::class)->name('sport.tag.edit');
+            Route::patch('/{sportTag}', UpdateController::class)->name('sport.tag.update');
+            Route::delete('/{sportTag}', DeleteController::class)->name('sport.tag.delete');
+        });
+        Route::group(['namespace' => 'Card', 'prefix' => 'cards'], function () {
+            Route::get('/', IndexController::class)->name('sport.card.index');
+            Route::get('/create', CreateController::class)->name('sport.card.create');
+            Route::post('/', StoreController::class)->name('sport.card.store');
+            Route::get('/{sportCard}', ShowController::class)->name('sport.card.show');
+            Route::get('/{sportCard}/edit', EditController::class)->name('sport.card.edit');
+            Route::patch('/{sportCard}', UpdateController::class)->name('sport.card.update');
+            Route::delete('/{sportCard}', DeleteController::class)->name('sport.card.delete');
+            Route::get('/{sportCard}/image/', ImageController::class)->name('sport.card.image');
+            Route::post('/{sportCard}/image/', ImageStoreController::class)->name('sport.card.image_store');
+            Route::delete('{sportCard}/image/', ImageRemoveController::class)->name('sport.card.image_remove');
+        });
+        Route::group(['namespace' => 'TagCard', 'prefix' => 'cardTags'], function () {
+            Route::get('/', IndexController::class)->name('sport.tagCard.index');
+            Route::get('/create', CreateController::class)->name('sport.tagCard.create');
+            Route::post('/', StoreController::class)->name('sport.tagCard.store');
+            Route::get('/{sportCardTag}', ShowController::class)->name('sport.tagCard.show');
+            Route::get('/{sportCardTag}/edit', EditController::class)->name('sport.tagCard.edit');
+            Route::patch('/{sportCardTag}', UpdateController::class)->name('sport.tagCard.update');
+            Route::delete('/{sportCardTag}', DeleteController::class)->name('sport.tagCard.delete');
+        });
+        Route::group(['namespace' => 'Action', 'prefix' => 'action'], function () {
+            Route::get('/', IndexController::class)->name('sport.action.index');
+            Route::get('/create', CreateController::class)->name('sport.action.create');
+            Route::post('/', StoreController::class)->name('sport.action.store');
+            Route::get('/{sportAction}', ShowController::class)->name('sport.action.show');
+            Route::get('/{sportAction}/edit', EditController::class)->name('sport.action.edit');
+            Route::patch('/{sportAction}', UpdateController::class)->name('sport.action.update');
+            Route::delete('/{sportAction}', DeleteController::class)->name('sport.action.delete');
+        });
+        Route::group(['namespace' => 'Servic', 'prefix' => 'servic'], function () {
+            Route::get('/', IndexController::class)->name('sport.servic.index');
+            Route::get('/create', CreateController::class)->name('sport.servic.create');
+            Route::post('/', StoreController::class)->name('sport.servic.store');
+            Route::get('/{sportServic}', ShowController::class)->name('sport.servic.show');
+            Route::get('/{sportServic}/edit', EditController::class)->name('sport.servic.edit');
+            Route::patch('/{sportServic}', UpdateController::class)->name('sport.servic.update');
+            Route::delete('/{sportServic}', DeleteController::class)->name('sport.servic.delete');
+        });
+        Route::group(['namespace' => 'TodoList', 'prefix' => 'todolist'], function () {
+            Route::get('/', IndexController::class)->name('sport.todolist.index');
+            Route::get('/create', CreateController::class)->name('sport.todolist.create');
+            Route::post('/', StoreController::class)->name('sport.todolist.store');
+            Route::get('/{sportTodoList}', ShowController::class)->name('sport.todolist.show');
+            Route::get('/{sportTodoList}/edit', EditController::class)->name('sport.todolist.edit');
+            Route::patch('/{sportTodoList}', UpdateController::class)->name('sport.todolist.update');
+            Route::delete('/{sportTodoList}', DeleteController::class)->name('sport.todolist.delete');
+            Route::get('/{sportTodoList}/item/', ItemController::class)->name('sport.todolist.item');
+            Route::post('/{sportTodoList}/item/', ItemStoreController::class)->name('sport.todolist.item_store');
+            Route::delete('{sportTodoList}/item/', ItemRemoveController::class, 'remove')->name('sport.todolist.item_remove');
+        });
+        Route::group(['namespace' => 'TodoItem', 'prefix' => 'todoitem'], function () {
+            ;
+            Route::get('/{sportTodoItem}/edit', EditController::class)->name('sport.todoitem.edit');
+            Route::patch('/{sportTodoItem}', UpdateController::class)->name('sport.todoitem.update');
+            Route::get('/{sportTodoItem}/product/', ProductController::class)->name('sport.todoitem.product');
+            Route::post('/{sportTodoItem}/product/', ProductStoreController::class)->name('sport.todoitem.product_store');
+            Route::delete('{sportTodoItem}/product/', ProductRemoveController::class, 'remove')->name('sport.todoitem.product_remove');
+        });
+        Route::group(['namespace' => 'TodoProduct', 'prefix' => 'todoproduct'], function () {
+            ;
+            Route::get('/{sportTodoProduct}/edit', EditController::class)->name('sport.todoproduct.edit');
+            Route::patch('/{sportTodoProduct}', UpdateController::class)->name('sport.todoproduct.update');
+        });
+    });
 
 });
 Route::group(['namespace' => 'Payment'], function () {

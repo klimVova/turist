@@ -41,6 +41,11 @@
                     :to="{name:'tur'}">
                     <li>Туроператоры </li>
                 </router-link>
+                <router-link
+                    active-class="active"
+                    :to="{name:'sport'}">
+                    <li>Cпортивные базы </li>
+                </router-link>
             </ul>
           </div>
         </div>
