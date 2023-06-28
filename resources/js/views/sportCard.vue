@@ -116,7 +116,7 @@
                         </div>
                         <div class="col col-12 col-md-6 section">
                             <div class="section-label">
-                                <h2>Процедуры и обследования</h2>
+                                <h2>Инфраструктура и инвентарь </h2>
                                 <hr>
                             </div>
                             <div class="service-list">
