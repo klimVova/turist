@@ -37,7 +37,7 @@
                 <a href="{{route('sanatorium.category.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-clipboard"></i>
                     <p>
-                        Категории в номеров
+                        Категории  номеров
                     </p>
                 </a>
             </li>

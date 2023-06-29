@@ -21,7 +21,7 @@
                 <a href="{{route('sport.post.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-users"></i>
                     <p>
-                        Мои посты
+                        Список номеров
                     </p>
                 </a>
             </li>
@@ -37,7 +37,7 @@
                 <a href="{{route('sport.category.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-clipboard"></i>
                     <p>
-                        Категории в номеров
+                        Категории номеров
                     </p>
                 </a>
             </li>
