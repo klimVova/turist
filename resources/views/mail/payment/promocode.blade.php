@@ -4,7 +4,6 @@
     <p>Цена : {{$d['amount']}}</p>
     <table class="table">
         @foreach(array(($d['products'])) as $item)
-
             @foreach(json_decode($item,true) as $i)
                 <thead>
                 <tr>
