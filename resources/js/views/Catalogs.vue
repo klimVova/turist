@@ -44,7 +44,7 @@
                 <router-link
                     active-class="active"
                     :to="{name:'sport'}">
-                    <li>Cпортивные базы </li>
+                    <li>Cпорт </li>
                 </router-link>
             </ul>
           </div>

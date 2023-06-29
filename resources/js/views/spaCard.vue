@@ -35,7 +35,7 @@
                                     <div class="hotel-gallery">
                                         <ul>
                                             <li v-for="image in images" id="1">
-                                                <template v-if="image.medical_card_id === card.id">
+                                                <template v-if="image.spa_card_id === card.id">
                                                     <img :src="image.images">
                                                 </template>
                                             </li>

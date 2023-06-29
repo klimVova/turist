@@ -26,6 +26,7 @@ class IndexController extends Controller
         $email = DB::table('payments')->where('user_id', '=', $user['id'])->pluck('email')->last();
         $products_email = DB::table('payments')->where('user_id', '=', $user['id'])->pluck('products')->last();
         $amount = DB::table('payments')->where('user_id', '=', $user['id'])->pluck('amount')->last();
+
         $d= [
             'promo' => $promocode,
             'email' => $email,
@@ -33,9 +34,11 @@ class IndexController extends Controller
             'products' => $products_email,
             'amount' => $amount,
         ];
+
         if ($promocode != NULL && $promocode_status != 0 ) {
             Mail::to($email)->send(new Promocode($d));
         }
+
         return view('user.main.index', compact('user', 'preOrders', 'products', 'totals', 'payments'));
     }
 }

@@ -23,14 +23,11 @@ class IndexController extends Controller
             'httpMethod' => HttpClientInterface::METHOD_GET,
         ]);
 
-        $totals = DB::table('pre_orders')->pluck('total_price') ;
+        $user = auth()->user();
+        $totals = DB::table('pre_orders')->where('user_id', '=', $user['id'])->pluck('total_price') ;
         foreach (array($totals) as $total)
             $a = array_sum(json_decode($total, true));
             $amount = $a * 0.1*100;
-
-
-
-        $user = auth()->user();
 
         $email = $user['email'];
         $name = $user['name'];
@@ -74,7 +71,6 @@ class IndexController extends Controller
             'total_price_product' =>   $total_price_product,
             'amount' => $amount,
             ];
-
 
         $response = $client->registerOrder($payment->id, $amount, $returnUrl  , $data );
 

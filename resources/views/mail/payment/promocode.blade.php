@@ -4,12 +4,13 @@
     <p>Цена : {{$d['amount']}}</p>
     <table class="table">
         @foreach(array(($d['products'])) as $item)
+
             @foreach(json_decode($item,true) as $i)
                 <thead>
                 <tr>
                     <th scope="col"><p>Название организации: {{$i['name_product']}}</p></th>
                     <th scope="col">Название услуги</th>
-                    <th scope="col">Количество людей</th>
+                    <th scope="col">Количество</th>
                     <th scope="col">Цена за улслугу</th>
                 </tr>
                 </thead>
@@ -18,44 +19,45 @@
                         @foreach(json_decode($products,true)['productList'] as $product)
                             <tbody>
                             <tr>
-                                <th scope="row">{{$product['id']}}</th>
-                                <td><p>{{$product['product']}}</p></td>
-                                <td><p>{{$product['qty']}}</p></td>
-                                <td><p>{{$product['price']}}</p></td>
+                                <td>{{$product['id']}}</td>
+                                <td>{{$product['product']}}</td>
+                                <td>{{$product['qty']}}</td>
+                                <td>{{$product['price']}}</td>
                             </tr>
                             </tbody>
                         @endforeach
                     @else
                         <tbody>
                         <tr>
-                            <th scope="row">1
-                                {{json_decode($products,true)['id']}}
-                            </th>
-                            <td><p>{{json_decode($products,true)['title']}}</p></td>
-                            <td><p>{{json_decode($products,true)['berth']}}</p></td>
-                            @if(isset(json_decode($products,true)['price']))
-                                <td><p>{{json_decode($products,true)['price']}}</p></td>
+                            @if(isset(json_decode($products,true)['id']))
+                                <td>{{json_decode($products,true)['id']}}</td>
+                                <td>{{json_decode($products,true)['title']}}</td>
+                                <td>{{json_decode($products,true)['berth']}}</td>
+                                @if(isset(json_decode($products,true)['price']))
+                                    <td>{{json_decode($products,true)['price']}}</td>
+                                @else
+                                    <td>{{json_decode($products,true)['totalPrice']}}</td>
+                                @endif
                             @else
-                                <td><p>{{json_decode($products,true)['totalPrice']}}</p></td>
+                            @endif
+                        </tr>
+                        </tbody>
                     @endif
                     @if(isset(json_decode($products,true)['productList']))
                         @foreach(json_decode($products,true)['productList'] as $product)
                             <tbody>
                             <tr>
                                 <th scope="row">{{$product['id']}}</th>
-                                <td><p>{{$product['product']}}</p></td>
-                                <td><p>{{$product['qty']}}</p></td>
-                                <td><p>{{$product['price']}}</p></td>
+                                <td>{{$product['product']}}</td>
+                                <td>{{$product['qty']}}</td>
+                                <td>{{$product['price']}}</td>
                             </tr>
                             </tbody>
-                            @endforeach
-                            @else
-                            @endif
-                            </tr>
-                            </tbody>
-                            @endif
                         @endforeach
-                        @endforeach
-                        @endforeach
+                    @else
+                    @endif
+                @endforeach
+            @endforeach
+        @endforeach
     </table>
 @endcomponent
