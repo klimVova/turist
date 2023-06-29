@@ -132,6 +132,7 @@ export default {
         this.state.district = person.district
         this.state.republic = person.republic
       }
+        localStorage.clear()
     },
   },
   mounted() {

@@ -48,11 +48,12 @@
           </ul>
         </div>
         <div class="media">
+            <router-link :to="{name: 'home'}"><img class="f-logo" src="assets//img/logo-l.png"></router-link>
           <img src="assets/img/vk.svg">
           <img src="assets/img/telegram.svg">
         </div>
       </div>
-      <img class="f-logo" src="assets//img/logo-l.png">
+
       <img class="payment-img" src="assets//img/payment.png">
     </footer>
   </div>

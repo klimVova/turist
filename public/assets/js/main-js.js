@@ -1,9 +1,16 @@
 function openBlock(id){
     display = document.getElementById(id).style.display;
 
-    if(display=='none'){
-       document.getElementById(id).style.display='block';
+    if(display=='block'){
+        document.getElementById(id).style.display='none';
+        const newcard = document.querySelector('.mob-menu-div img');
+        // newcard.setAttribute('src', 'assets/img/close.svg');
+        newcard.setAttribute('src', 'assets/img/menu.svg');
     }else{
-       document.getElementById(id).style.display='none';
+        document.getElementById(id).style.display='block';
+        const newcard = document.querySelector('.mob-menu-div img');
+        // newcard.setAttribute('src', 'assets/img/close.svg');
+        newcard.setAttribute('src', 'assets/img/close.svg');
     }
 }
+

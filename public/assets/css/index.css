@@ -500,7 +500,7 @@ footer .media img {
     }
 
     footer .menu ul {
-        display: block;
+        display: none;
     }
 
     footer .menu ul li {
@@ -568,9 +568,6 @@ footer .media img {
     list-style-type: none;
 }
 
-.org-type-sort ul li:hover {
-    background-color: #F1F1F1;
-}
 
 .org-type-sort ul li a {
     color: #08366A;
@@ -1152,7 +1149,9 @@ footer .media img {
 
 .org-type-sort ul .active li {
     color: white;
+
 }
+
 
 @media (max-width: 480px) {
     .org-type-sort ul li {
@@ -1162,6 +1161,7 @@ footer .media img {
     .org-type-sort {
         margin-top: 16px;
     }
+
 }
 
 /*...........CONTACTS///////////////*/
@@ -2593,4 +2593,7 @@ footer .f-logo {
     position: absolute;
     top: 455px;
     left: 455px;
+}
+.rules-org-info ol {
+    padding-left: 18px;
 }
