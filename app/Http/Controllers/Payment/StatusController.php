@@ -31,24 +31,6 @@ class StatusController extends Controller
                 $payment->promocode = $promo;
                 $payment->save();
             }
-            $user = auth()->user();
-            $promocode = DB::table('payments')->where('user_id', '=', $user['id'])->pluck('promocode')->last();
-            $time = DB::table('payments')->where('user_id', '=', $user['id'])->pluck('created_at')->last();
-            $promocode_status = DB::table('payments')->where('user_id', '=', $user['id'])->pluck('status')->last();
-            $promocode = DB::table('payments')->where('user_id', '=', $user['id'])->pluck('promocode')->last();
-            $email = DB::table('payments')->where('user_id', '=', $user['id'])->pluck('email')->last();
-            $products_email = DB::table('payments')->where('user_id', '=', $user['id'])->pluck('products')->last();
-            $amount = DB::table('payments')->where('user_id', '=', $user['id'])->pluck('amount')->last();
-
-            $d= [
-                'promo' => $promocode,
-                'email' => $email,
-                'time' => $time,
-                'products' => $products_email,
-                'amount' => $amount,
-            ];
-                Mail::to($email)->send(new Promocode($d));
-
         }
         return response()->json([]);
     }
