@@ -38,6 +38,7 @@ class IndexController extends Controller
         $preOrders=  DB::table('pre_orders')->where('user_id', '=', $user['id'])->get();
         foreach ($preOrders as $preOrder)
         $name_product =$preOrder->name_product;
+        $organization_email=$preOrder->organization_email;
         $date_product =$preOrder->date;
         $total_price_product =$preOrder->total_price;
 
@@ -50,6 +51,7 @@ class IndexController extends Controller
             'phone' => $phone,
             'user_id' => $user_id,
             'name_product' =>   $name_product,
+            'organization_email' =>   $organization_email,
             'date_product' =>   $date_product,
             'total_price_product' =>  $total_price_product,
             'amount' => $amount,
@@ -67,6 +69,7 @@ class IndexController extends Controller
             'phone' => $phone,
             'user_id' => $user_id,
             'name_product' =>   $name_product,
+            'organization_email' =>   $organization_email,
             'date_product' =>   $date_product,
             'total_price_product' =>   $total_price_product,
             'amount' => $amount,

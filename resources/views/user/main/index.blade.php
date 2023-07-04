@@ -159,11 +159,11 @@
                                                 <br>" {{$preOrder->name_product}}
                                                 "</label>
                                             <ol class="product_option_list">
+                                                @if(isset(json_decode($preOrder->products, true)['productList']))
                                                 @foreach((json_decode($preOrder->products, true)['productList']) as $list)
                                                     <li class="product_option_list_item row">
                                                         <div class="product_list_item_header col-9">
-                                                            <div
-                                                                class="product_list_item_header_head">{{$list['product']}}</div>
+                                                            <div class="product_list_item_header_head">{{$list['product']}}</div>
                                                             <div class="product_option_list_item_qty">
                                                                 <span>({{$list['qty']}})</span>
                                                             </div>
@@ -174,6 +174,8 @@
                                                         </div>
                                                     </li>
                                                 @endforeach
+                                                @else
+                                                @endif
                                             </ol>
                                             <label
                                                 class="date">  {{json_decode($preOrder->products, true)['date']}}</label>

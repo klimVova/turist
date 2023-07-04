@@ -78,6 +78,7 @@ export default {
             message:'Добавить',
             order: [],
             role: 'spa',
+            email:[],
         }
     },
     methods: {
@@ -88,9 +89,10 @@ export default {
                 'date': this.$refs.formDate.date,
                 'products': this.order,
                 'user_id': this.state.user,
-                'name_product': this. card.title,
+                'name_product': this.card.title,
                 'image_product':this.card.image_url,
-                'role' : this.role
+                'role' : this.role,
+                'organization_email': this.card.email
             })
                 .then(res => {
                     localStorage.clear()

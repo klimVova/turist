@@ -28,6 +28,7 @@ class CafeResource extends JsonResource
             'name_link' => $this->name_link,
             'phone' => $this->phone,
             'user_id' => $this->user_id,
+            'email' => $this->user_email,
             'type_id' => $this->type_id,
             'district_id' => $this->district_id,
             'republic_id' =>$this->republic_id,

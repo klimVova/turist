@@ -81,6 +81,8 @@ export default {
             message: 'Добавить',
             order: [],
             role: 'Мед.центр',
+            email:[],
+
         }
     },
     methods: {
@@ -92,14 +94,12 @@ export default {
                 'user_id': this.state.user,
                 'name_product': this.card.title,
                 'image_product': this.card.image_url,
-                'role': this.role
+                'role': this.role,
+                'organization_email': this.card.email
             })
                 .then(res => {
-                    localStorage.clear()
+                    // localStorage.clear()
                 })
-        },
-        getDate(){
-
         },
         price() {
             const raws = localStorage.getItem('medProduct')
@@ -177,14 +177,13 @@ export default {
                 people: this.$refs.formDate.countPeople,
                 product: product,
                 productList: productList,
-                totalPrice: this.totalPrice
+                totalPrice: this.totalPrice,
             }
 
             localStorage.setItem('orderProductMed', JSON.stringify(this.order))
             const raw = localStorage.getItem('order')
             const orderProductMed = JSON.parse(raw)
             this.storePreOreder()
-
         },
     },
 

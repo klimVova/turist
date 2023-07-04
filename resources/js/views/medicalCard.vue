@@ -1,5 +1,6 @@
 <template>
     <div>
+
         <div class="container-fluid main card">
             <div class="row menu-categories">
                 <div class="sort col col-12 col-md-2">
@@ -328,7 +329,6 @@ export default {
                 .then(res => {
 
                     this.images = res.data.data;
-                    console.log(this.images);
                 })
         },
     },

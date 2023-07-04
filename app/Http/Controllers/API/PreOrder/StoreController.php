@@ -26,6 +26,7 @@ class StoreController extends Controller
             'name_product' => $data['name_product'],
             'image_product' => $data['image_product'],
             'role' => $data['role'],
+            'organization_email' => $data['organization_email'],
         ]);
 
         return new PreOrderResource($preOrder);

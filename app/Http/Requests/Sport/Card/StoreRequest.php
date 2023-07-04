@@ -36,6 +36,7 @@ class StoreRequest extends FormRequest
             'link' => 'required|string',
             'name_link' => 'required|string',
             'user_id' => 'required|integer|exists:users,id',
+            'user_email' => 'required|string',
             'type_id' => 'required|integer|exists:types,id',
             'district_id' => 'required|integer|exists:districts,id',
             'republic_id' => 'required|integer|exists:republics,id',

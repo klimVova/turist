@@ -31,6 +31,7 @@ class StoreRequest extends FormRequest
             'name_product' => 'required|string',
             'image_product' => 'required|string',
             'role' => 'required|string',
+            'organization_email'=>'required|string',
         ];
     }
 }

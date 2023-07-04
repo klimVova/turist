@@ -88,7 +88,8 @@ export default {
                 'user_id': this.state.user,
                 'name_product': this. card.title,
                 'image_product':this.card.image_url,
-                'role' : this.role
+                'role' : this.role,
+                'organization_email': this.card.email
             })
                 .then(res => {
                     localStorage.clear()
