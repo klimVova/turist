@@ -29,8 +29,8 @@
                                 <div class="text-danger">{{$message}}</div>
                                 @enderror
                             </div>
+                            <label> Email (для получения уведомлений:промокод,заказ) </label>
                             <div class="form-group w-25">
-                                <label> Email (для получения уведомлений:промокод,заказ) </label>
                                 <input type="text" class="form-control" name="user_email" placeholder="Email"
                                        value="{{old('user_email')}}">
                                 @error('title')
