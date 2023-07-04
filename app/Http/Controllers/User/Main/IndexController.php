@@ -40,32 +40,35 @@ class IndexController extends Controller
 
         if ($promocode != NULL && $promocode_status != 0) {
             foreach (json_decode($products_email) as $item)
-            $k = array();
+                $k = array();
             for($i = 0; $i < count(json_decode($products_email)); $i++){
                 $k[$i] = (json_decode($products_email)[$i]);
-                $message = [
-                    'promo' => $promocode,
-                    'email' => $k[$i]->organization_email,
-                    'time' => $time,
-                    'products' => $products_email,
-                    'amount' => $amount,
-                    'surname' => $surname,
-                    'name' => $name,
-                    'phone' => $phone,
-                ];
-                if(json_decode($products_email)[$i]->role === 'Мед.центр'){
+                if(isset($k[$i]->organization_email)){
+                    $message = [
+                        'promo' => $promocode,
+                        'email' => $k[$i]->organization_email,
+                        'time' => $time,
+                        'products' => $products_email,
+                        'amount' => $amount,
+                        'surname' => $surname,
+                        'name' => $name,
+                        'phone' => $phone,
+                    ];
+                }
+
+                if(isset($k[$i]->organization_email) && json_decode($products_email)[$i]->role === 'Мед.центр'){
                     Mail::to($k[$i]->organization_email)->send(new Organization($message));}
-                elseif (json_decode($products_email)[$i]->role === 'spa'){
+                elseif (isset($k[$i]->organization_email) && json_decode($products_email)[$i]->role === 'spa'){
                     Mail::to($k[$i]->organization_email)->send(new Organization($message));}
-                elseif (json_decode($products_email)[$i]->role === 'hostel'){
+                elseif (isset($k[$i]->organization_email) && json_decode($products_email)[$i]->role === 'hostel'){
                     Mail::to($k[$i]->organization_email)->send(new Organization($message));}
-                elseif (json_decode($products_email)[$i]->role === 'tur'){
+                elseif (isset($k[$i]->organization_email) && json_decode($products_email)[$i]->role === 'tur'){
                     Mail::to($k[$i]->organization_email)->send(new Organization($message));}
-                elseif (json_decode($products_email)[$i]->role === 'sanatorium'){
+                elseif (isset($k[$i]->organization_email) && json_decode($products_email)[$i]->role === 'sanatorium'){
                     Mail::to($k[$i]->organization_email)->send(new Organization($message));}
-                elseif (json_decode($products_email)[$i]->role === 'sport'){
+                elseif (isset($k[$i]->organization_email) && json_decode($products_email)[$i]->role === 'sport'){
                     Mail::to($k[$i]->organization_email)->send(new Organization($message));}
-                elseif (json_decode($products_email)[$i]->role === 'cafe'){
+                elseif (isset($k[$i]->organization_email) && json_decode($products_email)[$i]->role === 'cafe'){
                     Mail::to($k[$i]->organization_email)->send(new Organization($message));}
             }
         }

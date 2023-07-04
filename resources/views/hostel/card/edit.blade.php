@@ -30,6 +30,14 @@
                                 <div class="text-danger">{{$message}}</div>
                                 @enderror
                             </div>
+                            <label> Email (для получения уведомлений:промокод,заказ) </label>
+                            <div class="form-group w-25">
+                                <input type="text" class="form-control" name="user_email" placeholder="Email"
+                                       value="{{$hostelCard->user_email}}">
+                                @error('title')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
                             <label> Краткое описание </label>
                             <div class="form-group">
                                 <textarea class="textarea"  rows='5' cols='70' name="desc">{{$hostelCard->desc}}</textarea>

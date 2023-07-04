@@ -25,6 +25,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
+            'user_email' => 'required|string',
             'desc' => 'required|string',
             'content' => 'required|string',
             'address' => 'required|string',

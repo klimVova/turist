@@ -26,6 +26,14 @@
                             <div class="text-danger">{{$message}}</div>
                             @enderror
                         </div>
+                        <div class="form-group w-25">
+                            <label> Email (для получения уведомлений:промокод,заказ) </label>
+                            <input type="text" class="form-control" name="user_email" placeholder="Email"
+                                   value="{{old('user_email')}}">
+                            @error('title')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
                         <label>краткое описание</label>
                         <div class="form-group">
                             <textarea class="textarea" rows='5' cols='70' name="desc">{{old('desc')}}</textarea>
@@ -181,7 +189,6 @@
                         </div>
                         <div class="form-group w-50">
                             <input type="hidden" name="user_id" value="{{$user}}">
-                            <input type="hidden" name="user_id" value="{{$user_email}}">
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="Добавить">

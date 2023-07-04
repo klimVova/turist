@@ -31,6 +31,7 @@ class UpdateRequest extends FormRequest
             'coordinate_l' => 'required|string',
             'coordinate_r' => 'required|string',
             'preview_image' => 'nullable|file',
+            'user_email' => 'required|string',
             'logo' => 'nullable|file',
             'phone' => 'required|integer',
             'link' => 'required|string',
