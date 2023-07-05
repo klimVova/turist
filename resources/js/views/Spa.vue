@@ -2,7 +2,7 @@
   <div>
     <div class="row"> <!-- блок, который переключается (боковой фильтр + посты) -->
       <div class="sort col col-12 col-md-2">
-        <img onclick="openBlock('sort')" class="sort-but" src="src/assets/img/sort.svg">
+        <img onclick="openBlockSort('sort')" class="sort-but" src="src/assets/img/sort.svg">
         <div id="sort" class="sort-items">
           <div class="sort-item">
             <span>Страна</span>

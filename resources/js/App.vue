@@ -4,7 +4,7 @@
         <div class="nav">
             <router-link :to="{name: 'home'}"><img src="assets/img/logo-s.png"></router-link>
             <div class="mob-menu-div">
-                <img onclick="openBlock('mob-menu')" class="burger" src="assets/img/menu.svg">
+                <img onclick="openBlockMenu('mob-menu')" class="burger" src="assets/img/menu.svg">
                 <div id="mob-menu" class="menu">
                     <ul>
                         <li>   <router-link :to="{name: 'med'}">Каталог</router-link></li>
