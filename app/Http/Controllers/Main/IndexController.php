@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Main;
 
+use App\Events\PaymentMail;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\Http\Request;

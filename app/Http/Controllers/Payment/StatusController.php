@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers\Payment;
 
+use App\Events\PaymentMail;
 use App\Http\Controllers\Controller;
-use App\Mail\Payment\Promocode;
 use App\Models\Payment;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Mail;
 
 class StatusController extends Controller
 {
