@@ -62,7 +62,6 @@ class NewPaymentEmailNotification
                             'phone' => $phone,
                         ];
                     }
-
                     if (isset($k[$i]->organization_email) && json_decode($products_email)[$i]->role === 'Мед.центр') {
                         Mail::to($k[$i]->organization_email)->send(new Organization($message));
                     } elseif (isset($k[$i]->organization_email) && json_decode($products_email)[$i]->role === 'spa') {
