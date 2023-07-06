@@ -1,5 +1,8 @@
 <template>
     <div>
+        <transition
+            appear
+            name="test">
         <div class="row"> <!-- блок, который переключается (боковой фильтр + посты) -->
             <div class="sort col col-12 col-md-2">
                 <img onclick="openBlockSort('sort')" class="sort-but" src="src/assets/img/sort.svg">
@@ -67,6 +70,7 @@
                 </div>
             </div>
         </div>
+        </transition>
     </div>
 </template>
 
@@ -164,5 +168,14 @@ export default {
 .logo{
     width: 25px;
     height: 25px;
+}
+.test-enter-from,
+.test-leave-to{
+    opacity: 0;
+    transform: translateX(400px);
+}
+.test-enter-active,
+.test-leave-active{
+    transition: all 2s ease-out;
 }
 </style>
