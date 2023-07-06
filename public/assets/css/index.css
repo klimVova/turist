@@ -720,7 +720,6 @@ footer .media img {
         position: absolute;
         right: 8px;
         margin-top: -170px;
-        z-index: 10000;
     }
 
     .catalog .row {
