@@ -41,7 +41,6 @@ export default {
         this.axios.get('/api/baners')
             .then(res => {
                 this.baners = res.data.data
-                console.log(this.baners);
             })
             .catch(error => console.log(error))
     }

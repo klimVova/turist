@@ -15,9 +15,13 @@
                         <img :src="post.image_url" class="image_post">
                     <p v-html="post.content"></p>
                     </p>
-                    <input
-                        :class=" item === Number(post.id + 1) ? 'hide mr-3' : 'mr-3'"
-                        @click.prevent="getNext(Number(post.id - 1))" type="submit" name="" value="Следующая статья">
+                    <template   v-if="Number(post.id - 1) === 0"></template>
+                    <template v-else-if="Number(post.id - 1) !== 0 ">
+                        <input
+                            :class=" item === Number(post.id - 1) ? 'hide mr-3' : 'mr-3'"
+                            @click.prevent="getNext(Number(post.id - 1))" type="submit" name="" value="Следующая статья">
+                    </template>
+
                     <input
                         @click.prevent="getHome()" type="submit" name="" value="Перейти на главную">
                     <div>
@@ -53,9 +57,10 @@ export default {
                         .then(resp => {
                             this.count = resp.data.data
                             this.item = this.count.length
-                            console.log(this.count);
+
                         })
                     this.post = res.data.data
+                    console.log(res);
                 })
         },
         getHome() {
