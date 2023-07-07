@@ -35,7 +35,6 @@
                                 <div class="hotel-gallery">
                                     <ul>
                                         <li v-for="image in card.images" id="1"><img :src="image.images"></li>
-
                                     </ul>
                                 </div>
                             </div>
@@ -213,6 +212,7 @@ export default {
             this.axios.get('/api/hostel/' + this.$route.params.id)
                 .then(res => {
                     this.card = res.data.data;
+                    console.log(res.data.data);
                     let center = [this.card.coordinate_l, this.card.coordinate_r];
                     function init() {
                         let map = new ymaps.Map('map-test', {

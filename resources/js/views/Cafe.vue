@@ -1,8 +1,5 @@
 <template>
   <div>
-      <transition
-          appear
-          name="test">
     <div class="row"> <!-- блок, который переключается (боковой фильтр + посты) -->
       <div class="sort col col-12 col-md-2">
         <img onclick="openBlockSort('sort')" class="sort-but" src="src/assets/img/sort.svg">
@@ -70,7 +67,6 @@
         </div>
       </div>
     </div>
-      </transition>
   </div>
 </template>
 

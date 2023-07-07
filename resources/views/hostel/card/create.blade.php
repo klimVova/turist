@@ -26,15 +26,15 @@
                                 <input type="text" class="form-control" name="title" placeholder="Название отеля"
                                        value="{{old('title')}}">
                                 @error('title')
-                                <div class="text-danger">{{$message}}</div>
+                                <div class="text-danger text-bold">{{$message}}</div>
                                 @enderror
                             </div>
                             <label> Email (для получения уведомлений:промокод,заказ) </label>
                             <div class="form-group w-25">
                                 <input type="text" class="form-control" name="user_email" placeholder="Email"
                                        value="{{old('user_email')}}">
-                                @error('title')
-                                <div class="text-danger">{{$message}}</div>
+                                @error('user_email')
+                                <div class="text-danger text-bold">{{$message}}</div>
                                 @enderror
                             </div>
                             <label>краткое описание</label>
@@ -44,8 +44,8 @@
                                     <span class="current">0</span>&nbsp;/
                                     <span class="total">225</span>
                                 </div>
-                                @error('content')
-                                <div class="text-danger">{{$message}}</div>
+                                @error('desc')
+                                <div class="text-danger text-bold">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
@@ -55,14 +55,14 @@
                                     <span class="total">225</span>
                                 </div>
                                 @error('content')
-                                <div class="text-danger">{{$message}}</div>
+                                <div class="text-danger text-bold">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-25">
                                 <input type="text" class="form-control" name="address" placeholder="Укажите локацию"
                                        value="{{old('address')}}">
                                 @error('address')
-                                <div class="text-danger">{{$message}}</div>
+                                <div class="text-danger text-bold">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-50">
@@ -77,7 +77,7 @@
                                     </div>
                                 </div>
                                 @error('preview_image')
-                                <div class="text-danger">Это поле необходимо заполнить</div>
+                                <div class="text-danger text-bold">Это поле необходимо заполнить</div>
                                 @enderror
                             </div>
                             <div class="form-group w-50">
@@ -89,7 +89,7 @@
                                     </div>
                                 </div>
                                 @error('main_image')
-                                <div class="text-danger">Это поле необходимо заполнить</div>
+                                <div class="text-danger text-bold">Это поле необходимо заполнить</div>
                                 @enderror
                             </div>
                             <div class="form-group w-50">
@@ -104,42 +104,42 @@
                                     </div>
                                 </div>
                                 @error('logo')
-                                <div class="text-danger">Это поле необходимо заполнить</div>
+                                <div class="text-danger text-bold">Это поле необходимо заполнить</div>
                                 @enderror
                             </div>
                             <div class="form-group w-25">
                                 <input type="tel" class="form-control" name="phone" placeholder="Введите номер телефона"
                                        value="{{old('phone')}}">
                                 @error('phone')
-                                <div class="text-danger">{{$message}}</div>
+                                <div class="text-danger text-bold">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-25">
                                 <input type="text" class="form-control" name="name_link" placeholder="Введите название ccылки на сайт вашей организации"
                                        value="{{old('name_link')}}">
-                                @error('link')
-                                <div class="text-danger">{{$message}}</div>
+                                @error('name_link')
+                                <div class="text-danger text-bold">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-25">
                                 <input type="text" class="form-control" name="link" placeholder="Введите ccылку на сайт вашей организации"
                                        value="{{old('link')}}">
                                 @error('link')
-                                <div class="text-danger">{{$message}}</div>
+                                <div class="text-danger text-bold">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-25">
                                 <input type="text" class="form-control" name="coordinate_l" placeholder="Введите координаты расположения, до запятой"
                                        value="{{old('coordinate_l')}}">
-                                @error('coordinate')
-                                <div class="text-danger">{{$message}}</div>
+                                @error('coordinate_l')
+                                <div class="text-danger text-bold">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-25">
                                 <input type="text" class="form-control" name="coordinate_r" placeholder="Введите координаты расположения, после запятой"
                                        value="{{old('coordinate_r')}}">
-                                @error('coordinate')
-                                <div class="text-danger">{{$message}}</div>
+                                @error('coordinate_r')
+                                <div class="text-danger text-bold">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-50">

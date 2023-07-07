@@ -16,6 +16,7 @@ class IndexController extends Controller
     public function __invoke()
     {
         $user = auth()->user();
+
         $preOrders = DB::table('pre_orders')->where('user_id', '=', $user['id'])->get();
         $products = DB::table('pre_orders')->pluck('products');
         $totals = DB::table('pre_orders')->where('user_id', '=', $user['id'])->pluck('total_price');
@@ -31,52 +32,6 @@ class IndexController extends Controller
         $products_email = DB::table('payments')->where('user_id', '=', $user['id'])->pluck('products')->last();
         $amount = DB::table('payments')->where('user_id', '=', $user['id'])->pluck('amount')->last();
 
-//        $d = [
-//            'promo' => $promocode,
-//            'email' => $email,
-//            'time' => $time,
-//            'products' => $products_email,
-//            'amount' => $amount,
-//        ];
-
-//        if ($promocode != NULL && $promocode_status != 0) {
-//            foreach (json_decode($products_email) as $item)
-//                $k = array();
-//            for($i = 0; $i < count(json_decode($products_email)); $i++){
-//                $k[$i] = (json_decode($products_email)[$i]);
-//                if(isset($k[$i]->organization_email)){
-//                    $message = [
-//                        'promo' => $promocode,
-//                        'email' => $k[$i]->organization_email,
-//                        'time' => $time,
-//                        'products' => $products_email,
-//                        'amount' => $amount,
-//                        'surname' => $surname,
-//                        'name' => $name,
-//                        'phone' => $phone,
-//                    ];
-//                }
-//
-//                if(isset($k[$i]->organization_email) && json_decode($products_email)[$i]->role === 'Мед.центр'){
-//                    Mail::to($k[$i]->organization_email)->send(new Organization($message));}
-//                elseif (isset($k[$i]->organization_email) && json_decode($products_email)[$i]->role === 'spa'){
-//                    Mail::to($k[$i]->organization_email)->send(new Organization($message));}
-//                elseif (isset($k[$i]->organization_email) && json_decode($products_email)[$i]->role === 'hostel'){
-//                    Mail::to($k[$i]->organization_email)->send(new Organization($message));}
-//                elseif (isset($k[$i]->organization_email) && json_decode($products_email)[$i]->role === 'tur'){
-//                    Mail::to($k[$i]->organization_email)->send(new Organization($message));}
-//                elseif (isset($k[$i]->organization_email) && json_decode($products_email)[$i]->role === 'sanatorium'){
-//                    Mail::to($k[$i]->organization_email)->send(new Organization($message));}
-//                elseif (isset($k[$i]->organization_email) && json_decode($products_email)[$i]->role === 'sport'){
-//                    Mail::to($k[$i]->organization_email)->send(new Organization($message));}
-//                elseif (isset($k[$i]->organization_email) && json_decode($products_email)[$i]->role === 'cafe'){
-//                    Mail::to($k[$i]->organization_email)->send(new Organization($message));}
-//            }
-//        }
-//
-//        if ($promocode != NULL && $promocode_status != 0) {
-//            Mail::to($email)->send(new Promocode($d));
-//        }
         $d=[];
         $message=[];
         event(new PaymentMail($d,$message));

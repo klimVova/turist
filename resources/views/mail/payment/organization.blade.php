@@ -1,5 +1,5 @@
 @component('mail::message')
-    <p>Промокод покупателя{{$message['surname']}} {{$message['name']}} : {{$message['promo']}}</p>
+    <p>Промокод покупателя: {{$message['surname']}} {{$message['name']}} -- {{$message['promo']}}</p>
     <p>Телефон: {{$message['phone']}} </p>
     <p>Дата заказа : {{$message['time']}}</p>
     <p>Цена : {{$message['amount']}}</p>

@@ -108,14 +108,14 @@
     .custom-file-input:lang(en)~.custom-file-label::after{
         content: "...";
     }
-     .counter {
-         position: absolute;
-         top: 190px;
-         left: 455px;
-     }
+    .counter {
+        position: absolute;
+        top: 265px;
+        left: 455px;
+    }
     .counter1 {
         position: absolute;
-        top: 455px;
+        top: 535px;
         left: 455px;
     }
 </style>

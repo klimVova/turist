@@ -11,13 +11,13 @@
                         <h2>{{post.title}}</h2>
                         <hr>
                     </div>
-                    <p >
+                    <p>
                         <img :src="post.image_url" class="image_post">
-                        <p v-html="post.content"></p>
+                    <p v-html="post.content"></p>
                     </p>
                     <input
                         :class=" item === Number(post.id + 1) ? 'hide mr-3' : 'mr-3'"
-                        @click.prevent="getNext(Number(post.id + 1))" type="submit" name="" value="Следующая статья">
+                        @click.prevent="getNext(Number(post.id - 1))" type="submit" name="" value="Следующая статья">
                     <input
                         @click.prevent="getHome()" type="submit" name="" value="Перейти на главную">
                     <div>
@@ -34,9 +34,9 @@ export default {
     data() {
         return {
             id: this.$route.params.id,
-            post:[],
+            post: [],
             count: [],
-            item:0
+            item: 0
         }
     },
     methods: {
@@ -46,19 +46,20 @@ export default {
                     this.post = res.data.data
                 })
         },
-        getNext(id){
+        getNext(id) {
             this.axios.get('/api/posts/' + id)
                 .then(res => {
                     this.axios.get('/api/posts')
                         .then(resp => {
                             this.count = resp.data.data
                             this.item = this.count.length
+                            console.log(this.count);
                         })
                     this.post = res.data.data
                 })
         },
-        getHome(){
-            this.$router.push({name:'home'})
+        getHome() {
+            this.$router.push({name: 'home'})
         }
     },
     mounted() {
@@ -68,11 +69,12 @@ export default {
 </script>
 
 <style scoped>
-.hide{
+.hide {
     display: none;
 }
-.image_post{
-    float:left;
+
+.image_post {
+    float: left;
     margin: 7px 25px 9px 0;
     width: 380px;
     height: auto;

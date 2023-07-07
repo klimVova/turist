@@ -35,28 +35,28 @@
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         <!-- Left navbar links -->
         <div class="col-12  d-flex justify-content-between">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-            </li>
-        </ul>
-        <ul class="navbar-nav">
-            <li class="nav-item mr-3">
-                <a href="http://127.0.0.1:8000/">
-                    <input type="submit" class="btn btn-outline-primary" value="Перейти на сайт">
-                </a>
-            </li>
-            <li class="nav-item">
-                <form action="{{route('logout')}}" method="POST">
-                    @csrf
-                    <input type="submit" class="btn btn-outline-primary" value="Выйти">
-                </form>
-            </li>
-        </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item mr-3">
+                    <a href="http://127.0.0.1:8000/">
+                        <input type="submit" class="btn btn-outline-primary" value="Перейти на сайт">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <form action="{{route('logout')}}" method="POST">
+                        @csrf
+                        <input type="submit" class="btn btn-outline-primary" value="Выйти">
+                    </form>
+                </li>
+            </ul>
         </div>
     </nav>
-    @include('spa.includes.sidebar')
-    @yield('content')
+@include('spa.includes.sidebar')
+@yield('content')
 <!-- /.content-wrapper -->
     <footer class="main-footer">
         <strong>Copyright &copy;</strong>
@@ -86,7 +86,7 @@
 <script src="{{asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
 <script src="{{asset('dist/js/adminlte.js')}}"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#summernote').summernote({
             toolbar: [
                 // [groupName, [list of button]]
@@ -105,17 +105,19 @@
     $('.select2').select2()
 </script>
 <style>
-    .custom-file-input:lang(en)~.custom-file-label::after{
+    .custom-file-input:lang(en) ~ .custom-file-label::after {
         content: "...";
     }
+
     .counter {
         position: absolute;
-        top: 190px;
+        top: 265px;
         left: 455px;
     }
+
     .counter1 {
         position: absolute;
-        top: 455px;
+        top: 535px;
         left: 455px;
     }
 </style>
@@ -124,15 +126,18 @@
     const counter = document.querySelector('.current');
     const maxlength = 225;
     textarea.addEventListener('input', onInput)
+
     function onInput(event) {
         event.target.value = event.target.value.substr(0, maxlength);
         const length = event.target.value.length;
         counter.textContent = length;
     }
+
     const textarea1 = document.querySelector('.textarea1');
     const counter1 = document.querySelector('.current1');
 
     textarea1.addEventListener('input', onInput1)
+
     function onInput1(event) {
         event.target.value = event.target.value.substr(0, maxlength);
         const length1 = event.target.value.length;

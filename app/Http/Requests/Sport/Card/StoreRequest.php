@@ -51,11 +51,16 @@ class StoreRequest extends FormRequest
         return [
             'title.required' => 'Это поле необходимо для заполнения',
             'title.string' => 'Имя должно быть строкой',
+            'user_email.required' => 'Это поле необходимо для заполнения',
+            'desc.required' => 'Это поле необходимо для заполнения',
+            'address.required' => 'Это поле необходимо для заполнения',
+            'link.required' => 'Это поле необходимо для заполнения',
+            'name_link.required' => 'Это поле необходимо для заполнения',
+            'coordinate_l.required' => 'Это поле необходимо для заполнения',
+            'coordinate_r.required' => 'Это поле необходимо для заполнения',
             'content.required' => 'Это поле необходимо для заполнения',
-            'location.required' => 'Это поле необходимо для заполнения',
-            'location.string' => 'Это поле необходимо для заполнения',
             'phone.integer' => 'Это поле необходимо для заполнения',
-            'coordinate.string' => 'Это поле необходимо для заполнения',
+            'phone.required' => 'Это поле необходимо для заполнения',
         ];
     }
 }

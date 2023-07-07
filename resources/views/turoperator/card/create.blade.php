@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Создать карточку отеля</h1>
+                        <h1 class="m-0">Создать карточку центра</h1>
                     </div><!-- /.col -->
 
                 </div><!-- /.row -->
@@ -23,18 +23,18 @@
                         <form action="{{route('turoperator.card.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group w-25">
-                                <input type="text" class="form-control" name="title" placeholder="Название отеля"
+                                <input type="text" class="form-control" name="title" placeholder="Название центра"
                                        value="{{old('title')}}">
                                 @error('title')
-                                <div class="text-danger">{{$message}}</div>
+                                <div class="text-danger text-bold ">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-25">
                                 <label> Email (для получения уведомлений:промокод,заказ) </label>
                                 <input type="text" class="form-control" name="user_email" placeholder="Email"
                                        value="{{old('user_email')}}">
-                                @error('title')
-                                <div class="text-danger">{{$message}}</div>
+                                @error('user_email')
+                                <div class="text-danger text-bold ">{{$message}}</div>
                                 @enderror
                             </div>
                             <label>краткое описание</label>
@@ -44,8 +44,8 @@
                                     <span class="current">0</span>&nbsp;/
                                     <span class="total">225</span>
                                 </div>
-                                @error('content')
-                                <div class="text-danger">{{$message}}</div>
+                                @error('desc')
+                                <div class="text-danger text-bold ">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
@@ -55,14 +55,14 @@
                                     <span class="total">225</span>
                                 </div>
                                 @error('content')
-                                <div class="text-danger">{{$message}}</div>
+                                <div class="text-danger text-bold">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-25">
                                 <input type="text" class="form-control" name="address" placeholder="Укажите локацию"
                                        value="{{old('address')}}">
                                 @error('address')
-                                <div class="text-danger">{{$message}}</div>
+                                <div class="text-danger text-bold">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-50">
@@ -77,7 +77,7 @@
                                     </div>
                                 </div>
                                 @error('preview_image')
-                                <div class="text-danger">Это поле необходимо заполнить</div>
+                                <div class="text-danger text-bold">Это поле необходимо заполнить</div>
                                 @enderror
                             </div>
                             <div class="form-group w-50">
@@ -89,7 +89,7 @@
                                     </div>
                                 </div>
                                 @error('main_image')
-                                <div class="text-danger">Это поле необходимо заполнить</div>
+                                <div class="text-danger text-bold">Это поле необходимо заполнить</div>
                                 @enderror
                             </div>
                             <div class="form-group w-50">
@@ -104,42 +104,42 @@
                                     </div>
                                 </div>
                                 @error('logo')
-                                <div class="text-danger">Это поле необходимо заполнить</div>
+                                <div class="text-danger text-bold">Это поле необходимо заполнить</div>
                                 @enderror
                             </div>
                             <div class="form-group w-25">
                                 <input type="tel" class="form-control" name="phone" placeholder="Введите номер телефона"
                                        value="{{old('phone')}}">
                                 @error('phone')
-                                <div class="text-danger">{{$message}}</div>
+                                <div class="text-danger text-bold">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-25">
                                 <input type="text" class="form-control" name="name_link" placeholder="Введите название ccылки на сайт вашей организации"
                                        value="{{old('name_link')}}">
                                 @error('link')
-                                <div class="text-danger">{{$message}}</div>
+                                <div class="text-danger text-bold">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-25">
                                 <input type="text" class="form-control" name="link" placeholder="Введите ccылку на сайт вашей организации"
                                        value="{{old('link')}}">
                                 @error('link')
-                                <div class="text-danger">{{$message}}</div>
+                                <div class="text-danger text-bold">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-25">
                                 <input type="text" class="form-control" name="coordinate_l" placeholder="Введите координаты расположения, до запятой"
                                        value="{{old('coordinate_l')}}">
-                                @error('coordinate')
-                                <div class="text-danger">{{$message}}</div>
+                                @error('coordinate_l')
+                                <div class="text-danger text-bold">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-25">
                                 <input type="text" class="form-control" name="coordinate_r" placeholder="Введите координаты расположения, после запятой"
                                        value="{{old('coordinate_r')}}">
-                                @error('coordinate')
-                                <div class="text-danger">{{$message}}</div>
+                                @error('coordinate_r')
+                                <div class="text-danger text-bold">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-50">
@@ -147,25 +147,25 @@
                                 <select name="type_id" class="form-control">
                                     @foreach($types as $type)
                                         <option value="{{$type->id}}"
-                                                {{$type->id == old('type_id') ? ' selected' : '' }}>{{$type->title}}</option>
+                                            {{$type->id == old('type_id') ? ' selected' : '' }}>{{$type->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group w-50">
-                                <label>Выберите округ</label>
+                                <label>Выберите страну</label>
                                 <select name="district_id" class="form-control">
                                     @foreach($districts as $district)
                                         <option value="{{$district->id}}"
-                                                {{$district->id == old('district_id') ? ' selected' : '' }}>{{$district->title}}</option>
+                                            {{$district->id == old('district_id') ? ' selected' : '' }}>{{$district->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group w-50">
-                                <label>Выберите республику</label>
+                                <label>Выберите регион (область)</label>
                                 <select name="republic_id" class="form-control">
                                     @foreach($republics as $republic)
                                         <option value="{{$republic->id}}"
-                                                {{$republic->id == old('republic_id') ? ' selected' : '' }}>{{$republic->title}}</option>
+                                            {{$republic->id == old('republic_id') ? ' selected' : '' }}>{{$republic->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -174,18 +174,18 @@
                                 <select name="city_id" class="form-control">
                                     @foreach($cities as $city)
                                         <option value="{{$city->id}}"
-                                                {{$city->id == old('city_id') ? ' selected' : '' }}>{{$city->title}}</option>
+                                            {{$city->id == old('city_id') ? ' selected' : '' }}>{{$city->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group w-50">
                                 <label>Тэги</label>
-                                <select class="select2" name="turoperator_cardTag_ids[]" multiple="multiple"
+                                <select class="select2" name="turoperator_tag_ids[]" multiple="multiple"
                                         data-placeholder="Выберите тэги" style="width: 100%;">
-                                    @foreach($turoperatorCardTags as $turoperatorCardTag)
+                                    @foreach($turoperatorTags as $turoperatorTag)
                                         <option
-                                                {{is_array(old('turoperator_cardTag_ids')) && in_array($turoperatorCardTag->id, old('turoperator_cardTag_ids')) ? ' selected' : ''}}
-                                                value="{{$turoperatorCardTag->id}}">{{$turoperatorCardTag->title}}</option>
+                                            {{is_array(old('$turoperatorTag_ids')) && in_array($turoperatorTag->id, old('turoperatorTag_ids')) ? ' selected' : ''}}
+                                            value="{{$turoperatorTag->id}}">{{$turoperatorTag->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -202,4 +202,6 @@
         </section>
         <!-- /.content -->
     </div>
+
 @endsection
+

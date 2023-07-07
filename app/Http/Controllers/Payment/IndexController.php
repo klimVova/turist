@@ -32,7 +32,13 @@ class IndexController extends Controller
 
         $email = $user['email'];
         $name = $user['name'];
+        if( $user['surname'] === NULL){
+            $user['surname']='';
+        }
         $surname = $user['surname'];
+        if($user['phone'] === NULL){
+            $user['phone']='не указан';
+        }
         $phone = $user['phone'];
         $user_id = $user['id'];
 

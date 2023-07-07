@@ -112,12 +112,12 @@
     }
     .counter {
         position: absolute;
-        top: 190px;
+        top: 265px;
         left: 455px;
     }
     .counter1 {
         position: absolute;
-        top: 455px;
+        top: 535px;
         left: 455px;
     }
 </style>
