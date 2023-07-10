@@ -2555,13 +2555,23 @@ footer .f-logo {
     }
     .promo{
         display: block;
+        margin: 0;
+        padding: 0;
         margin-bottom: 20px;
     }
     .promo_mob{
         display: block;
     }
+    .promo-mob__box{
+        max-width: 85% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .product_promo__item{
+        justify-content: space-between;
+    }
     .name_organ{
-        margin-left: 35px;
+        margin-left: 30px;
         margin-bottom:-10px;
     }
     .order_promo{
@@ -2576,7 +2586,7 @@ footer .f-logo {
         margin-left: 35px;
     }
     .product_promo,.times {
-        margin-left: 40px;
+        margin-left: 30px;
         padding: 0;
         width: auto;
         max-width: 100%;

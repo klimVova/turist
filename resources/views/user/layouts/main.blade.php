@@ -30,7 +30,7 @@
         <div class="nav">
             <a href="http://127.0.0.1:8000/"><img src="{{asset('assets/img/logo-s.png')}}"></a>
             <div class="mob-menu-div">
-                <img onclick="openBlock('mob-menu')" class="burger" src="{{asset('assets/img/menu.svg')}}">
+                <img onclick="openBlockMenu('mob-menu')" class="burger" src="{{asset('assets/img/menu.svg')}}">
                 <div id="mob-menu" class="menu">
                     <ul>
                         <li><a href="http://127.0.0.1:8000/catalog/medical">Каталог</a></li>
@@ -89,6 +89,7 @@
     <script src="{{asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
     <script src="{{asset('dist/js/adminlte.js')}}"></script>
     <script src="{{asset('assets/js/fillter.js')}}"></script>
+    <script src="{{asset('assets/js/main-js.js')}}"></script>
     <script>
         $(document).ready(function() {
             $('#summernote').summernote({

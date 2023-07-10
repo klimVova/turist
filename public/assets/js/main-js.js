@@ -3,11 +3,11 @@ function openBlockMenu(id){
     if(display=='block'){
         document.getElementById(id).style.display='none';
         const newcard = document.querySelector('.mob-menu-div img');
-        newcard.setAttribute('src', 'assets/img/menu.svg');
+        newcard.setAttribute('src', 'http://127.0.0.1:8000/assets/img/menu.svg');
     }else{
         document.getElementById(id).style.display='block';
         const newcard = document.querySelector('.mob-menu-div img');
-        newcard.setAttribute('src', 'assets/img/close.svg');
+        newcard.setAttribute('src', 'http://127.0.0.1:8000/assets/img/close.svg');
     }
 }
 
