@@ -612,7 +612,8 @@
                                                                 @endif
                                                                 @if(isset(json_decode($item,true)['productList']))
                                                                     @foreach(json_decode($item,true)['productList'] as $i)
-                                                                        <div class="d-flex justify-content-sm-between product_promo__item">
+                                                                        <div
+                                                                            class="d-flex justify-content-sm-between product_promo__item">
                                                                             <p>{{$i['product']}}</p>
                                                                             <p>{{$i['price']}} р</p>
                                                                         </div>
@@ -676,7 +677,8 @@
                                                                 @endif
                                                                 @if(isset(json_decode($item,true)['productList']))
                                                                     @foreach(json_decode($item,true)['productList'] as $i)
-                                                                        <div class="d-flex justify-content-sm-between product_promo__item">
+                                                                        <div
+                                                                            class="d-flex justify-content-sm-between product_promo__item">
                                                                             <p>{{$i['product']}}</p>
                                                                             <p>{{$i['price']}} р</p>
                                                                         </div>
@@ -722,7 +724,8 @@
                                                                 @else
                                                                 @endif
                                                                 @if(isset(json_decode($item,true)['berth']))
-                                                                    <p> ({{json_decode($item,true)['berth']}}человек)</p><br>
+                                                                    <p> ({{json_decode($item,true)['berth']}}
+                                                                        человек)</p><br>
                                                                 @else
                                                                 @endif
                                                             @endforeach
@@ -730,22 +733,26 @@
                                                         <div class="product_promo col-4">
                                                             @foreach(array($items['products']) as $item)
                                                                 @if(isset(json_decode($item,true)['category']))
-                                                                    <div class="d-flex justify-content-sm-between product_promo__item">
-                                                                       <p>{{json_decode($item,true)['category']}}</p>
+                                                                    <div
+                                                                        class="d-flex justify-content-sm-between product_promo__item">
+                                                                        <p>{{json_decode($item,true)['category']}}</p>
                                                                         @if(isset(json_decode($item,true)['totalPrice']))
-                                                                       <p>{{json_decode($item,true)['totalPrice']}} р</p>
+                                                                            <p>{{json_decode($item,true)['totalPrice']}}
+                                                                                р</p>
                                                                         @else
-                                                                          <p>{{ json_decode($item,true)['price']}} р</p>
+                                                                            <p>{{ json_decode($item,true)['price']}}
+                                                                                р</p>
                                                                         @endif
                                                                     </div>
                                                                 @else
                                                                 @endif
                                                                 @if(isset(json_decode($item,true)['productList']))
                                                                     @foreach(json_decode($item,true)['productList'] as $i)
-                                                                            <div class="d-flex justify-content-sm-between product_promo__item">
-                                                                                <p>{{$i['product']}}</p>
-                                                                                <p>{{$i['price']}} р</p>
-                                                                            </div>
+                                                                        <div
+                                                                            class="d-flex justify-content-sm-between product_promo__item">
+                                                                            <p>{{$i['product']}}</p>
+                                                                            <p>{{$i['price']}} р</p>
+                                                                        </div>
                                                                     @endforeach
                                                                 @else
                                                                 @endif
@@ -801,22 +808,26 @@
                                                         <div class="product_promo col-4">
                                                             @foreach(array($items['products']) as $item)
                                                                 @if(isset(json_decode($item,true)['category']))
-                                                                    <div class="d-flex justify-content-sm-between product_promo__item">
+                                                                    <div
+                                                                        class="d-flex justify-content-sm-between product_promo__item">
                                                                         <p>{{json_decode($item,true)['category']}}</p>
                                                                         @if(isset(json_decode($item,true)['totalPrice']))
-                                                                            <p>{{json_decode($item,true)['totalPrice']}} р</p>
+                                                                            <p>{{json_decode($item,true)['totalPrice']}}
+                                                                                р</p>
                                                                         @else
-                                                                           <p>{{ json_decode($item,true)['price']}} р</p>
+                                                                            <p>{{ json_decode($item,true)['price']}}
+                                                                                р</p>
                                                                         @endif
                                                                     </div>
                                                                 @else
                                                                 @endif
                                                                 @if(isset(json_decode($item,true)['productList']))
                                                                     @foreach(json_decode($item,true)['productList'] as $i)
-                                                                            <div class="d-flex justify-content-sm-between product_promo__item">
-                                                                                <p>{{$i['product']}}</p>
-                                                                                <p>{{$i['price']}} р</p>
-                                                                            </div>
+                                                                        <div
+                                                                            class="d-flex justify-content-sm-between product_promo__item">
+                                                                            <p>{{$i['product']}}</p>
+                                                                            <p>{{$i['price']}} р</p>
+                                                                        </div>
                                                                     @endforeach
                                                                 @else
                                                                 @endif
@@ -840,7 +851,14 @@
                                     @elseif($items['role'] == 'tur')
                                         @foreach(array($items['products']) as $item)
 
-                                            @if(substr(json_decode($item,true)['date'], -10) > date(date("d.m.Y")) )
+                                            {{substr(json_decode($item,true)['date'], -10) }} 10 <br>
+                                            {{substr(json_decode($item,true)['date'], -7) }} 7  {{date(date("m.Y"))}}
+                                            <br>
+                                            {{substr(json_decode($item,true)['date'], -4) }} 4 <br>
+                                            @if((substr(json_decode($item,true)['date'], -10) < date(date("d.m.Y")) && substr(json_decode($item,true)['date'], -7) > date(date("m.Y"))) ||
+                                                (substr(json_decode($item,true)['date'], -10) > date(date("d.m.Y")) && substr(json_decode($item,true)['date'], -7) > date(date("m.Y"))) ||
+                                                (substr(json_decode($item,true)['date'], -10) > date(date("d.m.Y")) && substr(json_decode($item,true)['date'], -7) === date(date("m.Y")))
+                                                || substr(json_decode($item,true)['date'], -4) > date(date("Y")))
                                                 <div class="section-label">
                                                     @if($items['role'] == 'tur')
                                                         <h2>Туроператоры<br></h2>
@@ -871,7 +889,8 @@
                                                         <div class="product_promo col-4">
                                                             @foreach(array($items['products']) as $item)
                                                                 @if(isset(json_decode($item,true)['category']))
-                                                                    <div class="d-flex justify-content-sm-between product_promo__item">
+                                                                    <div
+                                                                        class="d-flex justify-content-sm-between product_promo__item">
                                                                         <p> {{json_decode($item,true)['category']}}</p>
                                                                         <p> {{json_decode($item,true)['price']}}р</p>
                                                                     </div>
@@ -929,7 +948,8 @@
                                                         <div class="product_promo col-4">
                                                             @foreach(array($items['products']) as $item)
                                                                 @if(isset(json_decode($item,true)['category']))
-                                                                    <div class="d-flex justify-content-sm-between product_promo__item">
+                                                                    <div
+                                                                        class="d-flex justify-content-sm-between product_promo__item">
                                                                         <p> {{json_decode($item,true)['category']}}</p>
                                                                         <p> {{json_decode($item,true)['price']}} р</p>
                                                                     </div>
