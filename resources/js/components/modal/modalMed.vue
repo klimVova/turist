@@ -81,7 +81,7 @@ export default {
             message: 'Добавить',
             order: [],
             role: 'Мед.центр',
-            email:[],
+            email: [],
 
         }
     },
@@ -138,7 +138,13 @@ export default {
         },
 
         orderMed() {
-            this.message = 'Заказ добавлен в корзину'
+            if (this.$refs.formDate.date === undefined) {
+                this.message = 'выберите дату и время'
+            }
+            else if(this.$refs.formDate.date != undefined)
+            {
+                this.message = 'Заказ добавлен в корзину'
+            }
             const raws = localStorage.getItem('medProduct')
             const product = JSON.parse(raws)
 
@@ -248,7 +254,8 @@ export default {
     border-radius: 3px;
     background-color: #51D3B7;
 }
-.btn-total{
+
+.btn-total {
     width: 130px;
     border: none;
     padding: 10px;
@@ -256,14 +263,17 @@ export default {
     border-radius: 3px;
     background-color: #51D3B7;
 }
+
 @media (max-width: 480px) {
     .modal-content-med {
         width: 100%;
         padding: 10px;
     }
-    .section-label-mob{
+
+    .section-label-mob {
         padding: 0;
     }
+
     .modal-close {
         float: right;
         margin-top: -45px;
@@ -274,7 +284,8 @@ export default {
         position: relative;
         background-color: #a11f34 !important;
     }
-    .service-list-modal{
+
+    .service-list-modal {
         padding: 0;
     }
 

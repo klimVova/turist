@@ -570,7 +570,7 @@
                                 <div class="cart-section">
                                     @if($items['role'] == 'Мед.центр' || $items['role'] == 'spa' || $items['role'] == 'cafe' )
                                         @foreach(array($items['products']) as $item)
-                                            @if($items['date'] > date(date("d m Y")))
+                                            @if($items['date'] > date(date("d m Y HH:mm")))
                                                 <div class="section-label">
                                                     @if($items['role'] == 'Мед.центр')
                                                         <h2>Медицинский центр<br></h2>
@@ -686,15 +686,7 @@
                                                             @endforeach
                                                         </div>
                                                         <div class="times col">
-                                                            @foreach(array($items['products']) as $item)
-                                                                @if(gettype(json_decode($item,true)['date']) == "string")
-                                                                    <div>{{json_decode($item,true)['date']}}<br></div>
-                                                                @else
-                                                                    @foreach(json_decode($item,true)['date'] as $time)
-                                                                        <div>{{$time}}<br></div>
-                                                                    @endforeach
-                                                                @endif
-                                                            @endforeach
+                                                            <p>{{$items['date'] }}</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -833,7 +825,7 @@
                                                         <div class="times col">
                                                             @foreach(array($items['products']) as $item)
                                                                 @if(gettype(json_decode($item,true)['date']) == "string")
-                                                                    <div>{{json_decode($item,true)['date']}}<br></div>
+                                                                    <div>{{json_decode($item,true)['date']}} </div>
                                                                 @else
                                                                     @foreach(json_decode($item,true)['date'] as $time)
                                                                         <div>{{$time}}<br></div>
@@ -847,7 +839,8 @@
                                         @endforeach
                                     @elseif($items['role'] == 'tur')
                                         @foreach(array($items['products']) as $item)
-                                            @if(substr(json_decode($item,true)['date'], -10) > date(date("Y.m.d")) && substr(json_decode($item,true)['date'], -10) > date(date("d.m.Y")) )
+
+                                            @if(substr(json_decode($item,true)['date'], -10) > date(date("d.m.Y")) )
                                                 <div class="section-label">
                                                     @if($items['role'] == 'tur')
                                                         <h2>Туроператоры<br></h2>

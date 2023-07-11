@@ -5,9 +5,10 @@
                     :min-date='new Date()'
                     is-inline
                     locale="ru-ru"
-                    model-type="dd MM yyyy"
+                    model-type="dd MM yyyy HH:mm"
                     selectText="Выбрать"
                     cancelText="Отмена"
+
         />
         <div class="mt-3 people-count d-flex justify-content-sm-between">
             <p class="count-people">Количество человек:</p>

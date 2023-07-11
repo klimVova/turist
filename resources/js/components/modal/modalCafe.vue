@@ -133,8 +133,13 @@ export default {
             }
         },
         orderCafe() {
-
-             this.message='Заказ добавлен в корзину'
+            if (this.$refs.formDate.date === undefined) {
+                this.message = 'выберите дату и время'
+            }
+            else if(this.$refs.formDate.date != undefined)
+            {
+                this.message = 'Заказ добавлен в корзину'
+            }
             const raws = localStorage.getItem('cafeProduct')
             const product = JSON.parse(raws)
 
