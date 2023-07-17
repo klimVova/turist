@@ -850,11 +850,6 @@
                                         @endforeach
                                     @elseif($items['role'] == 'tur')
                                         @foreach(array($items['products']) as $item)
-
-                                            {{substr(json_decode($item,true)['date'], -10) }} 10 <br>
-                                            {{substr(json_decode($item,true)['date'], -7) }} 7  {{date(date("m.Y"))}}
-                                            <br>
-                                            {{substr(json_decode($item,true)['date'], -4) }} 4 <br>
                                             @if((substr(json_decode($item,true)['date'], -10) < date(date("d.m.Y")) && substr(json_decode($item,true)['date'], -7) > date(date("m.Y"))) ||
                                                 (substr(json_decode($item,true)['date'], -10) > date(date("d.m.Y")) && substr(json_decode($item,true)['date'], -7) > date(date("m.Y"))) ||
                                                 (substr(json_decode($item,true)['date'], -10) > date(date("d.m.Y")) && substr(json_decode($item,true)['date'], -7) === date(date("m.Y")))
