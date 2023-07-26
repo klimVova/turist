@@ -21,7 +21,7 @@
                 <a href="{{route('turoperator.post.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-users"></i>
                     <p>
-                        Мои посты
+                        Мои туры
                     </p>
                 </a>
             </li>
