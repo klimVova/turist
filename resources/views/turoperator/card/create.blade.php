@@ -182,10 +182,10 @@
                                 <label>Тэги</label>
                                 <select class="select2" name="turoperator_tag_ids[]" multiple="multiple"
                                         data-placeholder="Выберите тэги" style="width: 100%;">
-                                    @foreach($turoperatorTags as $turoperatorTag)
+                                    @foreach($turoperatorCardTags as $turoperatorCardTag)
                                         <option
-                                            {{is_array(old('$turoperatorTag_ids')) && in_array($turoperatorTag->id, old('turoperatorTag_ids')) ? ' selected' : ''}}
-                                            value="{{$turoperatorTag->id}}">{{$turoperatorTag->title}}</option>
+                                            {{is_array(old('turoperator_cardTag_ids')) && in_array($turoperatorTag->id, old('turoperator_cardTag_ids')) ? ' selected' : ''}}
+                                            value="{{$turoperatorCardTag->id}}">{{$turoperatorCardTag->title}}</option>
                                     @endforeach
                                 </select>
                             </div>

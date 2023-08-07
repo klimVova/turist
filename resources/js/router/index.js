@@ -44,6 +44,16 @@ const router = createRouter({
                     name: 'instruction-sanatorium',
                     component: () => import('../views/instruction/Sanatorium.vue')
                 },
+                {
+                    path: 'instruction-tur',
+                    name: 'instruction-tur',
+                    component: () => import('../views/instruction/Tur.vue')
+                },
+                {
+                    path: 'instruction-sport',
+                    name: 'instruction-sport',
+                    component: () => import('../views/instruction/Sport.vue')
+                },
             ]
         },
         {

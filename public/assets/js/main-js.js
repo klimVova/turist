@@ -1,30 +1,13 @@
-function openBlockMenu(id){
-    display = document.getElementById(id).style.display;
-    if(display=='block'){
-        document.getElementById(id).style.display='none';
-        const newcard = document.querySelector('.mob-menu-div img');
-        newcard.setAttribute('src', 'http://127.0.0.1:8000/assets/img/menu.svg');
-    }else{
-        document.getElementById(id).style.display='block';
-        const newcard = document.querySelector('.mob-menu-div img');
-        newcard.setAttribute('src', 'http://127.0.0.1:8000/assets/img/close.svg');
-    }
-}
+const filterBox = document.querySelectorAll('.nav-row__list__items')
+console.log(filterBox);
+document.querySelector('nav').addEventListener('click', event => {
+    if(event.target.tagName !== "LI") return false;
 
-function openBlockSort(id){
-    display = document.getElementById(id).style.display;
-
-    if(display=='block'){
-        document.getElementById(id).style.display='none';
-        const newcard = document.querySelector('.sort img');
-        // newcard.setAttribute('src', 'assets/img/sort.svg');
-        newcard.setAttribute('src', 'assets/img/sort.svg');
-    }else{
-        document.getElementById(id).style.display='block';
-        const newcard = document.querySelector('.sort img');
-        // newcard.setAttribute('src', 'assets/img/close.svg');
-        newcard.setAttribute('src', 'assets/img/close.svg');
-    }
-}
-
-
+    let filterClass = event.target.dataset['f'];
+    filterBox.forEach(elem => {
+        elem.classList.remove('hide')
+        if(!elem.classList.contains(filterClass)){
+            elem.classList.add('hide');
+        }
+    })
+})
