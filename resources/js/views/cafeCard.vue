@@ -83,13 +83,13 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col col-12 col-md-6 hotels-inf-item">
+                       <div class="col col-12 col-md-6 hotels-inf-item">
                                 <div class="section-label">
                                     <h2>Меню</h2>
                                     <hr>
                                 </div>
                                 <div class="service-list">
-                                    <!-- <div class="service-item"> -->
+                                    <div class="service-item">
                                     <div v-for="list in lists" class="category fadeInUp wow animated"
                                          style="visibility: visible; animation-name: fadeInUp;">
                                         <label v-if="list.user_id === card.user_id"><span :id="`${list.title}`"></span>{{
@@ -118,10 +118,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- </div> -->
+                                     </div>
                                 </div>
                             </div>
-                            <div class="col col-12 col-md-6 hotels-inf-item">
+                          <div class="col col-12 col-md-6 hotels-inf-item">
                                 <div id="map-test" class="map zoomIn wow  animated" data-wow-offset="0"
                                      data-wow-delay="0.2s"
                                      data-wow-duration="1s"
