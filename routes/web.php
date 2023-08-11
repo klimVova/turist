@@ -186,6 +186,16 @@ Route::group(['prefix' => 'main'], function () {
             Route::delete('/{tag}', DeleteController::class)->name('admin.tag.delete');
         });
 
+        Route::group(['namespace' => 'ConsultingCat', 'prefix' => 'consultingCats'], function () {
+            Route::get('/', IndexController::class)->name('admin.consultingCat.index');
+            Route::get('/create', CreateController::class)->name('admin.consultingCat.create');
+            Route::post('/', StoreController::class)->name('admin.consultingCat.store');
+            Route::get('/{consultingCat}', ShowController::class)->name('admin.consultingCat.show');
+            Route::get('/{consultingCat}/edit', EditController::class)->name('admin.consultingCat.edit');
+            Route::patch('/{consultingCat}', UpdateController::class)->name('admin.consultingCat.update');
+            Route::delete('/{consultingCat}', DeleteController::class)->name('admin.consultingCat.delete');
+        });
+
         Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
             Route::get('/', IndexController::class)->name('admin.user.index');
             Route::get('/create', CreateController::class)->name('admin.user.create');
@@ -194,6 +204,15 @@ Route::group(['prefix' => 'main'], function () {
             Route::get('/{user}/edit', EditController::class)->name('admin.user.edit');
             Route::patch('/{user}', UpdateController::class)->name('admin.user.update');
             Route::delete('/{user}', DeleteController::class)->name('admin.user.delete');
+        });
+        Route::group(['namespace' => 'Consulting', 'prefix' => 'consulting'], function () {
+            Route::get('/', IndexController::class)->name('admin.consulting.index');
+            Route::get('/create', CreateController::class)->name('admin.consulting.create');
+            Route::post('/', StoreController::class)->name('admin.consulting.store');
+            Route::get('/{user}', ShowController::class)->name('admin.consulting.show');
+            Route::get('/{user}/edit', EditController::class)->name('admin.consulting.edit');
+            Route::patch('/{user}', UpdateController::class)->name('admin.consulting.update');
+            Route::delete('/{user}', DeleteController::class)->name('admin.consulting.delete');
         });
 
         Route::group(['namespace' => 'Baner', 'prefix' => 'baners'], function () {
@@ -358,6 +377,21 @@ Route::group(['prefix' => 'main'], function () {
             Route::delete('/{medicalAction}', DeleteController::class)->name('medical.action.delete');
         });
     });
+
+//Consulting
+    Route::group(['namespace' => 'Consulting', 'prefix' => 'consulting', 'middleware' => ['auth', 'consulting', 'verified']], function () {
+        Route::group(['namespace' => 'Main'], function () {
+            Route::get('/', IndexController::class)->name('consulting.main.index');
+            Route::get('/card/{id}', CardController::class)->name('consulting.card.index');
+        });
+        Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
+            Route::get('{id}/', IndexController::class)->name('consulting.post.index');
+            Route::get('/{id}/create', CreateController::class)->name('consulting.post.create');
+            Route::post('{id}/', StoreController::class)->name('consulting.post.store');
+        });
+    });
+
+
 
 //Spa
     Route::group(['namespace' => 'Spa', 'prefix' => 'spa', 'middleware' => ['auth', 'spa', 'verified']], function () {

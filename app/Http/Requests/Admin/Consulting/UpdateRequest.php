@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\User;
+namespace App\Http\Requests\Admin\Consulting;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -32,7 +32,8 @@ class UpdateRequest extends FormRequest
             'type_id' => 'required|integer|exists:types,id',
             'republic_id' => 'required|integer|exists:republics,id',
             'district_id' => 'required|integer|exists:districts,id',
-
+            'consultingCats_ids' => 'nullable|array',
+            'consultingCats_ids.*' => 'nullable|integer|exists:consulting_cats,id',
         ];
     }
 

@@ -60,6 +60,7 @@ export default {
       }
 
       localStorage.setItem('person', JSON.stringify(obj))
+
       const raw = localStorage.getItem('person')
       const person = JSON.parse(raw)
       this.state.type = person.type

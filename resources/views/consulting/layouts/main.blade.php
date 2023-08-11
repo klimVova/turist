@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AdminLTE 3 | Dashboard</title>
+
+    <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -53,13 +55,18 @@
         </ul>
         </div>
     </nav>
-    @include('admin.includes.sidebar')
+    @include('consulting.includes.sidebar')
     @yield('content')
 <!-- /.content-wrapper -->
     <footer class="main-footer">
         <strong>Copyright &copy;</strong>
     </footer>
 
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
@@ -95,12 +102,44 @@
     $(function () {
         bsCustomFileInput.init();
     });
-    $('.select2').select2()
+
+    $('.select2').select2();
+
 </script>
 <style>
     .custom-file-input:lang(en)~.custom-file-label::after{
         content: "...";
     }
+    .counter {
+        position: absolute;
+        top: 265px;
+        left: 455px;
+    }
+    .counter1 {
+        position: absolute;
+        top: 535px;
+        left: 455px;
+    }
 </style>
+<script>
+    const textarea = document.querySelector('.textarea');
+    const counter = document.querySelector('.current');
+    const maxlength = 225;
+    textarea.addEventListener('input', onInput)
+    function onInput(event) {
+        event.target.value = event.target.value.substr(0, maxlength);
+        const length = event.target.value.length;
+        counter.textContent = length;
+    }
+    const textarea1 = document.querySelector('.textarea1');
+    const counter1 = document.querySelector('.current1');
+
+    textarea1.addEventListener('input', onInput1)
+    function onInput1(event) {
+        event.target.value = event.target.value.substr(0, maxlength);
+        const length1 = event.target.value.length;
+        counter1.textContent = length1;
+    }
+</script>
 </body>
 </html>

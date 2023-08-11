@@ -14,7 +14,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-1 mb-3">
-                        <a href="{{route('admin.user.create')}}" class="btn btn-block btn-primary">Добавить</a>
+                        <a href="{{route('admin.consulting.create')}}" class="btn btn-block btn-primary">Добавить</a>
                     </div>
                 </div>
                 <div class="row">
@@ -27,17 +27,16 @@
                                         <th>ID</th>
                                         <th>Название</th>
                                         <th>Почта</th>
-                                        <th>Вид организации</th>
                                         <th>Город</th>
                                         <th>Регион (область)</th>
                                         <th>Страна</th>
                                         <th colspan="3" class="text-center">Действие</th>
                                     </tr>
                                     </thead>
+
                                     <tbody>
                                     @foreach($users as $user)
-                                        @if($user->role != 9 )
-                                            <tr>
+                                            <tr class=@if($user->role != 9)"d-none"@else''@endif>
                                                 <td>{{$user->id}}</td>
                                                 <td>{{$user->name}}</td>
                                                 <td>{{$user->email}}</td>
@@ -45,13 +44,13 @@
                                                 <td>@if($user->city == null){{'-'}}@else{{$user->city->title}}@endif</td>
                                                 <td>@if($user->republic == null){{'-'}}@else{{$user->republic->title}}@endif</td>
                                                 <td>@if($user->district == null){{'-'}}@else{{$user->district->title}}@endif</td>
-                                                <td><a href="{{route('admin.user.show', $user->id)}}"><i
+                                                <td><a href="{{route('admin.consulting.show', $user->id)}}"><i
                                                             class="far fa-eye"></i></a></td>
-                                                <td><a href="{{route('admin.user.edit', $user->id)}}"
+                                                <td><a href="{{route('admin.consulting.edit', $user->id)}}"
                                                        class='text-success'><i
                                                             class="fas fa-pencil-alt"></i></a></td>
                                                 <td>
-                                                    <form action="{{route('admin.user.delete', $user->id)}}"
+                                                    <form action="{{route('admin.consulting.delete', $user->id)}}"
                                                           method="post">
                                                         @csrf
                                                         @method('DELETE')
@@ -62,8 +61,6 @@
                                                     </form>
                                                 </td>
                                             </tr>
-                                        @else
-                                        @endif
                                     @endforeach
                                     </tbody>
                                 </table>
