@@ -1,7 +1,6 @@
 <template>
     <div>
         <div class="container-fluid main card">
-        ячс
             <div class="row menu-categories">
                 <div class="sort col col-12 col-md-2">
                     <div id="menu_categories" class="menu-categories-items">
