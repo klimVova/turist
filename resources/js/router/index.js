@@ -124,7 +124,7 @@ const router = createRouter({
             component: () => import('../views/spaCard.vue')
         },
         {
-            path: '/cafes/:id',
+            path: '/cafe/:id',
             name: 'cafe_card',
             component: () => import('../views/cafeCard.vue')
         },
