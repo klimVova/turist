@@ -180,7 +180,15 @@
         </div>
     </div>
     <div>
-
+        <modal-cafe
+            :modal-active="modalActive"
+            :lists="lists"
+            :items="items"
+            :products="products"
+            :card="card"
+            @close="toggleModal"
+        >
+        </modal-cafe>
     </div>
 </template>
 
