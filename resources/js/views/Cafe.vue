@@ -46,7 +46,7 @@
              || state.city === '' && state.district === ''  && state.republic === ''
              || cities === cafe.city_id && districts === cafe.district_id && republics === cafe.republic_id
               ">
-              <router-link  :to="'/cafe/'+ cafe.id">
+              <router-link  :to="'/cafes/'+ cafe.id">
               <div class="item-img">
                 <img :src="cafe.image_url">
               </div>
