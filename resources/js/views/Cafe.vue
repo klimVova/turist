@@ -14,7 +14,7 @@
             </form>
           </div>
           <div class="sort-item">
-            <span>Регион (область)</span>
+            <span>Регион (область.)</span>
             <form>
               <label :for=" `republic` + republic.id" class="d-block" v-for="republic in filterList.republics">
                 <input :id=" `republic` + republic.id" type="checkbox" name="district" v-model="republics" :value="republic.id">
