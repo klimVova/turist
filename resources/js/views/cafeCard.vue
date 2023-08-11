@@ -69,7 +69,7 @@
                             </div>
                             <div class="col col-12 col-md-12 hotels-inf-item">
                                 <div class="section-label">
-                                    <h2>Преференции для клиентов платформы!</h2>
+                                    <h2>Преференции для клиентов платформы</h2>
                                     <hr>
                                 </div>
                                 <div class="prefer-list">
