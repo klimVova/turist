@@ -7,7 +7,7 @@
           <div class="sort-item">
             <span>Страна</span>
             <form>
-              <label :for="district.id" class="d-block" v-for="district in filterList.districts">
+              <label :for="district.id" class="d-block x" v-for="district in filterList.districts">
                 <input :id="district.id" type="checkbox" name="federal" v-model="districts" :value="district.id">
                 {{ district.title }}
               </label>

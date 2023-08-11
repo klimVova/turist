@@ -42,7 +42,8 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <input @click.prevent="toggleModal" :class="state.user !== '' ? '' : 'disabled '" type="submit" value="Забронировать стол">
+                                    <input @click.prevent="toggleModal" :class="state.user !== '' ? '' : 'disabled '"
+                                           type="submit" value="Забронировать стол">
 
                                     <p></p>
                                 </div>
@@ -82,45 +83,46 @@
                                     </ul>
                                 </div>
                             </div>
-                       <div class="col col-12 col-md-6 hotels-inf-item">
+                            <div class="col col-12 col-md-6 hotels-inf-item">
                                 <div class="section-label">
                                     <h2>Меню</h2>
                                     <hr>
                                 </div>
                                 <div class="service-list">
                                     <div class="service-item">
-                                    <div v-for="list in lists" class="category fadeInUp wow animated"
-                                         style="visibility: visible; animation-name: fadeInUp;">
-                                        <label v-if="list.user_id === card.user_id"><span :id="`${list.title}`"></span>{{
-                                                list.title
-                                            }}</label>
-                                        <div v-for="subcat in items" class="subcategory">
-                                            <div class="d-flex col justify-content-between">
-                                                <div><label
-                                                    v-if="subcat.cafe_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{
-                                                        subcat.title
-                                                    }}</label>
+                                        <div v-for="list in lists" class="category fadeInUp wow animated"
+                                             style="visibility: visible; animation-name: fadeInUp;">
+                                            <label v-if="list.user_id === card.user_id"><span
+                                                :id="`${list.title}`"></span>{{
+                                                    list.title
+                                                }}</label>
+                                            <div v-for="subcat in items" class="subcategory">
+                                                <div class="d-flex col justify-content-between">
+                                                    <div><label
+                                                        v-if="subcat.cafe_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{
+                                                            subcat.title
+                                                        }}</label>
+                                                    </div>
+                                                    <div><label
+                                                        v-if="subcat.cafe_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{
+                                                            subcat.price
+                                                        }}</label>
+                                                    </div>
                                                 </div>
-                                                <div><label
-                                                    v-if="subcat.cafe_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{
-                                                        subcat.price
-                                                    }}</label>
-                                                </div>
-                                            </div>
 
-                                            <div v-for="product in products" class="service">
-                                                <div class="d-flex col justify-content-between"
-                                                     v-if="product.cafe_todo_item_id === subcat.id && subcat.cafe_todo_list_id === list.id && list.user_id === card.user_id && product.deleted_at === null ">
-                                                    <p>{{ product.title }}</p>
-                                                    <p>{{ product.price }}</p>
+                                                <div v-for="product in products" class="service">
+                                                    <div class="d-flex col justify-content-between"
+                                                         v-if="product.cafe_todo_item_id === subcat.id && subcat.cafe_todo_list_id === list.id && list.user_id === card.user_id && product.deleted_at === null ">
+                                                        <p>{{ product.title }}</p>
+                                                        <p>{{ product.price }}</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                     </div>
                                 </div>
                             </div>
-                          <div class="col col-12 col-md-6 hotels-inf-item">
+                            <div class="col col-12 col-md-6 hotels-inf-item">
                                 <div id="map-test" class="map zoomIn wow  animated" data-wow-offset="0"
                                      data-wow-delay="0.2s"
                                      data-wow-duration="1s"
@@ -179,26 +181,25 @@
         </div>
     </div>
     <div>
-        <modal-cafe
+        <modal-for-cafe
             :modal-active="modalActive"
             :lists="lists"
             :items="items"
             :products="products"
             :card="card"
-            @close="toggleModal"
-        >
-        </modal-cafe>
+            @close="toggleModal">
+        </modal-for-cafe>
     </div>
 </template>
 
 <script>
 import user from "../user";
-import modalCafe from "../components/modal/modalCafe.vue";
+import modalForCafe from "../components/modal/modalForCafe.vue";
 import {ref} from "vue";
 
 export default {
     components: {
-        modalCafe
+        modalForCafe,
     },
     setup() {
         const {state} = user;
@@ -209,7 +210,7 @@ export default {
         return {state, modalActive, toggleModal};
 
     },
-    name: "spaCard",
+    name: "cafeCard",
     data() {
         return {
             id: this.$route.params.id,
@@ -225,7 +226,7 @@ export default {
             pageOfItems: [],
             pagination: [],
             actions: [],
-            images:[],
+            images: [],
         }
     },
     methods: {
@@ -385,7 +386,8 @@ export default {
     border: 1px solid #51D3B7 !important;
 
 }
-.disabled{
+
+.disabled {
     pointer-events: none !important;
     opacity: 0.3;
 }
