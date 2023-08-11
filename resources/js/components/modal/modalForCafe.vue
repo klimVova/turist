@@ -2,7 +2,7 @@
     <transition name="modal-animation">
         <div v-show="modalActive" class="modal-cafe">
             <transition name="modal-animation-inner">
-                <div v-show="modalActive" class="modal-inner-cafe">
+                <div v-show="modalActive" class="x modal-inner-cafe">
                     <div class=" modal-content-cafe">
                         <div class="col col-12 col-md-6 hotels-inf-item">
                             <div class="section-label section-label-mob">
