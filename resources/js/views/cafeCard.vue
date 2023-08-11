@@ -18,7 +18,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="card-main-info col col-12 col-md-9">
-                                <div class="card-item-img x">
+                                <div class="card-item-img ">
                                     <img :src="card.image_url">
                                 </div>
                                 <div class="card-item-descr">
