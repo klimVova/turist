@@ -6,7 +6,7 @@
                     <div class=" modal-content-cafe">
                         <div class="col col-12 col-md-6 hotels-inf-item">
                             <div class="section-label section-label-mob">
-                                <h2>Услуги</h2>
+                                <h2>Меню</h2>
                                 <hr>
                             </div>
                             <form-picker ref="formDate"></form-picker>
@@ -61,7 +61,7 @@ import user from "../../user";
 export default {
     name: "modalCafe",
     components: {cafeListItem, FormPicker},
-    props: ['modalActive', 'lists', 'items', 'products', 'card'],
+    props: ['modalActive', 'elems', 'items', 'products', 'card'],
     setup(props, {emit}) {
         const {state} = user;
         const close = () => {

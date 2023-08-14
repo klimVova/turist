@@ -12,7 +12,7 @@
                             <form-picker ref="formDate"></form-picker>
                             <div class="service-list service-list-modal">
                                 <!-- <div class="service-item"> -->
-                                <div v-for="list in lists" class="category fadeInUp wow animated"
+                                <div v-for="list in elems" class="category fadeInUp wow animated"
                                      style="visibility: visible; animation-name: fadeInUp;">
                                     <label v-if="list.user_id === card.user_id"><span :id="`${list.title}`"></span>{{
                                             list.title
@@ -24,9 +24,6 @@
                                         :key="`item-${index}`"
                                         :list="list"
                                         :card="card"
-                                        :items="items"
-                                        :index="index"
-                                        :products="products"
                                     ></cafe-list-item>
                                 </div>
                                 <!-- </div> -->
@@ -61,7 +58,7 @@ import user from "../../user";
 export default {
     name: "modalForCafe",
     components: {cafeListItem, FormPicker},
-    props: ['modalActive', 'lists', 'items', 'products', 'card'],
+    props: ['modalActive', 'elems', 'items', 'products', 'card'],
     setup(props, {emit}) {
         const {state} = user;
         const close = () => {

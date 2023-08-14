@@ -183,7 +183,7 @@
     <div>
         <modal-for-cafe
             :modal-active="modalActive"
-            :lists="lists"
+            :elems="lists"
             :items="items"
             :products="products"
             :card="card"
@@ -227,6 +227,7 @@ export default {
             pagination: [],
             actions: [],
             images: [],
+            elems:[],
         }
     },
     methods: {
@@ -247,7 +248,6 @@ export default {
             this.axios.get('/api/cafeitems')
                 .then(res => {
                     this.items = res.data.data;
-
                 })
 
         },
