@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Consulting\Post;
+namespace App\Http\Requests\Consulting\TodoList;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class StoreTodoListRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,9 +25,6 @@ class StoreRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
-            'address' => 'required|string',
-            'user_email' => 'required|string',
-            'preview_image' => 'required|file',
             'user_id' => 'required|integer',
             'cat_id' => 'required|integer',
         ];

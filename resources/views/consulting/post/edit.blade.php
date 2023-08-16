@@ -1,12 +1,11 @@
 @extends('consulting.layouts.main')
 @section('content')
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Добавление поста</h1>
+                        <h1 class="m-0">Редактирование карточки</h1>
                     </div>
                 </div>
             </div>
@@ -16,58 +15,55 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-12">
-                        <form action="{{route('consulting.post.store' , $id)}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('consulting.post.update', $consultingPost->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
+                            @method('PATCH')
                             <div class="form-group w-25">
                                 <input type="text" class="form-control" name="title" placeholder="Название центра"
-                                       value="{{old('title')}}">
+                                       value="{{$consultingPost->title}}">
                                 @error('title')
-                                <div class="text-danger text-bold ">{{$message}}</div>
+                                <div class="text-danger">{{$message}}</div>
                                 @enderror
                             </div>
+                            <label> Email (для получения уведомлений:промокод,заказ) </label>
                             <div class="form-group w-25">
-                                <label> Email (для получения уведомлений:промокод,заказ) </label>
                                 <input type="text" class="form-control" name="user_email" placeholder="Email"
-                                       value="{{old('user_email')}}">
-                                @error('user_email')
-                                <div class="text-danger text-bold ">{{$message}}</div>
+                                       value="{{$consultingPost->user_email}}">
+                                @error('title')
+                                <div class="text-danger">{{$message}}</div>
                                 @enderror
                             </div>
+
                             <div class="form-group w-25">
-                                <input type="text" class="form-control" name="address" placeholder="Укажите город"
-                                       value="{{old('address')}}">
+                                <input type="text" class="form-control" name="address" placeholder="Укажите локацию"
+                                       value="{{$consultingPost->address}}">
                                 @error('address')
-                                <div class="text-danger text-bold">{{$message}}</div>
+                                <div class="text-danger">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-50">
-                                <label for="exampleInputFile">Добавить превью</label>
+                                <label for="exampleInputFile">Обновить превью</label>
+                                <div class="mb-3 d-flex">
+                                    <img class="img-thumbnail" style="height: 30vh;"
+                                         src="{{ url('storage/' . $consultingPost->preview_image)}}" alt="preview_image">
+                                </div>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" name="preview_image">
                                         <label class="custom-file-label">Выберите изображение</label>
                                     </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Загрузить</span>
-                                    </div>
                                 </div>
                                 @error('preview_image')
-                                <div class="text-danger text-bold">Это поле необходимо заполнить</div>
+                                <div class="text-danger">Это поле необходимо заполнить</div>
                                 @enderror
                             </div>
-                            <div class="form-group w-50">
-                                <input type="hidden" name="user_id" value="{{$user}}">
-                            </div>
-                            <div class="form-group w-50">
-                                <input type="hidden" name="cat_id" value="{{$id}}">
-                            </div>
                             <div class="form-group">
-                                <input type="submit" class="btn btn-primary" value="Добавить">
+                                <input type="submit" class="btn btn-primary" value="Обновить">
                             </div>
                         </form>
+                    </div>
                 </div>
             </div>
         </section>
-        <!-- /.content -->
     </div>
 @endsection

@@ -385,12 +385,31 @@ Route::group(['prefix' => 'main'], function () {
             Route::get('/card/{id}', CardController::class)->name('consulting.card.index');
         });
         Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
-            Route::get('{id}/', IndexController::class)->name('consulting.post.index');
             Route::get('/{id}/create', CreateController::class)->name('consulting.post.create');
             Route::post('{id}/', StoreController::class)->name('consulting.post.store');
+            Route::get('/{consultingPost}/edit', EditController::class)->name('consulting.post.edit');
+            Route::patch('/{consultingPost}', UpdateController::class)->name('consulting.post.update');
+            Route::delete('/{consultingPost}', DeleteController::class)->name('consulting.post.delete');
+
+
+
+        });
+        Route::group(['namespace' => 'TodoList', 'prefix' => 'todolist'], function () {
+            Route::get('/create/', CreateTodoListController::class)->name('consulting.todolist.create');
+            Route::post('/', StoreTodoListController::class)->name('consulting.todolist.store');
+            Route::get('/{consultingTodoList}/edit', EditTodoListController::class)->name('consulting.todolist.edit');
+            Route::patch('/{consultingTodoList}', UpdateTodoListController::class)->name('consulting.todolist.update');
+            Route::delete('/{consultingTodoList}', DeleteTodoListController::class)->name('consulting.todolist.delete');
+
+        });
+        Route::group(['namespace' => 'Service', 'prefix' => 'service'], function () {
+            Route::get('/create/', CreateServiceController::class)->name('consulting.service.create');
+            Route::post('/', StoreServiceController::class)->name('consulting.service.store');
+            Route::get('/{consultingService}/edit', EditServiceController::class)->name('consulting.service.edit');
+            Route::patch('/{consultingService}', UpdateServiceController::class)->name('consulting.service.update');
+            Route::delete('/{consultingService}', DeleteServiceController::class)->name('consulting.service.delete');
         });
     });
-
 
 
 //Spa

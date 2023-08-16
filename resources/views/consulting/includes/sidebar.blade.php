@@ -12,7 +12,7 @@
             @foreach($items as $item)
                 <li class="nav-item">
                     <a href="{{route('consulting.card.index',$item['id'])}}" class="nav-link">
-                        <i class="nav-icon fa fa-hotel"></i>
+                        <i class="nav-icon fa fa-link"></i>
                         <p>
                             {{$item['title']}}
                         </p>

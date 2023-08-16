@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Consulting\Post;
+namespace App\Http\Requests\Consulting\Service;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class StoreServiceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,9 +25,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
-            'address' => 'required|string',
-            'user_email' => 'required|string',
-            'preview_image' => 'required|file',
+            'price' => 'required|integer',
             'user_id' => 'required|integer',
             'cat_id' => 'required|integer',
         ];
@@ -38,6 +36,8 @@ class StoreRequest extends FormRequest
         return [
             'title.required' => 'Это поле необходимо для заполнения',
             'title.string' => 'Имя должно быть строкой',
+            'price.integer' => 'Введите только цифры',
+            'price.required' => 'Это поле необходимо для заполнения',
             'user_email.required' => 'Это поле необходимо для заполнения',
             'address.required' => 'Это поле необходимо для заполнения',
         ];
