@@ -173,7 +173,7 @@ export default {
                 })
         },
         getServic() {
-            this.axios.get('/api/consultingService/')
+            this.axios.get('/api/consultingServ/')
                 .then(res => {
                     this.services = res.data.data;
                 })

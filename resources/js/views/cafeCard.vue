@@ -207,20 +207,53 @@ export default {
         return {state, modalActive, toggleModal};
 
     },
-    name: "spaCard",
+    name: "cafeCard",
     data() {
         return {
             id: this.$route.params.id,
             card: [],
+            times: [],
+            lists: [],
+            items: [],
+            products: [],
             message: [],
             comments: [],
             persons: [],
             user_name: [],
             pageOfItems: [],
             pagination: [],
+            actions: [],
+            images: [],
+            elems:[],
         }
     },
     methods: {
+        getTime() {
+            this.axios.get('/api/cafetimes')
+                .then(res => {
+                    this.times = res.data.data;
+                })
+
+        },
+        getList() {
+            this.axios.get('/api/cafelists')
+                .then(res => {
+                    this.lists = res.data.data;
+                })
+        },
+        getItem() {
+            this.axios.get('/api/cafeitems')
+                .then(res => {
+                    this.items = res.data.data;
+                })
+
+        },
+        getProduct() {
+            this.axios.get('/api/cafeproducts')
+                .then(res => {
+                    this.products = res.data.data;
+                })
+        },
         getCard() {
             this.axios.get('/api/cafe/' + this.$route.params.id)
                 .then(res => {
@@ -288,12 +321,29 @@ export default {
                     this.getComment()
                 })
         },
+        getAction() {
+            this.axios.get('/api/cafeAction')
+                .then(res => {
+                    this.actions = res.data.data;
+                })
+        },
+        getImage() {
+            this.axios.get('/api/cafeImage')
+                .then(res => {
+                    this.images = res.data.data;
+                })
+        },
     },
     mounted() {
+        this.getList()
         this.getCard()
+        this.getTime()
+        this.getItem()
+        this.getProduct()
         this.getComment()
         this.getUser()
-
+        this.getAction()
+        this.getImage()
     }
 }
 </script>
@@ -334,7 +384,8 @@ export default {
     border: 1px solid #51D3B7 !important;
 
 }
-.disabled{
+
+.disabled {
     pointer-events: none !important;
     opacity: 0.3;
 }
