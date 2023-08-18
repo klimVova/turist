@@ -73,6 +73,22 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{route('admin.consulting.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-user-friends"></i>
+                    <p>
+                        Консалтинг Организации
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('admin.consultingCat.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-clipboard-list"></i>
+                    <p>
+                        Консалтинг категории
+                    </p>
+                </a>
+            </li>
 {{--            <li class="nav-item">--}}
 {{--                <a href="{{route('admin.tag.index')}}" class="nav-link">--}}
 {{--                    <i class="nav-icon fas fa-tags"></i>--}}

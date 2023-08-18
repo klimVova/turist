@@ -4,6 +4,7 @@ namespace App\Http;
 
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\CafeMiddleware;
+use App\Http\Middleware\ConsultingMiddleware;
 use App\Http\Middleware\HostelMiddleware;
 use App\Http\Middleware\MedicalMiddleware;
 use App\Http\Middleware\SanatoriumMiddleware;
@@ -82,5 +83,6 @@ class Kernel extends HttpKernel
         'sanatorium' => SanatoriumMiddleware::class,
         'turoperator' => TurOperatorMiddleware::class,
         'sport' => SportMiddleware::class,
+        'consulting' => ConsultingMiddleware::class,
     ];
 }

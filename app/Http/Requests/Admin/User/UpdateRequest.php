@@ -32,6 +32,7 @@ class UpdateRequest extends FormRequest
             'type_id' => 'required|integer|exists:types,id',
             'republic_id' => 'required|integer|exists:republics,id',
             'district_id' => 'required|integer|exists:districts,id',
+
         ];
     }
 

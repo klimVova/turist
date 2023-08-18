@@ -80,7 +80,9 @@ header {
     flex: 1 1 auto;
     padding: 90px 50px;
 }
-
+.pagination .page-item .page-link {
+    color: #51D3B7 !important;
+}
 /*.welcome .text {*/
 /*    background: url("../img/banner.jpg") no-repeat;*/
 /*    width: 100%;*/

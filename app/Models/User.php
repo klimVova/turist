@@ -25,7 +25,7 @@ class User extends Authenticatable
     const ROLE_SANATORIUM = 6;
     const ROLE_TUROPERATOR = 7;
     const ROLE_SPORT = 8;
-
+    const ROLE_CONSULTING = 9;
 
     public static function getRoles()
     {
@@ -39,6 +39,7 @@ class User extends Authenticatable
             self::ROLE_SANATORIUM => 'Санатории',
             self::ROLE_TUROPERATOR => 'ТурОператор',
             self::ROLE_SPORT => 'Спорт',
+            self::ROLE_CONSULTING => 'Консалтинг',
         ];
     }
 
@@ -90,6 +91,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class, 'user_id', 'id');
     }
+    public function cats(){
+        return $this->belongsToMany(ConsultingCat::class, 'consulting_cat_users','user_id','cat_id');
+    }
+
     public function type()
     {
         return $this->belongsTo(Type::class, 'type_id', 'id');
