@@ -10,7 +10,7 @@ const router = createRouter({
             component: () => import('../views/Home.vue')
         },
         {
-            path: '/consulting',
+            path: '/consultings',
             name: 'constaling',
             component: () => import('../views/Constaling.vue')
         },
@@ -154,7 +154,7 @@ const router = createRouter({
             component: () => import('../views/blogItem.vue')
         },
         {
-            path: '/consulting/:id',
+            path: '/consultings/:id',
             name: 'constaling_card',
             component: () => import('../views/constalingCard.vue')
         },
