@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="service-list">
                                     <!-- <div class="service-item"> -->
-                                    <div v-for="service in services" class="category fadeInUp wow animated"
+                                    <div v-for="service in lists" class="category fadeInUp wow animated"
                                          style="visibility: visible; animation-name: fadeInUp;">
                                         <div v-if="service.user_id == card.user_id && service.cat_id == card.cat_id" class="subcategory">
                                             <div class="d-flex col justify-content-between">
@@ -156,6 +156,7 @@ export default {
         return {
             id: this.$route.params.id,
             card: [],
+            lists:[],
             services: [],
             message: [],
             comments: [],
@@ -170,6 +171,12 @@ export default {
             this.axios.get('/api/consultingCard/' + this.$route.params.id)
                 .then(res => {
                     this.card = res.data.data;
+                })
+        },
+        getLists() {
+            this.axios.get('/api/consultingList/')
+                .then(res => {
+                    this.lists = res.data.data;
                 })
         },
         getServic() {
@@ -218,6 +225,7 @@ export default {
         this.getComment()
         this.getUser()
         this.getServic()
+        this.getLists()
     }
 }
 </script>
