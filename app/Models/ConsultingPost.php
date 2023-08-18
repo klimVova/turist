@@ -11,4 +11,8 @@ class ConsultingPost extends Model
 
     protected $table = 'consulting_posts';
     protected $guarded = false;
+
+    public function getImageUrlAttribute(){
+        return url('storage/' . $this->preview_image);
+    }
 }

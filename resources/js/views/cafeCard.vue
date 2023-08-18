@@ -43,8 +43,6 @@
                                         </ul>
                                     </div>
                                     <input @click.prevent="toggleModal" :class="state.user !== '' ? '' : 'disabled '" type="submit" value="Забронировать стол">
-
-                                    <p></p>
                                 </div>
                             </div>
                             <div class="card-contacts col col-12 col-md-3">
@@ -261,6 +259,7 @@ export default {
                 .then(res => {
                     this.card = res.data.data;
                     let center = [this.card.coordinate_l, this.card.coordinate_r];
+
 
                     function init() {
                         let map = new ymaps.Map('map-test', {

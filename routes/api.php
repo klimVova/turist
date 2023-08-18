@@ -118,5 +118,18 @@ Route::get('/sportLists', \App\Http\Controllers\API\Sport\ListController::class)
 Route::get('/sportItems', \App\Http\Controllers\API\Sport\ItemController::class);//подкатегории с ценой сча стоят ()
 Route::get('/sportProducts', \App\Http\Controllers\API\Sport\ProductController::class);//тип сами продукты но там чет их никто не добавляет
 
+
+//consulting
+Route::get('/consultingCat', \App\Http\Controllers\API\Consulting\CategoryController::class);
+Route::get('/consultingCards', \App\Http\Controllers\API\Consulting\CardController::class);
+Route::get('/consultingTodoList', \App\Http\Controllers\API\Consulting\TodoListController::class);
+Route::get('/consultingCard/{consultingCard}', \App\Http\Controllers\API\Consulting\ShowController::class);
+Route::get('/consultingService', \App\Http\Controllers\API\Consulting\ServicController::class);
+Route::post('/consulting/{consultingPost}/comments', \App\Http\Controllers\API\Consulting\CommentController::class);//записать коммент
+Route::post('/consultingShow/{consultingPost}/comments', \App\Http\Controllers\API\Consulting\ShowCommentController::class);//показать коммент
+Route::delete('/consulting/comment/{id}', \App\Http\Controllers\API\Consulting\DeleteCommentController::class);//удалить коммент
+
+
+
 Route::post('/preOrder', \App\Http\Controllers\API\PreOrder\StoreController::class); // записать заказ в корзину
 

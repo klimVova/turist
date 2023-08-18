@@ -120,12 +120,12 @@
                         @csrf
                         <div class="input-group">
                             <input type="text" name="title" class="form-control"
-                                   placeholder="Добавить новую">
+                                   placeholder="Введите название услуги">
                             @error('title')
                             <div class="text-danger text-bold ">{{$message}}</div>
                             @enderror
                             <input type="text" name="price" class="form-control"
-                                   placeholder="Добавить цену">
+                                   placeholder="Введите цену">
                             @error('price')
                             <div class="text-danger text-bold ">{{$message}}</div>
                             @enderror
