@@ -21,10 +21,10 @@
                     >
                         <p>{{ i.title }}</p>
                         <div class="consulting_card card-body">
-                            <div class="" v-for="card in cards">
+                            <div  class="" v-for="card in cards">
                                 <router-link :to="'/consulting/'+ card.id">
                                     <div :class="activeEl !== i && activeEl !== false ? 'd-none' : ''">
-                                        <div class="d-flex mb-5" v-if="card.cat_id == i.id">
+                                        <div class="consulting_flex mb-5" v-if="card.cat_id == i.id">
                                             <div class="item-img">
                                                 <img style="width: 300px;height: 200px;" :src="card.preview_image">
                                             </div>
@@ -138,5 +138,13 @@ export default {
 .parent {
     position: relative;
     height: 100vh;
+}
+.consulting_flex{
+    display: flex;
+}
+@media (max-width: 480px) {
+    .consulting_flex {
+       display: block;
+    }
 }
 </style>
