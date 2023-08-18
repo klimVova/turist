@@ -22,7 +22,7 @@
                         <p>{{ i.title }}</p>
                         <div class="consulting_card card-body">
                             <div  class="" v-for="card in cards">
-                                <router-link :to="'/consulting/'+ card.id">
+                                <router-link :to="'/consultings/'+ card.id">
                                     <div :class="activeEl !== i && activeEl !== false ? 'd-none' : ''">
                                         <div class="consulting_flex mb-5" v-if="card.cat_id == i.id">
                                             <div class="item-img">
