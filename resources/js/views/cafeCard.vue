@@ -219,16 +219,13 @@ export default {
         return {
             id: this.$route.params.id,
             card: [],
-            times: [],
-            lists: [],
-            items: [],
-            products: [],
             message: [],
             comments: [],
             persons: [],
             user_name: [],
             pageOfItems: [],
             pagination: [],
+<<<<<<< HEAD
             actions: [],
             images: [],
             elems:[],
@@ -261,6 +258,11 @@ export default {
                     this.products = res.data.data;
                 })
         },
+=======
+        }
+    },
+    methods: {
+>>>>>>> devs
         getCard() {
             this.axios.get('/api/cafe/' + this.$route.params.id)
                 .then(res => {
@@ -328,29 +330,12 @@ export default {
                     this.getComment()
                 })
         },
-        getAction() {
-            this.axios.get('/api/cafeAction')
-                .then(res => {
-                    this.actions = res.data.data;
-                })
-        },
-        getImage() {
-            this.axios.get('/api/cafeImage')
-                .then(res => {
-                    this.images = res.data.data;
-                })
-        },
     },
     mounted() {
-        this.getList()
         this.getCard()
-        this.getTime()
-        this.getItem()
-        this.getProduct()
         this.getComment()
         this.getUser()
-        this.getAction()
-        this.getImage()
+
     }
 }
 </script>
