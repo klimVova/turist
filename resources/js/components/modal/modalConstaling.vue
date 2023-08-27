@@ -8,34 +8,35 @@
                             <div class="col col-12 col-md-12 hotels-inf-item d-flex justify-content-sm-center">
                                 <div class="section-label section-label-mob">
                                     <div class="profile-data-item">
-                                        <label class="input_text">Название организации</label>
-                                        <input class="edit-dis" type="text" name="surname">
+                                        <label class="input_text">Название компании</label>
+                                        <input class="edit-dis" type="text" name="surname" v-model="company_name" >
                                     </div>
                                     <div class="profile-data-item">
-                                        <label class="input_text">Email</label>
-                                        <input class="edit-dis" type="email" name="email">
+                                        <label class="input_text">Сообщение</label><br>
+                                        <textarea class="edit-dis-text" type="text" name="messages"
+                                                  v-model="messages" ></textarea>
                                     </div>
-                                    <div class="profile-data-item">
-                                        <label class="input_text">Телефон</label>
-                                        <input class="edit-dis" type="text" name="phone">
-                                    </div>
-                                    <div >
-                                        <input class="button_form"
-                                            type="submit"
-                                            value="Оставить заявку"
-                                        />
-                                    </div>
+                                    <div>
+                                    <input class="button_form"
+                                           type="submit"
+                                           :value="message"
+                                           @click.prevent ='getOrder'
+                                    />
                                 </div>
                             </div>
-                            <input class="hide" v-model="role" name="constaling">
-                            <button class="btn  modal-close" @click.prevent="close"
-                            >Закрыть
-                            </button>
-                        </form>
                     </div>
+
+                    <button class="btn  modal-close" @click.prevent="close"
+                    >Закрыть
+                    </button>
+                    </form>
                 </div>
-            </transition>
         </div>
+    </transition>
+    {{ state }}
+    {{card}}
+    </div>
+
     </transition>
 </template>
 
@@ -49,7 +50,7 @@ import user from "../../user";
 export default {
     name: "modalConstaling",
     components: {SportListItem, FormPickerSelect, swiper},
-    props: ['modalActive', 'posts', 'card', 'modalPost', 'lists', 'items', 'products',],
+    props: ['modalActive', 'card'],
     setup(props, {emit}) {
         const {state} = user;
         const close = () => {
@@ -59,131 +60,40 @@ export default {
     },
     data() {
         return {
-            date: [],
-            post: this.posts,
-            title: null,
-            price: null,
-            category: null,
-            id: null,
-            totalPrice: 0,
-            message: 'Забронировать',
-            sumPrice: null,
-            start: null,
-            end: null,
-            srartnMM: null,
-            endMM: null,
-            days: null,
             order: [],
-            role: 'sport',
-            berth: null,
+            role: 'const',
+            messages: null,
+            company_name: null,
+            users: null,
+            message: 'Отправить заявку'
         }
     },
     methods: {
-
-        storePreOreder() {
-            this.axios.post('/api/preOrder', {
-                'total_price': this.sumPrice,
-                'date': '-',
-                'products': this.order,
-                'user_id': this.state.user,
-                'name_product': this.card.title,
-                'image_product': this.card.image_url,
-                'role': this.role,
-                'organization_email': this.card.email
-            })
+        getUsers() {
+            this.axios.get('/api/users/')
                 .then(res => {
-                    localStorage.clear()
+                    this.users = res.data.data;
+                    console.log(this.users);
                 })
         },
-        orderCafe() {
-
-            this.days = this.$refs.formDate.date
-
-            this.start = Number(this.days[0].substr(0, 2))
-            this.end = Number(this.days[1].substr(0, 2))
-            this.startMM = Number(this.days[0].substr(3, 2))
-            this.endMM = Number(this.days[1].substr(3, 2))
-            if (this.endMM === this.startMM) {
-                this.day = (this.end - this.start) + 1
-            } else if (this.endMM > this.startMM && this.startMM === 3 || this.startMM === 1 || this.startMM === 5 || this.startMM === 7 || this.startMM === 8 || this.startMM === 10 || this.startMM === 12) {
-                this.day = (this.end - this.start) + 32
-            } else if (this.endMM > this.startMM && this.startMM === 2) {
-                this.day = (this.end - this.start) + 29
-            } else if (this.endMM > this.startMM && this.startMM === 4 || this.startMM === 6 || this.startMM === 9 || this.startMM === 11) {
-                this.day = (this.end - this.start) + 31
-            }
-
-            this.message = 'Заказ добавлен в корзину'
-            const raws = localStorage.getItem('sportProduct')
-            const product = JSON.parse(raws)
-
-            const rawsList = localStorage.getItem('sportProductList')
-            const productList = JSON.parse(rawsList)
-            const calculatePrice = (total) => {
-                if (total === null) {
-                    return 0;
-                } else if (total.length === 0) {
-                    return 0;
-                } else {
-                    return total.reduce((acc, curr) => (Number(acc) + Number(curr.price)), 0);
-                }
-            }
-            const calculatePriceList = (totals) => {
-                if (totals === null) {
-                    return 0;
-                } else if (totals.length === null) {
-                    return 0;
-                } else {
-                    return totals.reduce((acc, curr) => (Number(acc) + Number(curr.price)), 0);
-                }
-            }
-            if (calculatePrice(product) === 0) {
-                this.totalPrice = 0 + calculatePriceList(productList)
-            } else if (calculatePriceList(productList) === 0) {
-                this.totalPrice = 0 + calculatePrice(product)
-            } else if (calculatePrice(product) === 0 && calculatePriceList(productList) === 0) {
-                this.totalPrice = 0
-            } else {
-                this.totalPrice = calculatePrice(product) + calculatePriceList(productList)
-            }
-
-
-            this.posts.forEach(post => {
-                if (this.modalPost === post.id) {
-                    this.id = post.id
-                    this.title = post.title
-                    this.price = post.price
-                    this.category = post.category
-                    this.berth = post.berth
-                }
+        getOrder() {
+            this.axios.post(`/api/consulting/orders`, {
+                'messages': this.messages,
+                'company_name': this.company_name,
+                'card_id': this.card.id,
+                'user_id': this.state.user,
             })
-
-
-            const totalPrice = this.totalPrice
-            this.sumPrice = this.totalPrice + (this.price * this.day)
-
-
-            this.order = {
-                date: this.$refs.formDate.date,
-                people: this.$refs.formDate.countPeople,
-                product: product,
-                productList: productList,
-                totalPrice: this.totalPrice + this.price,
-                title: this.title,
-                category: this.category,
-                id: this.id,
-                berth: this.berth,
-            }
-
-            localStorage.setItem('orderProductSport', JSON.stringify(this.order))
-            const raw = localStorage.getItem('order')
-            const orderProductSport = JSON.parse(raw)
-
-            this.storePreOreder()
+                .then(res => {
+                    if(this.messages != null || this.company_name != null){
+                    this.messages = ''
+                    this.company_name = ''
+                    this.message = 'Заявка отправлена'}
+                })
         },
+
     },
     mounted() {
-
+        this.getUsers()
     }
 
 }
@@ -265,20 +175,30 @@ export default {
 .slides {
     width: 170px;
 }
-.input_text{
+
+.input_text {
     font-weight: 700;
     font-size: 12px;
     color: rgba(81, 211, 183, 1);
 }
-.button_form{
+
+.button_form {
     width: 200px;
     height: 50px;
-    background-color:  rgba(81, 211, 183, 1);
-    border-radius:3px;
-    border:none;
-    color:#fff;
-    padding:12px 24px;
+    background-color: rgba(81, 211, 183, 1);
+    border-radius: 3px;
+    border: none;
+    color: #fff;
+    padding: 12px 24px;
 }
+
+.edit-dis-text {
+    display: block;
+    width: 201px;
+    border: 2px solid #51D3B7;
+    padding: 4px 12px;
+}
+
 @media (max-width: 480px) {
     .modal-content-cafe {
         width: 100%;

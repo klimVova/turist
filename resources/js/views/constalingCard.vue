@@ -123,10 +123,10 @@
             </div>
         </div>
     </div>
-    {{state.user}}
     <div>
         <modal-constaling
             :modal-active="modalActive"
+            :card="card"
             @close="toggleModal"
         >
         </modal-constaling>
@@ -176,13 +176,8 @@ export default {
         getLists() {
             this.axios.get('/api/consultingList/')
                 .then(res => {
+                    console.log(this.lists);
                     this.lists = res.data.data;
-                })
-        },
-        getServic() {
-            this.axios.get('/api/consultingServ/')
-                .then(res => {
-                    this.services = res.data.data;
                 })
         },
         commentCafe() {
@@ -200,7 +195,6 @@ export default {
                 'page': page
             })
                 .then(res => {
-                    console.log(res);
                     this.comments = res.data.data
                     this.message = ''
                     this.pagination = res.data.meta
@@ -224,7 +218,6 @@ export default {
         this.getCard()
         this.getComment()
         this.getUser()
-        this.getServic()
         this.getLists()
     }
 }

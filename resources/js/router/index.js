@@ -15,6 +15,11 @@ const router = createRouter({
             component: () => import('../views/Constaling.vue')
         },
         {
+            path: '/consult',
+            name: 'const',
+            component: () => import('../views/Constaling.vue')
+        },
+        {
             path: '/about-company/rules-organization',
             name: 'fororganization',
             component: () => import('../views/ForOrganization.vue'),

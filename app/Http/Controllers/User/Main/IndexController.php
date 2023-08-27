@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\User\Main;
 
+use App\Events\ConsultingMail;
 use App\Events\PaymentMail;
 use App\Http\Controllers\Controller;
-use App\Mail\Payment\Organization;
+use App\Mail\Payment\Consulting;
 use App\Mail\Payment\Promocode;
-use App\Models\Payment;
-use App\Models\preOrder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 

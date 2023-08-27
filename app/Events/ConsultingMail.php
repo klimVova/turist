@@ -6,14 +6,14 @@ use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class PaymentMail
+class ConsultingMail
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $d;
-    public function __construct($d)
+    public $dd;
+    public function __construct($dd)
     {
-        $this->d = $d;
+        $this->dd = $dd;
     }
 
 }
