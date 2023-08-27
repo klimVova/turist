@@ -58,7 +58,7 @@ class NewPaymentEmailNotification
                 'phone' => $phone_c,
                 'email' =>  $email_new_c,
             ];
-            if ($email_status_c === NULL) {
+            if ($email_status_c === NULL && $test_email !='') {
                 Mail::to($test_email)->send(new Consulting($dd));
             }
             $orders = OrdersConsulting::orderby('id', 'desc')->first();
