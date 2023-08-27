@@ -129,6 +129,7 @@ Route::get('/consultingList', \App\Http\Controllers\API\Consulting\ListsControll
 Route::post('/consulting/{consultingPost}/comments', \App\Http\Controllers\API\Consulting\CommentController::class);//записать коммент
 Route::post('/consultingShow/{consultingPost}/comments', \App\Http\Controllers\API\Consulting\ShowCommentController::class);//показать коммент
 Route::delete('/consulting/comment/{id}', \App\Http\Controllers\API\Consulting\DeleteCommentController::class);//удалить коммент
+Route::post('consulting/orders', \App\Http\Controllers\API\Consulting\OrdersController::class);//удалить коммент
 
 
 

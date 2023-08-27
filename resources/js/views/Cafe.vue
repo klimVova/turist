@@ -94,6 +94,7 @@ export default {
       this.axios.post('/api/cafes', {})
           .then(res => {
             this.cafes = res.data.data
+
           })
     },
     getFilter() {

@@ -12,7 +12,7 @@
         </div>
         <div class="row sort ">
             <div class="col col-md-10 ">
-                <div class="org-type-sort d-flex parent">
+                <div class="org-type-sort d-flex">
                     <div v-for="i in categories"
                          :key="i"
                          class=""
@@ -20,7 +20,29 @@
                          @click="activeEl = i"
                     >
                         <p>{{ i.title }}</p>
-                        <div class="consulting_card card-body">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row sort1 ">
+            <div class="col col-md-10 ">
+                <div class="org-type-sort d-flex">
+                    <div v-for="i in categories"
+                         :key="i"
+                         class=""
+                         @click="activeEl = i"
+                    >
+                        <div
+                            v-if="visible"
+                            :class="activeEl !== i && activeEl !== false ? 'd-none' : 'consulting_desc'">
+                            <div class="details" >
+                                {{ i.content }}
+                            </div>
+                        </div>
+                        <div
+                            :class="activeEl !== i && activeEl !== false ? 'd-none' : 'consulting_card card-body parent'"
+                        >
+                            <button class="btn" @click.prevent="visible=!visible">{{visible?'Закрыть':'Подробнее'}}</button>
                             <div  class="" v-for="card in cards">
                                 <router-link :to="'/consultings/'+ card.id">
                                     <div :class="activeEl !== i && activeEl !== false ? 'd-none' : ''">
@@ -63,6 +85,8 @@ export default {
             lists: null,
             activeEl: true,
             act: true,
+            array:null,
+            visible: true
         }
     },
     methods: {
@@ -82,7 +106,6 @@ export default {
             this.axios.get('/api/consultingTodoList', {})
                 .then(res => {
                     this.lists = res.data.data
-                    console.log(this.lists);
                 })
         },
     },
@@ -119,6 +142,13 @@ export default {
     position: absolute;
     left: 0;
     height: auto;
+    margin-bottom: 20px;
+}
+
+.consulting_card {
+    position: absolute;
+    left: 0;
+    height: auto;
 }
 
 .active {
@@ -141,6 +171,30 @@ export default {
 }
 .consulting_flex{
     display: flex;
+}
+.details{
+    background: linear-gradient(rgba(225, 225, 255, 0), rgba(81, 211, 183, .4));
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 800px;
+}
+.card-body{
+    padding: 10px 10px 10px 0px !important;
+}
+.btn{
+    width: 150px;
+    margin: 0 0 10px 0;
+    font-size: 12px;
+    background-color: #51D3B7;
+    color: white;
+    padding: 10px 12px;
+    border: none;
+    -webkit-box-shadow: 0 1px 5px rgba(81, 211, 183, 0.25);
+    box-shadow: 0 1px 5px rgba(81, 211, 183, 0.25);
+}
+.sort1 {
+    margin-top: 10px;
+    padding-left: 8px;
 }
 @media (max-width: 480px) {
     .consulting_flex {

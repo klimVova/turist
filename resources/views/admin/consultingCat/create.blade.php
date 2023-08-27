@@ -27,6 +27,13 @@
                                 <div class="text-danger">Это поле необходимо заполнить</div>
                             @enderror
                         </div>
+                        <label>Краткое описание</label>
+                        <div class="form-group">
+                            <textarea rows='5' cols='70' name="content">{{old('content')}}</textarea>
+                            @error('content')
+                            <div class="text-danger">Это поле необходимо заполнить</div>
+                            @enderror
+                        </div>
                         <input type="submit" class="btn btn-primary" value="Добавить">
                     </form>
                 </div>

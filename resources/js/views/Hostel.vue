@@ -94,6 +94,7 @@ export default {
             this.axios.post('/api/hostels', {})
                 .then(res => {
                     this.hostels = res.data.data
+                    console.log(this.hostels);
                 })
         },
         getFilter() {
