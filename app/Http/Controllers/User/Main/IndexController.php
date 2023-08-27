@@ -33,7 +33,8 @@ class IndexController extends Controller
 
         $d=[];
         $message=[];
-        event(new PaymentMail($d,$message));
+        $dd=[];
+        event(new PaymentMail($d,$message,$dd));
 
         return view('user.main.index', compact('user', 'preOrders', 'products', 'totals', 'payments', 'promocode_status', 'promocode'));
     }

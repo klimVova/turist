@@ -18,9 +18,7 @@ class IndexController extends Controller
         else
             $data = Auth::user()->id;
 
-        $d =[];
-        $dd=[];
-        event(new PaymentMail($d,$dd));
+
         return view('client.main.index', ['data' => $data]);
     }
 }
