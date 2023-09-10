@@ -15,7 +15,7 @@ const router = createRouter({
             component: () => import('../views/Constaling.vue')
         },
         {
-            path: '/consult',
+            path: '/constaling',
             name: 'const',
             component: () => import('../views/Constaling.vue')
         },
