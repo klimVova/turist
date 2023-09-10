@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid main catalog ">
         <div class="section-label">
-            <h2>Каталог</h2>
+            <h2>Консалтинг</h2>
             <hr>
         </div>
 
@@ -147,17 +147,12 @@ export default {
     list-style-type: none;
 }
 
-.consulting_card {
-    position: absolute;
-    left: 0;
-    height: auto;
-    margin-bottom: 20px;
-}
 
 .consulting_card {
     position: absolute;
     left: 0;
     height: auto;
+    margin-top: 25px;
 }
 
 .active {
@@ -204,6 +199,11 @@ export default {
 .sort1 {
     margin-top: 10px;
     padding-left: 8px;
+}
+.sort{
+    margin-top: 32px;
+    padding-left: 8px;
+    overflow-x: scroll;
 }
 @media (max-width: 480px) {
     .consulting_flex {
