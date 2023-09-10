@@ -123,6 +123,7 @@ Route::get('/sportProducts', \App\Http\Controllers\API\Sport\ProductController::
 Route::get('/consultingCat', \App\Http\Controllers\API\Consulting\CategoryController::class);
 Route::get('/consultingCards', \App\Http\Controllers\API\Consulting\CardController::class);
 Route::get('/consultingTodoList', \App\Http\Controllers\API\Consulting\TodoListController::class);
+Route::get('/consultingAction', \App\Http\Controllers\API\Consulting\ActionController::class);
 Route::get('/consultingCard/{consultingCard}', \App\Http\Controllers\API\Consulting\ShowController::class);
 Route::post('/consulting/{consultingPost}/comments', \App\Http\Controllers\API\Consulting\CommentController::class);//записать коммент
 Route::post('/consultingShow/{consultingPost}/comments', \App\Http\Controllers\API\Consulting\ShowCommentController::class);//показать коммент

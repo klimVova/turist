@@ -20,17 +20,12 @@
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-12">
-                    <form action="{{route('consulting.todolist.update', $consultingTodoList->id)}}" method="POST" class="w-25">
+                    <form action="{{route('consulting.action.update', $consultingAction->id)}}" method="POST" class="w-25">
                         @csrf
                         @method('PATCH')
                         <div class="form-group w-75">
                             <input type="text" class="form-control" name="title" placeholder="Название услуги"
-                                   value="{{$consultingTodoList->title}}">
-                            @error('title')
-                            <div class="text-danger">{{$message}}</div>
-                            @enderror
-                            <input type="text" class="form-control" name="price" placeholder="Цена"
-                                   value="{{$consultingTodoList->price}}">
+                                   value="{{$consultingAction->title}}">
                             @error('title')
                             <div class="text-danger">{{$message}}</div>
                             @enderror

@@ -390,9 +390,6 @@ Route::group(['prefix' => 'main'], function () {
             Route::get('/{consultingPost}/edit', EditController::class)->name('consulting.post.edit');
             Route::patch('/{consultingPost}', UpdateController::class)->name('consulting.post.update');
             Route::delete('/{consultingPost}', DeleteController::class)->name('consulting.post.delete');
-
-
-
         });
         Route::group(['namespace' => 'TodoList', 'prefix' => 'todolist'], function () {
             Route::get('/create/', CreateTodoListController::class)->name('consulting.todolist.create');
@@ -400,6 +397,13 @@ Route::group(['prefix' => 'main'], function () {
             Route::get('/{consultingTodoList}/edit', EditTodoListController::class)->name('consulting.todolist.edit');
             Route::patch('/{consultingTodoList}', UpdateTodoListController::class)->name('consulting.todolist.update');
             Route::delete('/{consultingTodoList}', DeleteTodoListController::class)->name('consulting.todolist.delete');
+        });
+        Route::group(['namespace' => 'Action', 'prefix' => 'action'], function () {
+            Route::get('/create/', CreateActionController::class)->name('consulting.action.create');
+            Route::post('/', StoreActionController::class)->name('consulting.action.store');
+            Route::get('/{consultingAction}/edit', EditActionController::class)->name('consulting.action.edit');
+            Route::patch('/{consultingAction}', UpdateActionController::class)->name('consulting.action.update');
+            Route::delete('/{consultingAction}', DeleteActionController::class)->name('consulting.action.delete');
 
         });
     });
