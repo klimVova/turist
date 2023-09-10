@@ -165,8 +165,56 @@
                             @endforeach
                             </tbody>
                         </table>
-
                     </div>
+                    новый
+                    <form action="{{route('consulting.list.store')}}" method="POST" class="w-55">
+                        @csrf
+                        <div class="input-group">
+                            <input type="text" name="title" class="form-control"
+                                   placeholder="Введите название услуги">
+                            @error('title')
+                            <div class="text-danger text-bold ">{{$message}}</div>
+                            @enderror
+                            <input type="text" name="price" class="form-control"
+                                   placeholder="Введите цену">
+                            @error('price')
+                            <div class="text-danger text-bold ">{{$message}}</div>
+                            @enderror
+                            <input type="hidden" name="user_id" value="{{$user}}">
+                            <input type="hidden" name="cat_id" value="{{$id}}">
+                            <button type="submit" class="btn btn-dark btn-sm px-4">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <table class="table">
+                        <thead class="thead">
+                        <tr>
+                            <th scope="col">Название</th>
+                            <th scope="col">Цена,р</th>
+                            <th colspan="2" class="text-center">Действие</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($products as $l)
+                            <tr>
+                                <td> {{$l->title}}</td>
+                                <td> {{$l->price}}</td>
+                                <td class="d-flex justify-content-sm-center"><a href="{{route('consulting.list.edit', $l->id)}}"
+                                                                                class='text-success mr-3'><i class="fas fa-pencil-alt"></i></a>
+                                    <form action="{{route('consulting.list.delete', $l->id)}}"
+                                          method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="border-0 bg-transparent" l>
+                                            <i class="fas fa-trash text-danger" role="button"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

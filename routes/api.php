@@ -126,6 +126,7 @@ Route::get('/consultingTodoList', \App\Http\Controllers\API\Consulting\TodoListC
 Route::get('/consultingCard/{consultingCard}', \App\Http\Controllers\API\Consulting\ShowController::class);
 Route::get('/consultingServ', \App\Http\Controllers\API\Consulting\ServicController::class);
 Route::get('/consultingList', \App\Http\Controllers\API\Consulting\ListsController::class);
+Route::get('/consultingList', \App\Http\Controllers\API\Consulting\ListController::class);
 Route::post('/consulting/{consultingPost}/comments', \App\Http\Controllers\API\Consulting\CommentController::class);//записать коммент
 Route::post('/consultingShow/{consultingPost}/comments', \App\Http\Controllers\API\Consulting\ShowCommentController::class);//показать коммент
 Route::delete('/consulting/comment/{id}', \App\Http\Controllers\API\Consulting\DeleteCommentController::class);//удалить коммент

@@ -44,7 +44,7 @@
                         >
                             <button class="btn" @click.prevent="visible=!visible">{{visible?'Закрыть':'Подробнее'}}</button>
                             <div  class="" v-for="card in cards">
-                                <router-link :to="'/consultings/'+ card.id">
+                                <router-link :to="'/consult/'+ card.id">
                                     <div :class="activeEl !== i && activeEl !== false ? 'd-none' : ''">
                                         <div class="consulting_flex mb-5" v-if="card.cat_id == i.id">
                                             <div class="item-img">
