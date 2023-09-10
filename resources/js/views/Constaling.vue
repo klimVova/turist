@@ -148,7 +148,7 @@ export default {
 .line::before{
     content: " ";
     position: absolute;
-    top: 100px;
+    top: 92px;
     left: 1px;
     padding: 1px;
     width:100%;
