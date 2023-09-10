@@ -4,7 +4,7 @@ namespace App\Http\Resources\Consulting;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TodoListResource extends JsonResource
+class ActionResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,7 +17,6 @@ class TodoListResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'price' => $this->price,
             'user_id' => $this->user_id,
             'cat_id' => $this->cat_id,
         ];

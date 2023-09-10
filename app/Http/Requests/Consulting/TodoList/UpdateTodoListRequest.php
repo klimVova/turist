@@ -25,6 +25,7 @@ class UpdateTodoListRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
+            'price' => 'required|string',
         ];
     }
 

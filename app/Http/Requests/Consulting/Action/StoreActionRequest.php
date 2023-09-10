@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Consulting\TodoList;
+namespace App\Http\Requests\Consulting\Action;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreTodoListRequest extends FormRequest
+class StoreActionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,7 +27,6 @@ class StoreTodoListRequest extends FormRequest
             'title' => 'required|string',
             'user_id' => 'required|integer',
             'cat_id' => 'required|integer',
-            'price' => 'required|integer',
         ];
     }
 

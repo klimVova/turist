@@ -52,10 +52,10 @@
                                             </div>
                                             <div class="list-item-descr">
                                                 <h2>{{ card.title }}</h2>
-                                                <div v-for="list in lists">
-                                                    <div v-if="list.cat_id == i.id && card.user_id == list.user_id">
+                                                <div v-for="action in actions">
+                                                    <div v-if="action.cat_id == i.id && card.user_id == action.user_id">
                                                         <img src="assets/img/check-list.svg">
-                                                        {{ list.title }}
+                                                        {{ action.title }}
                                                     </div>
                                                 </div>
                                             </div>
@@ -86,7 +86,8 @@ export default {
             activeEl: true,
             act: true,
             array:null,
-            visible: true
+            visible: true,
+            actions:null,
         }
     },
     methods: {
@@ -108,11 +109,19 @@ export default {
                     this.lists = res.data.data
                 })
         },
+        getActions() {
+            this.axios.get('/api/consultingAction', {})
+                .then(res => {
+                    this.actions = res.data.data
+                    console.log(this.actions);
+                })
+        },
     },
     mounted() {
         this.getCategory()
         this.getCards()
         this.getLists()
+        this.getActions()
     }
 }
 </script>
