@@ -12,8 +12,8 @@
         </div>
         <div class="row sort ">
             <div class="col col-md-10 ">
-                <div class="org-type-sort d-flex">
-                    <div v-for="i in categories"
+                <div class="org-type-sort line d-flex">
+                    <div  v-for="i in categories"
                          :key="i"
                          class=""
                          :class="activeEl !== i && activeEl !== false ? '' : 'active'"
@@ -142,11 +142,20 @@ export default {
 
 .org-type-sort p {
     padding: 12px 24px;
-    border-bottom: 1px solid #08366A;
     border-radius: 0;
     list-style-type: none;
 }
-
+.line::before{
+    content: " ";
+    position: absolute;
+    top: 100px;
+    left: 1px;
+    padding: 1px;
+    width:100%;
+    height: 1px;
+    background-color: #08366A;
+    transition: left 0.3s ease-in;
+}
 
 .consulting_card {
     position: absolute;
@@ -156,14 +165,13 @@ export default {
 }
 
 .active {
-    height: 48px;
+    height: 21vh;
     background-color: #08366A;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
 }
 
 .active p {
-    border-bottom: 1px solid #08366A;
     border-radius: 0;
     list-style-type: none;
     color: #fff;
