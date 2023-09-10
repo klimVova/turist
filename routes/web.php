@@ -402,20 +402,6 @@ Route::group(['prefix' => 'main'], function () {
             Route::delete('/{consultingTodoList}', DeleteTodoListController::class)->name('consulting.todolist.delete');
 
         });
-        Route::group(['namespace' => 'List', 'prefix' => 'list'], function () {
-            Route::get('/create/', CreateListController::class)->name('consulting.list.create');
-            Route::post('/', StoreListController::class)->name('consulting.list.store');
-            Route::get('/{consultingList}/edit', EditListController::class)->name('consulting.list.edit');
-            Route::patch('/{consultingList}', UpdateListController::class)->name('consulting.list.update');
-            Route::delete('/{consultingList}', DeleteListController::class)->name('consulting.list.delete');
-        });
-        Route::group(['namespace' => 'Service', 'prefix' => 'service'], function () {
-            Route::get('/create/', CreateServiceController::class)->name('consulting.service.create');
-            Route::post('/', StoreServiceController::class)->name('consulting.service.store');
-            Route::get('/{consultingService}/edit', EditServiceController::class)->name('consulting.service.edit');
-            Route::patch('/{consultingService}', UpdateServiceController::class)->name('consulting.service.update');
-            Route::delete('/{consultingService}', DeleteServiceController::class)->name('consulting.service.delete');
-        });
     });
 
 

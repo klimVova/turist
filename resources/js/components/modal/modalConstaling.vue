@@ -71,7 +71,6 @@ export default {
             this.axios.get('/api/users/')
                 .then(res => {
                     this.users = res.data.data;
-                    console.log(this.users);
                 })
         },
         getOrder() {
