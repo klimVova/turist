@@ -14,6 +14,7 @@
                         </ul>
                     </div>
                 </div>
+
                 <div class="card-cafe col col-12 col-md-10">
                     <div class="container-fluid">
                         <div class="row">
@@ -54,21 +55,29 @@
                                     <h2>Услуги</h2>
                                     <hr>
                                 </div>
-                                <div class="service-list">
-                                    <!-- <div class="service-item"> -->
-                                    <div v-for="service in lists" class="category fadeInUp wow animated"
-                                         style="visibility: visible; animation-name: fadeInUp;">
-                                        <div v-if="service.user_id == card.user_id && service.cat_id == card.cat_id" class="subcategory">
-                                            <div class="d-flex col justify-content-between">
-                                                <div><label> {{service.title }} </label>
-                                                </div>
-                                                <div><label> {{service.price }} </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- </div> -->
-                                </div>
+                                <template v-for="p in ps">
+                                    <li ><img
+                                        src="assets/img/check-list.svg">
+                                        {{ p.title }}
+                                    </li>
+                                </template>
+<!--                                <div class="service-list">-->
+<!--                                    &lt;!&ndash; <div class="service-item"> &ndash;&gt;-->
+<!--                                    <div v-for="service in lists" class="category fadeInUp wow animated"-->
+<!--                                         style="visibility: visible; animation-name: fadeInUp;">-->
+<!--                                        <div v-if="service.user_id == card.user_id && service.cat_id == card.cat_id" class="subcategory">-->
+<!--                                            <div class="d-flex col justify-content-between">-->
+<!--                                                <div v-for="list in lists">-->
+<!--                                                    <div v-if="list.cat_id == i.id && card.user_id == list.user_id">-->
+<!--                                                        <img src="assets/img/check-list.svg">-->
+<!--                                                        {{ list.title }}-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    &lt;!&ndash; </div> &ndash;&gt;-->
+<!--                                </div>-->
                             </div>
                             <div class="col col-12 col-md-6 hotels-inf-item">
                                 <div class="section-label">
@@ -156,14 +165,13 @@ export default {
         return {
             id: this.$route.params.id,
             card: [],
-            lists:[],
-            services: [],
             message: [],
             comments: [],
             persons: [],
             user_name: [],
             pageOfItems: [],
             pagination: [],
+            ps:[],
         }
     },
     methods: {
@@ -171,13 +179,6 @@ export default {
             this.axios.get('/api/consultingCard/' + this.$route.params.id)
                 .then(res => {
                     this.card = res.data.data;
-                })
-        },
-        getLists() {
-            this.axios.get('/api/consultingList/')
-                .then(res => {
-                    console.log(this.lists);
-                    this.lists = res.data.data;
                 })
         },
         commentCafe() {
@@ -213,6 +214,13 @@ export default {
                     this.getComment()
                 })
         },
+        getLists() {
+            this.axios.get('/api/consultingTodoList', {})
+                .then(res => {
+                    this.ps = res.data.data
+                })
+        },
+
     },
     mounted() {
         this.getCard()
