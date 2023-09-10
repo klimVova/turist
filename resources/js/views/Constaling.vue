@@ -165,7 +165,7 @@ export default {
 }
 
 .active {
-    height: 21vh;
+    height: 10vh;
     background-color: #08366A;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
