@@ -33,8 +33,6 @@
                 </div>
         </div>
     </transition>
-    {{ state }}
-    {{card}}
     </div>
 
     </transition>

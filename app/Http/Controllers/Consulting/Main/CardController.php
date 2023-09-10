@@ -19,7 +19,11 @@ class CardController extends Controller
         $consultingPosts = DB::table('consulting_posts')->where('user_id','=',$user)->where('cat_id', '=',$id)->get();
         $consulting_todo_lists = DB::table('consulting_todo_lists')->where('cat_id','=',$id)->where('user_id','=',$user)->get();
         $services = DB::table('consulting_services')->where('cat_id','=',$id)->where('user_id','=',$user)->get();
+        $products = DB::table('consulting_lists')->where('cat_id','=',$id)->where('user_id','=',$user)->get();
 
-        return view('consulting.card.index', compact('items', 'lists', 'id', 'consultingPosts' , 'user' , 'consulting_todo_lists' ,'services'));
+        return view('consulting.card.index', compact('items',
+                                                         'lists',
+                                                              'id', 'consultingPosts' ,
+                                                              'user' , 'consulting_todo_lists' ,'services' ,'products'));
     }
 }

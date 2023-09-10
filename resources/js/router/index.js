@@ -159,7 +159,7 @@ const router = createRouter({
             component: () => import('../views/blogItem.vue')
         },
         {
-            path: '/consultings/:id',
+            path: '/consult/:id',
             name: 'constaling_card',
             component: () => import('../views/constalingCard.vue')
         },
