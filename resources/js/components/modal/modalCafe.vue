@@ -17,17 +17,7 @@
                                     <label v-if="list.user_id === card.user_id"><span :id="`${list.title}`"></span>{{
                                             list.title
                                         }}.</label>
-                                    <cafe-list-item
-                                        v-for="( subcat ,index) in items"
-                                        :ref="`item-${index}`"
-                                        :subcat="subcat"
-                                        :key="`item-${index}`"
-                                        :list="list"
-                                        :card="card"
-                                        :items="items"
-                                        :index="index"
-                                        :products="products"
-                                    ></cafe-list-item>
+
                                 </div>
                                 <!-- </div> -->
                             </div>
