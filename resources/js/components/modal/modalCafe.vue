@@ -61,11 +61,7 @@ import user from "../../user";
 export default {
     name: "modalCafe",
     components: {cafeListItem, FormPicker},
-<<<<<<< HEAD
-    props: ['modalActive', 'elems', 'items', 'products', 'card', 'lists'],
-=======
     props: ['modalActive', 'elems', 'items', 'products', 'card' , 'lists'],
->>>>>>> devs
     setup(props, {emit}) {
         const {state} = user;
         const close = () => {
