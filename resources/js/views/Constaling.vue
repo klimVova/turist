@@ -214,7 +214,9 @@ export default {
     padding-left: 8px;
     overflow-x: scroll;
 }
+.сons-container row{ padding: 0 24px;}
 @media (max-width: 480px) {
+    .сons-container row{ padding: 0 24px;}
     .consulting_flex {
        display: block;
     }
