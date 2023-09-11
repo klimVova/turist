@@ -16,7 +16,7 @@
                                      style="visibility: visible; animation-name: fadeInUp;">
                                     <label v-if="list.user_id === card.user_id"><span :id="`${list.title}`"></span>{{
                                             list.title
-                                        }}</label>
+                                        }}.</label>
                                     <cafe-list-item
                                         v-for="( subcat ,index) in items"
                                         :ref="`item-${index}`"
