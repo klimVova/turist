@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid main catalog ">
+    <div class="container-fluid main catalog сons-container">
         <div class="section-label">
             <h2>Консалтинг</h2>
             <hr>
@@ -35,7 +35,7 @@
                         <div
                             v-if="visible"
                             :class="activeEl !== i && activeEl !== false ? 'd-none' : 'consulting_desc'">
-                            <div class="details" >
+                            <div class="" >
                                 {{ i.content }}
                             </div>
                         </div>
@@ -194,6 +194,7 @@ export default {
     padding: 10px 10px 10px 0px !important;
 }
 .btn{
+    text-transform: capitalize;
     width: 150px;
     margin: 0 0 10px 0;
     font-size: 12px;
@@ -217,5 +218,50 @@ export default {
     .consulting_flex {
        display: block;
     }
+    .btn{
+        text-transform: capitalize;
+        width: 100%;
+        margin: 0 0 10px 0;
+        font-size: 16px;
+        background-color: #51D3B7;
+        color: white;
+        padding: 14px 24px;
+        border: none;
+        -webkit-box-shadow: 0 1px 5px rgba(81, 211, 183, 0.25);
+        box-shadow: 0 1px 5px rgba(81, 211, 183, 0.25);
+    }
+    .consult-img{
+        display: block;
+    }
+    .consult-img img{
+        padding-left: 10%;
+        width: 90%;
+    }
+    .consult-img p{
+        font-size: 24px;
+        font-weight: 700;
+    }
+    .cons-container .section-label {
+        margin-top: 20px;
+    }
+    .consulting-flex .item-img img{
+        width: 100%;
+        padding-left: 0;
+    }
+    .list-item-descr img{
+        width: 22px;
+    }
+    .line::before{
+        content: " ";
+        position: absolute;
+        top: 105px;
+        left: 1px;
+        padding: 1px;
+        width:100%;
+        height: 1px;
+        background-color: #08366A;
+        transition: left 0.3s ease-in;
+    }
+
 }
 </style>
