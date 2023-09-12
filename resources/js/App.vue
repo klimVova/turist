@@ -65,9 +65,6 @@
                                 <router-link :to="{name:'payment'}">Оплата</router-link>
                             </li>
                             <li>
-                                <router-link :to="{name:'const'}">Конс</router-link>
-                            </li>
-                            <li>
                                 <router-link :to="{name:'contact'}">Контакты</router-link>
                             </li>
                         </ul>
