@@ -113,7 +113,6 @@ export default {
             this.axios.get('/api/consultingAction', {})
                 .then(res => {
                     this.actions = res.data.data
-                    console.log(this.actions);
                 })
         },
     },
