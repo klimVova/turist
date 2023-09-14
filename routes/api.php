@@ -25,6 +25,9 @@ Route::get('/baners', \App\Http\Controllers\API\Baner\IndexController::class); /
 
 Route::get('/users/filters', \App\Http\Controllers\API\User\FilterListController::class); // фильтр на главной наверное
 Route::get('/users', \App\Http\Controllers\API\User\IndexController::class); // все пользователи
+Route::get('/orders', \App\Http\Controllers\API\PreOrder\IndexController::class); // все продукты в корзине
+Route::get('/payments', \App\Http\Controllers\API\Payment\IndexController::class); // все продукты в корзине
+
 
 Route::post('/medicals', \App\Http\Controllers\API\Medical\IndexController::class);  // карты медиков
 Route::get('/medicals/filters', \App\Http\Controllers\API\Medical\FilterListController::class); // фильтр карт медиков
