@@ -136,4 +136,4 @@ Route::post('consulting/orders', \App\Http\Controllers\API\Consulting\OrdersCont
 
 
 Route::post('/preOrder', \App\Http\Controllers\API\PreOrder\StoreController::class); // записать заказ в корзину
-
+Route::delete('/preOrder/{id}', \App\Http\Controllers\API\PreOrder\DeleteController::class); // удаление коммента
