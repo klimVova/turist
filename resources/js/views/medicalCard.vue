@@ -178,11 +178,6 @@
             </div>
         </div>
     </div>
-    <p><textarea v-model="email" class="comment-input" name="text"></textarea></p>
-    <p><textarea v-model="name" class="comment-input" name="text"></textarea></p>
-    <p><textarea v-model="password" class="comment-input" name="text"></textarea></p>
-    <p><input class="comment-button" @click.prevent="newUSer" type="submit"
-              value="Отправить"></p>
     <div>
         <modal-med
             :modal-active="modalActive"
@@ -230,9 +225,6 @@ export default {
             pagination: [],
             actions: [],
             images: [],
-            email:[],
-            name:[],
-            password:[],
         }
     },
 
@@ -303,16 +295,7 @@ export default {
                     this.getComment()
                 })
         },
-        newUSer() {
-            this.axios.post('/api/newUser', {
-                'email': this.email,
-                'name': this.name,
-                'password': this.password,
-            })
-                .then(res => {
 
-                })
-        },
         getComment(page = 1) {
             this.axios.post('/api/show/' + this.$route.params.id + '/comments', {
                 'page': page
