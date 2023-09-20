@@ -17,6 +17,7 @@ class StoreNewController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => $data['password'],
+            'type_id' => $data['type_id'],
             'city_id' => $data['city_id'],
             'republic_id' => $data['republic_id'],
             'district_id' => $data['district_id'],
