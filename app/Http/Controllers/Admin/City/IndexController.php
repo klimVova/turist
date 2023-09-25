@@ -9,6 +9,7 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
+
         $cities = City::all();
         return view('admin.city.index', compact('cities'));
     }
