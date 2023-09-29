@@ -138,4 +138,5 @@ Route::post('consulting/orders', \App\Http\Controllers\API\Consulting\OrdersCont
 Route::post('/preOrder', \App\Http\Controllers\API\PreOrder\StoreController::class); // записать заказ в корзину
 Route::delete('/preOrder/{id}', \App\Http\Controllers\API\PreOrder\DeleteController::class); // удаление заказа
 Route::post('/newUser', \App\Http\Controllers\API\User\StoreNewController::class); // новый юзер моб
+Route::patch('/upUser/{id}', \App\Http\Controllers\API\User\UpUserController::class); // новый юзер моб
 Route::post('/payment/{id}/', \App\Http\Controllers\API\Payment\StoreController::class); // новый заказ моб
