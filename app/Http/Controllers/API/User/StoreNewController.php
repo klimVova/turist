@@ -19,7 +19,6 @@ class StoreNewController extends Controller
             'email' => $data['email'],
             'password' => Hash::make(  $data['password'] ),
         ]);
-
         return new UserResource($user);
     }
 }
