@@ -12,9 +12,9 @@ class UpUserController extends Controller
 {
     public function __invoke(UpUserRequest $request, User $user)
     {
-        $data = $request->validated();
+        $data =(array) $request->validated();
         $user->update($data);
 
-        return response($user);
+        return  UserResource::collection($user);
     }
 }
