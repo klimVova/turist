@@ -16,7 +16,7 @@ class UserUpResource extends JsonResource
     {
         return [
             'name' => 'required|string',
-            'email' => 'required|string|email|unique:users,email,' . $this->user_id,
+            //'email' => 'required|string|email|unique:users,email,' . $this->user_id,
             'surname' => 'required|string',
             'phone' => 'required|string',
             'gender' => 'required|string',

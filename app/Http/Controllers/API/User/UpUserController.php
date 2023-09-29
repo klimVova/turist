@@ -14,6 +14,10 @@ class UpUserController extends Controller
     {
         $data = $request->validated();
         $user->update($data);
+<<<<<<< HEAD
         return  UserResource::collection($user);
+=======
+        return new UserUpResource($user);
+>>>>>>> devs
     }
 }
