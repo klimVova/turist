@@ -14,6 +14,6 @@ class UpUserController extends Controller
     {
         $data = $request->validated();
         $user->update($data);
-        return new UserResource($user);
+        return  UserResource::collection($user);
     }
 }
