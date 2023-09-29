@@ -3,12 +3,8 @@
 namespace App\Http\Controllers\API\Payment;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\API\User\NewUserRequest;
-use App\Http\Resources\User\UserResource;
 use App\Models\Payment;
-use App\Models\User;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use Voronkovich\SberbankAcquiring\Client;
 use Voronkovich\SberbankAcquiring\Currency;
 use Voronkovich\SberbankAcquiring\HttpClient\HttpClientInterface;
@@ -85,6 +81,6 @@ class StoreController extends Controller
 
         $response = $client->registerOrder($payment->id, $amount, $returnUrl  , $data );
 
-        return redirect()->away($response['formUrl']);
+        return response([$response['formUrl']]);
     }
 }
