@@ -27,6 +27,7 @@ class UpdateRequest extends FormRequest
             'name' => 'required|string',
             'surname' => 'required|string',
             'age' => 'required|integer',
+            'phone' => 'required|string',
             'gender' => 'required|string',
             'user_city' => 'required|string',
             'user_district' => 'required|string',
