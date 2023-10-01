@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\Payment;
 
-use App\Events\PaymentMail;
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
 use Voronkovich\SberbankAcquiring\Client;
 use Voronkovich\SberbankAcquiring\Currency;
 use Voronkovich\SberbankAcquiring\HttpClient\HttpClientInterface;

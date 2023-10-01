@@ -22,7 +22,7 @@ class StoreController extends Controller
             'httpMethod' => HttpClientInterface::METHOD_GET,
         ]);
 
-        return response()->json($client);
+        return $client;
 //        $user = DB::table('users')->where('id', '=', $id)->get();
 //        $totals = DB::table('pre_orders')->where('user_id', '=', $user['id'])->pluck('total_price');
 //        foreach (array($totals) as $total)
