@@ -177,29 +177,6 @@
                 </div>
             </div>
         </div>
-<!--        <div class="ml-3" v-for="person in persons">-->
-<!--            <tr>-->
-<!--                <th>{{person.name}}</th>-->
-<!--                <th>{{person.surname}}</th>-->
-<!--                <th>{{person.phone}}</th>-->
-<!--                <th>{{person.gender}}</th>-->
-<!--                <th>{{person.age}}</th>-->
-<!--                <th>{{person.user_city}}</th>-->
-<!--                <th>{{person.user_district}}</th>-->
-<!--                <td><a href="#" @click.prevent=editPerson(person.id,person.name,person.surname,person.phone,person.gender,person.age,person.user_city,person.user_district)-->
-<!--                       class="btn-success ml-3">Edit</a></td>-->
-<!--            </tr>-->
-<!--            <tr :class="isEdit(person.id) ? '' : 'd-none'">-->
-<!--                <th><input  type="text" class="form-control" v-model="name"></th>-->
-<!--                <th><input  type="text" class="form-control" v-model="surname"></th>-->
-<!--                <th><input  type="text" class="form-control" v-model="phone"></th>-->
-<!--                <th><input  type="text" class="form-control" v-model="gender"></th>-->
-<!--                <th><input  type="text" class="form-control" v-model="age"></th>-->
-<!--                <th><input  type="text" class="form-control" v-model="user_city"></th>-->
-<!--                <th><input  type="text" class="form-control" v-model="user_district"></th>-->
-<!--                <td><a href="#" @click.prevent="updatePerson(person.id)" class="btn-success ml-3">Update</a></td>-->
-<!--            </tr>-->
-<!--        </div>-->
     </div>
     <div>
         <modal-med
@@ -249,13 +226,6 @@ export default {
             pagination: [],
             actions: [],
             images: [],
-            // editPersoneId:null,
-            // name:null,
-            // surname:null,
-            // age:null,
-            // gender:null,
-            // user_city:null,
-            // user_district:null,
         }
     },
 
@@ -363,24 +333,6 @@ export default {
                     this.images = res.data.data;
                 })
         },
-        // editPerson(id,name,surname,age,gender,user_city,user_district){
-        //     this.editPersoneId = id
-        //     this.name = name
-        //     this.surname = surname
-        //     this.age = age
-        //     this.gender= gender
-        //     this.user_city = user_city
-        //     this.user_district = user_district
-        // },
-        // isEdit(id){
-        //     return this.editPersoneId === id
-        // },
-        // updatePerson(id){
-        //     this.axios.patch(`/api/upName/${id}`, {name:this.name,surname:this.surname,age:this.age,gender:this.gender,user_city:this.user_city,user_district:this.user_district})
-        //     .then(res => {
-        //         this.getUser()
-        //     })
-        // }
     },
     mounted() {
         this.getList()
