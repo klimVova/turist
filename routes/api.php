@@ -140,3 +140,4 @@ Route::delete('/preOrder/{id}', \App\Http\Controllers\API\PreOrder\DeleteControl
 Route::post('/newUser', \App\Http\Controllers\API\User\StoreNewController::class); // новый юзер моб
 Route::patch('/upUser/{user}', \App\Http\Controllers\API\User\UpUserController::class); // обнова  юзер моб
 Route::post('/payment/{id}/', \App\Http\Controllers\API\Payment\StoreController::class); // новый заказ моб
+Route::patch('/upName/{person}/', \App\Http\Controllers\API\User\UpdateController::class); // новый заказ моб

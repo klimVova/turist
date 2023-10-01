@@ -19,6 +19,7 @@ class UpdateController extends Controller
         $totals = DB::table('pre_orders')->pluck('total_price') ;
         $payments =  DB::table('payments')->where('user_id', '=', $user['id'])->get();
 
+
         $user->update($data);
         return view('user.main.index' , compact('user' ,'preOrders', 'totals', 'payments'));
     }
