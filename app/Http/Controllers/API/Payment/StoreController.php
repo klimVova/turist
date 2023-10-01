@@ -81,6 +81,6 @@ class StoreController extends Controller
 
         $response = $client->registerOrder($payment->id, $amount, $returnUrl  , $data );
 
-        return response([$response['formUrl']]);
+        return response([$response]);
     }
 }
