@@ -23,7 +23,7 @@ class StoreController extends Controller
         ]);
 
         $user = DB::table('users')->where('id', '=', $id)->get();
-        return $user;
+
         $totals = DB::table('pre_orders')->where('user_id', '=', $user['id'])->pluck('total_price');
         foreach (array($totals) as $total)
             $a = array_sum(json_decode($total, true));
@@ -83,9 +83,6 @@ class StoreController extends Controller
 
         $response = $client->registerOrder($payment->id, $amount, $returnUrl, $data);
 
-        return response()->json([
-            'orderId' => $preOrder->id,
-            'formUrl' => $response['formUrl'],
-        ]);
+        return $response;
     }
 }
