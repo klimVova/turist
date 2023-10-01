@@ -28,6 +28,11 @@ class StoreController extends Controller
 
         $totals = DB::table('pre_orders')->where('user_id', '=', $id)->pluck('total_price');
 
+
+
+        foreach (array($totals) as $total)
+            $a = array_sum(json_decode($total, true));
+        $amount = $a * 0.1 * 100;
         foreach ($user as $suka)
             $arr = [
                 'email'=> $suka->email,
@@ -37,25 +42,18 @@ class StoreController extends Controller
             ];
 
         $email = $arr['email'];
-        return $email;
-
-        foreach (array($totals) as $total)
-            $a = array_sum(json_decode($total, true));
-        $amount = $a * 0.1 * 100;
-
-
-        $name = $user['name'];
-        if ($user['surname'] === NULL) {
-            $user['surname'] = '';
+        $name = $arr['name'];
+        if ($arr['surname'] === NULL) {
+            $arr['surname'] = '';
         }
-        $surname = $user['surname'];
-        if ($user['phone'] === NULL) {
-            $user['phone'] = 'не указан';
+        $surname = $arr['surname'];
+        if ($arr['phone'] === NULL) {
+            $arr['phone'] = 'не указан';
         }
-        $phone = $user['phone'];
-        $user_id = $user['id'];
+        $phone = $arr['phone'];
+        $user_id = $id;
 
-        $preOrders = DB::table('pre_orders')->where('user_id', '=', $user['id'])->get();
+        $preOrders = DB::table('pre_orders')->where('user_id', '=', $id)->get();
         foreach ($preOrders as $preOrder)
             $name_product = $preOrder->name_product;
         $organization_email = $preOrder->organization_email;
@@ -97,5 +95,6 @@ class StoreController extends Controller
 
         $response = $client->registerOrder($payment->id, $amount, $returnUrl, $data);
 
+        return $response;
     }
 }
