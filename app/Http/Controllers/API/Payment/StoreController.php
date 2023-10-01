@@ -23,8 +23,8 @@ class StoreController extends Controller
         ]);
 
         $user = DB::table('users')->where('id', '=', $id)->get();
-        $url = "ууууебать в стену";
-        return response()->json(['url'=>$url]);
+
+        return $user['id'];
 
         $totals = DB::table('pre_orders')->where('user_id', '=', $user['id'])->pluck('total_price');
         foreach (array($totals) as $total)
