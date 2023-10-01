@@ -84,16 +84,6 @@ class IndexController extends Controller
 
         $response = $client->registerOrder($payment->id, $amount, $returnUrl  , $data );
 
-        $sukas = DB::table('users')->where('id', '=', 13)->get();
-        foreach ($sukas as $suka)
-            $arr = [
-                'email'=> $suka->email,
-                'name'=> $suka->name,
-                'surname'=> $suka->surname,
-                'phone'=> $suka->phone,
-            ];
-
-        dd($arr['name']);
         return redirect()->away($response['formUrl']);
     }
 }

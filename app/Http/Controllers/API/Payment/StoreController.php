@@ -24,11 +24,7 @@ class StoreController extends Controller
 
         $user = DB::table('users')->where('id', '=', $id)->get();
 
-
-
         $totals = DB::table('pre_orders')->where('user_id', '=', $id)->pluck('total_price');
-
-
 
         foreach (array($totals) as $total)
             $a = array_sum(json_decode($total, true));
