@@ -21,8 +21,14 @@ class StoreController extends Controller
             'currency' => Currency::RUB,
             'httpMethod' => HttpClientInterface::METHOD_GET,
         ]);
-
-        return $client;
+        return response()->json([
+            'userName' => 't7717762693-api',
+            'password' => 't7717762693',
+            'apiUri' => Client::API_URI_TEST,
+            'currency' => Currency::RUB,
+            'httpMethod' => HttpClientInterface::METHOD_GET,
+        ]);
+       // return $client;
 //        $user = DB::table('users')->where('id', '=', $id)->get();
 //        $totals = DB::table('pre_orders')->where('user_id', '=', $user['id'])->pluck('total_price');
 //        foreach (array($totals) as $total)
