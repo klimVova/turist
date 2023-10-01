@@ -56,7 +56,7 @@ class StoreController extends Controller
         $date_product = $preOrder->date;
         $total_price_product = $preOrder->total_price;
 
-        $returnUrl = 'https://www.google.com/';
+        $returnUrl = 'tourmeddrive://';
 
 
         $payment = Payment::Create([
