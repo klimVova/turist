@@ -28,7 +28,7 @@ class StoreController extends Controller
 
         $totals = DB::table('pre_orders')->where('user_id', '=', $id)->pluck('total_price');
 
-        foreach ($sukas as $suka)
+        foreach ($user as $suka)
             $arr = [
                 'email'=> $suka->email,
                 'name'=> $suka->name,
