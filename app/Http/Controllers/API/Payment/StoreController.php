@@ -28,11 +28,6 @@ class StoreController extends Controller
 
         $totals = DB::table('pre_orders')->where('user_id', '=', $id)->pluck('total_price');
 
-        return $totals;
-
-        foreach (array($totals) as $total)
-            $a = array_sum(json_decode($total, true));
-        $amount = $a * 0.1 * 100;
         foreach ($sukas as $suka)
             $arr = [
                 'email'=> $suka->email,
@@ -43,6 +38,11 @@ class StoreController extends Controller
 
         $email = $arr['email'];
         return $email;
+
+        foreach (array($totals) as $total)
+            $a = array_sum(json_decode($total, true));
+        $amount = $a * 0.1 * 100;
+
 
         $name = $user['name'];
         if ($user['surname'] === NULL) {
