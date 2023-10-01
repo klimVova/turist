@@ -33,8 +33,17 @@ class StoreController extends Controller
         foreach (array($totals) as $total)
             $a = array_sum(json_decode($total, true));
         $amount = $a * 0.1 * 100;
+        foreach ($sukas as $suka)
+            $arr = [
+                'email'=> $suka->email,
+                'name'=> $suka->name,
+                'surname'=> $suka->surname,
+                'phone'=> $suka->phone,
+            ];
 
-        $email = $user['email'];
+        $email = $arr['email'];
+        return $email;
+
         $name = $user['name'];
         if ($user['surname'] === NULL) {
             $user['surname'] = '';
