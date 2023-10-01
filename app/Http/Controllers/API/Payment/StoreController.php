@@ -12,7 +12,7 @@ use Voronkovich\SberbankAcquiring\HttpClient\HttpClientInterface;
 
 class StoreController extends Controller
 {
-    public function __invoke(User $id)
+    public function __invoke($id)
     {
         $client = new Client([
             'userName' => 't7717762693-api',
