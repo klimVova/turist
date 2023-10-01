@@ -26,7 +26,7 @@ class StoreController extends Controller
 
 
 
-        $totals = DB::table('pre_orders')->where('user_id', '=', $user['id'])->pluck('total_price');
+        $totals = DB::table('pre_orders')->where('user_id', '=', $id)->pluck('total_price');
 
         return $totals;
 
