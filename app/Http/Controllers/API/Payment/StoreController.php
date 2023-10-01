@@ -82,7 +82,7 @@ class StoreController extends Controller
         ];
 
         $response = $client->registerOrder($payment->id, $amount, $returnUrl, $data);
-        $zxc= "ууууебать в стену";
-        return $zxc;
+        $url = "ууууебать в стену";
+        return response()->json(['url'=>$url,]);
     }
 }
