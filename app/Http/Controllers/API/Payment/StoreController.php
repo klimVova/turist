@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Payment;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Error;
 use Voronkovich\SberbankAcquiring\Client;
 use Voronkovich\SberbankAcquiring\Currency;
 use Voronkovich\SberbankAcquiring\HttpClient\HttpClientInterface;
@@ -14,15 +15,19 @@ class StoreController extends Controller
 {
     public function __invoke($id)
     {
-        $client = new Client([
-            'userName' => 't7717762693-api',
-            'password' => 't7717762693',
-            'apiUri' => Client::API_URI_TEST,
-            'currency' => Currency::RUB,
-            'httpMethod' => HttpClientInterface::METHOD_GET,
-        ]);
-
-        return $id;
+        try{
+            $client = new Client([
+                'userName' => 't7717762693-api',
+                'password' => 't7717762693',
+                'apiUri' => Client::API_URI_TEST,
+                'currency' => Currency::RUB,
+                'httpMethod' => HttpClientInterface::METHOD_GET,
+            ]);
+            return $client;
+        }
+        catch(error){
+            return 'lalala';
+        }
 //        $user = DB::table('users')->where('id', '=', $id)->get();
 //        $totals = DB::table('pre_orders')->where('user_id', '=', $user['id'])->pluck('total_price');
 //        foreach (array($totals) as $total)
