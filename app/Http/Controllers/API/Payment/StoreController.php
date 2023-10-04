@@ -14,7 +14,7 @@ class StoreController extends Controller
 {
     public function __invoke($id)
     {
-        return 'какой то текст';
+
         $client = new Client([
             'userName' => 't7717762693-api',
             'password' => 't7717762693',
