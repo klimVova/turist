@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Payment;
+namespace App\Http\Controllers\API\Payment;
 
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
@@ -8,12 +8,9 @@ use Illuminate\Http\Request;
 
 class StatusController extends Controller
 {
-
-    public function __invoke( Request $request , $id)
+    public function __invoke( Request $request)
     {
-
         $data = $request->all();
-
 
         $orderId = $data['orderNumber'];
         $status = $data['status'];

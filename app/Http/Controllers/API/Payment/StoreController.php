@@ -4,7 +4,6 @@ namespace App\Http\Controllers\API\Payment;
 
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
-use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Voronkovich\SberbankAcquiring\Client;
 use Voronkovich\SberbankAcquiring\Currency;
