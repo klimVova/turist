@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Payment;
 
+use App\Events\PaymentMail;
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Response;
 use Voronkovich\SberbankAcquiring\Client;
 use Voronkovich\SberbankAcquiring\Currency;
 use Voronkovich\SberbankAcquiring\HttpClient\HttpClientInterface;
@@ -26,7 +28,7 @@ class IndexController extends Controller
         $totals = DB::table('pre_orders')->where('user_id', '=', $user['id'])->pluck('total_price') ;
         foreach (array($totals) as $total)
             $a = array_sum(json_decode($total, true));
-            $amount = $a * 0.1*100;
+        $amount = $a * 0.1*100;
 
         $email = $user['email'];
         $name = $user['name'];
@@ -42,7 +44,7 @@ class IndexController extends Controller
 
         $preOrders=  DB::table('pre_orders')->where('user_id', '=', $user['id'])->get();
         foreach ($preOrders as $preOrder)
-        $name_product =$preOrder->name_product;
+            $name_product =$preOrder->name_product;
         $organization_email=$preOrder->organization_email;
         $date_product =$preOrder->date;
         $total_price_product =$preOrder->total_price;
@@ -78,9 +80,7 @@ class IndexController extends Controller
             'date_product' =>   $date_product,
             'total_price_product' =>   $total_price_product,
             'amount' => $amount,
-            ];
-
-
+        ];
 
         $response = $client->registerOrder($payment->id, $amount, $returnUrl  , $data );
 
