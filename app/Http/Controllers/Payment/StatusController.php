@@ -21,9 +21,10 @@ class StatusController extends Controller
         $orderId = $data['orderNumber'];
 
         $status = $data['status'];
-        Log::info(json_encode($status));
+
         if ($status == 1) {
             $payment = Payment::where('id', $orderId)->first();
+            Log::info(json_encode($payment));
             $promo = substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 8);
             if($payment){
                 $payment->status = 1;
