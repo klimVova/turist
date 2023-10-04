@@ -12,6 +12,7 @@ class StatusController extends Controller
     public function __invoke( Request $request , $id)
     {
 
+        return 'zxczxczxc';
         $data = $request->all();
 
 
