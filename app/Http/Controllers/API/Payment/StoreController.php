@@ -93,7 +93,7 @@ class StoreController extends Controller
 
         $response = $client->registerOrder($payment->id, $amount, $returnUrl, $data);
 
-        return redirect()->away($response['formUrl']);
-       // return $response;
+
+        return $response;
     }
 }
