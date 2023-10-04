@@ -5,16 +5,16 @@ namespace App\Http\Controllers\Payment;
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class StatusController extends Controller
 {
 
-    public function __invoke( Request $request )
+    public function __invoke(Request $request)
     {
 
-
         $data = $request->all();
-
+        Log::info(json_encode($data));
 
         $orderId = $data['orderNumber'];
         $status = $data['status'];
