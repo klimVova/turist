@@ -18,7 +18,7 @@ class StatusController extends Controller
 
         Log::info(json_encode($data));
 
-        $orderId = $data['orderId'];
+        $orderId = $data['orderNumber'];
         $status = $data['status'];
 
         if ($status == 1) {
