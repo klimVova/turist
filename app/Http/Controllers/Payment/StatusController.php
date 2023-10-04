@@ -9,10 +9,10 @@ use Illuminate\Http\Request;
 class StatusController extends Controller
 {
 
-    public function __invoke( Request $request , $id)
+    public function __invoke( Request $request )
     {
 
-        return 'zxczxczxc';
+
         $data = $request->all();
 
 

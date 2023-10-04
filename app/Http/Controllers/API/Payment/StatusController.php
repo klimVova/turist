@@ -8,8 +8,9 @@ use Illuminate\Http\Request;
 
 class StatusController extends Controller
 {
-    public function __invoke( Request $request)
+    public function __invoke( Request $request , $id)
     {
+        return 'zxczxczxc';
         $data = $request->all();
 
         $orderId = $data['orderNumber'];
