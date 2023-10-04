@@ -90,9 +90,10 @@ class StoreController extends Controller
             'amount' => $amount,
         ];
 
+        return 'какой то текст';
         $response = $client->registerOrder($payment->id, $amount, $returnUrl, $data);
 
-        return 'какой то текст';
+
         //return $response;
     }
 }
