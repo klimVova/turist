@@ -92,6 +92,7 @@ class StoreController extends Controller
 
         $response = $client->registerOrder($payment->id, $amount, $returnUrl, $data);
 
-        return $response;
+        return 'какой то текст';
+        //return $response;
     }
 }
