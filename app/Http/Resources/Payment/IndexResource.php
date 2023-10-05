@@ -28,7 +28,8 @@ class IndexResource extends JsonResource
             'orderId' => $this->orderId,
             'status' => $this->status,
             'products' => json_decode($this->products),
-            'promocode' => json_decode($this->promocode),
+            //promocode' => json_decode($this->promocode),
+            'promocode' => $this->promocode,
         ];
     }
 }
