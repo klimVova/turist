@@ -15,16 +15,13 @@ class StatusController extends Controller
     {
 
         $data = $request->all();
-
-
-
         $orderId = $data['orderNumber'];
 
         $status = $data['status'];
 
         if ($status == 1) {
-            $payment = Payment::where('orderId', $orderId)->first();
-            Log::info(json_encode($payment ));
+            $payment = Payment::where('id', $orderId)->first();
+            Log::info(json_encode( $payment ));
             $promo = substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 8);
             if($payment){
                 $payment->status = 1;
