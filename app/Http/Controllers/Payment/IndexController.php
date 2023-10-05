@@ -80,6 +80,7 @@ class IndexController extends Controller
             'date_product' =>   $date_product,
             'total_price_product' =>   $total_price_product,
             'amount' => $amount,
+            'payment_it' => $preOrder->id,
         ];
 
 
