@@ -9,22 +9,16 @@ use Illuminate\Http\Request;
 
 class StatusController extends Controller
 {
-    public function __invoke( Request $request)
+    public function __invoke($id)
     {
-        $data = $request->all();
+        $payment = Payment::where('user_id',  $id)->orderBy('id', 'desc')->first();
 
-        $orderId = $data['orderNumber'];
-        $status = $data['status'];
+        $promo = substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 8);
 
-        if ($status == 1) {
-            $payment = Payment::where('id', $orderId)->first();
-            $promo = substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 8);
-            if($payment){
-                $payment->status = 1;
-                $payment->promocode = $promo;
-                $payment->save();
-            }
+        if($payment){
+            $payment->status = 1;
+            $payment->promocode = $promo;
+            $payment->save();
         }
-        return response()->json([]);
     }
 }

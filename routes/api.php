@@ -139,5 +139,5 @@ Route::post('/preOrder', \App\Http\Controllers\API\PreOrder\StoreController::cla
 Route::delete('/preOrder/{id}', \App\Http\Controllers\API\PreOrder\DeleteController::class); // удаление заказа
 Route::post('/newUser', \App\Http\Controllers\API\User\StoreNewController::class); // новый юзер моб
 Route::get('/payment/{id}/', \App\Http\Controllers\API\Payment\StoreController::class); // новый заказ моб
-Route::get('/payment/status/', \App\Http\Controllers\API\Payment\StatusController::class); // новый заказ моб
+Route::get('/payment/status/{id}', \App\Http\Controllers\API\Payment\StatusController::class); // новый заказ моб
 Route::patch('/upName/{person}/', \App\Http\Controllers\API\User\UpdateController::class); // новый заказ моб

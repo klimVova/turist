@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Payment;
 
 use App\Events\PaymentMail;
 use App\Http\Controllers\Controller;
+use App\Models\OrderId;
 use App\Models\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -49,6 +50,7 @@ class IndexController extends Controller
         $date_product =$preOrder->date;
         $total_price_product =$preOrder->total_price;
 
+
         $returnUrl  = 'http://127.0.0.1:8000/main/user/success/';
 
         $payment = Payment::Create([
@@ -66,7 +68,6 @@ class IndexController extends Controller
             'status' => 0,
             'products'=> json_encode($preOrders),
             'promocode'=> null,
-
         ]);
 
         $data = [
@@ -80,9 +81,8 @@ class IndexController extends Controller
             'date_product' =>   $date_product,
             'total_price_product' =>   $total_price_product,
             'amount' => $amount,
-            'payment_it' => $preOrder->id,
-        ];
 
+        ];
 
         $response = $client->registerOrder($payment->id, $amount, $returnUrl  , $data );
 
