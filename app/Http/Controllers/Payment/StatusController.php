@@ -16,9 +16,9 @@ class StatusController extends Controller
 
         $data = $request->all();
         $orderId = $data['orderNumber'];
-
+        Log::info(json_encode($data ));
         $status = $data['status'];
-        Log::info(json_encode( $orderId . $data ));
+
         if ($status == 1) {
             $payment = Payment::where('id', $orderId)->first();
 
