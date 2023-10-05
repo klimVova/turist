@@ -52,7 +52,6 @@ class IndexController extends Controller
         $returnUrl  = 'http://127.0.0.1:8000/main/user/success/';
 
         $payment = Payment::Create([
-            'id' => $preOrder->id,
             'email' => $email,
             'name' => $name,
             'surname' => $surname,
