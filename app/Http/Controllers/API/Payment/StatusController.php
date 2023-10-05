@@ -18,6 +18,6 @@ class StatusController extends Controller
             $payment->promocode = $promo;
             $payment->save();
         }
-        return response()->json([]);
+        return $payment;
     }
 }
