@@ -27,7 +27,7 @@
           <option v-for="city in filterList.cities" :value="city.id">{{city.title}}</option>
         </select>
       </div>
-      <input type="submit" @click.prevent="getFilter" value="На отдых">
+      <input type="submit" @click.prevent="getFilter" value="Найти">
     </form>
   </div>
 </template>

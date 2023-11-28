@@ -2562,7 +2562,19 @@ footer .f-logo {
         margin-bottom: 20px;
     }
     .promo_mob{
-        display: block;
+        display: block !important;
+        max-width: 100% !important;
+        flex:none !important;
+    }
+    .promo_mob_style{
+        margin-left: 25px;
+        margin-top: 10px;
+    }
+    .mob_times{
+        margin-left: 10px;
+    }
+    .section-label_promo_mob{
+        margin-top: 0;
     }
     .promo-mob__box{
         max-width: 85% !important;
@@ -2571,10 +2583,15 @@ footer .f-logo {
     }
     .product_promo__item{
         justify-content: space-between;
+        margin-left: 10px;
+    }
+    .new_style_promo{
+        margin-left: -10px;
     }
     .name_organ{
         margin-left: 30px;
         margin-bottom:-10px;
+        max-width:50% !important;
     }
     .order_promo{
         display: block;
@@ -2585,7 +2602,7 @@ footer .f-logo {
         padding-bottom: 10px;
     }
     .promocode{
-        margin-left: 35px;
+        margin-left: 120px;
     }
     .product_promo,.times {
         margin-left: 30px;

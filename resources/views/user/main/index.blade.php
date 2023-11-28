@@ -564,14 +564,18 @@
         <div class="promocodes box hide">
             @foreach($payments as $payment)
                 @if($payment->status == 1)
-                    <div class="row promo">
-                        <div class="col-8 promo-mob__box">
+                    <div class="order_promo">
+                        <div class="order_promo_num">Заказ #{{$payment->orderId}}</div>
+                        <div class="order_promo_days">({{$payment->created_at}})</div>
+                    </div>
+                    <div class="promo">
+                        <div class=" promo-mob__box">
                             @foreach(json_decode($payment->products, true) as $items)
                                 <div class="cart-section">
                                     @if($items['role'] == 'Мед.центр' || $items['role'] == 'spa' || $items['role'] == 'cafe' )
                                         @foreach(array($items['products']) as $item)
                                             @if($items['date'] > date(date("d m Y HH:mm")))
-                                                <div class="section-label">
+                                                <div class="section-label  section-label_promo_mob">
                                                     @if($items['role'] == 'Мед.центр')
                                                         <h2>Медицинский центр<br></h2>
                                                         <hr>
@@ -583,60 +587,72 @@
                                                         <hr>
                                                     @endif
                                                 </div>
-                                                <div class="order_promo">
-                                                    <div class="order_promo_num">Заказ #{{$payment->orderId}}</div>
-                                                    <div class="order_promo_days">({{$payment->created_at}})</div>
-                                                </div>
                                                 <div class="rooms">
-                                                    <div class="row promo_mob">
-                                                        <div class="name_organ col">
-                                                            <label>{{$items['name_product']}}</label><br>
-                                                            @foreach(array($items['products']) as $item)
-                                                                @if(isset(json_decode($item,true)['people']))
-                                                                    <p>( {{json_decode($item,true)['people']}}
-                                                                        человек)</p><br>
-                                                                @else
-                                                                @endif
-                                                                @if(isset(json_decode($item,true)['berth']))
-                                                                    <p> ({{json_decode($item,true)['berth']}}
-                                                                        человек)</p><br>
-                                                                @else
-                                                                @endif
-                                                            @endforeach
-                                                        </div>
-                                                        <div class="product_promo product_promo__item col-4">
-                                                            @foreach(array($items['products']) as $item)
-                                                                @if(isset(json_decode($item,true)['category']))
-                                                                    {{json_decode($item,true)['category']}}<br>
-                                                                @else
-                                                                @endif
-                                                                @if(isset(json_decode($item,true)['productList']))
-                                                                    @foreach(json_decode($item,true)['productList'] as $i)
-                                                                        <div
-                                                                            class="d-flex justify-content-sm-between product_promo__item">
-                                                                            <p>{{$i['product']}}</p>
-                                                                            <p>{{$i['price']}} р</p>
+                                                    <div class="row  align-items-center">
+                                                        <div class="col-8 promo_mob d-flex align-items-center">
+                                                            <div class="name_organ col-3">
+                                                                <label>{{$items['name_product']}}</label><br>
+                                                                @foreach(array($items['products']) as $item)
+                                                                    @if(isset(json_decode($item,true)['people']))
+                                                                        <p>( {{json_decode($item,true)['people']}}
+                                                                            человек)</p><br>
+                                                                    @else
+                                                                    @endif
+                                                                    @if(isset(json_decode($item,true)['berth']))
+                                                                        <p> ({{json_decode($item,true)['berth']}}
+                                                                            человек)</p><br>
+                                                                    @else
+                                                                    @endif
+                                                                @endforeach
+                                                            </div>
+                                                            <div class="product_promo product_promo__item col-6">
+                                                                @foreach(array($items['products']) as $item)
+                                                                    @if(isset(json_decode($item,true)['category']))
+                                                                        {{json_decode($item,true)['category']}}<br>
+                                                                    @else
+                                                                    @endif
+                                                                    @if(isset(json_decode($item,true)['productList']))
+                                                                        @foreach(json_decode($item,true)['productList'] as $i)
+                                                                            <div
+                                                                                class="d-flex justify-content-sm-between product_promo__item">
+                                                                                <div class="col-6"><p
+                                                                                        class="new_style_promo">{{$i['product']}}</p>
+                                                                                </div>
+                                                                                <div class="col-2"><p
+                                                                                        class="new_style_promo">
+                                                                                        ({{$i['qty']}} шт) </p></div>
+                                                                                <div class="col-4"><p
+                                                                                        class="new_style_promo_price">{{$i['price']}}
+                                                                                        р</p></div>
+                                                                            </div>
+                                                                        @endforeach
+                                                                    @else
+                                                                    @endif
+                                                                @endforeach
+                                                            </div>
+                                                            <div class="times col-3">
+                                                                @foreach(array($items['products']) as $item)
+                                                                    @if(gettype(json_decode($item,true)['date']) == "string")
+                                                                        <div class="mob_times">{{json_decode($item,true)['date']}}<br>
                                                                         </div>
-                                                                    @endforeach
-                                                                @else
-                                                                @endif
-                                                            @endforeach
+                                                                    @else
+                                                                        @foreach(json_decode($item,true)['date'] as $time)
+                                                                            <div class="mob_times">{{$time}}<br></div>
+                                                                        @endforeach
+                                                                    @endif
+                                                                @endforeach
+                                                            </div>
                                                         </div>
-                                                        <div class="times col">
-                                                            @foreach(array($items['products']) as $item)
-                                                                @if(gettype(json_decode($item,true)['date']) == "string")
-                                                                    <div>{{json_decode($item,true)['date']}}<br></div>
-                                                                @else
-                                                                    @foreach(json_decode($item,true)['date'] as $time)
-                                                                        <div>{{$time}}<br></div>
-                                                                    @endforeach
-                                                                @endif
-                                                            @endforeach
+                                                        <div class="col-4 promo_mob_style">
+                                                            <div class="d-flex ml-3">
+                                                                <label>Промокод:</label> &nbsp;&nbsp;&nbsp;
+                                                                <label class="promocode">{{$payment->promocode}}</label>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             @else
-                                                <div style="opacity: 0.5;" class="section-label">
+                                                <div style="opacity: 0.5;" class="section-label section-label_promo_mob">
                                                     @if($items['role'] == 'Мед.центр')
                                                         <h2>Медицинский центр<br></h2>
                                                         <hr>
@@ -648,47 +664,67 @@
                                                         <hr>
                                                     @endif
                                                 </div>
-                                                <div style="opacity: 0.5;" class="order_promo">
-                                                    <div class="order_promo_num">Заказ #{{$payment->orderId}}</div>
-                                                    <div class="order_promo_days">({{$payment->created_at}})</div>
-                                                </div>
                                                 <div style="opacity: 0.5;" class="rooms">
-                                                    <div class="row promo_mob">
-                                                        <div class="name_organ col">
-                                                            <label>{{$items['name_product']}}</label><br>
-                                                            @foreach(array($items['products']) as $item)
-                                                                @if(isset(json_decode($item,true)['people']))
-                                                                    <p>( {{json_decode($item,true)['people']}}
-                                                                        человек)</p><br>
-                                                                @else
-                                                                @endif
-                                                                @if(isset(json_decode($item,true)['berth']))
-                                                                    <p> ({{json_decode($item,true)['berth']}}
-                                                                        человек)</p><br>
-                                                                @else
-                                                                @endif
-                                                            @endforeach
-                                                        </div>
-                                                        <div class="product_promo col-4">
-                                                            @foreach(array($items['products']) as $item)
-                                                                @if(isset(json_decode($item,true)['category']))
-                                                                    {{json_decode($item,true)['category']}}<br>
-                                                                @else
-                                                                @endif
-                                                                @if(isset(json_decode($item,true)['productList']))
-                                                                    @foreach(json_decode($item,true)['productList'] as $i)
-                                                                        <div
-                                                                            class="d-flex justify-content-sm-between product_promo__item">
-                                                                            <p>{{$i['product']}}</p>
-                                                                            <p>{{$i['price']}} р</p>
+                                                    <div class="row align-items-center">
+                                                        <div class="col-8 promo_mob d-flex align-items-center">
+                                                            <div class="name_organ col-3">
+                                                                <label>{{$items['name_product']}}</label><br>
+                                                                @foreach(array($items['products']) as $item)
+                                                                    @if(isset(json_decode($item,true)['people']))
+                                                                        <p>( {{json_decode($item,true)['people']}}
+                                                                            человек)</p><br>
+                                                                    @else
+                                                                    @endif
+                                                                    @if(isset(json_decode($item,true)['berth']))
+                                                                        <p> ({{json_decode($item,true)['berth']}}
+                                                                            человек)</p><br>
+                                                                    @else
+                                                                    @endif
+                                                                @endforeach
+                                                            </div>
+                                                            <div class="product_promo product_promo__item col-6">
+                                                                @foreach(array($items['products']) as $item)
+                                                                    @if(isset(json_decode($item,true)['category']))
+                                                                        {{json_decode($item,true)['category']}}<br>
+                                                                    @else
+                                                                    @endif
+                                                                    @if(isset(json_decode($item,true)['productList']))
+                                                                        @foreach(json_decode($item,true)['productList'] as $i)
+                                                                            <div
+                                                                                class="d-flex justify-content-sm-between product_promo__item">
+                                                                                <div class="col-6"><p
+                                                                                        class="new_style_promo">{{$i['product']}}</p>
+                                                                                </div>
+                                                                                <div class="col-2"><p
+                                                                                        class="new_style_promo">
+                                                                                        ({{$i['qty']}} шт) </p></div>
+                                                                                <div class="col-4"><p
+                                                                                        class="new_style_promo_price">{{$i['price']}}
+                                                                                        р</p></div>
+                                                                            </div>
+                                                                        @endforeach
+                                                                    @else
+                                                                    @endif
+                                                                @endforeach
+                                                            </div>
+                                                            <div class="times col-3">
+                                                                @foreach(array($items['products']) as $item)
+                                                                    @if(gettype(json_decode($item,true)['date']) == "string")
+                                                                        <div class="mob_times">{{json_decode($item,true)['date']}}<br>
                                                                         </div>
-                                                                    @endforeach
-                                                                @else
-                                                                @endif
-                                                            @endforeach
+                                                                    @else
+                                                                        @foreach(json_decode($item,true)['date'] as $time)
+                                                                            <div class="mob_times">{{$time}}<br></div>
+                                                                        @endforeach
+                                                                    @endif
+                                                                @endforeach
+                                                            </div>
                                                         </div>
-                                                        <div class="times col">
-                                                            <p>{{$items['date'] }}</p>
+                                                        <div class="col-4 promo_mob_style">
+                                                            <div class="d-flex ml-3">
+                                                                <label>Промокод:</label> &nbsp;&nbsp;&nbsp;
+                                                                <label class="promocode">{{$payment->promocode}}</label>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -697,7 +733,7 @@
                                     @elseif($items['role'] == 'hostel' || $items['role'] == 'sanatorium' || $items['role'] == 'sport')
                                         @foreach(array($items['products']) as $item)
                                             @if(json_decode($item,true)['date'][1]  > date(date("d m Y")) )
-                                                <div class="section-label">
+                                                <div class="section-label section-label_promo_mob">
                                                     @if($items['role'] == 'hostel')
                                                         <h2>Отели<br></h2>
                                                         <hr>
@@ -709,70 +745,78 @@
                                                         <hr>
                                                     @endif
                                                 </div>
-                                                <div class="order_promo">
-                                                    <div class="order_promo_num">Заказ #{{$payment->orderId}}</div>
-                                                    <div class="order_promo_days">({{$payment->created_at}})</div>
-                                                </div>
                                                 <div class="rooms">
-                                                    <div class="row promo_mob">
-                                                        <div class="name_organ col">
-                                                            <label>{{$items['name_product']}}</label><br>
-                                                            @foreach(array($items['products']) as $item)
-                                                                @if(isset(json_decode($item,true)['people']))
-                                                                    <p>( {{json_decode($item,true)['people']}}
-                                                                        человек)</p><br>
-                                                                @else
-                                                                @endif
-                                                                @if(isset(json_decode($item,true)['berth']))
-                                                                    <p> ({{json_decode($item,true)['berth']}}
-                                                                        человек)</p><br>
-                                                                @else
-                                                                @endif
-                                                            @endforeach
-                                                        </div>
-                                                        <div class="product_promo col-4">
-                                                            @foreach(array($items['products']) as $item)
-                                                                @if(isset(json_decode($item,true)['category']))
-                                                                    <div
-                                                                        class="d-flex justify-content-sm-between product_promo__item">
-                                                                        <p>{{json_decode($item,true)['category']}}</p>
-                                                                        @if(isset(json_decode($item,true)['totalPrice']))
-                                                                            <p>{{json_decode($item,true)['totalPrice']}}
-                                                                                р</p>
-                                                                        @else
-                                                                            <p>{{ json_decode($item,true)['price']}}
-                                                                                р</p>
-                                                                        @endif
-                                                                    </div>
-                                                                @else
-                                                                @endif
-                                                                @if(isset(json_decode($item,true)['productList']))
-                                                                    @foreach(json_decode($item,true)['productList'] as $i)
+                                                    <div class="row  align-items-center">
+                                                        <div class="col-8 d-flex promo_mob align-items-center">
+                                                            <div class="name_organ col">
+                                                                <label>{{$items['name_product']}}</label><br>
+                                                                @foreach(array($items['products']) as $item)
+                                                                    @if(isset(json_decode($item,true)['people']))
+                                                                        <p>( {{json_decode($item,true)['people']}}
+                                                                            человек)</p><br>
+                                                                    @else
+                                                                    @endif
+                                                                    @if(isset(json_decode($item,true)['berth']))
+                                                                        <p> ({{json_decode($item,true)['berth']}}
+                                                                            человек)</p><br>
+                                                                    @else
+                                                                    @endif
+                                                                @endforeach
+                                                            </div>
+                                                            <div class="product_promo col-4">
+                                                                @foreach(array($items['products']) as $item)
+                                                                    @if(isset(json_decode($item,true)['category']))
                                                                         <div
                                                                             class="d-flex justify-content-sm-between product_promo__item">
-                                                                            <p>{{$i['product']}}</p>
-                                                                            <p>{{$i['price']}} р</p>
+                                                                            <p>{{json_decode($item,true)['category']}}</p>
+                                                                            @if(isset(json_decode($item,true)['totalPrice']))
+                                                                                <p>{{json_decode($item,true)['totalPrice']}}
+                                                                                    р</p>
+                                                                            @else
+                                                                                <p>{{ json_decode($item,true)['price']}}
+                                                                                    р</p>
+                                                                            @endif
                                                                         </div>
-                                                                    @endforeach
-                                                                @else
-                                                                @endif
-                                                            @endforeach
+                                                                    @else
+                                                                    @endif
+                                                                    @if(isset(json_decode($item,true)['productList']))
+                                                                        @foreach(json_decode($item,true)['productList'] as $i)
+                                                                            <div
+                                                                                class="d-flex justify-content-sm-between product_promo__item">
+                                                                                <p class="new_style_promo col-6">{{$i['product']}}</p>
+                                                                                <p class="new_style_promo col-3">
+                                                                                    ({{$i['qty']}} шт)</p>
+                                                                                <p class="new_style_promo_price col-3 text-right">{{$i['price']}}
+                                                                                    р</p>
+                                                                            </div>
+                                                                        @endforeach
+                                                                    @else
+                                                                    @endif
+                                                                @endforeach
+                                                            </div>
+                                                            <div class="times col">
+                                                                @foreach(array($items['products']) as $item)
+                                                                    @if(gettype(json_decode($item,true)['date']) == "string")
+                                                                        <div class="mob_times">{{json_decode($item,true)['date']}}<br>
+                                                                        </div>
+                                                                    @else
+                                                                        @foreach(json_decode($item,true)['date'] as $time)
+                                                                            <div class="mob_times">{{$time}}<br></div>
+                                                                        @endforeach
+                                                                    @endif
+                                                                @endforeach
+                                                            </div>
                                                         </div>
-                                                        <div class="times col">
-                                                            @foreach(array($items['products']) as $item)
-                                                                @if(gettype(json_decode($item,true)['date']) == "string")
-                                                                    <div>{{json_decode($item,true)['date']}}<br></div>
-                                                                @else
-                                                                    @foreach(json_decode($item,true)['date'] as $time)
-                                                                        <div>{{$time}}<br></div>
-                                                                    @endforeach
-                                                                @endif
-                                                            @endforeach
+                                                        <div class="col-4 promo_mob_style">
+                                                            <div class="d-flex ml-3">
+                                                                <label>Промокод:</label> &nbsp;&nbsp;&nbsp;
+                                                                <label class="promocode">{{$payment->promocode}}</label>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             @else
-                                                <div style="opacity: 0.5;" class="section-label">
+                                                <div style="opacity: 0.5;" class="section-label section-label_promo_mob">
                                                     @if($items['role'] == 'hostel')
                                                         <h2>Отели<br></h2>
                                                         <hr>
@@ -784,65 +828,73 @@
                                                         <hr>
                                                     @endif
                                                 </div>
-                                                <div style="opacity: 0.5;" class="order_promo">
-                                                    <div class="order_promo_num">Заказ #{{$payment->orderId}}</div>
-                                                    <div class="order_promo_days">({{$payment->created_at}})</div>
-                                                </div>
                                                 <div style="opacity: 0.5" class="rooms">
-                                                    <div class="row promo_mob">
-                                                        <div class="name_organ col">
-                                                            <label>{{$items['name_product']}}</label><br>
-                                                            @foreach(array($items['products']) as $item)
-                                                                @if(isset(json_decode($item,true)['people']))
-                                                                    <p>( {{json_decode($item,true)['people']}}
-                                                                        человек)</p><br>
-                                                                @else
-                                                                @endif
-                                                                @if(isset(json_decode($item,true)['berth']))
-                                                                    <p> ({{json_decode($item,true)['berth']}}
-                                                                        человек)</p><br>
-                                                                @else
-                                                                @endif
-                                                            @endforeach
-                                                        </div>
-                                                        <div class="product_promo col-4">
-                                                            @foreach(array($items['products']) as $item)
-                                                                @if(isset(json_decode($item,true)['category']))
-                                                                    <div
-                                                                        class="d-flex justify-content-sm-between product_promo__item">
-                                                                        <p>{{json_decode($item,true)['category']}}</p>
-                                                                        @if(isset(json_decode($item,true)['totalPrice']))
-                                                                            <p>{{json_decode($item,true)['totalPrice']}}
-                                                                                р</p>
-                                                                        @else
-                                                                            <p>{{ json_decode($item,true)['price']}}
-                                                                                р</p>
-                                                                        @endif
-                                                                    </div>
-                                                                @else
-                                                                @endif
-                                                                @if(isset(json_decode($item,true)['productList']))
-                                                                    @foreach(json_decode($item,true)['productList'] as $i)
+                                                    <div class="row  align-items-center">
+                                                        <div class="col-8 promo_mob d-flex align-items-center">
+                                                            <div class="name_organ col">
+                                                                <label>{{$items['name_product']}}</label><br>
+                                                                @foreach(array($items['products']) as $item)
+                                                                    @if(isset(json_decode($item,true)['people']))
+                                                                        <p>( {{json_decode($item,true)['people']}}
+                                                                            человек)</p><br>
+                                                                    @else
+                                                                    @endif
+                                                                    @if(isset(json_decode($item,true)['berth']))
+                                                                        <p> ({{json_decode($item,true)['berth']}}
+                                                                            человек)</p><br>
+                                                                    @else
+                                                                    @endif
+                                                                @endforeach
+                                                            </div>
+                                                            <div class="product_promo col-4">
+                                                                @foreach(array($items['products']) as $item)
+                                                                    @if(isset(json_decode($item,true)['category']))
                                                                         <div
                                                                             class="d-flex justify-content-sm-between product_promo__item">
-                                                                            <p>{{$i['product']}}</p>
-                                                                            <p>{{$i['price']}} р</p>
+                                                                            <p>{{json_decode($item,true)['category']}}</p>
+                                                                            @if(isset(json_decode($item,true)['totalPrice']))
+                                                                                <p>{{json_decode($item,true)['totalPrice']}}
+                                                                                    р</p>
+                                                                            @else
+                                                                                <p>{{ json_decode($item,true)['price']}}
+                                                                                    р</p>
+                                                                            @endif
                                                                         </div>
-                                                                    @endforeach
-                                                                @else
-                                                                @endif
-                                                            @endforeach
+                                                                    @else
+                                                                    @endif
+                                                                    @if(isset(json_decode($item,true)['productList']))
+                                                                        @foreach(json_decode($item,true)['productList'] as $i)
+                                                                            <div
+                                                                                class="d-flex justify-content-sm-between product_promo__item">
+                                                                                <p class="new_style_promo col-6">{{$i['product']}}</p>
+                                                                                <p class="new_style_promo col-3">
+                                                                                    ({{$i['qty']}} шт)</p>
+                                                                                <p class="new_style_promo_price col-3 text-right">{{$i['price']}}
+                                                                                    р</p>
+                                                                            </div>
+                                                                        @endforeach
+                                                                    @else
+                                                                    @endif
+                                                                @endforeach
+                                                            </div>
+                                                            <div class="times col">
+                                                                @foreach(array($items['products']) as $item)
+                                                                    @if(gettype(json_decode($item,true)['date']) == "string")
+                                                                        <div class="mob_times">{{json_decode($item,true)['date']}}<br>
+                                                                        </div>
+                                                                    @else
+                                                                        @foreach(json_decode($item,true)['date'] as $time)
+                                                                            <div class="mob_times">{{$time}}<br></div>
+                                                                        @endforeach
+                                                                    @endif
+                                                                @endforeach
+                                                            </div>
                                                         </div>
-                                                        <div class="times col">
-                                                            @foreach(array($items['products']) as $item)
-                                                                @if(gettype(json_decode($item,true)['date']) == "string")
-                                                                    <div>{{json_decode($item,true)['date']}} </div>
-                                                                @else
-                                                                    @foreach(json_decode($item,true)['date'] as $time)
-                                                                        <div>{{$time}}<br></div>
-                                                                    @endforeach
-                                                                @endif
-                                                            @endforeach
+                                                        <div class="col-4 promo_mob_style">
+                                                            <div class="d-flex ml-3">
+                                                                <label>Промокод:</label> &nbsp;&nbsp;&nbsp;
+                                                                <label class="promocode">{{$payment->promocode}}</label>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -854,120 +906,128 @@
                                                 (substr(json_decode($item,true)['date'], -10) > date(date("d.m.Y")) && substr(json_decode($item,true)['date'], -7) > date(date("m.Y"))) ||
                                                 (substr(json_decode($item,true)['date'], -10) > date(date("d.m.Y")) && substr(json_decode($item,true)['date'], -7) === date(date("m.Y")))
                                                 || substr(json_decode($item,true)['date'], -4) > date(date("Y")))
-                                                <div class="section-label">
+                                                <div class="section-label section-label_promo_mob">
                                                     @if($items['role'] == 'tur')
                                                         <h2>Туроператоры<br></h2>
                                                         <hr>
                                                     @endif
                                                 </div>
-                                                <div class="order_promo">
-                                                    <div class="order_promo_num">Заказ #{{$payment->orderId}}</div>
-                                                    <div class="order_promo_days">({{$payment->created_at}})</div>
-                                                </div>
                                                 <div class="rooms">
-                                                    <div class="row promo_mob">
-                                                        <div class="name_organ col">
-                                                            <label>{{$items['name_product']}}</label><br>
-                                                            @foreach(array($items['products']) as $item)
-                                                                @if(isset(json_decode($item,true)['people']))
-                                                                    <p>( {{json_decode($item,true)['people']}}
-                                                                        человек)</p><br>
-                                                                @else
-                                                                @endif
-                                                                @if(isset(json_decode($item,true)['berth']))
-                                                                    <p> ({{json_decode($item,true)['berth']}}
-                                                                        человек)</p><br>
-                                                                @else
-                                                                @endif
-                                                            @endforeach
+                                                    <div class="row align-items-center">
+                                                        <div class="col-8 promo_mob d-flex align-items-center">
+                                                            <div class="name_organ col">
+                                                                <label>{{$items['name_product']}}</label><br>
+                                                                @foreach(array($items['products']) as $item)
+                                                                    @if(isset(json_decode($item,true)['people']))
+                                                                        <p>( {{json_decode($item,true)['people']}}
+                                                                            человек)</p><br>
+                                                                    @else
+                                                                    @endif
+                                                                    @if(isset(json_decode($item,true)['berth']))
+                                                                        <p> ({{json_decode($item,true)['berth']}}
+                                                                            человек)</p><br>
+                                                                    @else
+                                                                    @endif
+                                                                @endforeach
+                                                            </div>
+                                                            <div class="product_promo col-4">
+                                                                @foreach(array($items['products']) as $item)
+                                                                    @if(isset(json_decode($item,true)['category']))
+                                                                        <div
+                                                                            class="d-flex justify-content-sm-between product_promo__item">
+                                                                            <p> {{json_decode($item,true)['category']}}</p>
+                                                                            <p> {{json_decode($item,true)['price']}}р</p>
+                                                                        </div>
+                                                                    @else
+                                                                    @endif
+                                                                    @if(isset(json_decode($item,true)['productList']))
+                                                                        @foreach(json_decode($item,true)['productList'] as $i)
+                                                                            <p class="new_style_promo">{{$i['product']}}</p>
+                                                                        @endforeach
+                                                                    @else
+                                                                    @endif
+                                                                @endforeach
+                                                            </div>
+                                                            <div class="times col">
+                                                                @foreach(array($items['products']) as $item)
+                                                                    @if(gettype(json_decode($item,true)['date']) == "string")
+                                                                        <div class="mob_times">{{json_decode($item,true)['date']}}<br></div>
+                                                                    @else
+                                                                        @foreach(json_decode($item,true)['date'] as $time)
+                                                                            <div class="mob_times">{{$time}}<br></div>
+                                                                        @endforeach
+                                                                    @endif
+                                                                @endforeach
+                                                            </div>
                                                         </div>
-                                                        <div class="product_promo col-4">
-                                                            @foreach(array($items['products']) as $item)
-                                                                @if(isset(json_decode($item,true)['category']))
-                                                                    <div
-                                                                        class="d-flex justify-content-sm-between product_promo__item">
-                                                                        <p> {{json_decode($item,true)['category']}}</p>
-                                                                        <p> {{json_decode($item,true)['price']}}р</p>
-                                                                    </div>
-                                                                @else
-                                                                @endif
-                                                                @if(isset(json_decode($item,true)['productList']))
-                                                                    @foreach(json_decode($item,true)['productList'] as $i)
-                                                                        <p>{{$i['product']}}</p>
-                                                                    @endforeach
-                                                                @else
-                                                                @endif
-                                                            @endforeach
-                                                        </div>
-                                                        <div class="times col">
-                                                            @foreach(array($items['products']) as $item)
-                                                                @if(gettype(json_decode($item,true)['date']) == "string")
-                                                                    <div>{{json_decode($item,true)['date']}}<br></div>
-                                                                @else
-                                                                    @foreach(json_decode($item,true)['date'] as $time)
-                                                                        <div>{{$time}}<br></div>
-                                                                    @endforeach
-                                                                @endif
-                                                            @endforeach
+                                                        <div class="col-4 promo_mob_style">
+                                                            <div class="d-flex ml-3">
+                                                                <label>Промокод:</label> &nbsp;&nbsp;&nbsp;
+                                                                <label class="promocode">{{$payment->promocode}}</label>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             @else
-                                                <div style="opacity: 0.5;" class="section-label">
+                                                <div style="opacity: 0.5;" class="section-label section-label_promo_mob">
                                                     @if($items['role'] == 'tur')
                                                         <h2>Туроператоры<br></h2>
                                                         <hr>
                                                     @endif
                                                 </div>
-                                                <div style="opacity: 0.5;" class="order_promo">
-                                                    <div class="order_promo_num">Заказ #{{$payment->orderId}}</div>
-                                                    <div class="order_promo_days">({{$payment->created_at}})</div>
-                                                </div>
                                                 <div style="opacity: 0.5;" class="rooms">
-                                                    <div class="row promo_mob">
-                                                        <div class="name_organ col">
-                                                            <label>{{$items['name_product']}}</label><br>
-                                                            @foreach(array($items['products']) as $item)
-                                                                @if(isset(json_decode($item,true)['people']))
-                                                                    <p>( {{json_decode($item,true)['people']}}
-                                                                        человек)</p><br>
-                                                                @else
-                                                                @endif
-                                                                @if(isset(json_decode($item,true)['berth']))
-                                                                    <p> ({{json_decode($item,true)['berth']}}
-                                                                        человек)</p><br>
-                                                                @else
-                                                                @endif
-                                                            @endforeach
+                                                    <div class="row  align-items-center">
+                                                        <div class="col-8 promo_mob d-flex align-items-center">
+                                                            <div class="name_organ col">
+                                                                <label>{{$items['name_product']}}</label><br>
+                                                                @foreach(array($items['products']) as $item)
+                                                                    @if(isset(json_decode($item,true)['people']))
+                                                                        <p>( {{json_decode($item,true)['people']}}
+                                                                            человек)</p><br>
+                                                                    @else
+                                                                    @endif
+                                                                    @if(isset(json_decode($item,true)['berth']))
+                                                                        <p> ({{json_decode($item,true)['berth']}}
+                                                                            человек)</p><br>
+                                                                    @else
+                                                                    @endif
+                                                                @endforeach
+                                                            </div>
+                                                            <div class="product_promo col-4">
+                                                                @foreach(array($items['products']) as $item)
+                                                                    @if(isset(json_decode($item,true)['category']))
+                                                                        <div
+                                                                            class="d-flex justify-content-sm-between product_promo__item">
+                                                                            <p> {{json_decode($item,true)['category']}}</p>
+                                                                            <p> {{json_decode($item,true)['price']}}р</p>
+                                                                        </div>
+                                                                    @else
+                                                                    @endif
+                                                                    @if(isset(json_decode($item,true)['productList']))
+                                                                        @foreach(json_decode($item,true)['productList'] as $i)
+                                                                            <p class="new_style_promo">{{$i['product']}}</p>
+                                                                        @endforeach
+                                                                    @else
+                                                                    @endif
+                                                                @endforeach
+                                                            </div>
+                                                            <div class="times col">
+                                                                @foreach(array($items['products']) as $item)
+                                                                    @if(gettype(json_decode($item,true)['date']) == "string")
+                                                                        <div class="mob_times">{{json_decode($item,true)['date']}}<br></div>
+                                                                    @else
+                                                                        @foreach(json_decode($item,true)['date'] as $time)
+                                                                            <div class="mob_times">{{$time}}<br></div>
+                                                                        @endforeach
+                                                                    @endif
+                                                                @endforeach
+                                                            </div>
                                                         </div>
-                                                        <div class="product_promo col-4">
-                                                            @foreach(array($items['products']) as $item)
-                                                                @if(isset(json_decode($item,true)['category']))
-                                                                    <div
-                                                                        class="d-flex justify-content-sm-between product_promo__item">
-                                                                        <p> {{json_decode($item,true)['category']}}</p>
-                                                                        <p> {{json_decode($item,true)['price']}} р</p>
-                                                                    </div>
-                                                                @else
-                                                                @endif
-                                                                @if(isset(json_decode($item,true)['productList']))
-                                                                    @foreach(json_decode($item,true)['productList'] as $i)
-                                                                        <p>{{$i['product']}}</p>
-                                                                    @endforeach
-                                                                @else
-                                                                @endif
-                                                            @endforeach
-                                                        </div>
-                                                        <div class="times col">
-                                                            @foreach(array($items['products']) as $item)
-                                                                @if(gettype(json_decode($item,true)['date']) == "string")
-                                                                    <div>{{json_decode($item,true)['date']}}<br></div>
-                                                                @else
-                                                                    @foreach(json_decode($item,true)['date'] as $time)
-                                                                        <div>{{$time}}<br></div>
-                                                                    @endforeach
-                                                                @endif
-                                                            @endforeach
+                                                        <div class="col-4 promo_mob_style">
+                                                            <div class="d-flex ml-3">
+                                                                <label>Промокод:</label> &nbsp;&nbsp;&nbsp;
+                                                                <label class="promocode">{{$payment->promocode}}</label>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -977,13 +1037,6 @@
                                 </div>
                             @endforeach
                         </div>
-                        <div class="col-4">
-                            <div class="d-flex ml-3">
-                                <label>Промокод:</label> &nbsp;&nbsp;&nbsp;
-                                <label class="promocode">{{$payment->promocode}}</label>
-                            </div>
-
-                        </div>
                     </div>
                 @else
                 @endif
@@ -992,3 +1045,22 @@
     </div>
 @endsection
 
+<style>
+    .new_style_promo {
+        color: #505050;
+        font-family: Inter;
+        font-size: 14px;
+        font-style: italic;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .new_style_promo_price {
+        color: #505050;
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+</style>

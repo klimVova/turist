@@ -7,8 +7,7 @@
     </div>
     <div class="container-fluid">
         <div class="main about">
-            <p>Цифровая платформа ТурМедДрайвер - это единая экосистема, обеспечивающая всесезонность туризма в регионах
-                России.</p>
+            <p>Цифровая платформа ТурМедДрайвер - это единая экосистема, обеспечивающая оздоровление и всесезонность туризма в регионах России.</p>
             <div class="row about-items">
                 <div class="about-item col col-12 col-md-4 zoomIn wow" data-wow-offset='0'
                      data-wow-delay='0.2s'
