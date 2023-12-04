@@ -574,7 +574,7 @@
                                 <div class="cart-section">
                                     @if($items['role'] == 'Мед.центр' || $items['role'] == 'spa' || $items['role'] == 'cafe' )
                                         @foreach(array($items['products']) as $item)
-                                            @if($items['date'] > date(date("d m Y HH:mm")))
+                                            @if($items['date'] > date(date("d m Y H:m")))
                                                 <div class="section-label  section-label_promo_mob">
                                                     @if($items['role'] == 'Мед.центр')
                                                         <h2>Медицинский центр<br></h2>
