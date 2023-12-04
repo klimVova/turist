@@ -80,9 +80,11 @@ header {
     flex: 1 1 auto;
     padding: 90px 50px;
 }
+
 .pagination .page-item .page-link {
     color: #51D3B7 !important;
 }
+
 /*.welcome .text {*/
 /*    background: url("../img/banner.jpg") no-repeat;*/
 /*    width: 100%;*/
@@ -120,43 +122,51 @@ header {
 /*    font-weight: 700;*/
 /*    color: #08366A;*/
 /*}*/
-.slider-block{
+.slider-block {
     padding: 50px 0px 0px 0px;
 
 }
-.slider-item img{
+
+.slider-item img {
     width: 100%;
 }
-.main-slider{
+
+.main-slider {
     position: relative;
 }
 
-.main-slider .text{
+.main-slider .text {
     position: absolute;
     top: 90px;
     left: 120px;
 }
-.slider-block .text{
+
+.slider-block .text {
     padding: 45px 0px;
 }
-.slider-block .text h1{
+
+.slider-block .text h1 {
     color: #08366A;
     font-weight: 700;
     font-size: 36px;
     margin-bottom: 24px;
 }
-.slider-block .text p{
+
+.slider-block .text p {
     color: white;
     font-weight: 500;
     font-size: 24px;
 }
-.slogan{
+
+.slogan {
     padding-top: 30px;
 }
-.slogan p{
+
+.slogan p {
     font-size: 24px;
 }
-.slogan .slogan2{
+
+.slogan .slogan2 {
     padding-left: 70px;
 }
 
@@ -339,7 +349,8 @@ header {
 .blog input:active {
     background-color: #46B9A0;
 }
-.blog-info{
+
+.blog-info {
     padding-top: 12px;
 }
 
@@ -390,11 +401,9 @@ footer .media img {
     /*    justify-content: space-between;*/
     /*    padding: 60px 24px;*/
     /*}*/
-
     /*.welcome .text .sale {*/
     /*    display: none;*/
     /*}*/
-
     .search {
         height: auto;
         background-color: #08366A;
@@ -2380,13 +2389,16 @@ footer .f-logo {
 .cost-item-block label {
     font-weight: 700 !important;
 }
-.name{
+
+.name {
     display: flex;
 }
-.name_organ{
+
+.name_organ {
     display: block;
 }
-.times{
+
+.times {
     padding-left: 110px;
     font-style: normal;
     font-weight: 400;
@@ -2394,7 +2406,8 @@ footer .f-logo {
     line-height: 17px;
     color: #505050;
 }
-.product_promo{
+
+.product_promo {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
@@ -2403,11 +2416,13 @@ footer .f-logo {
     color: #505050;
     padding-left: 50px;
 }
-.order_promo{
+
+.order_promo {
     display: flex;
     align-items: center;
 }
-.order_promo_num{
+
+.order_promo_num {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
@@ -2415,14 +2430,16 @@ footer .f-logo {
     line-height: 22px;
     color: #A8A8A8;
 }
-.order_promo_days{
+
+.order_promo_days {
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
     color: #A8A8A8;
     padding-left: 10px;
 }
-.promocode{
+
+.promocode {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
@@ -2432,7 +2449,8 @@ footer .f-logo {
     color: #51D3B7 !important;
     opacity: 0.8;
 }
-.promo{
+
+.promo {
     align-items: center;
 }
 
@@ -2465,6 +2483,7 @@ footer .f-logo {
         margin-top: 10px !important;
         margin-left: 0 !important;
     }
+
     .box {
         display: block;
     }
@@ -2515,10 +2534,12 @@ footer .f-logo {
     .product_list_item_header_hostel_m {
         padding-left: 10px;
     }
-    .product_option_list_san{
+
+    .product_option_list_san {
         width: 370px;
         max-width: none;
     }
+
     .all-cost-mob {
         max-width: 100%;
     }
@@ -2533,78 +2554,97 @@ footer .f-logo {
     .profile .button input {
         width: 300px;
     }
-    .slider-item img{
+
+    .slider-item img {
         width: 100%;
         height: 210px;
     }
-    .slider-block .text{
+
+    .slider-block .text {
         padding: 0;
     }
-    .main-slider .text{
+
+    .main-slider .text {
         position: absolute;
         top: 30px;
         left: 40px;
     }
-    .slogan,.slogan1,.slogan2{
-        padding: 0!important;
+
+    .slogan, .slogan1, .slogan2 {
+        padding: 0 !important;
 
     }
-    .slider-block .text h1{
+
+    .slider-block .text h1 {
         font-size: 24px;
     }
-    .slider-block .text p{
+
+    .slider-block .text p {
         font-size: 18px;
     }
-    .promo{
+
+    .promo {
         display: block;
         margin: 0;
         padding: 0;
         margin-bottom: 20px;
     }
-    .promo_mob{
+
+    .promo_mob {
         display: block !important;
         max-width: 100% !important;
-        flex:none !important;
+        flex: none !important;
     }
-    .promo_mob_style{
+
+    .promo_mob_style {
         margin-left: 25px;
         margin-top: 10px;
     }
-    .mob_times{
+
+    .mob_times {
         margin-left: 10px;
     }
-    .section-label_promo_mob{
+
+    .section-label_promo_mob {
         margin-top: 0;
     }
-    .promo-mob__box{
+
+    .promo-mob__box {
         max-width: 85% !important;
         margin: 0 !important;
         padding: 0 !important;
     }
-    .product_promo__item{
+
+    .product_promo__item {
         justify-content: space-between;
         margin-left: 10px;
     }
-    .new_style_promo{
+
+    .new_style_promo {
         margin-left: -10px;
     }
-    .name_organ{
+
+    .name_organ {
         margin-left: 30px;
-        margin-bottom:-10px;
-        max-width:50% !important;
+        margin-bottom: -10px;
+        max-width: 50% !important;
     }
-    .order_promo{
+
+    .order_promo {
         display: block;
         margin-left: 20px;
     }
-    .order_promo_days{
+
+    .order_promo_days {
         padding-left: 0;
         padding-bottom: 10px;
     }
-    .promocode{
+
+    .promocode {
         margin-left: 120px;
     }
-    .product_promo,.times {
+
+    .product_promo, .times {
         margin-left: 30px;
         padding: 0;
         width: auto;
@@ -2612,16 +2652,63 @@ footer .f-logo {
     }
 
 }
+
 .counter {
     position: absolute;
     top: 190px;
     left: 455px;
 }
+
 .counter1 {
     position: absolute;
     top: 455px;
     left: 455px;
 }
+
 .rules-org-info ol {
     padding-left: 18px;
+}
+
+.mp-services-blocks {
+    padding: 60px 120px 0 120px;
+}
+
+.mp-services-blocks .section-item {
+    /*min-height: 295px;
+    width: 100%;*/
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.mp-services-blocks .section-item img {
+    /*position: relative;*/
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100%;
+}
+
+.mp-services-blocks .section-item p {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+
+    padding: 0 30px;
+
+    text-align: center;
+    font-weight: 700;
+    font-size: 24px;
+    color: #08366A;
+}
+
+.mp-services-blocks .section-item:hover img {
+    opacity: 0.7;
+}
+
+@media (max-width: 480px) {
+    .mp-services-blocks {
+        padding-top: 36px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }
