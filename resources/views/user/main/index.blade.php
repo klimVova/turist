@@ -574,7 +574,10 @@
                                 <div class="cart-section">
                                     @if($items['role'] == 'Мед.центр' || $items['role'] == 'spa' || $items['role'] == 'cafe' )
                                         @foreach(array($items['products']) as $item)
-                                            @if($items['date'] > date(date("d m Y H:m")))
+                                            @if(((substr($items['date'], 0, 2) >= substr(date("d m Y H:m"), 0,2)) && (substr($items['date'],3,-11)) >= substr(date("d m Y H:m"), 3,-11)) ||
+                                            ((substr($items['date'], 0, 2) <= substr(date("d m Y H:m"), 0,2)) && (substr($items['date'],3,-11)) > substr(date("d m Y H:m"), 3,-11)) ||
+                                            ((substr($items['date'], 3, -11) <= substr(date("d m Y H:m"), 3,-11)) && (substr($items['date'],6,-6)) > substr(date("d m Y H:m"), 6,-6))
+                                            )  
                                                 <div class="section-label  section-label_promo_mob">
                                                     @if($items['role'] == 'Мед.центр')
                                                         <h2>Медицинский центр<br></h2>
@@ -732,6 +735,7 @@
                                         @endforeach
                                     @elseif($items['role'] == 'hostel' || $items['role'] == 'sanatorium' || $items['role'] == 'sport')
                                         @foreach(array($items['products']) as $item)
+                                            
                                             @if(json_decode($item,true)['date'][1]  > date(date("d m Y")) )
                                                 <div class="section-label section-label_promo_mob">
                                                     @if($items['role'] == 'hostel')
