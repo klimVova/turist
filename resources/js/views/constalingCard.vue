@@ -19,7 +19,7 @@
                         <div class="row">
                             <div class="card-main-info col col-12 col-md-9">
                                 <div class="card-item-img">
-                                    <img :src="card.preview_image">
+                                    <img style="width: 300px;height: 300px;" :src="card.preview_image">
                                 </div>
                                 <div class="card-item-descr">
                                     <h2>{{ card.title }}</h2>

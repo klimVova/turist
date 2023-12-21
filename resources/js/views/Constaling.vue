@@ -48,7 +48,7 @@
                                     <div :class="activeEl !== i && activeEl !== false ? 'd-none' : ''">
                                         <div class="consulting_flex mb-5" v-if="card.cat_id == i.id">
                                             <div class="item-img">
-                                                <img style="width: 300px;height: 200px;" :src="card.preview_image">
+                                                <img style="width: 250px;height: 250px;" :src="card.preview_image">
                                             </div>
                                             <div class="list-item-descr">
                                                 <h2>{{ card.title }}</h2>
