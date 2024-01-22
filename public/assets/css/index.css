@@ -2654,7 +2654,6 @@ footer .f-logo {
 .slider-block{
     border-radius: 0;
     background-color: #51D3B7;
-    padding: 14px;
     padding-top: 70px;
 }
 .slider-block .row{
@@ -2706,10 +2705,6 @@ footer .f-logo {
         padding-bottom: 0;
     }
 }
-
-
-
-
 
 .search{
     border-radius: 0;
@@ -2815,7 +2810,7 @@ footer .f-logo {
         padding: 40px 0 0 0;
     }
     .advertisement-block-asd{
-        overflow: hidden;
+
     }
     .advertisement-block-asd img{
         height: 400px;
