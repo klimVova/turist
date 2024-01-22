@@ -75,7 +75,7 @@
                 </router-link>
 		</a></div>
 	</div>
-        <baners></baners>
+       <!-- <baners></baners>-->
         <div class="search fadeInUp wow">
             <UiFilter ref="index"></UiFilter>
         </div>
@@ -104,6 +104,12 @@
                 </div>
             </div>
             <p><b>ТурМедДрайвер - это здоровый и комфортный мир!</b></p>
+        </div>
+    </div>
+    <div class="container-fluid advertisement-block">
+        <div class="advertisement">
+            <img src="assets/img/ad.png">
+            <p>Мы с нетерпением ждем,<br>когда здесь появиться Ваша реклама!</p>
         </div>
     </div>
     <!--<div class="container-fluid mp-services-blocks">
