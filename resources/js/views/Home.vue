@@ -106,7 +106,7 @@
             <p><b>ТурМедДрайвер - это здоровый и комфортный мир!</b></p>
         </div>
     </div>
-    <div class="container-fluid advertisement-block">
+    <div class="container-fluid advertisement-block-asd">
         <div class="advertisement">
             <img src="assets/img/ad.png">
             <p>Мы с нетерпением ждем,<br>когда здесь появиться Ваша реклама!</p>

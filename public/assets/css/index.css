@@ -2791,15 +2791,15 @@ footer .f-logo {
 
 
 
-.advertisement-block{
+.advertisement-block-asd{
     padding: 40px 120px;
     position: relative;
 }
-.advertisement-block img{
+.advertisement-block-asd img{
     width: 100%;
 
 }
-.advertisement-block p{
+.advertisement-block-asd p{
     text-align: center;
     position: absolute;
     top: 50%;
@@ -2811,17 +2811,17 @@ footer .f-logo {
 }
 
 @media (max-width: 480px){
-    .advertisement-block{
+    .advertisement-block-asd{
         padding: 40px 0 0 0;
     }
-    .advertisement-block{
+    .advertisement-block-asd{
         overflow: hidden;
     }
-    .advertisement-block img{
+    .advertisement-block-asd img{
         height: 400px;
         width: auto;
     }
-    .advertisement-block p{
+    .advertisement-block-asd p{
         width: 400px;
     }
     .blog .section-label{
