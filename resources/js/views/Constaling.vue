@@ -36,7 +36,8 @@
                             v-if="visible"
                             :class="activeEl !== i && activeEl !== false ? 'd-none' : 'consulting_desc'">
                             <div class="" >
-                                {{ i.content }}
+                            <p v-html="i.content"></p>
+                               
                             </div>
                         </div>
                         <div
