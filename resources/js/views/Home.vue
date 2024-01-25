@@ -109,7 +109,7 @@
     <div class="container-fluid advertisement-block-asd">
         <div class="advertisement">
             <img src="assets/img/ad.png">
-            <p>Мы с нетерпением ждем,<br>когда здесь появиться Ваша реклама!</p>
+            <p>Мы с нетерпением ждем,<br>когда здесь появится Ваша реклама!</p>
         </div>
     </div>
     <!--<div class="container-fluid mp-services-blocks">
