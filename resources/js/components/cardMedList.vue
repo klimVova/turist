@@ -1,12 +1,12 @@
 <template>
     <div class="service-list">
-        <h1>Категория</h1>
-        <cardMed 
-        title='zxc' 
-        price='123' 
-        :isAdded="false"
-        :onClickAdd="onClickAdd"/>   
-    </div>   
+        <h1>Категория </h1>
+        <cardMed
+            title='zxc'
+            price='123'
+            :isAdded="false"
+            :onClickAdd="onClickAdd"/>
+    </div>
 </template>
 
 <script>
