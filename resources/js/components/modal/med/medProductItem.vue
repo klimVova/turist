@@ -62,7 +62,6 @@ export default {
         minus() {
             this.counts = this.counts - 1;
             let medProduct = localStorage.getItem('medProduct')
-
             let newCafeProduct = [{
                 'id': this.product.id,
                 'product': this.product.title,

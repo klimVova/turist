@@ -77,6 +77,11 @@ const router = createRouter({
             component: () => import('../views/Contact.vue')
         },
         {
+            path: '/basket',
+            name: 'basket',
+            component: () => import('../components/Basket.vue')
+        },
+        {
             path: '/catalog',
             name: 'catalogs',
             component: () => import('../views/Catalogs.vue'),

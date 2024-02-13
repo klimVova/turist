@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import BlogItem from "../views/blogItem.vue";
+import BlogItem from "../../views/blogItem.vue";
 export default {
     name: "blog",
     components: {BlogItem},

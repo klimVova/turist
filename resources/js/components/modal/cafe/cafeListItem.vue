@@ -71,7 +71,6 @@ export default {
                         newCafeProductList = null
                     }
                 })
-
                 Array.prototype.push.apply(cafeProductList, newCafeProductList)
                 localStorage.setItem('cafeProductList', JSON.stringify(cafeProductList))
 

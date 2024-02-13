@@ -24,7 +24,7 @@
 
 <script>
 
-import swiperBaner from '../components/swiperBaner.vue';
+import swiperBaner from '../swiperBaner.vue';
 
 
 export default {

@@ -86,8 +86,9 @@
                                     <h2>Услуги</h2>
                                     <hr>
                                 </div>
-                                <div class="service-list">
-                                    <!-- <div class="service-item"> -->
+                                <cardMedList />
+                                <!--<div class="service-list">
+                                    
                                     <div v-for="list in lists"
                                          :id="`${list.title}`"
                                          class="category fadeInUp wow animated"
@@ -104,7 +105,9 @@
                                                 <div><label
                                                     v-if="subcat.medical_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{
                                                         subcat.price
-                                                    }} </label>
+                                                    }} 
+                                                    <img class="w-25" src="assets/img/plus.png" alt="">
+                                                </label>
                                                 </div>
                                             </div>
 
@@ -117,8 +120,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- </div> -->
-                                </div>
+                                
+                                </div>-->
                             </div>
                             <div class="col col-12 col-md-6 hotels-inf-item">
                                 <div id="map-test" class="map zoomIn wow  animated" data-wow-offset="0"
@@ -192,6 +195,7 @@
 </template>
 
 <script>
+import cardMedList from "../components/cardMedList.vue"
 import user from "../user";
 import modalMed from "../components/modal/modalMed.vue";
 import {ref} from "vue";
@@ -199,7 +203,8 @@ import axios from "axios";
 
 export default {
     components: {
-        modalMed
+        modalMed,
+        cardMedList
     },
     setup() {
         const {state} = user;
