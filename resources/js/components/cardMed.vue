@@ -1,5 +1,5 @@
 <template>	
-    <div class="d-flex">
+    <div class="d-flex" >
         <p>{{ title }}</p>
         <p class="ml-3">{{price}}</p>
         <img @click.prevent="onClickAdd" class="icon-plus ml-3" :src="!isAdded ? 'assets/img/plus.png' : 'assets/img/check-list.svg'" alt="">
@@ -9,7 +9,7 @@
 <script setup>
 defineProps({
     title: String,
-    price: String, 
+    price: String,
     isAdded: Boolean,
     onClickAdd:Function,
 })

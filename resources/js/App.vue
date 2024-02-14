@@ -1,28 +1,42 @@
 <template>
     <div class="wrapper">
-        <Drawer />
-        <Header />
+        <Drawer v-if="drawerOpen" /> 
+        <Header @openDrawer="openDrawer" />
         <router-view></router-view>
         <footer />
     </div>
 </template>
 
-<script>
+<script setup>
+import {ref , provide} from 'vue'
 import Header from "./components/Header.vue"
 import user from "./user";
 import footer from "./components/footer.vue"
 import Drawer from "./components/Drawer.vue"
 
+const state = user;
+const cart= ref([])
 
-export default {
-    components: {Header, footer, Drawer},
-    name: 'App',
-    
-    setup() {
-        const {state} = user;
-        return {state};
-    },
+
+
+const drawerOpen=ref(false)
+const closeDrawer = () => {
+    drawerOpen.value = false
 }
+const openDrawer = () => {
+    drawerOpen.value = true
+}
+
+const addToCart = (item) => {
+    cart.value.push(item)
+    console.log(item)
+}
+
+provide('cartActions',{
+    closeDrawer,
+    openDrawer,
+    addToCart
+})
 </script>
 
 <style>

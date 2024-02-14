@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        <!--<Drawer v-if="drawerOpen" />--> 
         <div class="container-fluid main card">
             <div class="row menu-categories">
                 <div class="sort col col-12 col-md-2">
@@ -86,7 +86,7 @@
                                     <h2>Услуги</h2>
                                     <hr>
                                 </div>
-                                <cardMedList />
+                                <cardMedList :items="items" :categories="cats" :card="card" @addToCart="addToCart" />
                                 <!--<div class="service-list">
                                     
                                     <div v-for="list in lists"
@@ -198,21 +198,25 @@
 import cardMedList from "../components/cardMedList.vue"
 import user from "../user";
 import modalMed from "../components/modal/modalMed.vue";
-import {ref} from "vue";
+import Drawer from "../components/Drawer.vue"
+import {ref , inject} from "vue";
 import axios from "axios";
 
 export default {
     components: {
         modalMed,
-        cardMedList
+        cardMedList,
+        Drawer
     },
+
     setup() {
         const {state} = user;
         const modalActive = ref(false);
         const toggleModal = () => {
             modalActive.value = !modalActive.value;
         }
-        return {state, modalActive, toggleModal};
+        const {addToCart} = inject('cartActions')
+        return {state, modalActive, toggleModal, addToCart};
     },
     name: "medicalCard",
     data() {
@@ -246,6 +250,7 @@ export default {
                 .then(res => {
                     this.lists = res.data.data;
                     this.cats = res.data.data;
+                    
                 })
         },
         getItem() {

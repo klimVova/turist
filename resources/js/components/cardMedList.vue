@@ -1,25 +1,34 @@
 <template>
     <div class="service-list">
-        <h1>Категория </h1>
-        <cardMed
-            title='zxc'
-            price='123'
-            :isAdded="false"
-            :onClickAdd="onClickAdd"/>
+        <div 
+                v-for="category in categories"
+                :key="category.id">
+                <p v-if="category.user_id === card.user_id">{{ category.title }}</p>               
+                <div v-for="item in items"
+                    :key="item.id">
+                    <p v-if="item.medical_todo_list_id === category.id && category.user_id === card.user_id && item.deleted_at === null">
+                    <cardMed 
+                        :key="item.id"
+                        :title="item.title"
+                        :price="item.price"
+                        :isAdded="false"
+                        :onClickAdd="()=>emit('addToCart', item)" />
+                    </p>
+                </div>
+        </div>
     </div>
 </template>
 
-<script>
+<script setup>
+
 import cardMed from "./cardMed.vue";
-export default {
-    components: {
-        cardMed,
-    },
-    setup() {
-        const onClickAdd = () => {
-            alert('Добавить');
-        }
-        return {onClickAdd};
-    },
-}
+const emit = defineEmits(['addToCart'])
+defineProps({
+    items:Array,
+    categories:Array,
+    card:Array,
+})
+
+const onClickAdd = () => {
+            alert('Добавить'); }
 </script>
