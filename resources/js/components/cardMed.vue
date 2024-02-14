@@ -1,9 +1,9 @@
-<template>	
+<template>
     <div class="d-flex" >
         <p>{{ title }}</p>
-        <p class="ml-3">{{price}}</p>
+        <p class="ml-3">{{price}} руб</p>
         <img @click.prevent="onClickAdd" class="icon-plus ml-3" :src="!isAdded ? 'assets/img/plus.png' : 'assets/img/check-list.svg'" alt="">
-    </div>   
+    </div>
 </template>
 
 <script setup>

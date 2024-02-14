@@ -16,7 +16,7 @@
                 <b>123 руб</b>
             </div>
             <button class="btn btn-success w-25">Заказать</button>
-        </div> 
+        </div>
     </div>
 </template>
 

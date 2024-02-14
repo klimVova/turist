@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!--<Drawer v-if="drawerOpen" />--> 
+        <!--<Drawer v-if="drawerOpen" />-->
         <div class="container-fluid main card">
             <div class="row menu-categories">
                 <div class="sort col col-12 col-md-2">
@@ -86,9 +86,9 @@
                                     <h2>Услуги</h2>
                                     <hr>
                                 </div>
-                                <cardMedList :items="items" :categories="cats" :card="card" @addToCart="addToCart" />
+                                <cardMedList :items="items" :categories="cats" :card="card" @onClickAddPlus="onClickAddPlus" />
                                 <!--<div class="service-list">
-                                    
+
                                     <div v-for="list in lists"
                                          :id="`${list.title}`"
                                          class="category fadeInUp wow animated"
@@ -105,7 +105,7 @@
                                                 <div><label
                                                     v-if="subcat.medical_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{
                                                         subcat.price
-                                                    }} 
+                                                    }}
                                                     <img class="w-25" src="assets/img/plus.png" alt="">
                                                 </label>
                                                 </div>
@@ -120,7 +120,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                
+
                                 </div>-->
                             </div>
                             <div class="col col-12 col-md-6 hotels-inf-item">
@@ -215,8 +215,8 @@ export default {
         const toggleModal = () => {
             modalActive.value = !modalActive.value;
         }
-        const {addToCart} = inject('cartActions')
-        return {state, modalActive, toggleModal, addToCart};
+        const {onClickAddPlus} = inject('cart')
+        return {state, modalActive, toggleModal, onClickAddPlus};
     },
     name: "medicalCard",
     data() {
@@ -250,7 +250,7 @@ export default {
                 .then(res => {
                     this.lists = res.data.data;
                     this.cats = res.data.data;
-                    
+
                 })
         },
         getItem() {

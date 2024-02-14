@@ -1,9 +1,9 @@
 <template>
     <div class="wrapper">
-        <Drawer v-if="drawerOpen" /> 
+        <Drawer v-if="drawerOpen" />
         <Header @openDrawer="openDrawer" />
         <router-view></router-view>
-        <footer />
+        <Footer />
     </div>
 </template>
 
@@ -11,8 +11,8 @@
 import {ref , provide} from 'vue'
 import Header from "./components/Header.vue"
 import user from "./user";
-import footer from "./components/footer.vue"
 import Drawer from "./components/Drawer.vue"
+import Footer from "./components/Footer.vue";
 
 const state = user;
 const cart= ref([])
@@ -26,16 +26,28 @@ const closeDrawer = () => {
 const openDrawer = () => {
     drawerOpen.value = true
 }
-
 const addToCart = (item) => {
     cart.value.push(item)
-    console.log(item)
+    item.isAdded = true
 }
-
-provide('cartActions',{
+const removeFromCart = (item) => {
+    cart.value.splice(cart.value.indexOf(item), 1)
+    item.isAdded = false
+}
+const onClickAddPlus = (item) => {
+    if(!item.isAdded){
+       addToCart(item)
+    }else{
+        removeFromCart(item)
+    }
+    console.log(cart)
+}
+provide('cart',{
+    cart,
     closeDrawer,
     openDrawer,
-    addToCart
+    onClickAddPlus,
+    removeFromCart
 })
 </script>
 
