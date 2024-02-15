@@ -29,7 +29,7 @@
                                 <router-link :to="{name:'contact'}">Контакты</router-link>
                             </li>
                             <li @click="()=>emit('openDrawer')">
-                                <img src="assets/img/basket.png" style="width: 20px;height: 20px;" alt="">
+                                <img :src="totalPrice !=0 ? 'assets/img/basket-1.png' :'assets/img/basket.png'" style="width: 20px;height: 20px;" alt="">
                             </li> 
                         </ul>
                         <login></login>
@@ -79,4 +79,7 @@
 import {ref} from 'vue';
 import Login from "./login.vue";
 const emit = defineEmits(['openDrawer'])
+defineProps({
+    totalPrice:Number,
+})
 </script>

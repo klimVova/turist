@@ -9,7 +9,7 @@
 <script setup>
 defineProps({
     title: String,
-    price: String,
+    price: Number,
     isAdded: Boolean,
     onClickAdd:Function,
 })

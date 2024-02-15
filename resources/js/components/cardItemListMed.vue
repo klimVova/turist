@@ -5,13 +5,20 @@
         :key="item.id"
         :title="item.title"
         :price="item.price"
+        :counts="counts"
         @onClickRemove="()=>removeFromCart(item)"/>
     </div>
 </template>
 
 <script setup>
+
 import {inject} from "vue";
 import cardItemMed  from "./cardItemMed.vue";
+
 const {cart , removeFromCart} = inject('cart')
 
+
+defineProps({
+    counts : Number
+})
 </script>

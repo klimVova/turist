@@ -1,14 +1,16 @@
 <template>
     <div class="wrapper">
-        <Drawer v-if="drawerOpen" />
-        <Header @openDrawer="openDrawer" />
+        <Drawer :totalPrice="totalPrice" :counts="counts" v-if="drawerOpen" />
+        <Header :totalPrice="totalPrice" @openDrawer="openDrawer" />
         <router-view></router-view>
+        <h1>{{ counts }}</h1>
+        <button @click="plusProd">+</button>
         <Footer />
     </div>
 </template>
 
 <script setup>
-import {ref , provide} from 'vue'
+import {ref , provide, computed} from 'vue'
 import Header from "./components/Header.vue"
 import user from "./user";
 import Drawer from "./components/Drawer.vue"
@@ -40,15 +42,18 @@ const onClickAddPlus = (item) => {
     }else{
         removeFromCart(item)
     }
-    console.log(cart)
 }
+const totalPrice = computed(() => cart.value.reduce((acc,item) => acc + Number(item.price), 0)) 
+
+
 provide('cart',{
     cart,
     closeDrawer,
     openDrawer,
     onClickAddPlus,
-    removeFromCart
+    removeFromCart,
 })
+
 </script>
 
 <style>
