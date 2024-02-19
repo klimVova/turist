@@ -5,8 +5,9 @@
         :key="item.id"
         :title="item.title"
         :price="item.price"
-        :counts="counts"
-        @onClickRemove="()=>removeFromCart(item)"/>
+        :qty="item.qty"
+        @onClickRemove="()=>removeFromCart(item)" 
+        @onClickPusik = "()=>pusik(item)"   />
     </div>
 </template>
 
@@ -15,10 +16,7 @@
 import {inject} from "vue";
 import cardItemMed  from "./cardItemMed.vue";
 
-const {cart , removeFromCart} = inject('cart')
 
+const {cart , removeFromCart, pusik} = inject('cart')
 
-defineProps({
-    counts : Number
-})
 </script>

@@ -4,7 +4,6 @@
     <div class="drawer-bg container-fluid main card">
         <DrawerHead />
         <CardItemListMed />
-
         <div class="">
             <div class="d-flex justify-content-between">
                 <span>итого:</span>
@@ -21,6 +20,5 @@ import CardItemListMed from "./CardItemListMed.vue"
 
 defineProps({
     totalPrice: Number,
-    counts : Number})
-
+})
 </script>

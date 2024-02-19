@@ -18,6 +18,7 @@ class MedicalItemResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'price' => $this->price,
+            'qty'   => $this->qty,
             'medical_todo_list_id' => $this->medical_todo_list_id,
             'deleted_at' => $this->deleted_at
         ];

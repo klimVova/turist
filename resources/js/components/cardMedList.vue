@@ -12,6 +12,7 @@
                         :title="item.title"
                         :price="item.price"
                         :onClickAdd="()=>emit('onClickAddPlus', item)"
+
                         :isAdded="item.isAdded" />
                     </p>
                 </div>
@@ -22,12 +23,10 @@
 <script setup>
 import cardMed from "./cardMed.vue";
 const emit = defineEmits(['onClickAddPlus'])
-defineProps({
-    items:Array,
-    categories:Array,
-    card:Array,
-})
 
-const onClickAdd = () => {
-            alert('Добавить'); }
+defineProps({
+    items:Object  ,
+    categories:Object  ,
+    card:Object  ,
+})
 </script>

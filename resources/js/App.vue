@@ -3,8 +3,6 @@
         <Drawer :totalPrice="totalPrice" :counts="counts" v-if="drawerOpen" />
         <Header :totalPrice="totalPrice" @openDrawer="openDrawer" />
         <router-view></router-view>
-        <h1>{{ counts }}</h1>
-        <button @click="plusProd">+</button>
         <Footer />
     </div>
 </template>
@@ -22,20 +20,25 @@ const cart= ref([])
 
 
 const drawerOpen=ref(false)
+
 const closeDrawer = () => {
     drawerOpen.value = false
 }
+
 const openDrawer = () => {
     drawerOpen.value = true
 }
+
 const addToCart = (item) => {
     cart.value.push(item)
     item.isAdded = true
 }
+
 const removeFromCart = (item) => {
     cart.value.splice(cart.value.indexOf(item), 1)
     item.isAdded = false
 }
+
 const onClickAddPlus = (item) => {
     if(!item.isAdded){
        addToCart(item)
@@ -43,8 +46,12 @@ const onClickAddPlus = (item) => {
         removeFromCart(item)
     }
 }
-const totalPrice = computed(() => cart.value.reduce((acc,item) => acc + Number(item.price), 0)) 
 
+const pusik = (item) => {
+    console.log(item.qty++)
+}
+
+const totalPrice = computed(() => cart.value.reduce((acc,item) => acc + Number(item.price)*Number(item.qty), 0)) 
 
 provide('cart',{
     cart,
@@ -52,6 +59,7 @@ provide('cart',{
     openDrawer,
     onClickAddPlus,
     removeFromCart,
+    pusik
 })
 
 </script>
