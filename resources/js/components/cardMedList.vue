@@ -12,7 +12,6 @@
                         :title="item.title"
                         :price="item.price"
                         :onClickAdd="()=>emit('onClickAddPlus', item)"
-
                         :isAdded="item.isAdded" />
                     </p>
                 </div>

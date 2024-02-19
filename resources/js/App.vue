@@ -32,11 +32,13 @@ const openDrawer = () => {
 const addToCart = (item) => {
     cart.value.push(item)
     item.isAdded = true
+   
 }
 
 const removeFromCart = (item) => {
     cart.value.splice(cart.value.indexOf(item), 1)
     item.isAdded = false
+    item.qty = 1
 }
 
 const onClickAddPlus = (item) => {
@@ -47,8 +49,12 @@ const onClickAddPlus = (item) => {
     }
 }
 
-const pusik = (item) => {
-    console.log(item.qty++)
+const plusCount = (item) => {
+    item.qty++
+}
+
+const minusCount = (item) => {
+    item.qty--
 }
 
 const totalPrice = computed(() => cart.value.reduce((acc,item) => acc + Number(item.price)*Number(item.qty), 0)) 
@@ -59,7 +65,8 @@ provide('cart',{
     openDrawer,
     onClickAddPlus,
     removeFromCart,
-    pusik
+    plusCount,
+    minusCount
 })
 
 </script>
