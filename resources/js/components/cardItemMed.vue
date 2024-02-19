@@ -2,9 +2,11 @@
     <div class="d-flex cardItem justify-content-between mt-md-3">
         <p>{{title}}</p>
         <p class="ml-3">{{price}}</p>
-        <span @click="emit('onClickPlusik')">+</span>
+        <div class="d-flex row">
+        <span class="plus" @click="emit('onClickPlusik')">+</span>
         <p >{{ qty }}</p>
-        <span :class="qty<=1 ? 'disabled' : '' " @click="emit('onClickMinus')">-</span>
+        <span :class="qty<=1 ? 'disabled disabled-minus minus' : 'minus' " @click="emit('onClickMinus')">-</span>
+        </div>
         <img @click="emit('onClickRemove')" class="itemRemove" src="assets/img/close.svg" alt="">
     </div>
 </template>
@@ -27,7 +29,31 @@ const props = defineProps({
     width: 25px;
     height: 25px;
 }
-.disabled{
-    display:none;
+.plus{
+    border:1px solid black;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    opacity:40%;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.minus{
+    border:1px solid black;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    opacity:40%;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.plus:hover,
+.minus:hover{
+    opacity: 100%;
+    transition: 0.3s;
+    transform: scale(1.1);
+}
+.disabled-minus{
+    opacity: 10%;
 }
 </style>
