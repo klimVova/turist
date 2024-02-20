@@ -16,7 +16,7 @@ import Footer from "./components/Footer.vue";
 
 const state = user;
 const cart= ref([])
-
+const id= ref([])
 
 
 const drawerOpen=ref(false)
@@ -32,7 +32,9 @@ const openDrawer = () => {
 const addToCart = (item) => {
     cart.value.push(item)
     item.isAdded = true
-   
+}
+const addToCartId = (card) => {
+    id.value.push(card)
 }
 
 const removeFromCart = (item) => {
@@ -57,7 +59,7 @@ const minusCount = (item) => {
     item.qty--
 }
 
-const totalPrice = computed(() => cart.value.reduce((acc,item) => acc + Number(item.price)*Number(item.qty), 0)) 
+const totalPrice = computed(() => cart.value.reduce((acc,item) => acc + Number(item.price)*Number(item.qty), 0))
 
 provide('cart',{
     cart,
@@ -66,9 +68,13 @@ provide('cart',{
     onClickAddPlus,
     removeFromCart,
     plusCount,
-    minusCount
-})
+    minusCount,
 
+})
+provide('id',{
+    id,
+    addToCartId
+})
 </script>
 
 <style>

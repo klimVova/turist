@@ -15,7 +15,7 @@
                     <p >{{ qty }}</p>
                     <span :class="qty<=1 ? 'disabled disabled-minus minus' : 'minus' " @click="emit('onClickMinus')">-</span>
             </div>
-        </div>    
+        </div>
         <div class="col">
             <img @click="emit('onClickRemove')" class="itemRemove" src="assets/img/close.svg" alt="">
         </div>
@@ -24,17 +24,22 @@
 </template>
 
 <script setup>
-import {ref} from 'vue'
+import {onMounted, ref} from 'vue'
+import axios from "axios";
 const emit = defineEmits(['onClickRemove','onClickPusik', 'onClickMinus'])
-
 
 const props = defineProps({
     id:Number,
     title: String,
     price: String,
     qty: Number,
-    })
-
+})
+onMounted( async ()=>{
+    try {
+        const {data} = await axios.get('/api/medicals/1')
+        console.log(data);
+    }catch (e){}
+})
 </script>
 <style>
 .itemRemove{

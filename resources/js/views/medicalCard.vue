@@ -86,7 +86,10 @@
                                     <h2>Услуги</h2>
                                     <hr>
                                 </div>
-                                <cardMedList :items="items" :categories="cats" :card="card" @onClickAddPlus="onClickAddPlus" />
+                                <cardMedList :items="items" :categories="cats" :card="card"
+                                             @onClickAddPlus="onClickAddPlus"
+                                             @addToCartId="addToCartId"
+                                />
                                 <!--<div class="service-list">
 
                                     <div v-for="list in lists"
@@ -216,7 +219,8 @@ export default {
             modalActive.value = !modalActive.value;
         }
         const {onClickAddPlus} = inject('cart')
-        return {state, modalActive, toggleModal, onClickAddPlus};
+        const {addToCartId} = inject('id')
+        return {state, modalActive, toggleModal, onClickAddPlus,addToCartId};
     },
     name: "medicalCard",
     data() {

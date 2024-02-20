@@ -6,7 +6,7 @@
         :title="item.title"
         :price="item.price"
         :qty="item.qty"
-        @onClickRemove="()=>removeFromCart(item)" 
+        @onClickRemove="()=>removeFromCart(item)"
         @onClickPlusik = "()=>plusCount(item)"
         @onClickMinus = "()=>minusCount(item)"   />
     </div>
@@ -19,5 +19,6 @@ import cardItemMed  from "./cardItemMed.vue";
 
 
 const {cart , removeFromCart, plusCount, minusCount} = inject('cart')
+const {id} = inject('id')
 
 </script>

@@ -11,7 +11,9 @@
                         :key="item.id"
                         :title="item.title"
                         :price="item.price"
+                        :id="card.id"
                         :onClickAdd="()=>emit('onClickAddPlus', item)"
+                        :onClickAddId="()=>emit('addToCartId', card)"
                         :isAdded="item.isAdded" />
                     </p>
                 </div>
@@ -21,7 +23,7 @@
 
 <script setup>
 import cardMed from "./cardMed.vue";
-const emit = defineEmits(['onClickAddPlus'])
+const emit = defineEmits(['onClickAddPlus','addToCartId'])
 
 defineProps({
     items:Object  ,
