@@ -1,9 +1,11 @@
 <template>
         <div v-for="cat in cats" :key="cat.id">
-            <div v-if="user_id === cat.user_id && cart_id === cat.id"  class="d-flex cardItem justify-content-between mt-md-3 row">
+            <div v-if="user_id === cat.user_id && cart_id === cat.id && isAdd === true"  class="d-flex cardItem justify-content-between mt-md-3 row">
                 <div  class="col-8 d-flex">
                      <div class="col">
                     <p>{{title}}</p>
+                         {{elem}}<br>
+                         {{i}}
                      </div>
                      <div class="col text-center">
                          <p class="ml-3">{{price*qty}}</p>
@@ -17,8 +19,8 @@
                             <span :class="qty<=1 ? 'disabled disabled-minus minus' : 'minus' " @click="emit('onClickMinus')">-</span>
                         </div>
                     </div>
-                    <div class="col">
-                     <img @click="emit('onClickRemove')" class="itemRemove" src="assets/img/close.svg" alt="">
+                    <div  class="col">
+                     <img  @click="emit('onClickRemove')" class="itemRemove" src="assets/img/close.svg" alt="">
                      <img @click="emit('onCkickremoveId')" class="itemRemove" src="assets/img/close.svg" alt="">
                     </div>
                 </div>
@@ -43,10 +45,13 @@ const props = defineProps({
     qty: Number,
     cart_id:Number,
     user_id:Number,
+    elem:Number,
+    i:Number,
+    isAdd:Boolean
 })
 const lists = ref([]);
 const cats = ref([]);
-onMounted( 
+onMounted(
     async ()=>{
     try {
         const {data} = await axios.get('/api/item')
@@ -55,7 +60,7 @@ onMounted(
     try {
         const {data} = await axios.get('/api/list')
         cats.value=data.data
-        }catch (e){};  
+        }catch (e){};
         })
 </script>
 <style>

@@ -1,10 +1,11 @@
 <template>
-    <div v-for="i in id" :key="i.id" class="service-list">
-        <cardItemListMeds 
+    <div v-for="(i,index) in id" class="service-list">
+        <cardItemListMeds
             :key="i.id"
             :card="i"
             :title='i.title'
             :user_id='i.user_id'
+            :index="index"
             />
     </div>
 </template>

@@ -37,9 +37,19 @@ const pushAddCard = (card) => {
     id.value.push(card)
     card.isAddedId = true
 }
-const removeCardID = (card) => {
+const removeCardID = (card , index, item, cart) => {
     id.value.splice(id.value.indexOf(card), 1)
     card.isAddedId = false
+    removeFromCart(item)
+    var arr = cart
+    arr.forEach(function (el){
+        if(el.medical_todo_list_id ===item.medical_todo_list_id){
+            el.isAdded = false
+            removeFromCart(el)
+        }
+    })
+
+    //console.log(arr)
 }
 const addToCartId = (card) => {
     if(!card.isAddedId){
@@ -79,7 +89,7 @@ provide('cart',{
     openDrawer,
     onClickAddPlus,
     removeFromCart,
- 
+
     plusCount,
     minusCount,
 
