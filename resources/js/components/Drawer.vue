@@ -22,3 +22,6 @@ defineProps({
     totalPrice: Number,
 })
 </script>
+<style>
+   .drawer-bg {overflow-y: auto;} 
+</style>

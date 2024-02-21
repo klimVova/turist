@@ -14,7 +14,8 @@
                         :id="card.id"
                         :onClickAdd="()=>emit('onClickAddPlus', item)"
                         :onClickAddId="()=>emit('addToCartId', card)"
-                        :isAdded="item.isAdded" />
+                        :isAdded="item.isAdded"
+                        :isAddedId="card.isAddedId" />
                     </p>
                 </div>
         </div>

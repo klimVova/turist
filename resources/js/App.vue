@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        <Drawer :totalPrice="totalPrice" :counts="counts" v-if="drawerOpen" />
+        <Drawer :totalPrice="totalPrice" v-if="drawerOpen" />
         <Header :totalPrice="totalPrice" @openDrawer="openDrawer" />
         <router-view></router-view>
         <Footer />
@@ -13,11 +13,11 @@ import Header from "./components/Header.vue"
 import user from "./user";
 import Drawer from "./components/Drawer.vue"
 import Footer from "./components/Footer.vue";
+import cafeProductItemVue from './components/modal/cafe/cafeProductItem.vue';
 
 const state = user;
 const cart= ref([])
 const id= ref([])
-
 
 const drawerOpen=ref(false)
 
@@ -33,8 +33,20 @@ const addToCart = (item) => {
     cart.value.push(item)
     item.isAdded = true
 }
-const addToCartId = (card) => {
+const pushAddCard = (card) => {
     id.value.push(card)
+    card.isAddedId = true
+}
+const removeCardID = (card) => {
+    id.value.splice(id.value.indexOf(card), 1)
+    card.isAddedId = false
+}
+const addToCartId = (card) => {
+    if(!card.isAddedId){
+        pushAddCard(card)
+    }else{
+        //removeCardID(card)
+    }
 }
 
 const removeFromCart = (item) => {
@@ -67,13 +79,15 @@ provide('cart',{
     openDrawer,
     onClickAddPlus,
     removeFromCart,
+ 
     plusCount,
     minusCount,
 
 })
 provide('id',{
     id,
-    addToCartId
+    addToCartId,
+       removeCardID,
 })
 </script>
 
