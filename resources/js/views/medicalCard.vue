@@ -84,21 +84,25 @@
                             <div class="col col-12 col-md-6 mb-3 hotels-inf-item">
                                 <div class="section-label">
                                     <h2>Услуги</h2>
+                                    <button
+                                    @click.prevent="$emit('cardOrg')"
+                                    >показать</button>
                                     <hr>
                                 </div>
                                 <cardMedList :items="items" :categories="cats" :card="card"
-                                             @onClickAddPlus="onClickAddPlus"
-                                             @addToCartId="addToCartId"
+                                            @onClickAddPlus="onClickAddPlus"
+                                            @addToCartId="addToCartId"
                                 />
                                 <!--<div class="service-list">
-
                                     <div v-for="list in lists"
-                                         :id="`${list.title}`"
-                                         class="category fadeInUp wow animated"
-                                         style="visibility: visible;  animation-name: fadeInUp;"
-                                    >
+                                        :key="list.id"
+                                        :id="`${list.title}`"
+                                        class="category fadeInUp wow animated"
+                                        style="visibility: visible;  animation-name: fadeInUp;">
                                         <label v-if="list.user_id === card.user_id">{{ list.title }}</label>
-                                        <div v-for="subcat in items" class="subcategory">
+                                        <div v-for="subcat in items" 
+                                            class="subcategory"
+                                            :key="subcat.id">
                                             <div class="d-flex col justify-content-between">
                                                 <div><label
                                                     v-if="subcat.medical_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{
@@ -109,7 +113,7 @@
                                                     v-if="subcat.medical_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">{{
                                                         subcat.price
                                                     }}
-                                                    <img class="w-25" src="assets/img/plus.png" alt="">
+                                                    <img @click.prevent="addToCard(subcat.id)" class="w-25" src="assets/img/plus.png" alt="">
                                                 </label>
                                                 </div>
                                             </div>
@@ -211,7 +215,6 @@ export default {
         cardMedList,
         Drawer
     },
-
     setup() {
         const {state} = user;
         const modalActive = ref(false);
@@ -239,10 +242,19 @@ export default {
             pagination: [],
             actions: [],
             images: [],
+            medicals:[],
         }
     },
 
     methods: {
+        addToCard(id){
+        
+            localStorage.setItem('cart',JSON.stringify([
+            {
+                'id':id,
+                'price':1,
+            }]))
+        },
         getTime() {
             this.axios.get('/api/time')
                 .then(res => {

@@ -53,7 +53,8 @@
              && districts === medical.district_id && republics === medical.republic_id
               ">
 
-                                <router-link :to="'/medical/'+ medical.id">
+                                <router-link :to="'/medical/'+ medical.id"
+                                >
                                     <div class="item-img">
                                         <img :src="medical.image_url">
                                     </div>

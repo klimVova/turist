@@ -29,31 +29,32 @@ const openDrawer = () => {
     drawerOpen.value = true
 }
 
-const addToCart = (item) => {
+const addToCart = (card,category,item) => {
     cart.value.push(item)
     item.isAdded = true
+    const el = JSON.parse(JSON.stringify(cart.value))
+        if(card.id === 2 && item.medical_todo_list_id === category.id && category.user_id === card.user_id && item.deleted_at === null){   
+            let arr =el;
+            let len = arr.length;
+            for (let i = 0; i < len; i++) {
+                card.products=[arr[i]]
+            console.log(card.products);
+        }
+    }
 }
-const pushAddCard = (card) => {
+const pushAddCard = (card,category,item) => {
     id.value.push(card)
     card.isAddedId = true
+    console.log(card.products)
 }
 const removeCardID = (card , index, item, cart) => {
     id.value.splice(id.value.indexOf(card), 1)
     card.isAddedId = false
     removeFromCart(item)
-    var arr = cart
-    arr.forEach(function (el){
-        if(el.medical_todo_list_id ===item.medical_todo_list_id){
-            el.isAdded = false
-            removeFromCart(el)
-        }
-    })
-
-    //console.log(arr)
 }
-const addToCartId = (card) => {
+const addToCartId = (card, category,item) => {
     if(!card.isAddedId){
-        pushAddCard(card)
+        pushAddCard(card,category,item)
     }else{
         //removeCardID(card)
     }
@@ -65,9 +66,9 @@ const removeFromCart = (item) => {
     item.qty = 1
 }
 
-const onClickAddPlus = (item) => {
+const onClickAddPlus = (card, category,item) => {
     if(!item.isAdded){
-       addToCart(item)
+       addToCart(card, category,item)
     }else{
         removeFromCart(item)
     }
