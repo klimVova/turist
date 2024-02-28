@@ -2,11 +2,14 @@
     <div class="d-flex" >
         <p>{{ title }}</p>
         <p class="ml-3">{{price}} руб</p>
-        <img @click.prevent="onClickAddId(),onClickAdd()" class="icon-plus ml-3" :src="!isAdded  ? 'assets/img/plus.png' : 'assets/img/check-list.svg'" alt="">
+        <img @click.prevent="onClickAddId(),onClickAdd(products)" class="icon-plus ml-3" :src="!isAdded  ? 'assets/img/plus.png' : 'assets/img/check-list.svg'" alt="">
     </div>
 </template>
 
 <script setup>
+import {ref}    from 'vue';
+const prod = ref([])
+
 defineProps({
     title: String,
     price: Number,
@@ -14,7 +17,11 @@ defineProps({
     id:Number,
     onClickAdd:Function,
     onClickAddId:Function,
+    products:Object,
 })
+
+
+
 </script>
 <style>
 .icon-plus {

@@ -4,8 +4,6 @@
                 <div  class="col-8 d-flex">
                      <div class="col">
                     <p>{{title}}</p>
-                         {{elem}}<br>
-                         {{i}}
                      </div>
                      <div class="col text-center">
                          <p class="ml-3">{{price*qty}}</p>

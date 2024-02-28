@@ -92,6 +92,7 @@
                                 <cardMedList :items="items" :categories="cats" :card="card"
                                             @onClickAddPlus="onClickAddPlus"
                                             @addToCartId="addToCartId"
+                                            :med_ids="med_ids"
                                 />
                                 <!--<div class="service-list">
                                     <div v-for="list in lists"
@@ -100,7 +101,7 @@
                                         class="category fadeInUp wow animated"
                                         style="visibility: visible;  animation-name: fadeInUp;">
                                         <label v-if="list.user_id === card.user_id">{{ list.title }}</label>
-                                        <div v-for="subcat in items" 
+                                        <div v-for="subcat in items"
                                             class="subcategory"
                                             :key="subcat.id">
                                             <div class="d-flex col justify-content-between">
@@ -242,19 +243,12 @@ export default {
             pagination: [],
             actions: [],
             images: [],
-            medicals:[],
+            med_ids:Number,
+
         }
     },
 
     methods: {
-        addToCard(id){
-        
-            localStorage.setItem('cart',JSON.stringify([
-            {
-                'id':id,
-                'price':1,
-            }]))
-        },
         getTime() {
             this.axios.get('/api/time')
                 .then(res => {
@@ -283,7 +277,9 @@ export default {
         },
         getCard() {
             this.axios.get('/api/medicals/' + this.$route.params.id)
+
                 .then(res => {
+                    this.med_ids=this.$route.params.id
                     this.card = res.data.data;
                     let center = [this.card.coordinate_l, this.card.coordinate_r];
 

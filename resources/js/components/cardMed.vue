@@ -1,8 +1,9 @@
 <template>
-    <div class="d-flex" >
+    <div className="d-flex">
         <p>{{ title }}</p>
-        <p class="ml-3">{{price}} руб</p>
-        <img @click.prevent="onClickAdd(),onClickAddId()" class="icon-plus ml-3" :src="!isAdded ? 'assets/img/plus.png' : 'assets/img/check-list.svg'" alt="">
+        <p className="ml-3">{{ price }} руб</p>
+        <img @click.prevent="onClickAdd(),onClickAddId()" class="icon-plus ml-3"
+             :src="!isAdded ? 'assets/img/plus.png' : 'assets/img/check-list.svg'" alt="">
     </div>
 </template>
 
@@ -11,9 +12,10 @@ defineProps({
     title: String,
     price: Number,
     isAdded: Boolean,
-    id:Number,
-    onClickAdd:Function,
-    onClickAddId:Function,
+    id: Number,
+    med:Number,
+    onClickAdd: Function,
+    onClickAddId: Function,
 })
 </script>
 <style>
