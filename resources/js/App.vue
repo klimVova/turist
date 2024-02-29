@@ -31,30 +31,29 @@ const openDrawer = () => {
 
 const addToCart = (card, category, item,med_ids) => {
     cart.value.push(item)
-    console.log(med_ids)
-    console.log(card.id)
-    console.log(item.med)
     item.isAdded = true
     item.med_id = med_ids
 
-    const el = JSON.parse(JSON.stringify(cart.value))
-    if (card.id ===  Number(item.med_id) && card && item.medical_todo_list_id === category.id && category.user_id === card.user_id && item.deleted_at === null) {
-        console.log(card.id)
-        console.log(card.id)
-        console.log(Number(med_ids))
-        console.log(item.medical_todo_list_id)
-        console.log(category.id)
-        console.log(category.user_id)
-        console.log(card.user_id)
-        let arr = el;
+        const el = JSON.parse(JSON.stringify(cart.value))
+        const arr = el;
         let len = arr.length;
-        for (let i = 0; i < len; i++) {
-            console.log(el);
-            var total = arr.push();
-            card.products = el
+        console.log(arr)
+        arr.forEach(element => {
+            if(card.id != Number(element.med_id)){
+                console.log(card.id)
+                console.log(element)
+                console.log(element.id)
+            }
+        });
+        // for (let i = 0; i < len; i++) {  
+        //     if (card.id ===  Number(item.med_id) && item.medical_todo_list_id === category.id && category.user_id === card.user_id && item.deleted_at === null) {
+        //         var total = arr.push();
+        //         console.log(item.med_id)
+        //         card.products = el}
+        //     else if(card.id != el.med_id){
+        //         console.log(123)
         }
-    }
-}
+
 const pushAddCard = (card, category, item) => {
     id.value.push(card)
     card.isAddedId = true
