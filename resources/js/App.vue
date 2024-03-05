@@ -33,27 +33,24 @@ const addToCart = (card, category, item,med_ids) => {
     cart.value.push(item)
     item.isAdded = true
     item.med_id = med_ids
-
         const el = JSON.parse(JSON.stringify(cart.value))
+        const elem = JSON.parse(JSON.stringify(id.value))
         const arr = el;
+        const elems = elem;
+        let lenCard = elems.length;
         let len = arr.length;
-        console.log(arr)
-        arr.forEach(element => {
-            if(card.id != Number(element.med_id)){
-                console.log(card.id)
-                console.log(element)
-                console.log(element.id)
-            }
-        });
-        // for (let i = 0; i < len; i++) {  
-        //     if (card.id ===  Number(item.med_id) && item.medical_todo_list_id === category.id && category.user_id === card.user_id && item.deleted_at === null) {
-        //         var total = arr.push();
-        //         console.log(item.med_id)
-        //         card.products = el}
-        //     else if(card.id != el.med_id){
-        //         console.log(123)
-        }
 
+        elems.forEach(element => {
+            console.log(card.id)
+            if(card.id ===  Number(item.med_id) && card.id === element.id){
+                for (let i = 0; i < len; i++) {
+                var total = arr.push();
+                card.products = el
+        }
+            }
+
+        });       
+    }
 const pushAddCard = (card, category, item) => {
     id.value.push(card)
     card.isAddedId = true
